@@ -19,15 +19,11 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 
-import { IUser } from '@onr/user';
-
 import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
-import { capitalize, lowercase } from '../../../lib/helpers';
+import { capitalize, lowercase } from '../lib/helpers';
 
-import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
-import { useAuth, logout } from '@onr/auth';
-import { MenuItem } from '@app';
+import { wrapperActions, IWrapperPage, IStore } from '../';
 
 import { useDispatch } from 'react-redux';
 
@@ -39,8 +35,8 @@ declare type WithRouterProps = {
 interface ISidebarMenuProps extends IWrapperPage.IProps, WithRouterProps {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
-  menuItems: MenuItem[];
-  currentUser: IUser;
+  menuItems: [];
+  currentUser;
 }
 
 const { SubMenu } = Menu;
@@ -86,7 +82,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const roles = currentUser.roles || [];
+    const roles = currentUser?.roles || [];
     setAppRoutes(
       menuItems.filter(route => {
         if (!route.roles) {

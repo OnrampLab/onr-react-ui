@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import Router from 'next/router';
 
-import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
-import { IAccount } from '@onr/account';
+import { wrapperActions, IWrapperPage, IStore } from '../';
 
 import DashHeader from './styles/Header';
 
@@ -17,18 +16,18 @@ const { SubMenu } = Menu;
 const MainHeader = (props: IWrapperPage.IProps) => {
   const { setOptionDrawer, setMobileDrawer, setAccountId } = props;
   const state = props;
-  const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
-  const [accounts, setAccounts] = React.useState<IAccount[]>([]);
+  const currentUser = useSelector((store: IStore) => store.authStore?.currentUser);
+  const [accounts, setAccounts] = React.useState<[]>([]);
 
   useEffect(() => {
-    if (currentUser.accounts) {
-      setAccounts(currentUser.accounts);
+    if (currentUser?.accounts) {
+      setAccounts(currentUser?.accounts);
 
       if (accounts[0] && !state.accountId) {
         changeAccount(accounts[0].id);
       }
     }
-  }, [currentUser.accounts]);
+  }, [currentUser?.accounts]);
 
   return (
     <DashHeader>
@@ -64,7 +63,7 @@ const MainHeader = (props: IWrapperPage.IProps) => {
 
         <span className="mr-auto" />
 
-        <Menu mode="horizontal">
+        {/* <Menu mode="horizontal">
           <Menu.Item onClick={() => setOptionDrawer()}>
             <Settings size={20} strokeWidth={1} />
           </Menu.Item>
@@ -77,7 +76,7 @@ const MainHeader = (props: IWrapperPage.IProps) => {
               <a href="https://one-readme.fusepx.com">Help?</a>
             </Menu.Item>
           </SubMenu>
-        </Menu>
+        </Menu> */}
       </Layout.Header>
     </DashHeader>
   );

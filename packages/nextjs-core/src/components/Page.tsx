@@ -10,8 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/GlobalStyles';
 import { Container, Inner } from './styles/Page';
 
-import { IWrapperPage, IStore, DefaultPubSubContext } from '@onr/core';
-import { authActions } from '@onr/auth';
+import { IWrapperPage, IStore, DefaultPubSubContext } from '../';
 
 const { Content } = Layout;
 
@@ -21,7 +20,7 @@ const Component = (props: IWrapperPage.IProps & WithRouterProps) => {
   const { router, menuItems, children } = props;
   const state = props;
   const dispatch = useDispatch();
-  const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
+  const currentUser = useSelector((store: IStore) => store.authStore?.currentUser);
   const [loading, setLoading] = useState(true);
   const isNotDashboard = router && NonDashboardRoutes.includes(router.pathname);
   const { subscribe } = useContext(DefaultPubSubContext);
@@ -39,7 +38,6 @@ const Component = (props: IWrapperPage.IProps & WithRouterProps) => {
   }, [loading]);
 
   async function fetchData() {
-    // dispatch(authActions.getCurrentUser());
   }
 
   return (
@@ -52,7 +50,7 @@ const Component = (props: IWrapperPage.IProps & WithRouterProps) => {
         >
           {!isNotDashboard && <Header {...props} />}
           <Layout className="workspace">
-            {!isNotDashboard && (
+            {/* {!isNotDashboard && (
               <SidebarMenu
                 {...props}
                 currentUser={currentUser}
@@ -60,7 +58,7 @@ const Component = (props: IWrapperPage.IProps & WithRouterProps) => {
                 sidebarTheme={state.darkSidebar ? 'dark' : 'light'}
                 sidebarMode={state.sidebarPopup ? 'vertical' : 'inline'}
               />
-            )}
+            )} */}
 
             <Layout>
               <Content>{!isNotDashboard ? <Inner>{children}</Inner> : children}</Content>

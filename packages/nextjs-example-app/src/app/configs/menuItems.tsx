@@ -1,0 +1,32 @@
+import React, { ReactElement } from 'react';
+import { Home, Server } from 'react-feather';
+
+export interface MenuItem {
+  name: string;
+  path?: string;
+  icon?: ReactElement;
+  children?: MenuItem[];
+}
+
+export const menuItems: MenuItem[] = [
+  {
+    path: '/',
+    name: 'Home',
+    icon: <Home strokeWidth={1} size={16} />,
+  },
+  {
+    name: 'Admin',
+    icon: <Server strokeWidth={1} size={16} />,
+    roles: [],
+    children: [
+      {
+        path: '/admin/accounts',
+        name: 'Accounts',
+      },
+      {
+        path: '/admin/users',
+        name: 'Users',
+      },
+    ],
+  },
+];
