@@ -1,0 +1,32 @@
+{
+  "name": "onr-react-ui",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "prettier": "prettier --write .",
+    "lint": "node ./scripts/lint.js --cache --ext .js,.ts,.tsx --max-warnings 0",
+    "linc": "node ./scripts/linc.js --cache --fix --ext .js,.ts,.tsx --max-warnings 0",
+    "modular": "ts-node packages/modular-scripts/src/cli.ts",
+    "test": "yarn modular test --watchAll=false --runInBand",
+    "build": "yarn workspace create-modular-react-app build && yarn workspace modular-scripts build && yarn workspace modular-views.macro build",
+    "release": "yarn build && changeset publish",
+    "start": "yarn workspace @onr/nextjs-example-app dev",
+    "package:admin": "lerna run --scope @onr/nextjs-example-app --stream dev",
+    "s": "run-p --print-label package:*"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^3.9.5"
+  },
+  "version": "0.1.0",
+  "description": "A react UI libraries",
+  "main": "index.js",
+  "author": "Kos <koshuang@gmail.com>",
+  "license": "MIT"
+}
