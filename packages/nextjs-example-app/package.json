@@ -1,0 +1,18 @@
+{
+  "name": "@onr/nextjs-example-app",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@onr-react-ui/nextjs-commons": "0.1.0",
+    "@onr-react-ui/nextjs-core": "0.1.0",
+    "next-transpile-modules": "^4.1.0"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1"
+  },
+  "license": "MIT"
+}
