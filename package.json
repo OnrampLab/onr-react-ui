@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "yarn workspace next-starter start:dev"
   },
   "engines": {
     "node": ">=12"
