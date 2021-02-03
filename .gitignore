@@ -1,0 +1,9 @@
+node_modules
+lerna-debug.log
+yarn-debug.log
+packages/*/lib
+packages/*/types
+.vscode
+.next
+.env
+.env.local
