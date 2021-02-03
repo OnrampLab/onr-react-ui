@@ -1,0 +1,246 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@6.12.2
+  aws-eks: circleci/aws-eks@1.0.0
+  kustomize: finc/kustomize@0.0.2
+
+commands:
+  run_test:
+    description: "Build and test"
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+
+      - restore_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+
+      - run:
+          name: Install Dependencies
+          command: |
+            node --version
+            yarn install
+            cp .env.example .env
+            cp .env.example .env.test
+
+      - save_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - save_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/project/node_modules
+
+      - run:
+          name: Run Linter
+          command: |
+            ./tools/scripts/eslint-pr.sh
+
+      - run:
+          name: Run Tests
+          command: |
+            yarn test:ci
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/jest/js-test-results.xml"
+
+      # - run:
+      #     name: Build storybooks
+      #     command: |
+      #       yarn build-storybook
+
+      - store_test_results:
+          path: reports
+
+      - store_artifacts:
+          path: reports
+
+      - store_artifacts:
+          path: coverage
+
+      - store_artifacts:
+          path: storybook-static
+
+  use_capistrano_to_deploy:
+    description: "Deploy"
+    steps:
+      - checkout
+
+      - run:
+          name: Copy Env File
+          command: |
+            cp .env.example .env
+
+      - run:
+          name: Fix host authenticity for your_proxy.example.com
+          command: |
+            ssh-keyscan your_proxy.example.com >> ~/.ssh/known_hosts
+
+      - deploy:
+          command: |
+            gem install bundler -v 1.17.3
+            bundle check || bundle install
+
+            echo "current branch is ${CIRCLE_BRANCH}"
+            echo "current tag is ${CIRCLE_TAG}"
+
+            if [[ -n "${CIRCLE_TAG}" ]]; then
+              USERNAME=${CIRCLE_USERNAME} VIA_BASTION=1 CI_BRANCH="${CIRCLE_TAG}" cap production deploy --trace
+            elif [[ "${CIRCLE_BRANCH}" == "master" ]]; then
+              USERNAME=${CIRCLE_USERNAME} VIA_BASTION=1 CI_BRANCH=master cap staging deploy --trace
+            fi
+
+jobs:
+  run_test:
+    working_directory: ~/app
+    docker:
+      - image: circleci/node:12.15.0
+    steps:
+      - run_test
+
+  use_capistrano_to_deploy_staging:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+    steps:
+      - use_capistrano_to_deploy
+
+  use_capistrano_to_deploy_prod:
+    docker:
+      - image: circleci/ruby:2.4.2-jessie-node
+    steps:
+      - use_capistrano_to_deploy
+
+  build-staging-image:
+    executor: aws-ecr/default
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          create-repo: false
+          dockerfile: Dockerfile
+          path: .
+          region: AWS_REGION
+          repo: next-starter
+          tag: "latest,release-${CIRCLE_SHA1}"
+          extra-build-args: "--target prod-runtime"
+
+  build-production-image:
+    executor: aws-ecr/default
+    steps:
+      - aws-ecr/build-and-push-image:
+          account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          create-repo: false
+          dockerfile: Dockerfile
+          path: .
+          region: AWS_REGION
+          repo: next-starter
+          tag: "${CIRCLE_TAG}"
+          extra-build-args: "--target prod-runtime"
+
+  create-deployment:
+    executor: aws-eks/python3
+    parameters:
+      cluster-name:
+        description: |
+          Name of the EKS cluster
+        type: string
+      aws-region:
+        description: |
+          AWS Region
+        type: string
+    steps:
+      - checkout
+
+      - kustomize/install:
+          version: v3.8.4
+
+      - aws-eks/update-kubeconfig-with-authenticator:
+          authenticator-release-tag: v0.5.1
+          cluster-name: << parameters.cluster-name >>
+          aws-region: << parameters.aws-region >>
+          install-kubectl: true
+
+      - run:
+          name: Update image tag and deploy
+          command: |
+              ENVIRONMENT="staging"
+              TAG="release-${CIRCLE_SHA1}"
+
+              if [ -n "${CIRCLE_TAG}" ]; then
+                ENVIRONMENT="production"
+                TAG="${CIRCLE_TAG}"
+              fi
+
+              root=$(pwd)
+
+              echo "deploying ${TAG} to ${ENVIRONMENT}"
+
+              cd ${root}/tools/infrastructure/container-based/ochestration/kubernetes/bases
+              kustomize edit set image "next-starter=aws_account_id.dkr.ecr.us-east-1.amazonaws.com/next-starter:${TAG}"
+
+              cd ${root}/tools/infrastructure/container-based/ochestration/kubernetes/${ENVIRONMENT}/bases
+              kustomize build | kubectl apply -f -
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - run_test:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: /.*/
+
+      # - build-staging-image:
+      #     requires:
+      #       - run_test
+      #     filters:
+      #       branches:
+      #         only: master
+
+      # - build-production-image:
+      #     requires:
+      #       - run_test
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
+      #       branches:
+      #         ignore: /.*/
+
+      # for staging
+      # - create-deployment:
+      #     cluster-name: staging-eks-cluster
+      #     aws-region: "${AWS_REGION}"
+      #     requires:
+      #       - build-staging-image
+      #     filters:
+      #       branches:
+      #         only: master
+
+      # for production
+      # - create-deployment:
+      #     cluster-name: production-eks-cluster
+      #     aws-region: "${AWS_REGION}"
+      #     requires:
+      #       - build-production-image
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
+      #       branches:
+      #         ignore: /.*/
+
+      # - use_capistrano_to_deploy_prod:
+      #     requires:
+      #       - run_test
+      #     filters:
+      #       tags:
+      #         only: /^v.*/
+      #       branches:
+      #         ignore: /.*/
