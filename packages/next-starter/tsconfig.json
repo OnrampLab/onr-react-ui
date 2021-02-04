@@ -1,4 +1,6 @@
 {
+  "root": true,
+  "baseUrl": ".",
   "extends": "./base",
   "compilerOptions": {
     "allowJs": true,
@@ -19,12 +21,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "src/**/*"]
 }
