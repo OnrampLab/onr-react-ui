@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn workspace next-starter start:dev"
+    "dev": "lerna exec yarn dev"
   },
   "engines": {
     "node": ">=12"
