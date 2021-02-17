@@ -20,7 +20,7 @@
     },
     "ecmaVersion": 12,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": "'./packages/**/tsconfig.json'"
   },
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
@@ -55,7 +55,7 @@
         // it mainly avoids magic numbers in calculation,
         // so ignoring common magic numbers
         // number of days in a week, hours in a day, seconds in one minutes, one hours and one day
-        "ignore": [7, 24, 60, 3600, 86400],
+        "ignore": [0, 1, 7, 24, 60, 3600, 86400],
         "ignoreDefaultValues": true,
         "enforceConst": true,
         "ignoreArrayIndexes": true,
