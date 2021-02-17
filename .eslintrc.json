@@ -106,6 +106,14 @@
           }
         ]
       }
+    },
+    {
+      "files": ["*.spec.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off",
+        "no-magic-numbers": "off",
+        "@typescript-eslint/no-magic-numbers": "off"
+      }
     }
   ],
   "settings": {
