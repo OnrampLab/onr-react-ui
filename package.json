@@ -1,0 +1,16 @@
+{
+  "name": "onr-react-ui",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "lerna exec yarn dev"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}
