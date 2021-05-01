@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = {
   presets: ['next/babel'],
   plugins: [
@@ -15,7 +17,20 @@ module.exports = {
         root: ['./'],
         alias: {
           '@app': './src/app',
-          '^@onr/(.+)': './src/modules/\\1',
+          '^@onr/(.+)': ([, name]) => {
+            const modulePath = `./src/modules/${name}`;
+            const packageName = `@onr/${name}`;
+
+            if (fs.existsSync(modulePath)) {
+              return modulePath;
+            }
+
+            if (require.resolve(packageName)) {
+              return packageName;
+            }
+
+            return packageName;
+          },
         },
       },
     ],
