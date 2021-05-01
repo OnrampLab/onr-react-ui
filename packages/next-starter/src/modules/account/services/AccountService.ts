@@ -1,5 +1,5 @@
 //#region Local Imports
-import { Http } from '@onr/shared';
+import { Http } from '@onr/common';
 import { AccountModel } from '@onr/account';
 //#endregion Local Imports
 

@@ -1,4 +1,5 @@
-import { Http, HttpModel } from '@onr/shared';
+import { HttpModel } from '@onr/shared';
+import { Http } from '@onr/common';
 import { AuthModel } from '@onr/auth';
 import { IUser } from '@onr/user';
 
