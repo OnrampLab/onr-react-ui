@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna exec yarn dev"
+    "dev": "lerna run dev --parallel"
   },
   "engines": {
     "node": ">=12"
