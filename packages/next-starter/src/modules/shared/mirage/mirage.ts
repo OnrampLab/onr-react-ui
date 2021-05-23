@@ -1,13 +1,12 @@
 import { Server } from 'miragejs';
-import MOCK_JSON, { ModelsDeclaration, RoutesRegistration } from '../__mock__';
 
-export function makeServer({ environment = 'test' } = {}) {
+export function makeServer({ environment = 'test', seeds = {}, models = {}, routes = {} } = {}) {
   const server = new Server({
     environment,
-    models: ModelsDeclaration,
+    models,
     seeds(server) {
-      for (const resourceName in ModelsDeclaration) {
-        for (const resource of MOCK_JSON[`${resourceName}s`]) {
+      for (const resourceName in models) {
+        for (const resource of seeds[`${resourceName}s`]) {
           server.create(resourceName, resource);
         }
       }
@@ -50,7 +49,7 @@ export function makeServer({ environment = 'test' } = {}) {
         });
       };
 
-      for (const resourceName in ModelsDeclaration) {
+      for (const resourceName in models) {
         registerCRUD(`${resourceName}s`);
       }
 
@@ -72,14 +71,12 @@ export function makeServer({ environment = 'test' } = {}) {
         }
       };
 
-      for (const route in RoutesRegistration) {
-        registerRoute(RoutesRegistration[route]);
+      for (const route in routes) {
+        registerRoute(routes[route]);
       }
 
-       this.passthrough((request) => {
-        if (
-          request.url === "/_next/static/development/_devPagesManifest.json"
-        ) {
+      this.passthrough(request => {
+        if (request.url === '/_next/static/development/_devPagesManifest.json') {
           return true;
         }
       });
