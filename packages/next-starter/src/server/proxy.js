@@ -2,7 +2,7 @@ require('dotenv').config({ path: '.env.local' });
 
 const devProxy = {
   '/api': {
-    target: process.env.API_URL,
+    target: process.env.NEXT_PUBLIC_API_URL,
     changeOrigin: true,
   },
 };

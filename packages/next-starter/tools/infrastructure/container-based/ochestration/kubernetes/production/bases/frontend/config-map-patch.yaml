@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: frontend-config
 data:
-  API_URL: https://api.example.com
-  API_KEY: production_key
+  NEXT_PUBLIC_API_URL: https://api.example.com
+  NEXT_PUBLIC_API_KEY: production_key

@@ -13,7 +13,7 @@ export function makeServer({ environment = 'test' } = {}) {
       }
     },
     routes() {
-      this.urlPrefix = `${process.env.API_URL?.replace(/(.[^\/])$/, '$1/')}`;
+      this.urlPrefix = `${process.env.NEXT_PUBLIC_API_URL?.replace(/(.[^\/])$/, '$1/')}`;
       this.namespace = 'api';
 
       const registerCRUD = resource => {

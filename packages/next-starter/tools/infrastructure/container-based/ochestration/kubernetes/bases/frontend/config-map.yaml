@@ -5,5 +5,5 @@ metadata:
 data:
   NODE_ENV: production
   PROXY_MODE: production
-  API_URL: api.example.com
-  API_KEY: apikey
+  NEXT_PUBLIC_API_URL: api.example.com
+  NEXT_PUBLIC_API_KEY: apikey

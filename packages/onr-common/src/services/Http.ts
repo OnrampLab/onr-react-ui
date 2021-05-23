@@ -96,8 +96,8 @@ if (!('processEnv' in publicRuntimeConfig) || !hasProcessEnv(publicRuntimeConfig
 }
 
 const HTTP: Http = {
-  baseUrl: `${publicRuntimeConfig.processEnv.API_URL}/api`,
-  apiToken: publicRuntimeConfig.processEnv.API_KEY || '',
+  baseUrl: `${publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_URL}/api`,
+  apiToken: publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_KEY || '',
 
   setBaseUrl: (url: string): string => (HTTP.baseUrl = url),
 
