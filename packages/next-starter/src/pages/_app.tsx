@@ -1,6 +1,5 @@
-import { makeServer } from '@onr/shared/mirage';
-
 if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_ENABLE_MIRAGE === 'true') {
+  const { makeServer } = require('@onr/shared/mirage');
   makeServer({ environment: 'development' });
 }
 
