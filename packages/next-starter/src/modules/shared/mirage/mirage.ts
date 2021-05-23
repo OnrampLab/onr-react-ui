@@ -75,6 +75,14 @@ export function makeServer({ environment = 'test' } = {}) {
       for (const route in RoutesRegistration) {
         registerRoute(RoutesRegistration[route]);
       }
+
+       this.passthrough((request) => {
+        if (
+          request.url === "/_next/static/development/_devPagesManifest.json"
+        ) {
+          return true;
+        }
+      });
     },
   });
 
