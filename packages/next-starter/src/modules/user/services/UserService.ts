@@ -1,5 +1,5 @@
 //#region Local Imports
-import { Http } from '@onr/shared';
+import { Http } from '@onr/common';
 import { IUser } from '@onr/user';
 import { UserModel } from './interfaces';
 //#endregion Local Imports
