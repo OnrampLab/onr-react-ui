@@ -120,6 +120,18 @@ Then open http://localhost:3000/ to see your app.
 
 <br/>
 
+## How to have better debug logs
+
+By setting environment variable `DEBUG`, you can see a specific logs of some packages on backend. For example,
+
+```shell
+DEBUG=onr:core:*
+```
+
+You will see all logs for `@onr/core` package.
+
+To see browser debug logs, you can use Firefox and then set `localPackage.debug = 'onr:core:*' on console of dev tool.
+
 ## Built-in CLI
 
 <div>
