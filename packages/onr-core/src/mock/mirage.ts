@@ -1,4 +1,7 @@
 import { Server } from 'miragejs';
+import { getDebugger } from '@onr/common';
+
+const debug = getDebugger('onr:core:mirage');
 
 export function makeServer({ environment = 'test', seeds = {}, models = {}, routes = {} } = {}) {
   const server = new Server({
@@ -16,6 +19,8 @@ export function makeServer({ environment = 'test', seeds = {}, models = {}, rout
       this.namespace = 'api';
 
       const registerCRUD = resource => {
+        debug(`register resource ${resource}`);
+
         this.get(`/${resource}`, schema => {
           return {
             data: schema[resource].all().models,
@@ -65,6 +70,8 @@ export function makeServer({ environment = 'test', seeds = {}, models = {}, rout
           if (methodName in methods) {
             const routes = json[methodName];
             for (const route of Object.keys(routes)) {
+              debug(`register route ${methodName} ${route}`);
+
               methods[methodName](route, () => routes[route as keyof typeof routes]);
             }
           }
