@@ -1,4 +1,3 @@
-
 <div align="center" >Performance oriented Next.js application boilerplate with Redux, Typescript, Express.js and Sass.</div>
 <br/>
 
@@ -17,16 +16,12 @@
   </a>
 </div>
 
-
 <br/>
 <div align="center">
   <sub>Inspired by <a href="https://www.pankod.com">Pankod</a></sub>
 </div>
 
-
-
 ## About
-
 
 Next.js is a minimalistic React framework that runs in the browser and the server. It offers developers an easy way to get started, and as it uses React.js for templating it is also a straightforward way for developers with React experience to get productive fast.
 
@@ -40,51 +35,46 @@ By the end of setup, you'll have a Next.js project and features which is specifi
 
 ## Features
 
-
 This boilerplate is modular architecture includes the latest powerfull tools.
 
-* **Next.js** - Minimalistic framework for server-rendered React applications.
-* **Typescript** - Superset of JavaScript which primarily provides optional static typing, classes and interfaces. path support(allias)
-* **Redux** - State management
-* **Express.js**- Handles server-side rendering and integrated with Express.js
-* **Built-in Project CLI**- Create pages, components, actions, reducers with one command by using built-in cli.
-* **Sass/Scss** - CSS preprocessor, which adds special features such as variables, nested rules and mixins (sometimes referred to as syntactic sugar) into regular CSS.
-* **Docker** - A tool designed to make it easier to create, deploy, and run applications by using containers.
-* **Babel** -  The compiler for next generation JavaScript. Module(alias) support
-* **Eslint** - The pluggable linting utility.
-* **Reverse Proxy** - A reverse proxy server is a type of proxy server that typically sits behind the firewall in a private network and directs client requests to the appropriate backend server
-* **Bundler Analyzer** - Visualize size of webpack output files with an interactive zoomable treemap.
-* **dotenv .config** - Expose environment variables to the runtime config of Next.js
-* **Jest** - Javascript testing framework , created by developers who created react
-* **React Testing Library** - Simple and complete React DOM testing utilities that encourage good testing practices.
-* **Enzyme** - JavaScript testing utility for React that makes it easier to test your React Components output.
-* **Storybook** - An open source tool for developing UI components in isolation for React.
-
+- **Next.js** - Minimalistic framework for server-rendered React applications.
+- **Typescript** - Superset of JavaScript which primarily provides optional static typing, classes and interfaces. path support(allias)
+- **Redux** - State management
+- **Express.js**- Handles server-side rendering and integrated with Express.js
+- **Built-in Project CLI**- Create pages, components, actions, reducers with one command by using built-in cli.
+- **Sass/Scss** - CSS preprocessor, which adds special features such as variables, nested rules and mixins (sometimes referred to as syntactic sugar) into regular CSS.
+- **Docker** - A tool designed to make it easier to create, deploy, and run applications by using containers.
+- **Babel** - The compiler for next generation JavaScript. Module(alias) support
+- **Eslint** - The pluggable linting utility.
+- **Reverse Proxy** - A reverse proxy server is a type of proxy server that typically sits behind the firewall in a private network and directs client requests to the appropriate backend server
+- **Bundler Analyzer** - Visualize size of webpack output files with an interactive zoomable treemap.
+- **dotenv .config** - Expose environment variables to the runtime config of Next.js
+- **Jest** - Javascript testing framework , created by developers who created react
+- **React Testing Library** - Simple and complete React DOM testing utilities that encourage good testing practices.
+- **Enzyme** - JavaScript testing utility for React that makes it easier to test your React Components output.
+- **Storybook** - An open source tool for developing UI components in isolation for React.
 
 <br/>
 
-*Here are a few highlights to look out for in this boilerplate*
+_Here are a few highlights to look out for in this boilerplate_
 
 <dl>
 
   <dd>The boilerplate includes tsconfig.json which contains a list of your input files as well as all your compilation settings.<dd>
 
-  >One of TypeScript’s core principles is that type-checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.
-
+> One of TypeScript’s core principles is that type-checking focuses on the shape that values have. This is sometimes called “duck typing” or “structural subtyping”. In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.
 
   <dd>Includes babel-plugin-module-resolver <dd>
 
-  >A Babel plugin to add a new resolver for your modules when compiling your code using Babel. This plugin allows you to add new "root" directories that contain your modules. It also allows you to setup a custom alias for directories, specific files, or even other npm modules.
-
+> A Babel plugin to add a new resolver for your modules when compiling your code using Babel. This plugin allows you to add new "root" directories that contain your modules. It also allows you to setup a custom alias for directories, specific files, or even other npm modules.
 
   <dd>Includes nextjs runtime config <dd>
 
-  >You will need to uncomment `MyApp` component's `getInitialProps()` in order to enable runtime config to get environment variables.
+> You will need to uncomment `MyApp` component's `getInitialProps()` in order to enable runtime config to get environment variables.
 
   <dd>Includes jest and enzyme <dd>
 
-  > Jest was created by Facebook and is a testing framework to test javascript and React code. Together with Airbnb’s Enzyme, which is a testing utility, makes it the perfect match to easily test your React application.
-
+> Jest was created by Facebook and is a testing framework to test javascript and React code. Together with Airbnb’s Enzyme, which is a testing utility, makes it the perfect match to easily test your React application.
 
 </dl>
 
@@ -92,13 +82,11 @@ This boilerplate is modular architecture includes the latest powerfull tools.
 
 ## Getting Started
 
-
 1. Clone the repository and install the dependencies:
 
 ```
 git clone https://github.com/Onramplab/next-starter.git
 ```
-
 
 2. To create a new app, go to the choosen app directory on the CLI then run one of the following methods:
 
@@ -107,6 +95,7 @@ git clone https://github.com/Onramplab/next-starter.git
 ```sh
 npm install
 ```
+
 **yarn**
 
 ```sh
@@ -121,18 +110,17 @@ cp .env.example .env.local
 
 4. Once the installation is done, you can run the following command:
 
- ```
- npm run start:dev
- ```
+```
+npm run start:dev
+```
+
  <br/>
 
 Then open http://localhost:3000/ to see your app.
 
 <br/>
 
-
 ## Built-in CLI
-
 
 <div>
  <img width="600" src="./boilerplate-cli.gif" >
@@ -153,18 +141,18 @@ After starting, an interactive menu will let you configure the component the be 
 
 For example, let's go through the steps of the creation of a new page component.
 
->Enter page name
+> Enter page name
 
- - Enter the desired filename for the page. Spaces are not allowed!
- - The tool will check for the existing filenames in the project and reject if found any.
- - The interface files are going to be created under Interfaces/Pages directory.
+- Enter the desired filename for the page. Spaces are not allowed!
+- The tool will check for the existing filenames in the project and reject if found any.
+- The interface files are going to be created under Interfaces/Pages directory.
 
->Do you want to add custom route or use default route name?,
+> Do you want to add custom route or use default route name?,
 
 - You can define custom route for page which is specified in app/routes.js
 - It will set filename as a route to if you don't want to add custom route.
 
->Do you want to have a connection to store?
+> Do you want to have a connection to store?
 
 If you choose yes, the following store connection methods and imports are generated:
 
@@ -174,14 +162,13 @@ If you choose yes, the following store connection methods and imports are genera
 - An action file to Actions/index.ts,
 - A Store interface file.
 
->Do you want to create a new reducer or use your own?
+> Do you want to create a new reducer or use your own?
 
 - If you choose yes, a new reducer file for page is created in src/Redux/Reducers directory and combineReducers are added to index.ts
 
->Do you want to add a style file?
+> Do you want to add a style file?
 
 - If you choose yes, a style.scss file is created in to same directory with page the component.
-
 
 After answering questions it generates files in miliseconds.
 
@@ -189,7 +176,7 @@ After answering questions it generates files in miliseconds.
 
 ## Tree
 
- ***At this point, your project layout should look like this:***
+**_At this point, your project layout should look like this:_**
 
  <br/>
 
@@ -428,7 +415,6 @@ After answering questions it generates files in miliseconds.
 └── yarn.lock
 
 ```
-
 
 ## License
 
