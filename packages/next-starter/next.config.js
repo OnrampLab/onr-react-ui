@@ -7,6 +7,8 @@ const withSASS = require('@zeit/next-sass');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withPWA = require('next-pwa');
 const path = require('path');
+const fs = require('fs');
+
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 if (typeof require !== 'undefined') {
@@ -43,6 +45,20 @@ const nextConfig = {
   },
   pwa: {
     dest: 'public',
+  },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // NOTE: should be able to remove after migrate all core module into core package
+    const workspaceCorePath = path.resolve(__dirname, 'node_modules/@onr/core');
+    const packageCorePath = path.resolve(__dirname, '../onr-core');
+
+    const corePath = fs.existsSync(workspaceCorePath) ? workspaceCorePath : packageCorePath;
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@core': corePath,
+    };
+
+    return config;
   },
 };
 
