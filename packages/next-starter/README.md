@@ -16,7 +16,6 @@
   </a>
 </div>
 
-<br/>
 <div align="center">
   <sub>Inspired by <a href="https://www.pankod.com">Pankod</a></sub>
 </div>
@@ -30,8 +29,6 @@ The advantages of this approach is to be able to create Rich User experiences in
 This boilerplate make it easier to get started with a well-structured Next.js and TypeScript application.
 
 By the end of setup, you'll have a Next.js project and features which is specified at the below.
-
-<br/>
 
 ## Features
 
@@ -53,8 +50,6 @@ This boilerplate is modular architecture includes the latest powerfull tools.
 - **React Testing Library** - Simple and complete React DOM testing utilities that encourage good testing practices.
 - **Enzyme** - JavaScript testing utility for React that makes it easier to test your React Components output.
 - **Storybook** - An open source tool for developing UI components in isolation for React.
-
-<br/>
 
 _Here are a few highlights to look out for in this boilerplate_
 
@@ -84,41 +79,29 @@ _Here are a few highlights to look out for in this boilerplate_
 
 1. Clone the repository and install the dependencies:
 
-```
-git clone https://github.com/Onramplab/next-starter.git
-```
+   ```sh
+   yarn create next-app my-app  https://github.com/OnrampLab/onr-react-ui/tree/main/packages/next-starter
+   ```
 
-2. To create a new app, go to the choosen app directory on the CLI then run one of the following methods:
+2. To create a new app, go to the chosen app directory on the CLI then run one of the following methods:
 
-**npm**
+   ```sh
+   yarn install
+   ```
 
-```sh
-npm install
-```
+3. Create `.env.local`
 
-**yarn**
-
-```sh
-yarn install
-```
-
-3. Create .env.local
-
-```sh
-cp .env.example .env.local
-```
+   ```sh
+   cp .env.example .env.local
+   ```
 
 4. Once the installation is done, you can run the following command:
 
-```
-npm run start:dev
-```
+   ```sh
+   yarn dev
+   ```
 
- <br/>
-
-Then open http://localhost:3000/ to see your app.
-
-<br/>
+Then open [http://localhost:3000/](http://localhost:3000/) to see your app.
 
 ## How to have better debug logs
 
@@ -130,7 +113,7 @@ DEBUG=onr:core:*
 
 You will see all logs for `@onr/core` package.
 
-To see browser debug logs, you can use Firefox and then set `localPackage.debug = 'onr:core:*' on console of dev tool.
+To see browser debug logs, you can use Firefox and then set `localPackage.debug = 'onr:core:\*' on console of dev tool.
 
 ## Built-in CLI
 
@@ -145,7 +128,7 @@ Pankod boilerplate is shipped with a CLI tool to streamline the creation of new 
 
 To start the CLI, you may run the following npm command:
 
-```
+```sh
 npm run cli
 ```
 
@@ -184,249 +167,15 @@ If you choose yes, the following store connection methods and imports are genera
 
 After answering questions it generates files in miliseconds.
 
-<br/>
+## Development Tools
 
-## Tree
+### VS Code
 
-**_At this point, your project layout should look like this:_**
-
- <br/>
-
-```
-.
-├── __mocks__
-├── documentation
-├── project-cli
-├── src
-│   ├── app
-│   │   ├── components
-│   │   │   ├── AuthProvider.tsx
-│   │   │   ├── index.ts
-│   │   │   ├── MyApp.tsx
-│   │   │   └── PageContainer.tsx
-│   │   ├── configs
-│   │   │   ├── index.ts
-│   │   │   └── menuItems.tsx
-│   │   ├── index.ts
-│   │   └── redux
-│   │       ├── index.ts
-│   │       ├── reducers.ts
-│   │       └── store.ts
-│   ├── assets
-│   │   ├── antd-custom.less
-│   │   ├── styles.less
-│   │   └── tailwind-extension.css
-│   ├── console.d.ts
-│   ├── lib
-│   │   └── helpers.ts
-│   ├── mdx.d.ts
-│   ├── modules
-│   │   ├── account
-│   │   │   ├── components
-│   │   │   │   ├── Accountable.tsx
-│   │   │   │   ├── AccountForm
-│   │   │   │   │   ├── AccountForm.stories.tsx
-│   │   │   │   │   ├── AccountForm.tsx
-│   │   │   │   │   └── index.ts
-│   │   │   │   ├── AccountList.tsx
-│   │   │   │   ├── CreateAccountForm.tsx
-│   │   │   │   ├── index.ts
-│   │   │   │   └── UpdateAccountForm.tsx
-│   │   │   ├── documents
-│   │   │   │   ├── AccountApiKey.mdx
-│   │   │   │   ├── Authentication.tsx
-│   │   │   │   └── index.ts
-│   │   │   ├── entities
-│   │   │   │   ├── index.ts
-│   │   │   │   └── interfaces
-│   │   │   │       ├── IAccount.d.ts
-│   │   │   │       └── index.ts
-│   │   │   ├── index.ts
-│   │   │   ├── pages
-│   │   │   │   ├── AccountListPage.tsx
-│   │   │   │   └── index.ts
-│   │   │   ├── redux
-│   │   │   │   ├── actionConsts.ts
-│   │   │   │   ├── actions.ts
-│   │   │   │   ├── index.ts
-│   │   │   │   └── reducers
-│   │   │   │       ├── accountReducer.ts
-│   │   │   │       └── index.ts
-│   │   │   └── services
-│   │   │       ├── AccountService.ts
-│   │   │       ├── index.ts
-│   │   │       └── interfaces
-│   │   │           ├── AccountModel.d.ts
-│   │   │           ├── AccountsPayload.d.ts
-│   │   │           ├── AccountsResponse.d.ts
-│   │   │           └── index.ts
-│   │   ├── auth
-│   │   │   ├── core
-│   │   │   │   ├── components
-│   │   │   │   │   ├── AuthWrapper.tsx
-│   │   │   │   │   ├── Forgot.tsx
-│   │   │   │   │   ├── index.ts
-│   │   │   │   │   ├── Signin.module.scss
-│   │   │   │   │   ├── Signin.tsx
-│   │   │   │   │   └── Signup.tsx
-│   │   │   │   ├── hooks
-│   │   │   │   │   ├── index.ts
-│   │   │   │   │   └── useAuth.ts
-│   │   │   │   ├── index.ts
-│   │   │   │   ├── redux
-│   │   │   │   │   ├── actions.ts
-│   │   │   │   │   ├── consts.ts
-│   │   │   │   │   ├── index.ts
-│   │   │   │   │   ├── reducer.ts
-│   │   │   │   │   └── selectors.ts
-│   │   │   │   └── services
-│   │   │   │       ├── AuthService.ts
-│   │   │   │       ├── index.ts
-│   │   │   │       └── interfaces
-│   │   │   │           ├── AuthModel.d.ts
-│   │   │   │           ├── index.ts
-│   │   │   │           ├── LoginPayload.d.ts
-│   │   │   │           └── LoginResponse.d.ts
-│   │   │   ├── index.ts
-│   │   │   ├── jwt
-│   │   │   │   ├── hooks
-│   │   │   │   │   ├── index.ts
-│   │   │   │   │   └── useJWTAuth.ts
-│   │   │   │   ├── index.ts
-│   │   │   │   ├── redux
-│   │   │   │   │   ├── actions.ts
-│   │   │   │   │   ├── consts.ts
-│   │   │   │   │   └── index.ts
-│   │   │   │   └── services
-│   │   │   │       ├── AuthService.tsx
-│   │   │   │       └── index.ts
-│   │   │   └── README.md
-│   │   ├── core
-│   │   │   ├── components
-│   │   │   │   ├── AppProvider.tsx
-│   │   │   │   ├── Header.tsx
-│   │   │   │   ├── index.ts
-│   │   │   │   ├── NotFound.tsx
-│   │   │   │   ├── Page.tsx
-│   │   │   │   ├── SidebarMenu.tsx
-│   │   │   │   └── styles
-│   │   │   │       ├── AnimatedBG.js
-│   │   │   │       ├── GlobalStyles.ts
-│   │   │   │       ├── Header.ts
-│   │   │   │       ├── index.ts
-│   │   │   │       ├── Page.ts
-│   │   │   │       └── Sidebar.ts
-│   │   │   ├── hooks
-│   │   │   │   ├── index.ts
-│   │   │   │   └── usePubSub.ts
-│   │   │   ├── index.ts
-│   │   │   └── redux
-│   │   │       ├── actions
-│   │   │       │   ├── ActionConsts.ts
-│   │   │       │   ├── index.ts
-│   │   │       │   └── wrapperActions.ts
-│   │   │       ├── index.ts
-│   │   │       ├── interfaces
-│   │   │       │   ├── Action.d.ts
-│   │   │       │   ├── index.ts
-│   │   │       │   ├── Store.d.ts
-│   │   │       │   └── Wrapper.d.ts
-│   │   │       └── reducers
-│   │   │           ├── index.ts
-│   │   │           └── wrapperReducer.ts
-│   │   ├── home
-│   │   │   ├── index.ts
-│   │   │   └── pages
-│   │   │       ├── HomeMainPage.tsx
-│   │   │       └── index.ts
-│   │   ├── shared
-│   │   │   ├── index.ts
-│   │   │   ├── mirage
-│   │   │   │   └── mirage.ts
-│   │   │   ├── __mock__
-│   │   │   │   ├── account.json
-│   │   │   │   ├── auth.json
-│   │   │   │   ├── index.ts
-│   │   │   │   └── user.json
-│   │   │   ├── redux
-│   │   │   │   ├── index.ts
-│   │   │   │   └── interfaces
-│   │   │   │       ├── Action.d.ts
-│   │   │   │       └── index.ts
-│   │   │   └── services
-│   │   │       ├── api
-│   │   │       │   ├── Http.spec.ts
-│   │   │       │   ├── Http.ts
-│   │   │       │   ├── index.ts
-│   │   │       │   └── interfaces
-│   │   │       │       ├── HttpModel.d.ts
-│   │   │       │       └── index.ts
-│   │   │       └── index.ts
-│   │   └── user
-│   │       ├── components
-│   │       │   ├── CreateUserForm.tsx
-│   │       │   ├── index.ts
-│   │       │   ├── UpdateUserForm.tsx
-│   │       │   └── UserForm.tsx
-│   │       ├── containers
-│   │       │   ├── index.ts
-│   │       │   └── UserListPage.tsx
-│   │       ├── entities
-│   │       │   ├── index.ts
-│   │       │   └── interfaces
-│   │       │       ├── index.ts
-│   │       │       └── IUser.d.ts
-│   │       ├── index.ts
-│   │       └── services
-│   │           ├── index.ts
-│   │           ├── interfaces
-│   │           │   ├── index.ts
-│   │           │   ├── UserModel.d.ts
-│   │           │   ├── UserRequestPayload.d.ts
-│   │           │   ├── UserRequestQueryPayload.d.ts
-│   │           │   ├── UserResponse.d.ts
-│   │           │   └── UsersResponse.d.ts
-│   │           └── UserService.ts
-│   ├── pages
-│   │   ├── admin
-│   │   │   ├── accounts
-│   │   │   │   └── index.tsx
-│   │   │   └── users
-│   │   │       └── index.tsx
-│   │   ├── _app.tsx
-│   │   ├── auth
-│   │   │   ├── forgot.tsx
-│   │   │   ├── signin.tsx
-│   │   │   └── signup.tsx
-│   │   ├── _document.tsx
-│   │   ├── home
-│   │   │   └── index.tsx
-│   │   └── index.ts
-│   └── server
-│       ├── index.js
-│       ├── proxy.js
-│       └── routes.js
-├── tools
-├── babel.config.js
-├── banner.jpg
-├── base.json
-├── commitlint.config.js
-├── docker-compose.yml
-├── Dockerfile
-├── eslintrc.js
-├── jest.config.js
-├── jest.setup.ts
-├── jest.tsconfig.json
-├── next.config.js
-├── next-env.d.ts
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── tsconfig.json
-├── yarn-error.log
-└── yarn.lock
-
-```
+- plugins
+  - Code Spell Checker (streetsidesoftware.code-spell-checker)
+  - EditorConfig for VS Code (editorconfig.editorconfig)
+  - Prettier - Code formatter (esbenp.prettier-vscode)
+  - ESLint (dbaeumer.vscode-eslint)
 
 ## License
 
