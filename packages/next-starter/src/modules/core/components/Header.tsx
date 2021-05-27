@@ -1,33 +1,32 @@
 import React from 'react';
 import { Avatar, Layout, Menu } from 'antd';
 import { BarChart, Settings, Triangle } from 'react-feather';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
 
-import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
+import { wrapperActions, IStore } from '@onr/core';
 
 import DashHeader from './styles/Header';
 import { AccountSelector } from '@onr/account';
 
 const { SubMenu } = Menu;
 
-const MainHeader = (props: IWrapperPage.IProps) => {
-  const { setOptionDrawer, setMobileDrawer } = props;
-  const state = props;
+export const Header: React.FC = () => {
+  const dispatch = useDispatch();
+  const { name, mobile } = useSelector((store: IStore) => store.wrapper);
 
   return (
     <DashHeader>
       <Layout.Header>
-        {state.mobile && (
-          <a onClick={() => setMobileDrawer()} className="trigger">
+        {mobile && (
+          <a onClick={() => dispatch(wrapperActions.setMobileDrawer())} className="trigger">
             <BarChart size={20} strokeWidth={1} />
           </a>
         )}
         <Link href="/">
           <a className="brand">
             <Triangle size={24} strokeWidth={1} />
-            <strong className="mx-1 text-black">{state.name}</strong>
+            <strong className="mx-1 text-black">{name}</strong>
           </a>
         </Link>
 
@@ -36,7 +35,7 @@ const MainHeader = (props: IWrapperPage.IProps) => {
         <span className="mr-auto" />
 
         <Menu mode="horizontal">
-          <Menu.Item onClick={() => setOptionDrawer()}>
+          <Menu.Item onClick={() => dispatch(wrapperActions.setOptionDrawer())}>
             <Settings size={20} strokeWidth={1} />
           </Menu.Item>
 
@@ -53,12 +52,3 @@ const MainHeader = (props: IWrapperPage.IProps) => {
     </DashHeader>
   );
 };
-
-const mapStateToProps = (state: IStore) => state.wrapper;
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setOptionDrawer: bindActionCreators(wrapperActions.setOptionDrawer, dispatch),
-  setMobileDrawer: bindActionCreators(wrapperActions.setMobileDrawer, dispatch),
-});
-
-export const Header = connect(mapStateToProps, mapDispatchToProps)(MainHeader);
