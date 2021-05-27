@@ -23,7 +23,7 @@ const NonDashboardRoutes = [
 ];
 /* eslint-disable complexity */
 export const Page = (props: IWrapperPage.IProps) => {
-  const { menuItems, children } = props;
+  const { HeaderMainSection, menuItems, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
@@ -42,7 +42,7 @@ export const Page = (props: IWrapperPage.IProps) => {
     <Spin tip="Loading..." size="large" spinning={loading}>
       <ThemeProvider theme={theme}>
         <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-          {!isNotDashboard && <Header {...props} />}
+          {!isNotDashboard && <Header HeaderMainSection={HeaderMainSection} />}
           <Layout className="workspace">
             {!isNotDashboard && (
               <SidebarMenu

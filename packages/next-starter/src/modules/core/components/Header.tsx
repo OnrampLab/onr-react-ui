@@ -7,11 +7,14 @@ import Link from 'next/link';
 import { wrapperActions, IStore } from '@onr/core';
 
 import DashHeader from './styles/Header';
-import { AccountSelector } from '@onr/account';
 
 const { SubMenu } = Menu;
 
-export const Header: React.FC = () => {
+type Props = {
+  HeaderMainSection: React.Component;
+};
+
+export const Header: React.FC = ({ HeaderMainSection }: Props) => {
   const dispatch = useDispatch();
   const { name, mobile } = useSelector((store: IStore) => store.wrapper);
 
@@ -30,10 +33,9 @@ export const Header: React.FC = () => {
           </a>
         </Link>
 
-        <AccountSelector />
+        <HeaderMainSection />
 
         <span className="mr-auto" />
-
         <Menu mode="horizontal">
           <Menu.Item onClick={() => dispatch(wrapperActions.setOptionDrawer())}>
             <Settings size={20} strokeWidth={1} />
