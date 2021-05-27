@@ -3,7 +3,19 @@ import { getDebugger } from '@onr/common';
 
 const debug = getDebugger('onr:core:mirage');
 
-export function makeServer({ environment = 'test', seeds = {}, models = {}, routes = {} } = {}) {
+interface ServerOptions {
+  environment: string;
+  seeds: Record<string, unknown>;
+  models: Record<string, unknown>;
+  routes: Record<string, unknown>;
+}
+
+export function makeServer({
+  environment = 'test',
+  seeds = {},
+  models = {},
+  routes = {},
+}: ServerOptions) {
   const server = new Server({
     environment,
     models,
@@ -18,7 +30,7 @@ export function makeServer({ environment = 'test', seeds = {}, models = {}, rout
       this.urlPrefix = `${process.env.NEXT_PUBLIC_API_URL?.replace(/(.[^\/])$/, '$1/')}`;
       this.namespace = 'api';
 
-      const registerCRUD = resource => {
+      const registerCRUD = (resource: any) => {
         debug(`register resource ${resource}`);
 
         this.get(`/${resource}`, schema => {
@@ -83,7 +95,7 @@ export function makeServer({ environment = 'test', seeds = {}, models = {}, rout
       }
 
       this.passthrough(request => {
-        if (request.url === '/_next/static/development/_devPagesManifest.json') {
+        if (request.url.startsWith('/_next/')) {
           return true;
         }
       });
