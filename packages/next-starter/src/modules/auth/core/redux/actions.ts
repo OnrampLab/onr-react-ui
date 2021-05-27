@@ -6,8 +6,8 @@ import { message } from 'antd';
 export const setCurrentUser = (currentUser) => ({
   type: AuthConsts.SET_CURRENT_USER,
   payload: {
-    currentUser 
-  }, 
+    currentUser
+  },
 })
 
 export const getCurrentUser = () => async (dispatch: Dispatch) => {
@@ -24,20 +24,20 @@ export const getCurrentUser = () => async (dispatch: Dispatch) => {
 export const setAuthState = (state) => ({
   type: AuthConsts.SET_AUTH_STATE,
   payload: {
-    state, 
+    state,
   }
 })
 
 export const setAuthData = (data) => ({
   type: AuthConsts.SET_AUTH_DATA,
   payload: {
-    data, 
+    data,
   }
 })
 
 export const resolveAuthFromStorage = () => {
-  const localSession = localStorage.getItem(SESSION_KEY) || '';
-  
+  const localSession = localStorage.getItem(SESSION_KEY) || '{}';
+
   try {
     const sessionObj = JSON.parse(localSession);
 
@@ -66,12 +66,12 @@ export const login = (form: AuthModel.SigninPayload) => async(dispatch: Dispatch
 
   try {
     const loginData: AuthModel.SigninResponse = await AuthService.login(form);
-    
+
     const sessionData = {
-      ...loginData, 
+      ...loginData,
       email: form.data.email
     };
-    
+
     dispatch(setAuthData(sessionData));
     dispatch(setAuthState(AuthState.Authorized));
   } catch (error) {

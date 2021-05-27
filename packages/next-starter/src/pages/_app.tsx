@@ -1,7 +1,7 @@
-import { makeServer } from '@onr/shared/mirage';
-
-if (process.env.NODE_ENV === 'development' && process.env.ENABLE_MIRAGE === 'true') {
-  makeServer({ environment: 'development' });
+if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_ENABLE_MIRAGE === 'true') {
+  const { makeServer } = require('@core');
+  const { seeds, models, routes } = require('@app/__mocks__');
+  makeServer({ environment: 'development', seeds, models, routes });
 }
 
 import { MyApp } from '@app';

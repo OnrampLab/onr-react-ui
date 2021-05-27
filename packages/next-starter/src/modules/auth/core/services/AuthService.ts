@@ -16,7 +16,7 @@ export const AuthService = {
 
       return response.data;
     } catch (error) {
-      throw new Error(`Login Error: ${error.response.data.message}`);
+      throw new Error(`Login Error: ${error.message}`);
     }
   },
   logout: async () => {

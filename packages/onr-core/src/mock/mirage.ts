@@ -1,22 +1,38 @@
 import { Server } from 'miragejs';
-import MOCK_JSON, { ModelsDeclaration, RoutesRegistration } from '../__mock__';
+import { getDebugger } from '@onr/common';
 
-export function makeServer({ environment = 'test' } = {}) {
+const debug = getDebugger('onr:core:mirage');
+
+interface ServerOptions {
+  environment: string;
+  seeds: Record<string, unknown>;
+  models: Record<string, unknown>;
+  routes: Record<string, unknown>;
+}
+
+export function makeServer({
+  environment = 'test',
+  seeds = {},
+  models = {},
+  routes = {},
+}: ServerOptions) {
   const server = new Server({
     environment,
-    models: ModelsDeclaration,
+    models,
     seeds(server) {
-      for (const resourceName in ModelsDeclaration) {
-        for (const resource of MOCK_JSON[`${resourceName}s`]) {
+      for (const resourceName in models) {
+        for (const resource of seeds[`${resourceName}s`]) {
           server.create(resourceName, resource);
         }
       }
     },
     routes() {
-      this.urlPrefix = `${process.env.API_URL?.replace(/(.[^\/])$/, '$1/')}`;
+      this.urlPrefix = `${process.env.NEXT_PUBLIC_API_URL?.replace(/(.[^\/])$/, '$1/')}`;
       this.namespace = 'api';
 
-      const registerCRUD = resource => {
+      const registerCRUD = (resource: any) => {
+        debug(`register resource ${resource}`);
+
         this.get(`/${resource}`, schema => {
           return {
             data: schema[resource].all().models,
@@ -50,7 +66,7 @@ export function makeServer({ environment = 'test' } = {}) {
         });
       };
 
-      for (const resourceName in ModelsDeclaration) {
+      for (const resourceName in models) {
         registerCRUD(`${resourceName}s`);
       }
 
@@ -66,15 +82,23 @@ export function makeServer({ environment = 'test' } = {}) {
           if (methodName in methods) {
             const routes = json[methodName];
             for (const route of Object.keys(routes)) {
+              debug(`register route ${methodName} ${route}`);
+
               methods[methodName](route, () => routes[route as keyof typeof routes]);
             }
           }
         }
       };
 
-      for (const route in RoutesRegistration) {
-        registerRoute(RoutesRegistration[route]);
+      for (const route in routes) {
+        registerRoute(routes[route]);
       }
+
+      this.passthrough(request => {
+        if (request.url.startsWith('/_next/')) {
+          return true;
+        }
+      });
     },
   });
 

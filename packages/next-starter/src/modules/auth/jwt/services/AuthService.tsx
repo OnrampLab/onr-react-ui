@@ -1,15 +1,16 @@
-import { Http, HttpModel } from '@onr/shared';
+import { Http } from '@onr/common';
+import { HttpModel } from '@onr/shared';
 import { AuthService as AuthCoreService } from '@onr/auth/core';
 import { AuthModel } from '@onr/auth';
 
 export const AuthService = {
-  ...AuthCoreService, 
+  ...AuthCoreService,
   loginWithJWT: async (token: string) => {
     try {
       Http.setToken(token);
 
       const response: HttpModel.IResponse<AuthModel.SigninResponse> = await Http.post<
-        AuthModel.SigninResponse
+        AuthModel.SigninResponse, any
       >('/auth/refresh');
 
       Http.setToken(response.data.access_token);
