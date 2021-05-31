@@ -76,7 +76,7 @@
   },
   "overrides": [
     {
-      "files": ["*.tsx"],
+      "files": ["*.tsx", "*.ts"],
       "rules": {
         "@typescript-eslint/naming-convention": [
           "error",
@@ -98,7 +98,7 @@
             "format": ["camelCase", "PascalCase"]
           },
           {
-            "selector": "typeLike",
+            "selector": ["typeLike", "enumMember"],
             "format": ["PascalCase"]
           }
         ]
