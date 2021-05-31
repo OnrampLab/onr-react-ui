@@ -1,14 +1,14 @@
 import '../../assets/styles.less';
 import '../../assets/tailwind-extension.css';
 
-import App, { AppContext } from 'next/app';
-import React from 'react';
+import { AppContext } from 'next/app';
+import React, { Component } from 'react';
 import { MakeStore, createWrapper, Context } from 'next-redux-wrapper';
 import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
-import NProgress from 'nprogress';
+import Router from 'next/router';
+import { start, done } from 'nprogress';
 
-import { Page, GlobalStyles, AppProvider } from '@onr/core';
+import { GlobalStyles, AppProvider } from '@onr/core';
 import { store, afterComponentDidMount } from '../redux';
 
 import { PageContainer } from './PageContainer';
@@ -17,17 +17,17 @@ const makeStore: MakeStore = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
 
-Router.events.on('routeChangeStart', () => NProgress.start());
-Router.events.on('routeChangeComplete', () => NProgress.done());
-Router.events.on('routeChangeError', () => NProgress.done());
+Router.events.on('routeChangeStart', () => start());
+Router.events.on('routeChangeComplete', () => done());
+Router.events.on('routeChangeError', () => done());
 Router.events.on(
   'routeChangeComplete',
   () =>
     document.querySelector('.workspace > .ant-layout') &&
-    (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0),
+    (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0)
 );
 
-export class AppComponent extends React.Component {
+export class AppComponent extends Component {
   // NOTE: In order to get runtime config. We will need to use getInitialProps. But the down side
   //       is it will opt out Next.js default static optimization.
   // Please refer to https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration
@@ -76,9 +76,6 @@ export class AppComponent extends React.Component {
         </Head>
         <AppProvider>
           <PageContainer {...this.props} />
-          {/*<AuthenticationProvider>
-            <PageContainer {...this.props}></PageContainer>
-          </AuthenticationProvider>*/}
         </AppProvider>
       </>
     );

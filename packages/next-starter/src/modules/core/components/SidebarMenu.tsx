@@ -14,10 +14,9 @@ import {
 } from 'antd';
 import { Book, LogOut, Triangle } from 'react-feather';
 import React, { useEffect } from 'react';
-import { withRouter, NextRouter } from 'next/router';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
-import { connect } from 'react-redux';
-import { bindActionCreators, Dispatch } from 'redux';
 
 import { IUser } from '@onr/user';
 
@@ -26,17 +25,11 @@ import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
 import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
-import { useAuth, logout } from '@onr/auth';
+import { logout } from '@onr/auth';
 import { MenuItem } from '@app';
 
-import { useDispatch } from 'react-redux';
-
-declare type WithRouterProps = {
-  router: NextRouter;
-};
-
 /* eslint-disable complexity  */
-interface ISidebarMenuProps extends IWrapperPage.IProps, WithRouterProps {
+interface ISidebarMenuProps extends IWrapperPage.IProps {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   menuItems: MenuItem[];
@@ -61,15 +54,26 @@ const UserMenu = (
   </Menu>
 );
 
-const SidebarContent = (props: ISidebarMenuProps) => {
+export const SidebarMenu = ({ menuItems, currentUser }: ISidebarMenuProps) => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const [openKeys, setOpenKeys] = React.useState<string[]>([]);
+  const [appRoutes, setAppRoutes] = React.useState(menuItems);
   const {
-    menuItems,
-    sidebarTheme,
+    name,
+    mobile,
+    mobileDrawer,
+    optionDrawer,
+    boxed,
+    darkSidebar,
     sidebarMode,
-    sidebarIcons,
+    sidebarTheme,
+    sidebarPopup,
     collapsed,
-    router,
-    currentUser,
+    sidebarIcons,
+    weakColor,
+  } = useSelector((store: IStore) => store.wrapper);
+  const {
     setOptionDrawer,
     setMobileDrawer,
     setBoxed,
@@ -78,12 +82,8 @@ const SidebarContent = (props: ISidebarMenuProps) => {
     setSidebarIcons,
     setCollapse,
     setWeak,
-  } = props;
-  const state = props;
-  const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-  const [appRoutes, setAppRoutes] = React.useState(menuItems);
+  } = wrapperActions;
   const { pathname = '' } = router || {};
-  const dispatch = useDispatch();
 
   useEffect(() => {
     const roles = currentUser.roles || [];
@@ -98,7 +98,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
           }
         }
         return false;
-      }),
+      })
     );
   }, [currentUser?.roles]);
 
@@ -139,7 +139,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
                 className={pathname === route.path ? 'ant-menu-item-selected' : ''}
                 onClick={() => {
                   setOpenKeys([getKey(route.name, index)]);
-                  if (state.mobile) setMobileDrawer();
+                  if (mobile) dispatch(setMobileDrawer());
                 }}
               >
                 <Link href={route.path}>
@@ -168,7 +168,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
                       key={getKey(subitem.name, index)}
                       className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
                       onClick={() => {
-                        if (state.mobile) setMobileDrawer();
+                        if (mobile) dispatch(setMobileDrawer());
                       }}
                     >
                       <Link href={`${subitem.path ? subitem.path : ''}`}>
@@ -253,7 +253,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
   return (
     <>
       <Inner>
-        {!state.mobile && (
+        {!mobile && (
           <Sider
             width={240}
             className={`bg-${sidebarTheme}`}
@@ -268,8 +268,8 @@ const SidebarContent = (props: ISidebarMenuProps) => {
           closable={false}
           width={240}
           placement="left"
-          onClose={() => setMobileDrawer()}
-          visible={state.mobileDrawer}
+          onClose={() => dispatch(setMobileDrawer())}
+          visible={mobileDrawer}
           className="chat-drawer"
         >
           <Inner>
@@ -285,7 +285,7 @@ const SidebarContent = (props: ISidebarMenuProps) => {
                           display: 'inline',
                         }}
                       >
-                        {state.name}
+                        {name}
                       </strong>
                     </a>
                   </Link>
@@ -301,12 +301,17 @@ const SidebarContent = (props: ISidebarMenuProps) => {
           placement="right"
           closable={true}
           width={300}
-          onClose={() => setOptionDrawer()}
-          visible={state.optionDrawer}
+          onClose={() => dispatch(setOptionDrawer())}
+          visible={optionDrawer}
         >
           <List.Item
             actions={[
-              <Switch key={1} size="small" checked={!!state.boxed} onChange={() => setBoxed()} />,
+              <Switch
+                key={1}
+                size="small"
+                checked={!!boxed}
+                onChange={() => dispatch(setBoxed())}
+              />,
             ]}
           >
             <span style={ListItemSpanStylye}>Boxed view</span>
@@ -316,9 +321,9 @@ const SidebarContent = (props: ISidebarMenuProps) => {
               <Switch
                 key={1}
                 size="small"
-                checked={!!state.darkSidebar}
-                disabled={state.weakColor}
-                onChange={() => setSidebarTheme()}
+                checked={!!darkSidebar}
+                disabled={weakColor}
+                onChange={() => dispatch(setSidebarTheme())}
               />,
             ]}
           >
@@ -328,9 +333,9 @@ const SidebarContent = (props: ISidebarMenuProps) => {
             actions={[
               <Switch
                 size="small"
-                checked={!!state.sidebarPopup}
-                disabled={state.collapsed}
-                onChange={() => setSidebarPopup()}
+                checked={!!sidebarPopup}
+                disabled={collapsed}
+                onChange={() => dispatch(setSidebarPopup())}
                 key={1}
               />,
             ]}
@@ -342,9 +347,9 @@ const SidebarContent = (props: ISidebarMenuProps) => {
               <Switch
                 key={1}
                 size="small"
-                checked={!!state.sidebarIcons}
-                disabled={state.collapsed}
-                onChange={() => setSidebarIcons()}
+                checked={!!sidebarIcons}
+                disabled={collapsed}
+                onChange={() => dispatch(setSidebarIcons())}
               />,
             ]}
           >
@@ -355,8 +360,8 @@ const SidebarContent = (props: ISidebarMenuProps) => {
               <Switch
                 key={1}
                 size="small"
-                checked={!!state.collapsed}
-                onChange={() => setCollapse()}
+                checked={!!collapsed}
+                onChange={() => dispatch(setCollapse())}
               />,
             ]}
           >
@@ -367,8 +372,8 @@ const SidebarContent = (props: ISidebarMenuProps) => {
               <Switch
                 key={1}
                 size="small"
-                checked={!!state.weakColor}
-                onChange={() => setWeak()}
+                checked={!!weakColor}
+                onChange={() => dispatch(setWeak())}
               />,
             ]}
           >
@@ -379,18 +384,3 @@ const SidebarContent = (props: ISidebarMenuProps) => {
     </>
   );
 };
-
-const mapStateToProps = (state: IStore) => state.wrapper;
-
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setOptionDrawer: bindActionCreators(wrapperActions.setOptionDrawer, dispatch),
-  setMobileDrawer: bindActionCreators(wrapperActions.setMobileDrawer, dispatch),
-  setBoxed: bindActionCreators(wrapperActions.setBoxed, dispatch),
-  setSidebarTheme: bindActionCreators(wrapperActions.setSidebarTheme, dispatch),
-  setSidebarPopup: bindActionCreators(wrapperActions.setSidebarPopup, dispatch),
-  setSidebarIcons: bindActionCreators(wrapperActions.setSidebarIcons, dispatch),
-  setCollapse: bindActionCreators(wrapperActions.setCollapse, dispatch),
-  setWeak: bindActionCreators(wrapperActions.setWeak, dispatch),
-});
-
-export const SidebarMenu = withRouter(connect(mapStateToProps, mapDispatchToProps)(SidebarContent));
