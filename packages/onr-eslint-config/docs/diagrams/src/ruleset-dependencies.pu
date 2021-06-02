@@ -1,0 +1,55 @@
+@startuml "Ruleset Dependencies"
+
+package eslint {
+  class "eslint:recommended"
+}
+
+package eslint-plugin-promise {
+  class "promise"
+}
+
+package eslint-plugin-import {
+  class "plugin:import/recommended"
+}
+
+package eslint-config-prettier {
+  class "prettier"
+  class "prettier/@typescript-eslint"
+  class "prettier/react"
+}
+
+package eslint-plugin-react {
+  class "plugin:react/recommended"
+}
+
+package eslint-plugin-react-hook {
+  class "plugin:react-hooks/recommended"
+}
+
+package @typescript-eslint/eslint-plugin {
+  class "plugin:@typescript-eslint/recommended"
+  class "plugin:@typescript-eslint/recommended-requiring-type-checking"
+}
+
+package @onr/eslint-config {
+  class "@onr/base"
+  class "@onr/typescript"
+  class "@onr/react"
+}
+
+"eslint:recommended" <-- "@onr/base"
+"plugin:import/recommended" <-- "@onr/base"
+"promise" <-- "@onr/base"
+"prettier" <-- "@onr/base"
+
+"@onr/base" <-- "@onr/typescript"
+"prettier/@typescript-eslint" <-- "@onr/typescript"
+"plugin:@typescript-eslint/recommended" <-- "@onr/typescript"
+"plugin:@typescript-eslint/recommended-requiring-type-checking" <-- "@onr/typescript"
+
+"@onr/typescript" <-- "@onr/react"
+"prettier/react" <-- "@onr/react"
+"plugin:react/recommended" <-- "@onr/react"
+"plugin:react-hooks/recommended" <-- "@onr/react"
+
+@enduml

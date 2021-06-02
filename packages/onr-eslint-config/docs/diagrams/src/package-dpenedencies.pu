@@ -1,0 +1,23 @@
+@startuml "Package Dependencies"
+
+package @onr/eslint-config as onr {}
+
+package eslint {}
+package eslint-config-prettier {}
+package eslint-plugin-promise {}
+package eslint-plugin-import {}
+package eslint-plugin-react {}
+package eslint-plugin-react-hooks {}
+package @typescript-eslint/eslint-plugin {}
+package @typescript-eslint/parser {}
+
+"eslint" <-- onr
+"eslint-config-prettier" <-- onr
+"eslint-plugin-promise" <-- onr
+"eslint-plugin-import" <-- onr
+"eslint-plugin-react" <-- onr
+"eslint-plugin-react-hooks" <-- onr
+"@typescript-eslint/parser" <- onr
+onr -> "@typescript-eslint/eslint-plugin"
+
+@enduml
