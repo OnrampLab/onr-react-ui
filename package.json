@@ -5,12 +5,18 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna run dev --parallel"
+    "dev": "lerna run dev --parallel",
+    "postinstall": "husky install"
   },
   "engines": {
     "node": ">=12"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
+  },
+  "lint-staged": {
+    "src/**/*.(js|ts|tsx)": [
+      "eslint -c .eslintrc.js --fix"
+    ]
   }
 }
