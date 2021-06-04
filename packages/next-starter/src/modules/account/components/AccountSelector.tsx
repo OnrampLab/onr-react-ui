@@ -10,7 +10,6 @@ export const AccountSelector: React.FC = () => {
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
   const accountId = useSelector((store: IStore) => store.wrapper.accountId);
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
-  const setAccountId = dispatch(wrapperActions.setAccountId);
 
   useEffect(() => {
     if (currentUser.accounts) {
@@ -23,7 +22,7 @@ export const AccountSelector: React.FC = () => {
   }, [currentUser.accounts]);
 
   function changeAccount(accountId: number) {
-    setAccountId(accountId);
+    dispatch(wrapperActions.setAccountId(accountId));
     Router.push('/');
     message.info('Account has been changed');
   }
