@@ -16,7 +16,7 @@
     "test": "jest --coverage",
     "test:ci": "jest --ci --runInBand --collectCoverage=true --reporters=default --reporters=jest-junit --coverage",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
-    "format": "prettier -w 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint-staged": "lint-staged"
@@ -137,7 +137,8 @@
   "license": "ISC",
   "lint-staged": {
     "src/**/*.(js|ts|tsx)": [
-      "eslint -c .eslintrc.js --fix"
+      "eslint -c .eslintrc.js --fix",
+      "prettier --write"
     ]
   }
 }

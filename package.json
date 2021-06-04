@@ -15,8 +15,9 @@
     "lerna": "^3.22.1"
   },
   "lint-staged": {
-    "src/**/*.(js|ts|tsx)": [
-      "eslint -c .eslintrc.js --fix"
+    "**/*.(js|ts|tsx)": [
+      "eslint -c .eslintrc.js --fix",
+      "prettier --write"
     ]
   }
 }
