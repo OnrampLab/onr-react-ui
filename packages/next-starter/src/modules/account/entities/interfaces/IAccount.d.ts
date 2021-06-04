@@ -18,4 +18,18 @@ export interface IAccount {
    * @memberof IAccount
    */
   name: string;
+
+  /**
+   *
+   * @type {string}
+   * @memberof IAccount
+   */
+  created_at: string; // eslint-disable-line
+
+  /**
+   *
+   * @type {string}
+   * @memberof IAccount
+   */
+  updated_at: string; // eslint-disable-line
 }
