@@ -27,7 +27,7 @@ export const Page = (props: IWrapperPage.IProps) => {
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
-    (store: IStore) => store.wrapper
+    (store: IStore) => store.wrapper,
   );
   const [loading, setLoading] = useState(true);
   const isNotDashboard = router && NonDashboardRoutes.includes(router.pathname);

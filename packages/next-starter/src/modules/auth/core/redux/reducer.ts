@@ -8,18 +8,18 @@ export const authReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>)
         ...state,
         currentUser: action.payload.currentUser,
       };
-    
+
     case AuthConsts.SET_AUTH_STATE:
       return {
         ...state,
-        state: action.payload.state, 
-      }
-    
+        state: action.payload.state,
+      };
+
     case AuthConsts.SET_AUTH_DATA:
       return {
-        ...state, 
+        ...state,
         data: action.payload.data,
-      }
+      };
 
     default:
       return state;

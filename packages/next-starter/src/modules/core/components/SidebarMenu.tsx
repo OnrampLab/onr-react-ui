@@ -98,7 +98,7 @@ export const SidebarMenu = ({ menuItems, currentUser }: ISidebarMenuProps) => {
           }
         }
         return false;
-      })
+      }),
     );
   }, [currentUser?.roles]);
 

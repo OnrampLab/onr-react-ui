@@ -14,13 +14,13 @@ export const AuthState = {
 export const AuthConsts = {
   SET_AUTH_STATE: 'AuthStore_SetAuthState',
   SET_AUTH_DATA: 'AuthStore_SetAuthData',
-  SET_CURRENT_USER: 'AuthStore_SetCurrentUser', 
+  SET_CURRENT_USER: 'AuthStore_SetCurrentUser',
 } as const;
 
 export const INITIAL_STATE = {
-  currentUser: {}, 
+  currentUser: {},
   state: AuthState.Prepare,
-  data: {}, 
+  data: {},
 };
 
 export const STORE_KEY = 'authStore';

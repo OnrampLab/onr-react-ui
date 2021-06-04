@@ -36,8 +36,6 @@ export function authRouteCallback(server: Server): void {
   server.post('/auth/me', function(schema, request) {
     const data = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
 
-    console.log('ACCOUNTS', schema.accounts.all().length);
-
     const user = schema.users.findBy({
       email: data.email,
     });
