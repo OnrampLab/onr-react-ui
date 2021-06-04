@@ -1,17 +1,17 @@
-import { models as accountModels, seeds as accountSeeds } from '@onr/account/__mocks__';
-import { routes as accountRoutes } from '@onr/auth/__mocks__';
-import { models as userModels, seeds as userSeeds } from '@onr/user/__mocks__';
+import { Mocks } from '@core';
+import { mocks as accountMocks } from '@onr/account/__mocks__';
+import { mocks as authMocks } from '@onr/auth/__mocks__';
+import { mocks as userMocks } from '@onr/user/__mocks__';
 
-export const seeds = {
-  ...accountSeeds,
-  ...userSeeds,
-};
+const urlPrefix = `${process.env.NEXT_PUBLIC_API_URL?.replace(/(.[^\/])$/, '$1/')}`;
+const namespace = 'api';
 
-export const models = {
-  ...accountModels,
-  ...userModels,
-};
+const mocks = Mocks.create({
+  urlPrefix,
+  namespace,
+})
+  .addMocks(accountMocks)
+  .addMocks(authMocks)
+  .addMocks(userMocks);
 
-export const routes = {
-  ...accountRoutes,
-};
+export { mocks };
