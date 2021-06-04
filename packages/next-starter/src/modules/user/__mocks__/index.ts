@@ -1,10 +1,14 @@
-import { Model } from 'miragejs';
+import { Mock } from '@core';
+import { IUser } from '../entities';
+import { userModel } from './userModel';
 import userSeeds from './userSeeds.json';
+import { serializer } from './userSerializer';
 
-export const seeds = {
-  users: userSeeds,
-};
-
-export const models = {
-  user: Model,
-};
+export const mocks = [
+  Mock.create({
+    resource: 'user',
+    seeds: userSeeds as Partial<IUser>[],
+    model: userModel,
+    serializer,
+  }),
+];

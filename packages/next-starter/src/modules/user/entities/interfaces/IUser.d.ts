@@ -7,10 +7,10 @@ export enum UserRoleName {
 }
 
 export interface UserRole {
-  created_at?: string;
+  created_at?: string; // eslint-disable-line
   id?: number;
   name: string;
-  updated_at?: string;
+  updated_at?: string; // eslint-disable-line
 }
 
 /**
