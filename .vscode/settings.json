@@ -26,5 +26,6 @@
   "files.associations": {
     "*.json": "jsonc"
   },
-  "cSpell.words": ["antd"]
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "cSpell.words": ["antd", "miragejs", "serializers"]
 }

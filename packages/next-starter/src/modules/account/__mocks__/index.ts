@@ -1,10 +1,16 @@
-import { Model } from 'miragejs';
+import { Mock } from '@core';
+import { IAccount } from '../entities';
+import { accountFactory } from './accountFactory';
+import { accountModel } from './accountModel';
 import accountSeeds from './accountSeeds.json';
+import { accountSeedsCallback } from './accountSeedsCallback';
 
-export const seeds = {
-  accounts: accountSeeds,
-};
-
-export const models = {
-  account: Model,
-};
+export const mocks = [
+  Mock.create({
+    resource: 'account',
+    seeds: accountSeeds as IAccount[],
+    model: accountModel,
+    factory: accountFactory,
+    seedsCallback: accountSeedsCallback,
+  }),
+];

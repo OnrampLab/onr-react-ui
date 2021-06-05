@@ -1,7 +1,7 @@
 import { AuthState as CoreAuthState } from '@onr/auth/core';
 
 export const AuthState = {
-  ...CoreAuthState, 
+  ...CoreAuthState,
   NeedRefresh: 'AuthState.NeedRefresh',
 } as const;
 /*

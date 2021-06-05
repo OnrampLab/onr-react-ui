@@ -1,5 +1,18 @@
+import { Mock } from '@core';
+import { IRole, roleModel } from './roleModel';
 import authRoutes from './routes.json';
+import roleSeeds from './roleSeeds.json';
+import { authRouteCallback } from './authRouteCallback';
 
-export const routes = {
-  auth: authRoutes,
-};
+export const mocks = [
+  Mock.create({
+    resource: 'role',
+    seeds: roleSeeds as IRole[],
+    model: roleModel,
+  }),
+  Mock.create({
+    resource: 'auth',
+    routes: authRoutes,
+    routesCallback: authRouteCallback,
+  }),
+];

@@ -43,16 +43,19 @@ const EMAIL_RULES = [
 const PASSWORD_RULES = [{ required: true, message: 'Please input your Password!' }];
 
 const Signin: React.FC = () => {
-  const { state } = useAuth(), dispatch = useDispatch();
+  const { state } = useAuth(),
+    dispatch = useDispatch();
 
   async function onFinish(params: FormFields) {
     try {
-      await dispatch(login({
-        data: {
-          email: params.email,
-          password: params.password,
-        },
-      }));
+      await dispatch(
+        login({
+          data: {
+            email: params.email,
+            password: params.password,
+          },
+        }),
+      );
       Message.success('Sign complete. Taking you to your dashboard!');
     } catch (error) {
       Message.error(error.message);
@@ -60,7 +63,11 @@ const Signin: React.FC = () => {
   }
 
   return (
-    <Spin spinning={state === AuthState.Prepare || state === AuthState.Pending || state === AuthState.Authorized}>
+    <Spin
+      spinning={
+        state === AuthState.Prepare || state === AuthState.Pending || state === AuthState.Authorized
+      }
+    >
       <Row
         align="middle"
         justify="center"
@@ -89,11 +96,7 @@ const Signin: React.FC = () => {
             }}
             initialValues={INIT_VALUES}
           >
-            <FormItem
-              label="Email"
-              name="email"
-              rules={EMAIL_RULES}
-            >
+            <FormItem label="Email" name="email" rules={EMAIL_RULES}>
               <Input
                 prefix={<Mail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
                 type="email"
@@ -101,11 +104,7 @@ const Signin: React.FC = () => {
               />
             </FormItem>
 
-            <FormItem
-              label="Password"
-              name="password"
-              rules={PASSWORD_RULES}
-            >
+            <FormItem label="Password" name="password" rules={PASSWORD_RULES}>
               <Input
                 prefix={<Eye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
                 type="password"

@@ -10,7 +10,8 @@ export const AuthService = {
       Http.setToken(token);
 
       const response: HttpModel.IResponse<AuthModel.SigninResponse> = await Http.post<
-        AuthModel.SigninResponse, any
+        AuthModel.SigninResponse,
+        any
       >('/auth/refresh');
 
       Http.setToken(response.data.access_token);

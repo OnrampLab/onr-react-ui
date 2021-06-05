@@ -16,7 +16,7 @@
     "test": "jest --coverage",
     "test:ci": "jest --ci --runInBand --collectCoverage=true --reporters=default --reporters=jest-junit --coverage",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
-    "format": "prettier -w 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint-staged": "lint-staged"
@@ -34,7 +34,6 @@
     "axios": "^0.21.1",
     "date-fns": "^1.30.1",
     "less-vars-to-js": "^1.3.0",
-    "miragejs": "^0.1.40",
     "next": "^10.0.3",
     "next-compose-plugins": "^2.2.1",
     "next-purgecss": "^4.0.0",
@@ -62,6 +61,7 @@
     "@babel/plugin-syntax-typescript": "^7.12.0",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@onr/eslint-config": "0.1.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
     "@storybook/addon-essentials": "^5.3.19",
@@ -76,6 +76,7 @@
     "@testing-library/react-hooks": "^3.7.0",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/faker": "^5.5.5",
     "@types/jest": "^25.1.2",
     "@types/lodash": "^4.14.149",
     "@types/next": "^9.0.0",
@@ -90,8 +91,6 @@
     "@types/redux-mock-store": "^1.0.2",
     "@types/storybook__react": "^5.2.1",
     "@types/styled-components": "^4.4.3",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
     "autoprefixer": "^9.6.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
@@ -105,8 +104,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.19.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-react": "^7.22.0",
+    "faker": "^5.5.3",
     "http-proxy-middleware": "^0.19.1",
     "husky": "^5.0.0",
     "jest": "^24.8.0",
@@ -114,6 +112,7 @@
     "less": "^3.9.0",
     "lint-staged": "^10.2.11",
     "minimist": "^1.2.5",
+    "miragejs": "^0.1.41",
     "nock": "^12.0.0",
     "node-sass": "^5.0.0",
     "nodemon": "^1.19.1",
@@ -138,7 +137,8 @@
   "license": "ISC",
   "lint-staged": {
     "src/**/*.(js|ts|tsx)": [
-      "eslint -c .eslintrc.js --fix"
+      "eslint -c .eslintrc.js --fix",
+      "prettier --write"
     ]
   }
 }

@@ -24,10 +24,14 @@ Router.events.on(
   'routeChangeComplete',
   () =>
     document.querySelector('.workspace > .ant-layout') &&
-    (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0)
+    (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0),
 );
 
-export class AppComponent extends Component {
+interface Props {
+  pageProps?: any;
+}
+
+export class AppComponent extends Component<Props> {
   // NOTE: In order to get runtime config. We will need to use getInitialProps. But the down side
   //       is it will opt out Next.js default static optimization.
   // Please refer to https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration

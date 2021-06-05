@@ -9,20 +9,20 @@ export const AccountListPage: React.FC = () => {
   const { subscribe } = useContext(DefaultPubSubContext);
 
   useEffect(() => {
+    async function fetchData() {
+      dispatch(
+        accountActions.getAccounts({
+          params: {},
+        }),
+      );
+    }
+
     fetchData();
 
     const unsub = subscribe('account.updated', fetchData);
 
     return unsub;
-  }, []);
-
-  async function fetchData() {
-    dispatch(
-      accountActions.getAccounts({
-        params: {},
-      }),
-    );
-  }
+  }, [dispatch, subscribe]);
 
   return (
     <>

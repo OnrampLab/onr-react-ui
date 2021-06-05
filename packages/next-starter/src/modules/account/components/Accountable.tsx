@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { accountActions } from '@onr/account';
 import { useAuth, AuthState } from '@onr/auth';
 
-export const Accountable: React.FC = ({ children }) => {
+export const Accountable: React.FC = ({ children }: { children: JSX.Element }) => {
   const auth = useAuth();
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ export const Accountable: React.FC = ({ children }) => {
         params: {},
       }),
     );
-  }, [auth.authState]);
+  }, [dispatch, auth.authState]);
 
   return <>{children}</>;
 };
