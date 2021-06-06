@@ -5,12 +5,19 @@ import { Page } from '@onr/core';
 import { AuthWrapper, logout } from '@onr/auth';
 import { AccountSelector } from '@onr/account';
 import { menuItems } from '../';
+import { theme } from './GlobalStyles';
 
 const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
 
   return (
-    <Page {...props} logout={logout} menuItems={menuItems} HeaderMainSection={AccountSelector}>
+    <Page
+      {...props}
+      theme={theme}
+      logout={logout}
+      menuItems={menuItems}
+      HeaderMainSection={AccountSelector}
+    >
       <Component {...pageProps} />
     </Page>
   );

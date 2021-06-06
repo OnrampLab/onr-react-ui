@@ -7,12 +7,12 @@ import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '@core';
 import { CoreStore } from '@onr/core';
 
-import { theme } from './styles/GlobalStyles';
 import { Container, Inner } from './styles/Page';
 
 interface Props {
   children: JSX.Element;
   menuItems: any[];
+  theme: any;
   HeaderMainSection: FC;
   logout: () => AnyAction;
 }
@@ -28,7 +28,7 @@ const NonDashboardRoutes = [
 ];
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
-  const { HeaderMainSection, menuItems, logout, children } = props;
+  const { HeaderMainSection, menuItems, theme, logout, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(

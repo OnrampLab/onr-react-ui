@@ -8,10 +8,11 @@ import Head from 'next/head';
 import Router from 'next/router';
 import { start, done } from 'nprogress';
 
-import { GlobalStyles, AppProvider } from '@onr/core';
+import { AppProvider } from '@onr/core';
 import { store, afterComponentDidMount } from '../redux';
 
 import { PageContainer } from './PageContainer';
+import { GlobalStyles } from './GlobalStyles';
 
 const makeStore: MakeStore = (context: Context) => store();
 
