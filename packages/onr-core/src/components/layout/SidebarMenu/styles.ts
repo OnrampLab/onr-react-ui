@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Sidebar = styled.div`
+export const Sidebar = styled.div`
   height: 100%;
   display: flex;
   .ant-layout-sider {
@@ -28,5 +28,3 @@ const Sidebar = styled.div`
     width: calc(100%);
   }
 `;
-
-export default Sidebar;

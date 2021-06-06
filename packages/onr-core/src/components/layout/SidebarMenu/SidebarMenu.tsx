@@ -15,23 +15,21 @@ import {
 import { Book, LogOut, Triangle } from 'react-feather';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { capitalize } from 'lodash';
 import { AnyAction } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
-import Link from 'next/link';
 
-import { AuthUser, DashHeader } from '@core';
-
-import Inner from './styles/Sidebar';
-import { capitalize, lowercase } from '../../../lib/helpers';
-
-import { coreActions, CoreStore } from '@onr/core';
-import { MenuItem } from '@app';
+import { coreActions, CoreStore } from '../../../redux';
+import { AuthUser } from '../../../types';
+import { DashHeader } from '../Header';
+import { Sidebar } from './styles';
 
 /* eslint-disable complexity  */
-interface ISidebarMenuProps {
+interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
-  menuItems: MenuItem[];
+  menuItems: any[];
   currentUser: AuthUser;
   logout: () => AnyAction;
 }
@@ -54,7 +52,7 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProps) => {
+export const SidebarMenu = ({ menuItems, currentUser, logout }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -100,16 +98,18 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
         return false;
       }),
     );
-  }, [currentUser?.roles, menuItems]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser?.roles]);
 
   React.useEffect(() => {
     appRoutes.forEach((route, index) => {
-      const isCurrentPath = pathname.indexOf(lowercase(route.name)) > -1 ? true : false;
+      const isCurrentPath = pathname.indexOf(route.name.toLowerCase()) > -1 ? true : false;
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
       if (isCurrentPath) setOpenKeys([...openKeys, key]);
     });
-  }, [appRoutes, openKeys, pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onOpenChange = (openKeys: string[]) => {
     const latestOpenKey = openKeys.slice(-1);
@@ -252,7 +252,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
 
   return (
     <>
-      <Inner>
+      <Sidebar>
         {!mobile && (
           <Sider
             width={240}
@@ -272,7 +272,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
           visible={mobileDrawer}
           className="chat-drawer"
         >
-          <Inner>
+          <Sidebar>
             <div style={InnerDivStyle}>
               <DashHeader>
                 <Header>
@@ -293,7 +293,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
               </DashHeader>
               {menu}
             </div>
-          </Inner>
+          </Sidebar>
         </Drawer>
 
         <Drawer
@@ -380,7 +380,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
             <span style={ListItemSpanStylye}>Weak colors</span>
           </List.Item>
         </Drawer>
-      </Inner>
+      </Sidebar>
     </>
   );
 };
