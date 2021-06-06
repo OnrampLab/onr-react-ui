@@ -15,6 +15,7 @@ import {
 import { Book, LogOut, Triangle } from 'react-feather';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { AnyAction } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
@@ -72,7 +73,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
     collapsed,
     sidebarIcons,
     weakColor,
-  } = useSelector((store: IStore) => store.wrapper);
+  } = useSelector((store: IStore) => store.coreStore);
   const {
     setOptionDrawer,
     setMobileDrawer,

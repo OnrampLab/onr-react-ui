@@ -87,7 +87,7 @@ export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
     case ActionConsts.Wrapper.Setup:
       if (typeof localStorage !== 'undefined') {
         const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
-        wrapper = settings.wrapper || {};
+        wrapper = settings.coreStore || {};
       }
       return { ...state, ...wrapper, ...action.payload };
 
@@ -100,7 +100,7 @@ export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
     default:
       if (typeof localStorage !== 'undefined') {
         const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
-        wrapper = settings.wrapper || {};
+        wrapper = settings.coreStore || {};
       }
       return { ...state, ...wrapper };
   }

@@ -17,7 +17,7 @@ const saveToLocal = (state: IStore) => {
       ...state,
       ...{
         wrapper: {
-          ...state.wrapper,
+          ...state.coreStore,
           ...{
             mobile: undefined,
             optionDrawer: undefined,

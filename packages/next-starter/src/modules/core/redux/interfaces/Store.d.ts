@@ -9,5 +9,5 @@ export interface IStore {
   authStore: {
     currentUser: AuthUser;
   };
-  wrapper: IStateProps;
+  coreStore: IStateProps;
 }

@@ -8,7 +8,7 @@ import { coreActions, IStore } from '@onr/core';
 export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
-  const accountId = useSelector((store: IStore) => store.wrapper.accountId);
+  const accountId = useSelector((store: IStore) => store.coreStore.accountId);
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
 
   useEffect(() => {

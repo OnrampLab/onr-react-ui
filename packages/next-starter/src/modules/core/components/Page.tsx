@@ -33,7 +33,7 @@ export const Page = (props: Props) => {
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
-    (store: IStore) => store.wrapper,
+    (store: IStore) => store.coreStore,
   );
   const [loading, setLoading] = useState(true);
   const isNotDashboard = router && NonDashboardRoutes.includes(router.pathname);

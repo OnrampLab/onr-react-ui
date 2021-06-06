@@ -16,7 +16,7 @@ type Props = {
 
 export const Header: React.FC = ({ HeaderMainSection }: Props) => {
   const dispatch = useDispatch();
-  const { name, mobile } = useSelector((store: IStore) => store.wrapper);
+  const { name, mobile } = useSelector((store: IStore) => store.coreStore);
 
   return (
     <DashHeader>
