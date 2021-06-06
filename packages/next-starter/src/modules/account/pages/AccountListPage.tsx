@@ -24,7 +24,8 @@ export const AccountListPage: React.FC = () => {
     const unsub = subscribe('account.updated', fetchData);
 
     return unsub;
-  }, [dispatch, subscribe]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
