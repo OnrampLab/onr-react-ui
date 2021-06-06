@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Table, Card, Modal, Button, message, Popconfirm } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import { IAccount, CreateAccountForm, UpdateAccountForm, AccountService } from '@onr/account';
-import { DefaultPubSubContext } from '@onr/core';
+import { DefaultPubSubContext } from '@core';
 
 interface IAccountListProps {
   accounts: IAccount[];

@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DefaultPubSubContext, CoreStore } from '@onr/core';
+import { DefaultPubSubContext, CoreStore } from '@core';
 import { AccountList, accountActions, StoreProps } from '@onr/account';
 
 type Store = CoreStore & StoreProps;
