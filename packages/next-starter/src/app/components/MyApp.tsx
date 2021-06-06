@@ -8,7 +8,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import { start, done } from 'nprogress';
 
-import { AppProvider } from '@onr/core';
+import { AppProvider } from '@core';
 import { store, afterComponentDidMount } from '../redux';
 
 import { PageContainer } from './PageContainer';

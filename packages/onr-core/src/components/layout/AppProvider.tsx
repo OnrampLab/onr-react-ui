@@ -1,5 +1,4 @@
-import React from 'react';
-import { usePubSub } from '../hooks';
+import { usePubSub } from '../../hooks';
 
 export const AppProvider = props => {
   const { PubSubContext, publish, subscribe, unsubscribe } = usePubSub();
