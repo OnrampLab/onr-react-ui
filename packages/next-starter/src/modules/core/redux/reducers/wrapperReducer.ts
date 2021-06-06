@@ -1,6 +1,6 @@
 import { ActionConsts } from '../actions/ActionConsts';
 
-import { IAction, IMapPayload, IStateProps, IStore } from '@onr/core';
+import { IAction, IStateProps, IStore } from '@onr/core';
 
 const INITIAL_STATE: IStateProps = {
   version: 1,
@@ -18,7 +18,7 @@ const INITIAL_STATE: IStateProps = {
 };
 
 /* eslint-disable complexity */
-export const wrapperReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {
+export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   let wrapper = {};
 
   switch (action.type) {

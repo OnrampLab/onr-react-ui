@@ -16,13 +16,11 @@ const INITIAL_STATE = {
   accounts: [],
 };
 
-type IMapPayload = any;
-
 /**
  * REDUCER
  */
 /* eslint-disable complexity */
-export const accountReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {
+export const accountReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   switch (action.type) {
     case actionConsts.account.setAccounts:
       return {

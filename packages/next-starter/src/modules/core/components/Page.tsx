@@ -1,16 +1,22 @@
-import * as React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
 import { Layout, Spin } from 'antd';
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { ThemeProvider } from 'styled-components';
+import { IStore } from '@onr/core';
 
 import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
-import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/GlobalStyles';
 import { Container, Inner } from './styles/Page';
 
-import { IProps, IStore } from '@onr/core';
+interface Props {
+  children: JSX.Element;
+  menuItems: any[];
+  HeaderMainSection: FC;
+  logout: () => AnyAction;
+}
 
 const { Content } = Layout;
 
@@ -22,7 +28,7 @@ const NonDashboardRoutes = [
   '/_error',
 ];
 /* eslint-disable complexity */
-export const Page = (props: IProps) => {
+export const Page = (props: Props) => {
   const { HeaderMainSection, menuItems, logout, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);

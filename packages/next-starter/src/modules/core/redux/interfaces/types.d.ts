@@ -1,6 +1,3 @@
-import { Props } from 'react';
-import { Store } from 'redux';
-
 export interface IStateProps {
   version: number;
   name: string;
@@ -30,9 +27,3 @@ export interface IDispatchProps {
   setup(payload?: options): AnyAction;
   setAccountId(payload?: number): AnyAction;
 }
-
-export interface IMapPayload {}
-
-export interface IMapResponse {}
-
-export type IProps = Props & IStateProps & IDispatchProps & Store;

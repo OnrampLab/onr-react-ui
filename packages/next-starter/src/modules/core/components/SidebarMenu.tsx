@@ -24,11 +24,11 @@ import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
-import { coreActions, IProps, IStore } from '@onr/core';
+import { coreActions, IStore } from '@onr/core';
 import { MenuItem } from '@app';
 
 /* eslint-disable complexity  */
-interface ISidebarMenuProps extends IProps {
+interface ISidebarMenuProps {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   menuItems: MenuItem[];
