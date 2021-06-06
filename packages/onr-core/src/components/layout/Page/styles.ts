@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -32,12 +32,10 @@ const Container = styled.div`
   }
 `;
 
-const Inner = styled.div`
+export const Inner = styled.div`
   margin: 0 auto;
   padding: 1.5rem;
   position: relative;
   background-color: #f0f0f0;
   min-height: ${props => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
 `;
-
-export { Container, Inner };

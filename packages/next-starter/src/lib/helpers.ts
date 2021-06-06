@@ -1,12 +1,3 @@
-// Capitalize
-export function capitalize(string = '') {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-export function lowercase(string = '') {
-  return string.toLowerCase();
-}
-
 // Format price
 export function formatPrice(number: string) {
   const fnumber = parseFloat(number);

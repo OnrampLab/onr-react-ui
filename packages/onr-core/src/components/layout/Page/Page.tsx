@@ -1,13 +1,14 @@
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { Layout, Spin } from 'antd';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
-import { Header, SidebarMenu } from '@core';
-import { CoreStore } from '@onr/core';
+import { Header, SidebarMenu } from '../';
 
-import { Container, Inner } from './styles/Page';
+import { CoreStore } from '../../../redux';
+
+import { Container, Inner } from './styles';
 
 interface Props {
   children: JSX.Element;
