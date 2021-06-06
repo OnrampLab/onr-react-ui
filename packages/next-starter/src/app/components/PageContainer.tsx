@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 
-import { menuItems } from '../';
+import { AppProps } from 'next/app';
 import { Page } from '@onr/core';
-import { AuthWrapper } from '@onr/auth';
+import { AuthWrapper, logout } from '@onr/auth';
 import { AccountSelector } from '@onr/account';
+import { menuItems } from '../';
 
-const Container: React.FC = props => {
+const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
 
   return (
-    <Page {...props} menuItems={menuItems} HeaderMainSection={AccountSelector}>
+    <Page {...props} logout={logout} menuItems={menuItems} HeaderMainSection={AccountSelector}>
       <Component {...pageProps} />
     </Page>
   );

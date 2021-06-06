@@ -23,7 +23,7 @@ const NonDashboardRoutes = [
 ];
 /* eslint-disable complexity */
 export const Page = (props: IWrapperPage.IProps) => {
-  const { HeaderMainSection, menuItems, children } = props;
+  const { HeaderMainSection, menuItems, logout, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
@@ -46,7 +46,7 @@ export const Page = (props: IWrapperPage.IProps) => {
           <Layout className="workspace">
             {!isNotDashboard && (
               <SidebarMenu
-                {...props}
+                logout={logout}
                 currentUser={currentUser}
                 menuItems={menuItems}
                 sidebarTheme={darkSidebar ? 'dark' : 'light'}

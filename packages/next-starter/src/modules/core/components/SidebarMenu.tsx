@@ -18,14 +18,13 @@ import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { IUser } from '@onr/user';
+import { AuthUser } from '@core';
 
 import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
 import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
-import { logout } from '@onr/auth';
 import { MenuItem } from '@app';
 
 /* eslint-disable complexity  */
@@ -33,7 +32,8 @@ interface ISidebarMenuProps extends IWrapperPage.IProps {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   menuItems: MenuItem[];
-  currentUser: IUser;
+  currentUser: AuthUser;
+  logout: () => AnyAction;
 }
 
 const { SubMenu } = Menu;
@@ -54,7 +54,7 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ menuItems, currentUser }: ISidebarMenuProps) => {
+export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProps) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -100,7 +100,7 @@ export const SidebarMenu = ({ menuItems, currentUser }: ISidebarMenuProps) => {
         return false;
       }),
     );
-  }, [currentUser?.roles]);
+  }, [currentUser?.roles, menuItems]);
 
   React.useEffect(() => {
     appRoutes.forEach((route, index) => {
@@ -109,7 +109,7 @@ export const SidebarMenu = ({ menuItems, currentUser }: ISidebarMenuProps) => {
       rootSubMenuKeys.push(key);
       if (isCurrentPath) setOpenKeys([...openKeys, key]);
     });
-  }, []);
+  }, [appRoutes, openKeys, pathname]);
 
   const onOpenChange = (openKeys: string[]) => {
     const latestOpenKey = openKeys.slice(-1);
