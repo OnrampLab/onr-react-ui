@@ -25,7 +25,7 @@ import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
-import { coreActions, IStore } from '@onr/core';
+import { coreActions, CoreStore } from '@onr/core';
 import { MenuItem } from '@app';
 
 /* eslint-disable complexity  */
@@ -73,7 +73,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
     collapsed,
     sidebarIcons,
     weakColor,
-  } = useSelector((store: IStore) => store.coreStore);
+  } = useSelector((store: CoreStore) => store.coreStore);
   const {
     setOptionDrawer,
     setMobileDrawer,

@@ -2,11 +2,11 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-import { coreActions, IStore } from '@onr/core';
+import { coreActions, CoreStore } from '@onr/core';
 
 import reducers from './reducers';
 
-const saveToLocal = (state: IStore) => {
+const saveToLocal = (state: CoreStore) => {
   if (typeof localStorage === 'undefined') {
     return;
   }

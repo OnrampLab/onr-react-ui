@@ -4,7 +4,7 @@ import { BarChart, Settings, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { coreActions, IStore } from '@onr/core';
+import { coreActions, CoreStore } from '@onr/core';
 
 import DashHeader from './styles/Header';
 
@@ -16,7 +16,7 @@ type Props = {
 
 export const Header: React.FC = ({ HeaderMainSection }: Props) => {
   const dispatch = useDispatch();
-  const { name, mobile } = useSelector((store: IStore) => store.coreStore);
+  const { name, mobile } = useSelector((store: CoreStore) => store.coreStore);
 
   return (
     <DashHeader>

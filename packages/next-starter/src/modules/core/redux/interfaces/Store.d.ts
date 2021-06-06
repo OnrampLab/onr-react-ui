@@ -1,7 +1,7 @@
 import { AuthUser } from '@core';
 import { IStateProps } from '@onr/core';
 
-export interface IStore {
+export interface CoreStore {
   authStore: {
     currentUser: AuthUser;
   };

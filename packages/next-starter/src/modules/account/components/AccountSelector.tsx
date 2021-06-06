@@ -3,13 +3,13 @@ import { Select, message } from 'antd';
 import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { IAccount } from '@onr/account';
-import { coreActions, IStore } from '@onr/core';
+import { coreActions, CoreStore } from '@onr/core';
 
 export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
-  const accountId = useSelector((store: IStore) => store.coreStore.accountId);
-  const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
+  const accountId = useSelector((store: CoreStore) => store.coreStore.accountId);
+  const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
 
   useEffect(() => {
     if (currentUser.accounts) {

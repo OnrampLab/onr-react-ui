@@ -4,7 +4,7 @@ import { AnyAction } from 'redux';
 import { Layout, Spin } from 'antd';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
-import { IStore } from '@onr/core';
+import { CoreStore } from '@onr/core';
 
 import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
@@ -31,9 +31,9 @@ const NonDashboardRoutes = [
 export const Page = (props: Props) => {
   const { HeaderMainSection, menuItems, logout, children } = props;
   const router = useRouter();
-  const currentUser = useSelector((store: IStore) => store.authStore.currentUser);
+  const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
-    (store: IStore) => store.coreStore,
+    (store: CoreStore) => store.coreStore,
   );
   const [loading, setLoading] = useState(true);
   const isNotDashboard = router && NonDashboardRoutes.includes(router.pathname);

@@ -1,6 +1,6 @@
 import { ActionConsts } from '../actions/ActionConsts';
 
-import { IAction, IStateProps, IStore } from '@onr/core';
+import { IAction, IStateProps, CoreStore } from '@onr/core';
 
 const INITIAL_STATE: IStateProps = {
   version: 1,
@@ -86,7 +86,7 @@ export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
 
     case ActionConsts.Core.Setup:
       if (typeof localStorage !== 'undefined') {
-        const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
+        const settings: CoreStore = JSON.parse(localStorage.getItem('settings') || '{}');
         coreStore = settings.coreStore || {};
       }
       return { ...state, ...coreStore, ...action.payload };
@@ -99,7 +99,7 @@ export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
 
     default:
       if (typeof localStorage !== 'undefined') {
-        const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
+        const settings: CoreStore = JSON.parse(localStorage.getItem('settings') || '{}');
         coreStore = settings.coreStore || {};
       }
       return { ...state, ...coreStore };
