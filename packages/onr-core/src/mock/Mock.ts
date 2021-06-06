@@ -67,9 +67,11 @@ export class Mock implements IMock {
   private registerResourceRoutes(server: Server, resource: any) {
     debug(`register resource routes => ${resource}`);
 
-    server.get(`/${resource}`, schema => {
+    server.get(`/${resource}`, function(schema) {
+      const data = this.serialize(schema[resource].all())[resource];
+
       return {
-        data: schema[resource].all().models,
+        data,
       };
     });
 
