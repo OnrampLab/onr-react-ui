@@ -19,52 +19,52 @@ const INITIAL_STATE: IStateProps = {
 
 /* eslint-disable complexity */
 export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
-  let wrapper = {};
+  let coreStore = {};
 
   switch (action.type) {
-    case ActionConsts.Wrapper.SetOptionDrawer:
+    case ActionConsts.Core.SetOptionDrawer:
       return {
         ...state,
         optionDrawer: typeof action.payload === 'boolean' ? action.payload : !state.optionDrawer,
       };
 
-    case ActionConsts.Wrapper.SetMobile:
+    case ActionConsts.Core.SetMobile:
       return {
         ...state,
         mobile: typeof action.payload === 'boolean' ? action.payload : !state.mobile,
       };
 
-    case ActionConsts.Wrapper.SetMobileDrawer:
+    case ActionConsts.Core.SetMobileDrawer:
       return {
         ...state,
         mobileDrawer: typeof action.payload === 'boolean' ? action.payload : !state.mobileDrawer,
       };
 
-    case ActionConsts.Wrapper.SetBoxed:
+    case ActionConsts.Core.SetBoxed:
       return {
         ...state,
         boxed: typeof action.payload === 'boolean' ? action.payload : !state.boxed,
       };
 
-    case ActionConsts.Wrapper.SetSidebarTheme:
+    case ActionConsts.Core.SetSidebarTheme:
       return {
         ...state,
         darkSidebar: typeof action.payload === 'boolean' ? action.payload : !state.darkSidebar,
       };
 
-    case ActionConsts.Wrapper.SetSidebarPopup:
+    case ActionConsts.Core.SetSidebarPopup:
       return {
         ...state,
         sidebarPopup: typeof action.payload === 'boolean' ? action.payload : !state.sidebarPopup,
       };
 
-    case ActionConsts.Wrapper.SetSidebarIcons:
+    case ActionConsts.Core.SetSidebarIcons:
       return {
         ...state,
         sidebarIcons: typeof action.payload === 'boolean' ? action.payload : !state.sidebarIcons,
       };
 
-    case ActionConsts.Wrapper.SetCollapse:
+    case ActionConsts.Core.SetCollapse:
       const collapse = state.collapsed;
       let sidebarIcons = state.sidebarIcons;
       if (!collapse) sidebarIcons = true;
@@ -74,7 +74,7 @@ export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
         sidebarIcons,
       };
 
-    case ActionConsts.Wrapper.SetWeak:
+    case ActionConsts.Core.SetWeak:
       const weak = state.weakColor;
       let darkSidebar = state.darkSidebar;
       if (!weak && darkSidebar) darkSidebar = false;
@@ -84,14 +84,14 @@ export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
         darkSidebar,
       };
 
-    case ActionConsts.Wrapper.Setup:
+    case ActionConsts.Core.Setup:
       if (typeof localStorage !== 'undefined') {
         const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
-        wrapper = settings.coreStore || {};
+        coreStore = settings.coreStore || {};
       }
-      return { ...state, ...wrapper, ...action.payload };
+      return { ...state, ...coreStore, ...action.payload };
 
-    case ActionConsts.Wrapper.SetAccountId:
+    case ActionConsts.Core.SetAccountId:
       return {
         ...state,
         accountId: action.payload,
@@ -100,9 +100,9 @@ export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
     default:
       if (typeof localStorage !== 'undefined') {
         const settings: IStore = JSON.parse(localStorage.getItem('settings') || '{}');
-        wrapper = settings.coreStore || {};
+        coreStore = settings.coreStore || {};
       }
-      return { ...state, ...wrapper };
+      return { ...state, ...coreStore };
   }
 };
 /* eslint-enable complexity */

@@ -4,57 +4,57 @@ import { IDispatchProps } from '@onr/core';
 
 export const coreActions: IDispatchProps = {
   setOptionDrawer: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetOptionDrawer,
+    type: ActionConsts.Core.SetOptionDrawer,
     payload,
   }),
 
   setMobile: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetMobile,
+    type: ActionConsts.Core.SetMobile,
     payload,
   }),
 
   setMobileDrawer: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetMobileDrawer,
+    type: ActionConsts.Core.SetMobileDrawer,
     payload,
   }),
 
   setBoxed: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetBoxed,
+    type: ActionConsts.Core.SetBoxed,
     payload,
   }),
 
   setSidebarTheme: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetSidebarTheme,
+    type: ActionConsts.Core.SetSidebarTheme,
     payload,
   }),
 
   setSidebarPopup: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetSidebarPopup,
+    type: ActionConsts.Core.SetSidebarPopup,
     payload,
   }),
 
   setSidebarIcons: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetSidebarIcons,
+    type: ActionConsts.Core.SetSidebarIcons,
     payload,
   }),
 
   setCollapse: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetCollapse,
+    type: ActionConsts.Core.SetCollapse,
     payload,
   }),
 
   setWeak: (payload?: boolean) => ({
-    type: ActionConsts.Wrapper.SetWeak,
+    type: ActionConsts.Core.SetWeak,
     payload,
   }),
 
   setup: (payload?: any) => ({
-    type: ActionConsts.Wrapper.Setup,
+    type: ActionConsts.Core.Setup,
     payload,
   }),
 
   setAccountId: (payload?: number) => ({
-    type: ActionConsts.Wrapper.SetAccountId,
+    type: ActionConsts.Core.SetAccountId,
     payload,
   }),
 };

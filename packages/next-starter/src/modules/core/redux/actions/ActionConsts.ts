@@ -1,15 +1,15 @@
 export const ActionConsts = {
-  Wrapper: {
-    SetOptionDrawer: 'Wrapper_SetOptionDrawer',
-    SetMobile: 'Wrapper_SetMobile',
-    SetMobileDrawer: 'Wrapper_SetMobileDrawer',
-    SetBoxed: 'Wrapper_SetBoxed',
-    SetSidebarTheme: 'Wrapper_SetSidebarTheme',
-    SetSidebarPopup: 'Wrapper_SetSidebarPopup',
-    SetSidebarIcons: 'Wrapper_SetSidebarIcons',
-    SetCollapse: 'Wrapper_SetCollapse',
-    SetWeak: 'Wrapper_SetWeak',
-    Setup: 'Wrapper_Setup',
-    SetAccountId: 'Wrapper_SetAccountId',
+  Core: {
+    SetOptionDrawer: 'Core_SetOptionDrawer',
+    SetMobile: 'Core_SetMobile',
+    SetMobileDrawer: 'Core_SetMobileDrawer',
+    SetBoxed: 'Core_SetBoxed',
+    SetSidebarTheme: 'Core_SetSidebarTheme',
+    SetSidebarPopup: 'Core_SetSidebarPopup',
+    SetSidebarIcons: 'Core_SetSidebarIcons',
+    SetCollapse: 'Core_SetCollapse',
+    SetWeak: 'Core_SetWeak',
+    Setup: 'Core_Setup',
+    SetAccountId: 'Core_SetAccountId',
   },
 };
