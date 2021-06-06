@@ -2,11 +2,10 @@ import React from 'react';
 import HTTPStatus from 'http-status';
 import { Row } from 'antd';
 import styled from 'styled-components';
-import AnimatedBG from './styles/AnimatedBG';
+import { AnimatedBG } from './AnimatedBG';
 
 const Content = styled.div`
   max-width: 400px;
-export * from './Signin';
   z-index: 2;
   min-width: 300px;
   h1 {
@@ -14,7 +13,11 @@ export * from './Signin';
   }
 `;
 
-const NotFound = ({ code }) => {
+interface Props {
+  code: number;
+}
+
+const NotFound = ({ code }: Props) => {
   const title =
     code === 404
       ? 'This page could not be found'
