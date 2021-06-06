@@ -27,5 +27,11 @@
     "*.json": "jsonc"
   },
   "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-  "cSpell.words": ["antd", "miragejs", "serializers"]
+  "cSpell.words": [
+    "antd",
+    "consts",
+    "miragejs",
+    "serializers",
+    "sider"
+  ]
 }
