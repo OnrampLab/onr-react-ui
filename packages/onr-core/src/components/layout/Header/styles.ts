@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DashHeader = styled.div`
+export const DashHeader = styled.div`
   .ant-layout-header {
     position: relative;
     flex-direction: row;
@@ -66,13 +66,3 @@ const DashHeader = styled.div`
     padding-right: 1rem;
   }
 `;
-
-const Notification = styled.div`
-  .ant-list-item {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-`;
-
-export default DashHeader;
-export { Notification };

@@ -4,9 +4,9 @@ import { BarChart, Settings, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { coreActions, CoreStore } from '@onr/core';
+import { coreActions, CoreStore } from '../../../redux';
 
-import DashHeader from './styles/Header';
+import { DashHeader } from './styles';
 
 const { SubMenu } = Menu;
 

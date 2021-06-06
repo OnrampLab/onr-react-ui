@@ -4,9 +4,9 @@ import { AnyAction } from 'redux';
 import { Layout, Spin } from 'antd';
 import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
+import { Header } from '@core';
 import { CoreStore } from '@onr/core';
 
-import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
 import { theme } from './styles/GlobalStyles';
 import { Container, Inner } from './styles/Page';

@@ -19,9 +19,8 @@ import { AnyAction } from 'redux';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { AuthUser } from '@core';
+import { AuthUser, DashHeader } from '@core';
 
-import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
