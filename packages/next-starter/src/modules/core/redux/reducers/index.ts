@@ -1,5 +1,5 @@
-import { wrapperReducer } from './wrapperReducer';
+import { coreReducer } from './coreReducer';
 
 export const reducers = {
-  coreStore: wrapperReducer,
+  coreStore: coreReducer,
 };

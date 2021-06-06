@@ -18,7 +18,7 @@ const INITIAL_STATE: IStateProps = {
 };
 
 /* eslint-disable complexity */
-export const wrapperReducer = (state = INITIAL_STATE, action: IAction<any>) => {
+export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   let coreStore = {};
 
   switch (action.type) {
