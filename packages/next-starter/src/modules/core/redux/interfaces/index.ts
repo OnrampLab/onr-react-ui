@@ -1,3 +1,3 @@
 export * from './Action.d';
 export * from './Store.d';
-export * from './Wrapper.d';
+export * from './types.d';

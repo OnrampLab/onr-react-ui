@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/GlobalStyles';
 import { Container, Inner } from './styles/Page';
 
-import { IWrapperPage, IStore } from '@onr/core';
+import { IProps, IStore } from '@onr/core';
 
 const { Content } = Layout;
 
@@ -22,7 +22,7 @@ const NonDashboardRoutes = [
   '/_error',
 ];
 /* eslint-disable complexity */
-export const Page = (props: IWrapperPage.IProps) => {
+export const Page = (props: IProps) => {
   const { HeaderMainSection, menuItems, logout, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: IStore) => store.authStore.currentUser);

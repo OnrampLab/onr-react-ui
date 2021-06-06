@@ -24,11 +24,11 @@ import DashHeader from './styles/Header';
 import Inner from './styles/Sidebar';
 import { capitalize, lowercase } from '../../../lib/helpers';
 
-import { wrapperActions, IWrapperPage, IStore } from '@onr/core';
+import { coreActions, IProps, IStore } from '@onr/core';
 import { MenuItem } from '@app';
 
 /* eslint-disable complexity  */
-interface ISidebarMenuProps extends IWrapperPage.IProps {
+interface ISidebarMenuProps extends IProps {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   menuItems: MenuItem[];
@@ -82,7 +82,7 @@ export const SidebarMenu = ({ menuItems, currentUser, logout }: ISidebarMenuProp
     setSidebarIcons,
     setCollapse,
     setWeak,
-  } = wrapperActions;
+  } = coreActions;
   const { pathname = '' } = router || {};
 
   useEffect(() => {

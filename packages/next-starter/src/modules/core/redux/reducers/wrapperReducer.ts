@@ -1,8 +1,8 @@
 import { ActionConsts } from '../actions/ActionConsts';
 
-import { IAction, IWrapperPage, IStore } from '@onr/core';
+import { IAction, IMapPayload, IStateProps, IStore } from '@onr/core';
 
-const INITIAL_STATE: IWrapperPage.IStateProps = {
+const INITIAL_STATE: IStateProps = {
   version: 1,
   name: 'Next Starter',
   mobile: false,
@@ -16,8 +16,6 @@ const INITIAL_STATE: IWrapperPage.IStateProps = {
   mobileDrawer: false,
   fullscreen: false,
 };
-
-type IMapPayload = IWrapperPage.Actions.IMapPayload;
 
 /* eslint-disable complexity */
 export const wrapperReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {

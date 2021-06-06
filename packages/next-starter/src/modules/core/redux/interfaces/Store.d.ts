@@ -1,6 +1,6 @@
 import { AuthUser } from '@core';
 import { IAccount } from '@onr/account';
-import { IWrapperPage } from '@onr/core';
+import { IStateProps } from '@onr/core';
 
 export interface IStore {
   accountStore: {
@@ -9,5 +9,5 @@ export interface IStore {
   authStore: {
     currentUser: AuthUser;
   };
-  wrapper: IWrapperPage.IStateProps;
+  wrapper: IStateProps;
 }
