@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Table, Card, Modal, Button, message, Popconfirm } from 'antd';
 import { IUser, UserService, CreateUserForm, UpdateUserForm, UserRole } from '@onr/user';
-import { DefaultPubSubContext } from '@core';
+import { DefaultPubSubContext } from '@onr/core';
 import { ColumnProps } from 'antd/lib/table';
 import { IAccount } from '@onr/account';
 

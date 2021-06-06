@@ -1,5 +1,5 @@
 import { IAccount } from '@onr/account';
-import { AuthUser } from '@core';
+import { AuthUser } from '@onr/core';
 
 export enum UserRoleName {
   SystemAdmin = 'system-admin',

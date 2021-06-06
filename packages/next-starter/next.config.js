@@ -51,11 +51,8 @@ const nextConfig = {
     const workspaceCorePath = path.resolve(__dirname, 'node_modules/@onr/core');
     const packageCorePath = path.resolve(__dirname, '../onr-core');
 
-    const corePath = fs.existsSync(workspaceCorePath) ? workspaceCorePath : packageCorePath;
-
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@core': corePath,
     };
 
     return config;

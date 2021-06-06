@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { AppProps } from 'next/app';
-import { Page } from '@core';
+import { Page } from '@onr/core';
 import { AuthWrapper, logout } from '@onr/auth';
 import { AccountSelector } from '@onr/account';
 import { menuItems } from '../';
