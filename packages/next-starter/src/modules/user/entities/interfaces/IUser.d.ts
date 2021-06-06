@@ -1,4 +1,5 @@
 import { IAccount } from '@onr/account';
+import { AuthUser } from '@core';
 
 export enum UserRoleName {
   SystemAdmin = 'system-admin',
@@ -18,35 +19,7 @@ export interface UserRole {
  * @export
  * @interface IUser
  */
-export interface IUser {
-  /**
-   *
-   * @type {number}
-   * @memberof IUser
-   */
-  id?: number;
-
-  /**
-   *
-   * @type {string}
-   * @memberof IUser
-   */
-  name?: string;
-
-  /**
-   *
-   * @type {string}
-   * @memberof IUser
-   */
-  password?: string;
-
-  /**
-   *
-   * @type {string}
-   * @memberof IUser
-   */
-  email?: string;
-
+export interface IUser extends AuthUser {
   /**
    *
    * @type {string[]}
