@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-import { wrapperActions, IStore } from '@onr/core';
+import { coreActions, IStore } from '@onr/core';
 
 import reducers from './reducers';
 
@@ -40,13 +40,13 @@ export const afterComponentDidMount = () => {
   const mql = window.matchMedia(`(min-width: 992px)`);
 
   const mediaQueryChanged = () => {
-    _store.dispatch(wrapperActions.setMobile(!mql.matches));
+    _store.dispatch(coreActions.setMobile(!mql.matches));
     return () => mql.removeListener(mediaQueryChanged);
   };
 
   mql.addListener(mediaQueryChanged);
   _store.dispatch(
-    wrapperActions.setup({
+    coreActions.setup({
       mobile: !mql.matches,
     }),
   );

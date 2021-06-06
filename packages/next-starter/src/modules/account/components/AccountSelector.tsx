@@ -3,7 +3,7 @@ import { Select, message } from 'antd';
 import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { IAccount } from '@onr/account';
-import { wrapperActions, IStore } from '@onr/core';
+import { coreActions, IStore } from '@onr/core';
 
 export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ export const AccountSelector: React.FC = () => {
   }, [currentUser.accounts]);
 
   function changeAccount(accountId: number) {
-    dispatch(wrapperActions.setAccountId(accountId));
+    dispatch(coreActions.setAccountId(accountId));
     Router.push('/');
     message.info('Account has been changed');
   }

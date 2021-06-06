@@ -4,7 +4,7 @@ import { BarChart, Settings, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 
-import { wrapperActions, IStore } from '@onr/core';
+import { coreActions, IStore } from '@onr/core';
 
 import DashHeader from './styles/Header';
 
@@ -22,7 +22,7 @@ export const Header: React.FC = ({ HeaderMainSection }: Props) => {
     <DashHeader>
       <Layout.Header>
         {mobile && (
-          <a onClick={() => dispatch(wrapperActions.setMobileDrawer())} className="trigger">
+          <a onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
             <BarChart size={20} strokeWidth={1} />
           </a>
         )}
@@ -37,7 +37,7 @@ export const Header: React.FC = ({ HeaderMainSection }: Props) => {
 
         <span className="mr-auto" />
         <Menu mode="horizontal">
-          <Menu.Item onClick={() => dispatch(wrapperActions.setOptionDrawer())}>
+          <Menu.Item onClick={() => dispatch(coreActions.setOptionDrawer())}>
             <Settings size={20} strokeWidth={1} />
           </Menu.Item>
 
