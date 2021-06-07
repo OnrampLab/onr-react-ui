@@ -1,0 +1,24 @@
+{
+  "name": "@onr/prettier-config",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Onramplab's base Prettier config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onramplab/onr-react-ui.git"
+  },
+  "main": "index.js",
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "^2.3.1"
+  },
+  "peerDependencies": {
+    "prettier": "2.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
