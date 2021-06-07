@@ -1,5 +1,6 @@
 {
   "name": "next-starter",
+  "private": true,
   "version": "0.2.2",
   "description": "",
   "main": "src/server/index.js",
