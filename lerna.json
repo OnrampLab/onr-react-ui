@@ -12,5 +12,8 @@
     "version": {
       "message": "chore(release): publish"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
