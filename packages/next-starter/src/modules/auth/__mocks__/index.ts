@@ -1,4 +1,4 @@
-import { Mock } from '@core';
+import { Mock } from '@onr/core';
 import { IRole, roleModel } from './roleModel';
 import authRoutes from './routes.json';
 import roleSeeds from './roleSeeds.json';

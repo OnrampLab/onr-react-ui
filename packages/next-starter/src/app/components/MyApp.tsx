@@ -1,17 +1,18 @@
 import '../../assets/styles.less';
 import '../../assets/tailwind-extension.css';
 
-import { AppContext } from 'next/app';
+import { AppProps, AppContext } from 'next/app';
 import React, { Component } from 'react';
 import { MakeStore, createWrapper, Context } from 'next-redux-wrapper';
 import Head from 'next/head';
 import Router from 'next/router';
 import { start, done } from 'nprogress';
 
-import { GlobalStyles, AppProvider } from '@onr/core';
+import { AppProvider } from '@onr/core';
 import { store, afterComponentDidMount } from '../redux';
 
 import { PageContainer } from './PageContainer';
+import { GlobalStyles } from './GlobalStyles';
 
 const makeStore: MakeStore = (context: Context) => store();
 
@@ -31,7 +32,7 @@ interface Props {
   pageProps?: any;
 }
 
-export class AppComponent extends Component<Props> {
+export class AppComponent extends Component<AppProps> {
   // NOTE: In order to get runtime config. We will need to use getInitialProps. But the down side
   //       is it will opt out Next.js default static optimization.
   // Please refer to https://nextjs.org/docs/api-reference/next.config.js/runtime-configuration

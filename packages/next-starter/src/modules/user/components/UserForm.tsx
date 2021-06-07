@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Form, Button, Input, Spin, Select, Transfer } from 'antd';
 import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
 import { IUser, UserRoleName, UserRequestPayload } from '@onr/user';
-import { IStore } from '@onr/core';
+import { CoreStore } from '@onr/core';
 import { FormProps } from 'antd/lib/form';
 import { TransferItem } from 'antd/lib/transfer';
 import { IAccount } from '@onr/account';
@@ -26,7 +26,7 @@ const layout = {
 const UserForm: React.FC<IUserFormProps> = ({ currentUser, handleSubmit }: IUserFormProps) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const accounts: IAccount[] = useSelector((store: IStore) => store.accountStore.accounts);
+  const accounts: IAccount[] = useSelector((store: CoreStore) => store.accountStore.accounts);
 
   useEffect(() => {
     form?.resetFields();

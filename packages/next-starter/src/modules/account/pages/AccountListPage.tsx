@@ -1,11 +1,13 @@
 import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { DefaultPubSubContext, IStore } from '@onr/core';
-import { AccountList, accountActions } from '@onr/account';
+import { DefaultPubSubContext, CoreStore } from '@onr/core';
+import { AccountList, accountActions, StoreProps } from '@onr/account';
+
+type Store = CoreStore & StoreProps;
 
 export const AccountListPage: React.FC = () => {
   const dispatch = useDispatch();
-  const accounts = useSelector((store: IStore) => store.accountStore.accounts);
+  const accounts = useSelector((store: Store) => store.accountStore.accounts);
   const { subscribe } = useContext(DefaultPubSubContext);
 
   useEffect(() => {
@@ -22,7 +24,8 @@ export const AccountListPage: React.FC = () => {
     const unsub = subscribe('account.updated', fetchData);
 
     return unsub;
-  }, [dispatch, subscribe]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

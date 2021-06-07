@@ -13,6 +13,8 @@ export const accountActions = {
       params: payload.params,
     });
 
+    // FIXME: should not save accounts to store
+    // when fetching accounts in account list page, it will affect the data in UserSelector
     dispatch(
       accountActions.setAccounts({
         accounts,

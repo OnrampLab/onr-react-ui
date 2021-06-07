@@ -1,7 +1,7 @@
 import { AuthConsts, STORE_KEY, INITIAL_STATE } from './consts';
 import { IAction } from '@onr/core';
 
-export const authReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {
+export const authReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   switch (action.type) {
     case AuthConsts.SET_CURRENT_USER:
       return {

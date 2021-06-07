@@ -1,4 +1,4 @@
-import { Mock } from '@core';
+import { Mock } from '@onr/core';
 import { IAccount } from '../entities';
 import { accountFactory } from './accountFactory';
 import { accountModel } from './accountModel';

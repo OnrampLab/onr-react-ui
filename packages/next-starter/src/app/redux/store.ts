@@ -2,11 +2,11 @@ import { createStore, applyMiddleware, Store } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 
-import { wrapperActions, IStore } from '@onr/core';
+import { coreActions, CoreStore } from '@onr/core';
 
 import reducers from './reducers';
 
-const saveToLocal = (state: IStore) => {
+const saveToLocal = (state: CoreStore) => {
   if (typeof localStorage === 'undefined') {
     return;
   }
@@ -17,7 +17,7 @@ const saveToLocal = (state: IStore) => {
       ...state,
       ...{
         wrapper: {
-          ...state.wrapper,
+          ...state.coreStore,
           ...{
             mobile: undefined,
             optionDrawer: undefined,
@@ -40,13 +40,13 @@ export const afterComponentDidMount = () => {
   const mql = window.matchMedia(`(min-width: 992px)`);
 
   const mediaQueryChanged = () => {
-    _store.dispatch(wrapperActions.setMobile(!mql.matches));
+    _store.dispatch(coreActions.setMobile(!mql.matches));
     return () => mql.removeListener(mediaQueryChanged);
   };
 
   mql.addListener(mediaQueryChanged);
   _store.dispatch(
-    wrapperActions.setup({
+    coreActions.setup({
       mobile: !mql.matches,
     }),
   );
