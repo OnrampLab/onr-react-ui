@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/OnrampLab/onr-react-ui/compare/v0.2.3...v1.1.0) (2021-06-08)
+
+**Note:** Version bump only for package @onr/core
+
+
+
+
+
 ## [0.2.3](https://github.com/OnrampLab/onr-react-ui/compare/v0.2.2...v0.2.3) (2021-06-07)
 
 **Note:** Version bump only for package @onr/core
