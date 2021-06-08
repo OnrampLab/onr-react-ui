@@ -1,0 +1,39 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.5.0
+jobs:
+  build-and-test:
+    working_directory: ~/repo
+    executor:
+      name: node/default
+      tag: 'lts'
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: yarn lerna run test
+          name: Run YARN tests
+
+  release:
+    docker:
+      - image: circleci/node
+    steps:
+      - checkout
+      - node/install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run: npx lerna bootstrap --hoist --ci
+      - run: npx lerna version
+
+workflows:
+    build-and-test:
+      jobs:
+        - build-and-test
+        - release:
+            filters:
+              branches:
+                only: main
+            requires:
+              - build-and-test
