@@ -1,6 +1,6 @@
 {
   "name": "@onr/common",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "shared utils module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",
-    "@onr/prettier-config": "^1.0.0",
+    "@onr/prettier-config": "^1.1.0",
     "@types/antd": "^1.0.0",
     "@types/debug": "^4.1.5",
     "@types/lodash": "^4.14.168",
