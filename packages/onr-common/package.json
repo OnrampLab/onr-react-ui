@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc",
-    "test": "jest --coverage"
+    "test": "jest --coverage --passWithNoTests"
   },
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"

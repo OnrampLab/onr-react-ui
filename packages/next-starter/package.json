@@ -14,7 +14,7 @@
     "cli": "node ./project-cli/dist/index.js a",
     "_postinstall": "husky install",
     "build-project-cli": "cd project-cli && npm i && npm run build",
-    "test": "jest --coverage",
+    "test": "jest --coverage --passWithNoTests",
     "test:ci": "jest --ci --runInBand --collectCoverage=true --reporters=default --reporters=jest-junit --coverage",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
