@@ -16,22 +16,44 @@ jobs:
           name: Run YARN tests
 
   release:
-    docker:
-      - image: circleci/node
+    working_directory: ~/repo
+    executor:
+      name: node/default
+      tag: 'lts'
+    parameters:
+      email:
+        type: string
+        description: E-mail that to use for git commits created by Lerna.
+      fullname:
+        type: string
+        description: Full name to use as the committer for git commits created by
+          Lerna.
+      fingerprint:
+        type: string
+        description: |
+          Fingerprint of your SSH deploy key:
+          - https://circleci.com/docs/2.0/gh-bb-integration/#creating-a-github-user-key
     steps:
       - checkout
-      - node/install
+      - node/install-packages:
+          pkg-manager: yarn
+      - add_ssh_keys:
+          fingerprints:
+          - <<parameters.fingerprint>>
+      - run: git config --global user.email "<<parameters.email>>" && git config --global user.name "<<parameters.fullname>>"
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run: npx lerna bootstrap --hoist --ci
-      - run: npx lerna version
+      - run: yarn lerna publish --yes
 
 workflows:
     build-and-test:
       jobs:
         - build-and-test
         - release:
+            email: koshuang@gmail.com
+            fullname: Kos Huang
+            fingerprint: a6:f1:b5:11:dd:8b:a6:7e:17:82:1c:a8:89:cd:fb:c3
             filters:
               branches:
                 only: main
