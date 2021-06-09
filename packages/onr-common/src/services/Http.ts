@@ -45,13 +45,16 @@ interface Http {
   setToken: (token: string) => void;
   request: <T, K = EmptyObject>(payload: RequestPayload) => Promise<ResponsePayload<T> & K>;
   //TODO: should use axios's instance methods' params list instead
-  get: <T, K = EmptyObject>(url: string, payload: PayloadParams) => Promise<ResponsePayload<T> & K>;
-  post: <T, K = EmptyObject>(url: string, payload: PayloadData) => Promise<ResponsePayload<T> & K>;
+  get: <T, K = EmptyObject>(
+    url: string,
+    payload?: PayloadParams,
+  ) => Promise<ResponsePayload<T> & K>;
+  post: <T, K = EmptyObject>(url: string, payload?: PayloadData) => Promise<ResponsePayload<T> & K>;
   patch: <T, K = EmptyObject>(url: string, payload: PayloadData) => Promise<ResponsePayload<T> & K>;
   put: <T, K = EmptyObject>(url: string, payload: PayloadData) => Promise<ResponsePayload<T> & K>;
   delete: <T, K = EmptyObject>(
     url: string,
-    payload: PayloadParams,
+    payload?: PayloadParams,
   ) => Promise<ResponsePayload<T> & K>;
 }
 
@@ -123,14 +126,14 @@ const HTTP: Http = {
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  get: async (url: string, payload) => {
-    const { params = {} } = payload;
+  get: async (url: string, payload?) => {
+    const { params = {} } = payload ?? {};
     return HTTP.request({ method: 'GET', url, params });
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  post: async (url: string, payload) => {
-    const { params = {}, data = {} } = payload;
+  post: async (url: string, payload?) => {
+    const { params = {}, data = {} } = payload ?? {};
     return HTTP.request({ method: 'POST', url, params, data });
   },
 
@@ -145,7 +148,7 @@ const HTTP: Http = {
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  delete: async (url: string, payload) => {
+  delete: async (url: string, payload?) => {
     const { params = {} } = payload ?? {};
     return HTTP.request({ method: 'DELETE', url, params });
   },
