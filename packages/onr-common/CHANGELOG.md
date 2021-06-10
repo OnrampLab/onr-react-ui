@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/common@0.3.0...@onr/common@0.4.0) (2021-06-10)
+
+
+### Features
+
+* **common/service:** [Http] make some arguments optional ([3ef861c](https://github.com/OnrampLab/onr-react-ui/commit/3ef861ce1973b8395ed079def45461c1990b1ac6))
+
+
+
 ### [0.3.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/common@0.3.0...@onr/common@0.3.1) (2021-06-10)
 
 **Note:** Version bump only for package @onr/common
