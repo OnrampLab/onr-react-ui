@@ -1,4 +1,3 @@
-import { HttpModel } from '@onr/shared';
 import { Http } from '@onr/common';
 import { AuthModel } from '@onr/auth';
 import { IUser } from '@onr/user';
@@ -6,9 +5,7 @@ import { IUser } from '@onr/user';
 export const AuthService = {
   login: async (payload: AuthModel.SigninPayload): Promise<AuthModel.SigninResponse> => {
     try {
-      const response: HttpModel.IResponse<AuthModel.SigninResponse> = await Http.post<
-        AuthModel.SigninResponse
-      >('/auth/login', {
+      const response = await Http.post<AuthModel.SigninResponse>('/auth/login', {
         data: payload.data,
       });
 

@@ -18,11 +18,19 @@ declare type RequestMethods =
   | 'patch'
   | 'PATCH';
 
-interface RequestPayload {
+type Data = any;
+type EmptyObject = Record<string, never>;
+
+type PayloadParams = {
+  params?: Data;
+};
+interface PayloadData extends PayloadParams {
+  data?: Data;
+}
+
+interface RequestPayload extends PayloadData {
   method: RequestMethods;
   url: string;
-  params?: Record<string, unknown>;
-  data?: Record<string, unknown>;
 }
 
 interface ResponsePayload<T> {
@@ -35,42 +43,18 @@ interface Http {
   apiToken: string;
   setBaseUrl: (ur: string) => void;
   setToken: (token: string) => void;
-  request: <T, K = Record<string, never>>(
-    payload: RequestPayload
-  ) => Promise<ResponsePayload<T> & K>;
+  request: <T, K = EmptyObject>(payload: RequestPayload) => Promise<ResponsePayload<T> & K>;
   //TODO: should use axios's instance methods' params list instead
-  get: <T, K = Record<string, never>>(
+  get: <T, K = EmptyObject>(
     url: string,
-    payload: {
-      params: Record<string, unknown>;
-    }
+    payload?: PayloadParams,
   ) => Promise<ResponsePayload<T> & K>;
-  post: <T, K = Record<string, never>>(
+  post: <T, K = EmptyObject>(url: string, payload?: PayloadData) => Promise<ResponsePayload<T> & K>;
+  patch: <T, K = EmptyObject>(url: string, payload: PayloadData) => Promise<ResponsePayload<T> & K>;
+  put: <T, K = EmptyObject>(url: string, payload: PayloadData) => Promise<ResponsePayload<T> & K>;
+  delete: <T, K = EmptyObject>(
     url: string,
-    payload: {
-      params: Record<string, unknown>;
-      data: Record<string, unknown>;
-    }
-  ) => Promise<ResponsePayload<T> & K>;
-  patch: <T, K = Record<string, never>>(
-    url: string,
-    payload: {
-      params: Record<string, unknown>;
-      data: Record<string, unknown>;
-    }
-  ) => Promise<ResponsePayload<T> & K>;
-  put: <T, K = Record<string, never>>(
-    url: string,
-    payload: {
-      params: Record<string, unknown>;
-      data: Record<string, unknown>;
-    }
-  ) => Promise<ResponsePayload<T> & K>;
-  delete: <T, K = Record<string, never>>(
-    url: string,
-    payload: {
-      params: Record<string, unknown>;
-    }
+    payload?: PayloadParams,
   ) => Promise<ResponsePayload<T> & K>;
 }
 
@@ -84,7 +68,7 @@ interface ProcessEnv {
   API_KEY?: string;
 }
 
-const hasProcessEnv = (entry: Record<string, unknown>): entry is Record<'processEnv', ProcessEnv> =>
+const hasProcessEnv = (entry: Data): entry is Record<'processEnv', ProcessEnv> =>
   !!entry.processEnv;
 
 const { publicRuntimeConfig } = getConfig() as {
@@ -136,48 +120,36 @@ const HTTP: Http = {
         throw new Error(res.data?.message);
       }
     } catch (_e) {
-      const error = (_e as unknown) as AxiosError<ResponsePayload<T> & K>;
+      const error = _e as unknown as AxiosError<ResponsePayload<T> & K>;
       throw new Error(error.response?.data?.message || error.message);
     }
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  get: async <T, K = Record<string, never>>(
-    url: string,
-    { params = {} } = {}
-  ): Promise<ResponsePayload<T> & K> => {
+  get: async (url: string, payload?) => {
+    const { params = {} } = payload ?? {};
     return HTTP.request({ method: 'GET', url, params });
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  post: async <T, K = Record<string, never>>(
-    url: string,
-    { params = {}, data = {} } = {}
-  ): Promise<ResponsePayload<T> & K> => {
+  post: async (url: string, payload?) => {
+    const { params = {}, data = {} } = payload ?? {};
     return HTTP.request({ method: 'POST', url, params, data });
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  patch: async <T, K = Record<string, never>>(
-    url: string,
-    { params = {}, data = {} } = {}
-  ): Promise<ResponsePayload<T> & K> => {
+  patch: async (url: string, { params, data }) => {
     return HTTP.request({ method: 'PATCH', url, params, data });
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  put: async <T, K = Record<string, never>>(
-    url: string,
-    { params = {}, data = {} } = {}
-  ): Promise<ResponsePayload<T> & K> => {
+  put: async (url: string, { params, data }) => {
     return HTTP.request({ method: 'PUT', url, params, data });
   },
 
   //TODO: should rewrite and use axios's instance method instead
-  delete: async <T, K = Record<string, never>>(
-    url: string,
-    { params = {} } = {}
-  ): Promise<ResponsePayload<T> & K> => {
+  delete: async (url: string, payload?) => {
+    const { params = {} } = payload ?? {};
     return HTTP.request({ method: 'DELETE', url, params });
   },
 };

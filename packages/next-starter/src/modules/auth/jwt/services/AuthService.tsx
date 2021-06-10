@@ -1,5 +1,4 @@
 import { Http } from '@onr/common';
-import { HttpModel } from '@onr/shared';
 import { AuthService as AuthCoreService } from '@onr/auth/core';
 import { AuthModel } from '@onr/auth';
 
@@ -9,10 +8,7 @@ export const AuthService = {
     try {
       Http.setToken(token);
 
-      const response: HttpModel.IResponse<AuthModel.SigninResponse> = await Http.post<
-        AuthModel.SigninResponse,
-        any
-      >('/auth/refresh');
+      const response = await Http.post<AuthModel.SigninResponse, any>('/auth/refresh');
 
       Http.setToken(response.data.access_token);
 
