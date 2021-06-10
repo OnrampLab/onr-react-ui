@@ -1,6 +1,6 @@
 {
   "name": "@onr/common",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "shared utils module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
