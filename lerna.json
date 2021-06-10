@@ -15,7 +15,7 @@
         "**/*.test.{j|t}s",
         "@(!(package)).json"
       ],
-      "message": "chore(release): publish",
+      "message": "chore(release): publish [ci skip]",
       "conventionalCommits": true,
       "createRelease": "github"
     },
