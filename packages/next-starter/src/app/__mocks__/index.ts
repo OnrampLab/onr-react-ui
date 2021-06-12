@@ -1,4 +1,4 @@
-import { Mocks } from '@onr/core';
+import { Mocks } from '@onr/mock';
 import { mocks as accountMocks } from '@onr/account/__mocks__';
 import { mocks as authMocks } from '@onr/auth/__mocks__';
 import { mocks as userMocks } from '@onr/user/__mocks__';
