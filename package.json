@@ -6,14 +6,18 @@
   ],
   "scripts": {
     "dev": "lerna run dev --parallel",
+    "lint": "lerna run lint --parallel",
+    "format": "lerna run format --parallel",
     "postinstall": "husky install"
   },
   "engines": {
     "node": ">=12"
   },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "@onr/prettier-config": "^1.1.0"
   },
+  "prettier": "@onr/prettier-config",
   "lint-staged": {
     "**/*.(js|ts|tsx)": [
       "eslint -c .eslintrc.js --fix",

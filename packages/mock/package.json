@@ -23,6 +23,8 @@
   },
   "scripts": {
     "dev": "tsc --watch --preserveWatchOutput",
+    "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "build": "tsc",
     "test": "jest --coverage --passWithNoTests"
   },
