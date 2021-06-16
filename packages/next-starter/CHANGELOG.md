@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.4.0...next-starter@0.5.0) (2021-06-16)
+
+
+### Features
+
+* **starter/page:** add custom error page ([61adc32](https://github.com/OnrampLab/onr-react-ui/commit/61adc32780511ef82e4a174af007a1ff7e0890cf))
+
+
+
 ## [0.4.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.3.2...next-starter@0.4.0) (2021-06-16)
 
 
