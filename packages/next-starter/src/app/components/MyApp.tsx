@@ -8,15 +8,22 @@ import Head from 'next/head';
 import Router from 'next/router';
 import { start, done } from 'nprogress';
 
-import { AppProvider } from '@onr/core';
+import { AppProvider, createApp, OnrApp } from '@onr/core';
 import { store, afterComponentDidMount } from '../redux';
 
 import { PageContainer } from './PageContainer';
 import { GlobalStyles } from './GlobalStyles';
+import { menuItems } from '../configs';
 
 const makeStore: MakeStore = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
+
+const app: OnrApp = createApp({
+  routes: menuItems,
+});
+
+const NewAppProvider = app.getProvider();
 
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
@@ -80,7 +87,9 @@ export class AppComponent extends Component<AppProps> {
           )}
         </Head>
         <AppProvider>
-          <PageContainer {...this.props} />
+          <NewAppProvider>
+            <PageContainer {...this.props} />
+          </NewAppProvider>
         </AppProvider>
       </>
     );
