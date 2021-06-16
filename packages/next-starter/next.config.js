@@ -46,17 +46,6 @@ const nextConfig = {
   pwa: {
     dest: 'public',
   },
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // NOTE: should be able to remove after migrate all core module into core package
-    const workspaceCorePath = path.resolve(__dirname, 'node_modules/@onr/core');
-    const packageCorePath = path.resolve(__dirname, '../onr-core');
-
-    config.resolve.alias = {
-      ...config.resolve.alias,
-    };
-
-    return config;
-  },
 };
 
 const plugins = [[withLess], [withBundleAnalyzer], [withSASS]];

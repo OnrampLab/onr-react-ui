@@ -1,4 +1,4 @@
-import { Mock } from '@onr/core';
+import { Mock } from '@onr/mock';
 import { IUser } from '../entities';
 import { userModel } from './userModel';
 import userSeeds from './userSeeds.json';
