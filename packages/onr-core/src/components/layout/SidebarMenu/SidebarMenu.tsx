@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from 'antd';
 import { Book, LogOut, Triangle } from 'react-feather';
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { capitalize } from 'lodash';
@@ -24,6 +24,7 @@ import { coreActions, CoreStore } from '../../../redux';
 import { AuthUser } from '../../../types';
 import { DashHeader } from '../Header';
 import { Sidebar } from './styles';
+import { AppContext } from '../../App';
 
 /* eslint-disable complexity  */
 interface Props {
@@ -52,9 +53,11 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ menuItems, currentUser, logout }: Props) => {
+export const SidebarMenu = ({ currentUser, logout }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
+  const app = useContext(AppContext);
+  const menuItems = app.getRoutes();
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
   const [appRoutes, setAppRoutes] = React.useState(menuItems);
   const {
