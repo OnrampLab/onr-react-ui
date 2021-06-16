@@ -58,7 +58,7 @@ export class Mocks implements IMocks {
     this.mocks.forEach(mock => mock.registerRoutes(server));
 
     server.passthrough(request => {
-      if (request.url.startsWith('/_next/')) {
+      if (request.url.startsWith('/_next/') || !request.url.includes('/api/')) {
         return true;
       }
     });
