@@ -1,6 +1,6 @@
 {
   "name": "@onr/core",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "core module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",
-    "@onr/eslint-config": "^0.2.4",
+    "@onr/eslint-config": "^0.2.5",
     "@onr/prettier-config": "^1.1.0",
     "@types/antd": "^1.0.0",
     "@types/lodash": "^4.14.168",
