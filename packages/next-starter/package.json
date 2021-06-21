@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@onr/common": "^0.4.2",
-    "@onr/core": "^0.4.1",
+    "@onr/core": "^0.5.0",
     "@onr/mock": "^0.1.2",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",

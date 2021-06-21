@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.5.1...next-starter@0.6.0) (2021-06-21)
+
+
+### Features
+
+* **core/component:** [SidebarMenu] get menuItems from app container ([137fa16](https://github.com/OnrampLab/onr-react-ui/commit/137fa1642a03d907a56ba4e88d34d92d0b660ab9))
+* **starter/component:** [MyApp] can use createApp to create a app container ([eef0a21](https://github.com/OnrampLab/onr-react-ui/commit/eef0a21dfa2294068bd1ff94bdf6d4d3116e4d98))
+
+
+
 ### [0.5.1](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.5.0...next-starter@0.5.1) (2021-06-17)
 
 **Note:** Version bump only for package next-starter

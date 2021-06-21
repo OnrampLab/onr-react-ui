@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.4.1...@onr/core@0.5.0) (2021-06-21)
+
+
+### Features
+
+* **core/component:** [SidebarMenu] get menuItems from app container ([137fa16](https://github.com/OnrampLab/onr-react-ui/commit/137fa1642a03d907a56ba4e88d34d92d0b660ab9))
+* **core/container:** [App] added ([a202351](https://github.com/OnrampLab/onr-react-ui/commit/a2023512476cb5dde9421f20a1b6536b886e362f))
+* **core/wrapper:** [createApp] added ([3d7ecfa](https://github.com/OnrampLab/onr-react-ui/commit/3d7ecfabba4d5a4ba0d9188c76dbbfcbf08f6c56))
+
+
+
 ### [0.4.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.4.0...@onr/core@0.4.1) (2021-06-17)
 
 **Note:** Version bump only for package @onr/core
