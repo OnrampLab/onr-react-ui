@@ -29,7 +29,7 @@ const NonDashboardRoutes = [
 ];
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
-  const { HeaderMainSection, menuItems, theme, logout, children } = props;
+  const { HeaderMainSection, theme, logout, children } = props;
   const router = useRouter();
   const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
@@ -54,7 +54,6 @@ export const Page = (props: Props) => {
               <SidebarMenu
                 logout={logout}
                 currentUser={currentUser}
-                menuItems={menuItems}
                 sidebarTheme={darkSidebar ? 'dark' : 'light'}
                 sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
               />
