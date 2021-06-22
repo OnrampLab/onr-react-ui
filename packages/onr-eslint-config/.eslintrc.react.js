@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['plugin:react/recommended', 'prettier/react', 'plugin:react-hooks/recommended'],
+  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
