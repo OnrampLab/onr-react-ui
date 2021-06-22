@@ -8,6 +8,7 @@
     "dev": "lerna run dev --parallel",
     "lint": "lerna run lint --parallel",
     "format": "lerna run format --parallel",
+    "test": "lerna run test --parallel",
     "postinstall": "husky install"
   },
   "engines": {
