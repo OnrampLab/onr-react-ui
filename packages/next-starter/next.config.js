@@ -1,13 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPlugins = require('next-compose-plugins');
-const withLess = require('@zeit/next-less');
-const withCSS = require('@zeit/next-css');
-const withPurgeCss = require('next-purgecss');
-const withSASS = require('@zeit/next-sass');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const withPWA = require('next-pwa');
-const path = require('path');
-const fs = require('fs');
+const withAntdLess = require('next-plugin-antd-less');
 
 /* eslint-enable @typescript-eslint/no-var-requires */
 
@@ -16,6 +11,17 @@ if (typeof require !== 'undefined') {
 }
 
 const nextConfig = {
+  webpack5: true,
+
+  // optional
+  modifyVars: {},
+  // optional
+  lessVarsFilePath: './src/assets/antd-custom.less',
+  // optional
+  lessVarsFilePathAppendToEndOfContent: false,
+  // optional https://github.com/webpack-contrib/css-loader#object
+  cssLoaderOptions: {},
+
   publicRuntimeConfig: {
     // Will be available on both server and client
     processEnv: process.env,
@@ -48,12 +54,12 @@ const nextConfig = {
   },
 };
 
-const plugins = [[withLess], [withBundleAnalyzer], [withSASS]];
+const plugins = [[withAntdLess], [withBundleAnalyzer]];
 
 if (process.env.NODE_ENV !== 'development') {
-  plugins.push([withPWA], [withCSS, withPurgeCss]);
+  plugins.push([withPWA]);
 } else {
-  plugins.push([withCSS]);
+  // plugins.push([]);
 }
 
 module.exports = withPlugins(plugins, nextConfig);
