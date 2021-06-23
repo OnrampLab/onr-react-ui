@@ -1,23 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  presets: [{
-    name: 'storybook-addon-deps/preset',
-    options: {
-      exclude: /^@babel/
-    }
-  }],
-  stories: ['../src/**/*.stories.(mdx|tsx)'],
+  // presets: [
+  //   {
+  //     name: 'storybook-addon-deps/preset',
+  //     options: {
+  //       exclude: /^@babel/,
+  //     },
+  //   },
+  // ],
+  stories: ['../src/**/*.stories.@(mdx|tsx)'],
   addons: [
-    {
-      name: '@storybook/preset-typescript',
-      options: {
-        forkTsCheckerWebpackPluginOptions: {
-          colors: false, // disables built-in colors in logger messages
-        },
-        include: [path.resolve('../src')],
-      },
-    },
     {
       name: '@storybook/addon-docs',
       options: {
@@ -29,6 +22,10 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-knobs',
   ],
+  // https://github.com/styleguidist/react-docgen-typescript/issues/356
+  typescript: {
+    reactDocgen: 'react-docgen',
+  },
   webpackFinal: async (config, { configType }) => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,
@@ -51,7 +48,7 @@ module.exports = {
           {
             loader: 'less-loader',
             options: {
-              javascriptEnabled: true
+              javascriptEnabled: true,
             },
           },
         ],
