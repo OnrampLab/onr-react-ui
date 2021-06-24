@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.6.1](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.6.0...next-starter@0.6.1) (2021-06-24)
+
+**Note:** Version bump only for package next-starter
+
+
+
+
+
 ## [0.6.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.5.1...next-starter@0.6.0) (2021-06-21)
 
 
