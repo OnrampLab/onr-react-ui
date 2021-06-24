@@ -1,0 +1,29 @@
+{
+  "name": "@onr/tsconfig",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "description": "Common tsconfigs to be used as your base configurations",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onramplab/onr-react-ui.git"
+  },
+  "main": "tsconfig.json",
+  "files": [
+    "tsconfig.json"
+  ],
+  "scripts": {
+    "test": "./run-tests.sh"
+  },
+  "devDependencies": {
+    "typescript": "4.2.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=4 <5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

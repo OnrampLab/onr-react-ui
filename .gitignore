@@ -6,3 +6,8 @@ packages/*/types
 .next
 .env
 .env.local
+
+coverage
+
+# TypeScript cache
+*.tsbuildinfo

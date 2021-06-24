@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {},
   "author": "",
+  "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OnrampLab/onr-react-ui/issues"
+  },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
