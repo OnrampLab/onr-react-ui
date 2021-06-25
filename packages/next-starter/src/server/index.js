@@ -3,6 +3,7 @@ const express = require('express');
 const next = require('next');
 const path = require('path');
 const devProxy = require('./proxy');
+const notifier = require('node-notifier');
 
 const PORT = process.env.PORT || 3000;
 
@@ -41,6 +42,11 @@ app.prepare().then(() => {
     if (process.send) {
       console.log(`process(${process.pid}) is ready`);
       process.send('ready');
+
+      notifier.notify({
+        title: '我好了！',
+        message: '棒棒！',
+      });
     }
   });
 

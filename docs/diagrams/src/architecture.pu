@@ -1,0 +1,47 @@
+@startuml "Architecture - Before"
+
+package app
+
+left to right direction
+
+package account
+package auth
+package home
+package user
+
+package core
+package common
+
+app --> account
+app --> home
+app --> user
+app --> auth
+
+app .> core
+app .> common
+
+@enduml
+
+@startuml "Architecture - After"
+
+package app
+
+left to right direction
+
+package account
+package auth
+package home
+package user
+
+package core
+package common
+
+app --> account
+app --> home
+app --> user
+
+app .> auth
+app .> core
+app .> common
+
+@enduml

@@ -58,8 +58,6 @@ const plugins = [[withAntdLess], [withBundleAnalyzer]];
 
 if (process.env.NODE_ENV !== 'development') {
   plugins.push([withPWA]);
-} else {
-  // plugins.push([]);
 }
 
 module.exports = withPlugins(plugins, nextConfig);
