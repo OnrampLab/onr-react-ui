@@ -1,19 +1,14 @@
-import '../../assets/styles.less';
-import '../../assets/tailwind-extension.css';
-
-import { AppProps, AppContext } from 'next/app';
-import React, { Component } from 'react';
-import { MakeStore, createWrapper, Context } from 'next-redux-wrapper';
+import { AppProvider, createApp, OnrApp } from '@onr/core';
+import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
+import { AppContext, AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
-import { start, done } from 'nprogress';
-
-import { AppProvider, createApp, OnrApp } from '@onr/core';
-import { store, afterComponentDidMount } from '../redux';
-
-import { PageContainer } from './PageContainer';
-import { GlobalStyles } from './GlobalStyles';
+import { done, start } from 'nprogress';
+import React, { Component } from 'react';
 import { menuItems } from '../configs';
+import { afterComponentDidMount, store } from '../redux';
+import { GlobalStyles } from './GlobalStyles';
+import { PageContainer } from './PageContainer';
 
 const makeStore: MakeStore = (context: Context) => store();
 
