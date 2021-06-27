@@ -1,6 +1,6 @@
-import { FactoryDefinition, ModelDefinition } from 'miragejs/-types';
 import { getDebugger } from '@onr/common';
 import { Serializer, Server } from 'miragejs';
+import { FactoryDefinition, ModelDefinition } from 'miragejs/-types';
 import { MockCallback } from './types';
 
 const debug = getDebugger('onr:core:mock');
@@ -64,10 +64,11 @@ export class Mock implements IMock {
     }
   }
 
-  private registerResourceRoutes(server: Server, resource: any) {
+  private registerResourceRoutes(server: Server, resource: string) {
     debug(`register resource routes => ${resource}`);
 
     server.get(`/${resource}`, function (schema) {
+      // @ts-ignore
       const data = this.serialize(schema[resource].all())[resource];
 
       return {
@@ -77,6 +78,7 @@ export class Mock implements IMock {
 
     server.post(`/${resource}`, (schema, request) => {
       return {
+        // @ts-ignore
         data: [schema[resource].create(JSON.parse(request.requestBody))],
       };
     });
@@ -84,6 +86,7 @@ export class Mock implements IMock {
     server.patch(`/${resource}/:id`, (schema, request) => {
       const { id } = request.params;
 
+      // @ts-ignore
       schema[resource].find(id).update(JSON.parse(request.requestBody));
 
       return {
