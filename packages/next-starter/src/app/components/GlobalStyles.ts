@@ -1,16 +1,8 @@
-import { createGlobalStyle } from 'styled-components';
-import * as lessToJs from 'less-vars-to-js';
-import { objectToCamelCase } from '../../lib/helpers';
 import paletteLess from '!!raw-loader!../../assets/antd-custom.less';
+import { createGlobalStyle } from 'styled-components';
+import { getAntdVariables } from '../../lib/getAntdVariables';
 
-const lessVariables = lessToJs(paletteLess || '', {
-    resolveVariables: true,
-    stripPrefix: true,
-  }),
-  camelCasedVariables = objectToCamelCase(lessVariables),
-  theme = {
-    ...camelCasedVariables,
-  };
+const theme = getAntdVariables(paletteLess);
 
 const GlobalStyles = createGlobalStyle`
   *, *:before, *:after {
