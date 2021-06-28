@@ -1,6 +1,6 @@
-import { stringify } from 'qs';
-import Axios, { AxiosResponse, AxiosError } from 'axios';
+import Axios, { AxiosError, AxiosResponse } from 'axios';
 import getConfig from 'next/config';
+import { stringify } from 'qs';
 
 declare type RequestMethods =
   | 'get'
@@ -39,8 +39,8 @@ interface ResponsePayload<T> {
 }
 
 interface Http {
-  baseUrl: string;
-  apiToken: string;
+  baseUrl: string | null;
+  apiToken: string | null;
   setBaseUrl: (ur: string) => void;
   setToken: (token: string) => void;
   request: <T, K = EmptyObject>(payload: RequestPayload) => Promise<ResponsePayload<T> & K>;
@@ -80,10 +80,12 @@ if (!('processEnv' in publicRuntimeConfig) || !hasProcessEnv(publicRuntimeConfig
 }
 
 const HTTP: Http = {
-  baseUrl: `${publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_URL}/api`,
-  apiToken: publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_KEY || '',
+  baseUrl: null,
+  apiToken: null,
 
-  setBaseUrl: (url: string): string => (HTTP.baseUrl = url),
+  setBaseUrl: (url: string): void => {
+    HTTP.baseUrl = url;
+  },
 
   setToken(token: string): void {
     HTTP.apiToken = token;
