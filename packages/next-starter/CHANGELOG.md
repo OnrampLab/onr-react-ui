@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.6.2...next-starter@0.7.0) (2021-06-28)
+
+
+### Features
+
+* **starter:** [tailwindcss] add antd palettes ([58fe5dd](https://github.com/OnrampLab/onr-react-ui/commit/58fe5dd850a2ef670076ab29b709f6b41d42dc22))
+* **starter/lib:** [getAntdVariables] extracted from GlobalStyles ([43a2a70](https://github.com/OnrampLab/onr-react-ui/commit/43a2a7063a667aedc683acd6b1570fc9ffb35035))
+* **starter/lib:** [mergeArrayToObject] new ([9b5f760](https://github.com/OnrampLab/onr-react-ui/commit/9b5f7607e5b5296739df6c6f8a89f0156ca5c38f))
+* **starter/lib:** [rgbHex] new ([7062575](https://github.com/OnrampLab/onr-react-ui/commit/7062575033302d0028d4ce94ef1a5ced2227fb81))
+
+
+
 ### [0.6.2](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.6.1...next-starter@0.6.2) (2021-06-25)
 
 **Note:** Version bump only for package next-starter
