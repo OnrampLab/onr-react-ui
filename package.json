@@ -10,6 +10,7 @@
     "lint": "lerna run lint --parallel",
     "format": "lerna run format --parallel",
     "test": "lerna run test --parallel",
+    "prepublishOnly": "yarn build",
     "postinstall": "husky install"
   },
   "engines": {
