@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { usePubSub } from '../../hooks';
 
 export const AppProvider = props => {

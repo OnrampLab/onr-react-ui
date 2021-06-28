@@ -1,20 +1,18 @@
-import React from 'react';
 import { Avatar, Layout, Menu } from 'antd';
+import Link from 'next/link';
+import React, { ReactNode } from 'react';
 import { BarChart, Settings, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
-import Link from 'next/link';
-
 import { coreActions, CoreStore } from '../../../redux';
-
 import { DashHeader } from './styles';
 
 const { SubMenu } = Menu;
 
 type Props = {
-  HeaderMainSection: React.Component;
+  HeaderMainSection: ReactNode;
 };
 
-export const Header: React.FC = ({ HeaderMainSection }: Props) => {
+export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
   const dispatch = useDispatch();
   const { name, mobile } = useSelector((store: CoreStore) => store.coreStore);
 
@@ -33,7 +31,7 @@ export const Header: React.FC = ({ HeaderMainSection }: Props) => {
           </a>
         </Link>
 
-        <HeaderMainSection />
+        {HeaderMainSection}
 
         <span className="mr-auto" />
         <Menu mode="horizontal">

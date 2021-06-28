@@ -1,3 +1,4 @@
+// @ts-nocheck
 import {
   Avatar,
   Badge,
@@ -12,25 +13,23 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
-import { Book, LogOut, Triangle } from 'react-feather';
-import React, { useEffect, useContext } from 'react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 import { capitalize } from 'lodash';
-import { AnyAction } from 'redux';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect } from 'react';
+import { Book, LogOut, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { AnyAction } from 'redux';
 import { coreActions, CoreStore } from '../../../redux';
 import { AuthUser } from '../../../types';
+import { AppContext } from '../../App';
 import { DashHeader } from '../Header';
 import { Sidebar } from './styles';
-import { AppContext } from '../../App';
 
 /* eslint-disable complexity  */
 interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
-  menuItems: any[];
   currentUser: AuthUser;
   logout: () => AnyAction;
 }
@@ -53,7 +52,7 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ currentUser, logout }: Props) => {
+export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const app = useContext(AppContext);

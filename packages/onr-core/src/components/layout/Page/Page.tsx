@@ -1,18 +1,15 @@
+import { Layout, Spin } from 'antd';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
-import { Layout, Spin } from 'antd';
-import { useRouter } from 'next/router';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
-
 import { CoreStore } from '../../../redux';
-
 import { Container, Inner } from './styles';
 
 interface Props {
   children: JSX.Element;
-  menuItems: any[];
   theme: any;
   HeaderMainSection: FC;
   logout: () => AnyAction;
