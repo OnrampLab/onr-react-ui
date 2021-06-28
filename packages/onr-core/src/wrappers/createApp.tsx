@@ -15,8 +15,11 @@ export function createApp(options?: AppOptions) {
 
   const app = new App({
     components,
+    appConfig: options?.appConfig,
     routes: options?.routes,
   });
+
+  app.initialize();
 
   return app;
 }

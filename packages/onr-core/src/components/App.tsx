@@ -1,7 +1,8 @@
+import { Http } from '@onr/common';
 import { createContext, FC, ReactNode } from 'react';
 import { AppComponents, FullAppOptions, OnrApp } from '../types';
 
-export const AppContext = createContext(null);
+export const AppContext = createContext<any | null>(null);
 
 type ProviderProps = {
   children?: ReactNode;
@@ -9,11 +10,18 @@ type ProviderProps = {
 
 export class App implements OnrApp {
   private readonly components: AppComponents;
+  private readonly appConfig: any;
   private readonly routes: any;
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
+    this.appConfig = options.appConfig;
     this.routes = options.routes;
+  }
+
+  initialize() {
+    Http.setBaseUrl(this.appConfig.apiBaseUrl);
+    Http.setToken(this.appConfig.apiKey);
   }
 
   getComponents(): AppComponents {
@@ -27,6 +35,10 @@ export class App implements OnrApp {
     };
 
     return Provider;
+  }
+
+  getAppConfig() {
+    return this.appConfig;
   }
 
   getRoutes() {
