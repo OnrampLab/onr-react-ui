@@ -22,7 +22,7 @@ app.prepare().then(() => {
 
   if (process.env.PROXY_MODE === 'local') {
     const proxyMiddleware = require('http-proxy-middleware');
-    Object.keys(devProxy).forEach(function(context) {
+    Object.keys(devProxy).forEach(function (context) {
       server.use(proxyMiddleware(context, devProxy[context]));
     });
   }

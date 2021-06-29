@@ -7,15 +7,14 @@
 
 const React = require('react');
 
-const docs = require("../docs.json");
+const docs = require('../docs.json');
 
 class Footer extends React.Component {
-
   constructor() {
     super();
     this.state = {
-      docs
-    }
+      docs,
+    };
   }
 
   docUrl(doc, language) {
@@ -46,27 +45,19 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            {
-              this.state.docs.map((doc, index) => (
-                <a key={index} href={this.docUrl(`${doc.id}.html`, this.props.language)}>
-                  {doc.title}
-                </a>
-              ))
-            }
+            {this.state.docs.map((doc, index) => (
+              <a key={index} href={this.docUrl(`${doc.id}.html`, this.props.language)}>
+                {doc.title}
+              </a>
+            ))}
           </div>
           <div>
             <h5>Community</h5>
-            {
-              this.props.config.socialMediaUrl.map((url, index) => (
-                <a
-                  key={index}
-                  href={url.url}
-                  target="_blank"
-                  rel="noreferrer noopener">
-                  {url.title}
-                </a>
-              ))
-            }
+            {this.props.config.socialMediaUrl.map((url, index) => (
+              <a key={index} href={url.url} target="_blank" rel="noreferrer noopener">
+                {url.title}
+              </a>
+            ))}
           </div>
           <div>
             <h5>More</h5>
@@ -78,7 +69,8 @@ class Footer extends React.Component {
               data-count-href="/facebook/docusaurus/stargazers"
               data-show-count="true"
               data-count-aria-label="# stargazers on GitHub"
-              aria-label="Star this project on GitHub">
+              aria-label="Star this project on GitHub"
+            >
               Star
             </a>
           </div>
@@ -88,7 +80,8 @@ class Footer extends React.Component {
           href="https://github.com/pankod/next-boilerplate"
           target="_blank"
           rel="noreferrer noopener"
-          className="fbOpenSource">
+          className="fbOpenSource"
+        >
           <img
             src={`${this.props.config.baseUrl}img/pankod_footer_logo.png`}
             alt="Pankod Open Source"
