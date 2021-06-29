@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.7.0...next-starter@0.8.0) (2021-06-29)
+
+
+### Features
+
+* **starter/component:** [MyApp] add appConfig to create the App ([f9d91e9](https://github.com/OnrampLab/onr-react-ui/commit/f9d91e926666433897b2c3edfe682e83be5344a3))
+
+
+
 ## [0.7.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.6.2...next-starter@0.7.0) (2021-06-28)
 
 

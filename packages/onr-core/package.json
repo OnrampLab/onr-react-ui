@@ -1,6 +1,6 @@
 {
   "name": "@onr/core",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "core module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.4.4"
+    "@onr/common": "^0.5.0"
   },
   "peerDependencies": {
     "antd": "^4.16.1",

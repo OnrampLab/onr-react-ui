@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/common@0.4.4...@onr/common@0.5.0) (2021-06-29)
+
+
+### Features
+
+* **common/service:** [Http] stop getting config from env ([888a5a1](https://github.com/OnrampLab/onr-react-ui/commit/888a5a1842a46e523da498e7a60aa5340d7a5dd9))
+
+
+
 ### [0.4.4](https://github.com/OnrampLab/onr-react-ui/compare/@onr/common@0.4.3...@onr/common@0.4.4) (2021-06-25)
 
 **Note:** Version bump only for package @onr/common

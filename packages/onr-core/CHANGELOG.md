@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.5.2...@onr/core@0.6.0) (2021-06-29)
+
+
+### Features
+
+* **core/component:** [App] add appConfig & initialize() to set api base url and token ([086d273](https://github.com/OnrampLab/onr-react-ui/commit/086d273420dd9db97947071dddc3de9e6018287b))
+
+
+
 ### [0.5.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.5.1...@onr/core@0.5.2) (2021-06-25)
 
 **Note:** Version bump only for package @onr/core

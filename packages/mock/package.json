@@ -1,6 +1,6 @@
 {
   "name": "@onr/mock",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "mock module",
   "author": "",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -36,7 +36,7 @@
     "miragejs": "^0.1.41"
   },
   "devDependencies": {
-    "@onr/common": "^0.4.4",
+    "@onr/common": "^0.5.0",
     "@onr/eslint-config": "^0.2.7",
     "@onr/prettier-config": "^1.1.0",
     "@types/node": "^14.14.21",
