@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
 import React, { Component } from 'react';
-import { menuItems } from '../configs';
+import { appConfig, menuItems } from '../configs';
 import { afterComponentDidMount, store } from '../redux';
 import { GlobalStyles } from './GlobalStyles';
 import { PageContainer } from './PageContainer';
@@ -15,6 +15,7 @@ const makeStore: MakeStore = (context: Context) => store();
 const wrapper = createWrapper(makeStore, { debug: false });
 
 const app: OnrApp = createApp({
+  appConfig,
   routes: menuItems,
 });
 
