@@ -6,7 +6,7 @@
 
 ## Packages
 
-- [@onr/common](packages/onr-common/README.md)
+- [@onr/common](packages/common/README.md)
 - [@onr/core](packages/onr-core/README.md)
 - [@onr/eslint-config](packages/onr-eslint-config/README.md)
 - [@onr/mock](packages/mock/README.md)
