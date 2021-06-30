@@ -31,8 +31,10 @@
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
+  "dependencies": {
+    "color-namer": "^1.4.0"
+  },
   "devDependencies": {
-    "color-namer": "^1.4.0",
     "eslint": "^7.29.0",
     "prettier": "^1.18.2",
     "typescript": "^4.3.4"
