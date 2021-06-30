@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -24,9 +24,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@onr/common": "^0.5.0",
-    "@onr/core": "^0.6.0",
-    "@onr/mock": "^0.1.6",
+    "@onr/common": "^0.5.1",
+    "@onr/core": "^0.6.1",
+    "@onr/mock": "^0.1.7",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",
@@ -60,9 +60,9 @@
     "@babel/plugin-syntax-typescript": "^7.14.5",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@onr/eslint-config": "^0.2.7",
+    "@onr/eslint-config": "^0.2.8",
     "@onr/prettier-config": "^1.1.0",
-    "@onr/tailwind-palette": "^0.1.1",
+    "@onr/tailwind-palette": "^0.1.2",
     "@onr/tsconfig": "^0.1.1",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
