@@ -2,6 +2,7 @@
   "name": "onr-react-ui",
   "private": true,
   "workspaces": [
+    "examples/*",
     "packages/*"
   ],
   "scripts": {

@@ -80,7 +80,7 @@ _Here are a few highlights to look out for in this boilerplate_
 1. Clone the repository and install the dependencies:
 
    ```sh
-   yarn create next-app my-app --example https://github.com/OnrampLab/onr-react-ui/tree/main/packages/next-starter
+   yarn create next-app my-app --example https://github.com/OnrampLab/onr-react-ui/tree/main/examples/next-starter
    ```
 
 2. To create a new app, go to the chosen app directory on the CLI then run one of the following methods:

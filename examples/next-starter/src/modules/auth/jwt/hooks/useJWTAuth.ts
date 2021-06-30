@@ -27,16 +27,8 @@ export const useJWTAuth = () => {
 };
 
 export const useJWTAuthEffect = () => {
-  const {
-    state,
-    data,
-    user,
-    isResolved,
-    isPending,
-    isAuthroized,
-    isUnAuthroized,
-    isNeedRefresh,
-  } = useJWTAuth();
+  const { state, data, user, isResolved, isPending, isAuthroized, isUnAuthroized, isNeedRefresh } =
+    useJWTAuth();
 
   usePersistJWTAuthEffect(data);
   useRedirectAuthEffect(isResolved, isAuthroized, !isNeedRefresh && !isPending);

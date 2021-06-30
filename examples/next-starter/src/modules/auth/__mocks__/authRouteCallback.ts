@@ -14,12 +14,12 @@ const JWT_TOKEN = {
 };
 
 export function authRouteCallback(server: Server): void {
-  server.post('/auth/refresh', function() {
+  server.post('/auth/refresh', function () {
     return JWT_TOKEN;
   });
 
   debug(`register static route => post[/auth/login]`);
-  server.post('/auth/login', function(schema, request) {
+  server.post('/auth/login', function (schema, request) {
     const data = JSON.parse(request.requestBody);
     const user = schema.users.findBy({
       email: data.email,
@@ -33,7 +33,7 @@ export function authRouteCallback(server: Server): void {
   });
 
   debug(`register static route => post[/auth/me]`);
-  server.post('/auth/me', function(schema, request) {
+  server.post('/auth/me', function (schema, request) {
     const data = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
 
     const user = schema.users.findBy({

@@ -1,13 +1,17 @@
 # onr-react-ui
 
+## Examples
+
+- [next-starter](examples/next-starter/README.md)
+
 ## Packages
 
-- [next-starter](packages/next-starter/README.md)
-- [@onr/common](packages/onr-common/README.md)
-- [@onr/core](packages/onr-core/README.md)
-- [@onr/eslint-config](packages/onr-eslint-config/README.md)
+- [@onr/common](packages/common/README.md)
+- [@onr/core](packages/core/README.md)
+- [@onr/eslint-config](packages/eslint-config/README.md)
 - [@onr/mock](packages/mock/README.md)
 - [@onr/prettier-config](packages/prettier-config/README.md)
+- [@onr/tailwind-palette](packages/tailwind-palette/README.md)
 - [@onr/tsconfig](packages/tsconfig/README.md)
 
 ## Publish

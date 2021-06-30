@@ -1,4 +1,4 @@
-const fs = require("memfs");
+const fs = require('memfs');
 
 process.chdir('/');
 fs.mkdirSync('/dir');
