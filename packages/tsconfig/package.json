@@ -9,6 +9,7 @@
   },
   "main": "tsconfig.json",
   "files": [
+    "tsconfig.components.json",
     "tsconfig.json"
   ],
   "scripts": {
