@@ -1,3 +1,3 @@
-import { AccountListPage } from '@onr/account';
+import { AccountListPage } from '@onr/plugin-account';
 
 export default AccountListPage;

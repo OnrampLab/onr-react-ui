@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Table, Card, Modal, Button, message, Popconfirm } from 'antd';
-import { IUser, UserService, CreateUserForm, UpdateUserForm, UserRole } from '@onr/user';
 import { DefaultPubSubContext } from '@onr/core';
+import { IAccount } from '@onr/plugin-account';
+import { CreateUserForm, IUser, UpdateUserForm, UserRole, UserService } from '@onr/user';
+import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import { IAccount } from '@onr/account';
+import React, { useContext, useEffect, useState } from 'react';
 
 export const UserListPage: React.FC = () => {
   const [users, setUsers] = useState<IUser[]>([]);

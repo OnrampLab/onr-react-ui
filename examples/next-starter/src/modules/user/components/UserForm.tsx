@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Form, Button, Input, Spin, Select, Transfer } from 'antd';
-import { EyeTwoTone, EyeInvisibleOutlined } from '@ant-design/icons';
-import { IUser, UserRoleName, UserRequestPayload } from '@onr/user';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CoreStore } from '@onr/core';
+import { IAccount } from '@onr/plugin-account';
+import { IUser, UserRequestPayload, UserRoleName } from '@onr/user';
+import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { TransferItem } from 'antd/lib/transfer';
-import { IAccount } from '@onr/account';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 interface IUserFormProps extends FormProps {
   currentUser: IUser;
