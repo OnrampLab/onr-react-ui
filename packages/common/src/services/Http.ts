@@ -1,5 +1,4 @@
 import Axios, { AxiosError, AxiosResponse } from 'axios';
-import getConfig from 'next/config';
 import { stringify } from 'qs';
 
 declare type RequestMethods =
@@ -60,24 +59,6 @@ interface Http {
 
 const HTTP_STATUS_CODE_SUCCESS = 200;
 const HTTP_STATUS_CODE_MOVED_PERMANENTLY = 301;
-
-interface ProcessEnv {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  API_URL: string;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  API_KEY?: string;
-}
-
-const hasProcessEnv = (entry: Data): entry is Record<'processEnv', ProcessEnv> =>
-  !!entry.processEnv;
-
-const { publicRuntimeConfig } = getConfig() as {
-  publicRuntimeConfig: Record<'processEnv' | string, unknown>;
-};
-
-if (!('processEnv' in publicRuntimeConfig) || !hasProcessEnv(publicRuntimeConfig)) {
-  throw new Error('cannot find processEnv in next.config.js');
-}
 
 const HTTP: Http = {
   baseUrl: null,
