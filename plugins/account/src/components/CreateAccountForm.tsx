@@ -11,6 +11,7 @@ interface CreateAccountFormProps {
 export const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   onSubmit,
 }: CreateAccountFormProps) => {
+  // @ts-ignore
   const { publish } = useContext(DefaultPubSubContext);
   const currentAccount: Partial<IAccount> = {};
 

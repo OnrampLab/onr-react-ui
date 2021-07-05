@@ -14,6 +14,7 @@ export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountL
   const [currentAccount, setCurrentAccount] = useState<IAccount>(accounts[0]);
   const [createAccountModalVisible, setCreateAccountModalVisible] = useState(false);
   const [updateAccountModalVisible, setUpdateAccountModalVisible] = useState(false);
+  // @ts-ignore
   const { publish } = useContext(DefaultPubSubContext);
 
   const openCreateDialog = () => {

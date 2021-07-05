@@ -32,7 +32,6 @@ export const AccountForm: React.FC<IAccountFormProps> = ({
         initialValues={{
           account: {
             ...currentAccount,
-            redirect_domain: currentAccount.redirect_domain || 'https://g17.net',
           },
         }}
       >

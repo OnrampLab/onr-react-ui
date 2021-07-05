@@ -1,3 +1,3 @@
-export * from './AccountModel.d';
-export * from './AccountsPayload.d';
-export * from './AccountsResponse.d';
+export * from './AccountModel';
+export * from './AccountsPayload';
+export * from './AccountsResponse';

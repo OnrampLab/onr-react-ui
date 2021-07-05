@@ -1,1 +1,1 @@
-export * from './IAccount.d';
+export * from './IAccount';

@@ -13,6 +13,7 @@ export const UpdateAccountForm: React.FC<UpdateAccountFormProps> = ({
   onSubmit,
   currentAccount,
 }: UpdateAccountFormProps) => {
+  // @ts-ignore
   const { publish } = useContext(DefaultPubSubContext);
 
   async function handleSubmit(account: IAccount) {

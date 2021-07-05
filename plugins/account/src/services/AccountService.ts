@@ -1,14 +1,12 @@
 //#region Local Imports
 import { Http } from '@onr/common';
-import { AccountModel } from './interfaces';
+import { GetAccountsPayload, GetAccountsResponse } from './interfaces';
 //#endregion Local Imports
 
 export const AccountService = {
-  getAccounts: async (
-    payload: AccountModel.GetAccountsPayload,
-  ): Promise<AccountModel.GetAccountsResponse> => {
+  getAccounts: async (payload: GetAccountsPayload): Promise<GetAccountsResponse> => {
     try {
-      const response = await Http.get<AccountModel.GetAccountsResponse>(`/accounts`, {
+      const response = await Http.get<GetAccountsResponse>(`/accounts`, {
         params: payload.params,
       });
       return response.data;
