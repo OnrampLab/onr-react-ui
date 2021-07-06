@@ -1,4 +1,4 @@
-import { LoginPayload, LoginResponse } from '../interfaces';
+import { LoginPayload, LoginResponse } from '.';
 
 /**
  * @module @interface AuthModel
