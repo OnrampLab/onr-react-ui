@@ -1,11 +1,11 @@
 import { Http } from '@onr/common';
-import { AuthModel } from '@onr/auth';
-import { IUser } from '@onr/user';
+import { AuthUser } from '@onr/core';
+import { SigninPayload, SigninResponse, SignoutResponse } from './interfaces/AuthModel';
 
 export const AuthService = {
-  login: async (payload: AuthModel.SigninPayload): Promise<AuthModel.SigninResponse> => {
+  login: async (payload: SigninPayload): Promise<SigninResponse> => {
     try {
-      const response = await Http.post<AuthModel.SigninResponse>('/auth/login', {
+      const response = await Http.post<SigninResponse>('/auth/login', {
         data: payload.data,
       });
 
@@ -18,16 +18,16 @@ export const AuthService = {
   },
   logout: async () => {
     try {
-      await Http.post<AuthModel.SignoutResponse>('/auth/logout');
+      await Http.post<SignoutResponse>('/auth/logout');
 
       return;
     } catch (error) {
       throw new Error(`Logout Error: ${error.message}`);
     }
   },
-  getCurrentUser: async (): Promise<IUser> => {
+  getCurrentUser: async (): Promise<AuthUser> => {
     try {
-      const response = await Http.post<IUser>('/auth/me');
+      const response = await Http.post<AuthUser>('/auth/me');
 
       return response.data;
     } catch (error) {

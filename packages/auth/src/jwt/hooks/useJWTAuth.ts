@@ -1,23 +1,16 @@
-import React, { useEffect, useRef } from 'react';
-import { useDispatch } from 'react-redux';
 import { Modal } from 'antd';
-import { useAuth } from '@onr/auth/core';
-import {
-  AuthState,
-  setAuthState,
-  useAuthStorageEffect,
-  useRedirectAuthEffect,
-  resolveJWTAuthState,
-  refreshToken,
-} from '@onr/auth';
+import { useEffect, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth, useAuthStorageEffect, useRedirectAuthEffect } from '../../core/hooks/useAuth';
+import { setAuthState } from '../../core/redux/actions';
+import { refreshToken, resolveJWTAuthState } from '../redux/actions';
+import { AuthState } from '../redux/consts';
 
 export const useJWTAuth = () => {
-  const { state, data, user, isResolved, isAuthroized, isPending, isUnAuthroized } = useAuth();
+  const { state, data, isResolved, isAuthroized, isPending, isUnAuthroized } = useAuth();
 
   return {
-    state,
     data,
-    user,
     isResolved,
     isAuthroized,
     isPending,
@@ -27,15 +20,14 @@ export const useJWTAuth = () => {
 };
 
 export const useJWTAuthEffect = () => {
-  const { state, data, user, isResolved, isPending, isAuthroized, isUnAuthroized, isNeedRefresh } =
-    useJWTAuth();
+  const { data, isResolved, isPending, isAuthroized, isUnAuthroized, isNeedRefresh } = useJWTAuth();
 
   usePersistJWTAuthEffect(data);
   useRedirectAuthEffect(isResolved, isAuthroized, !isNeedRefresh && !isPending);
   useExpireEffect(data, isAuthroized, isUnAuthroized, isNeedRefresh);
 };
 
-export const usePersistJWTAuthEffect = data => {
+export const usePersistJWTAuthEffect = (data: any) => {
   useResolveJWTAuthEffect();
   useAuthStorageEffect(data);
 };
@@ -49,7 +41,7 @@ export const useResolveJWTAuthEffect = () => {
 };
 
 const useExpireEffect = (
-  data,
+  data: any,
   isAuthroized: boolean,
   isUnAuthroized: boolean,
   isNeedRefresh: boolean,

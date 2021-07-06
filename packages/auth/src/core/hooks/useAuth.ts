@@ -1,14 +1,9 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/router';
-import {
-  selectAuthState,
-  selectAuthData,
-  selectCurrentUser,
-  AuthState,
-  SESSION_KEY,
-  resolveAuthState,
-} from '@onr/auth';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { resolveAuthState } from '../redux/actions';
+import { AuthState, SESSION_KEY } from '../redux/consts';
+import { selectAuthData, selectAuthState } from '../redux/selectors';
 
 export const useAuth = () => {
   const state = useSelector(selectAuthState);
@@ -52,12 +47,12 @@ export const useRedirectAuthEffect = (
   }, [router, isResolved, toRedirect, isAuthroized, isAuthPage]);
 };
 
-export const usePersistAuthEffect = data => {
+export const usePersistAuthEffect = (data: any) => {
   useResolveAuthEffect();
   useAuthStorageEffect(data);
 };
 
-export const useAuthStorageEffect = data => {
+export const useAuthStorageEffect = (data: any) => {
   useEffect(() => {
     localStorage.setItem(SESSION_KEY, JSON.stringify(data));
   }, [data]);

@@ -1,9 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { Spin } from 'antd';
-import { useAuth, useAuthEffect, getCurrentUser } from '@onr/auth';
+import React, { ReactNode, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useAuth, useAuthEffect } from '../hooks/useAuth';
+import { getCurrentUser } from '../redux/actions';
 
-export const AuthWrapper: React.FC = ({ children }: { children: JSX.Element }) => {
+interface Props {
+  children: ReactNode;
+}
+
+export const AuthWrapper: React.FC<Props> = ({ children }: Props) => {
   const dispatch = useDispatch();
   const { isAuthroized, isResolved } = useAuth();
 

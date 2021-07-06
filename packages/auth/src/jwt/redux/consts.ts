@@ -1,4 +1,4 @@
-import { AuthState as CoreAuthState } from '@onr/auth/core';
+import { AuthState as CoreAuthState } from '../../core/redux/consts';
 
 export const AuthState = {
   ...CoreAuthState,
