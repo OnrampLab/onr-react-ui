@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.6.4](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.6.3...@onr/core@0.6.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* **core/component:** ts errors ([594a1f7](https://github.com/OnrampLab/onr-react-ui/commit/594a1f75bd386aa3f684c7f8e4161798983c42e3))
+
+
+
 ### [0.6.3](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.6.2...@onr/core@0.6.3) (2021-07-07)
 
 **Note:** Version bump only for package @onr/core
