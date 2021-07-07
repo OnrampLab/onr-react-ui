@@ -3,6 +3,8 @@ lerna-debug.log
 yarn-debug.log
 packages/*/lib
 packages/*/types
+plugins/*/lib
+plugins/*/types
 .next
 .env
 .env.local

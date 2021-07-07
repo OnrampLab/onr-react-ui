@@ -8,12 +8,12 @@ const debug = getDebugger('onr:core:mock');
 type IMock = {
   resource: string;
   model: ModelDefinition;
-  factory: FactoryDefinition;
-  serializer: Serializer;
-  seeds: any;
-  routes: any;
-  seedsCallback: MockCallback;
-  routesCallback: MockCallback;
+  factory?: FactoryDefinition;
+  serializer?: Serializer;
+  seeds?: any;
+  routes?: any;
+  seedsCallback?: MockCallback;
+  routesCallback?: MockCallback;
 };
 
 export class Mock implements IMock {
@@ -132,7 +132,7 @@ export class Mock implements IMock {
   applySeeds(server: Server) {
     // static seeds
     debug(`adding seed => ${this.resource}`);
-    if (this.seeds) {
+    if (this.seeds && this.resource) {
       for (const seed of this.seeds) {
         server.create(this.resource, seed);
       }

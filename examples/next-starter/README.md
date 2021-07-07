@@ -176,6 +176,7 @@ After answering questions it generates files in miliseconds.
   - EditorConfig for VS Code (editorconfig.editorconfig)
   - Prettier - Code formatter (esbenp.prettier-vscode)
   - ESLint (dbaeumer.vscode-eslint)
+  - PostCSS Sorting (mrmlnc.vscode-postcss-sorting)
 
 ## License
 

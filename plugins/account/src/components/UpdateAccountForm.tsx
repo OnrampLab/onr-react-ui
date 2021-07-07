@@ -1,7 +1,8 @@
-import React, { useContext } from 'react';
-import { message } from 'antd';
 import { DefaultPubSubContext } from '@onr/core';
-import { IAccount, AccountForm, AccountService } from '@onr/account';
+import { message } from 'antd';
+import React, { useContext } from 'react';
+import { AccountForm } from '.';
+import { AccountService, IAccount } from '..';
 
 interface UpdateAccountFormProps {
   currentAccount: IAccount;
@@ -12,6 +13,7 @@ export const UpdateAccountForm: React.FC<UpdateAccountFormProps> = ({
   onSubmit,
   currentAccount,
 }: UpdateAccountFormProps) => {
+  // @ts-ignore
   const { publish } = useContext(DefaultPubSubContext);
 
   async function handleSubmit(account: IAccount) {

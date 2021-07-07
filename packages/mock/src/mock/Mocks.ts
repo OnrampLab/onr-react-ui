@@ -1,6 +1,6 @@
+import { getDebugger } from '@onr/common';
 import { Serializer, Server } from 'miragejs';
 import { FactoryDefinition, ModelDefinition } from 'miragejs/-types';
-import { getDebugger } from '@onr/common';
 import { Mock } from './Mock';
 
 const debug = getDebugger('onr:core:mocks');
@@ -66,7 +66,7 @@ export class Mocks implements IMocks {
 
   getSerializers(): ISerializers {
     return this.mocks.reduce((serializers, mock) => {
-      if (mock.model) {
+      if (mock.model && mock.serializer) {
         serializers[mock.resource] = mock.serializer;
       }
 

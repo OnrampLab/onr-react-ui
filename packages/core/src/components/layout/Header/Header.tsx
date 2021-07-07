@@ -31,7 +31,7 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
           </a>
         </Link>
 
-        {HeaderMainSection}
+        <HeaderMainSection />
 
         <span className="mr-auto" />
         <Menu mode="horizontal">

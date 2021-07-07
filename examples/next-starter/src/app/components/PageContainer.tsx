@@ -1,7 +1,7 @@
-import { AppProps } from 'next/app';
-import { Page } from '@onr/core';
 import { AuthWrapper, logout } from '@onr/auth';
-import { AccountSelector } from '@onr/account';
+import { Page } from '@onr/core';
+import { AccountSelector } from '@onr/plugin-account';
+import { AppProps } from 'next/app';
 import { theme } from './GlobalStyles';
 
 const Container: React.FC = (props: AppProps) => {

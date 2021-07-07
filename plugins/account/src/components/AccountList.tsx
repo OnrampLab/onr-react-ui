@@ -1,8 +1,10 @@
-import React, { useState, useContext } from 'react';
-import { Table, Card, Modal, Button, message, Popconfirm } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
-import { IAccount, CreateAccountForm, UpdateAccountForm, AccountService } from '@onr/account';
 import { DefaultPubSubContext } from '@onr/core';
+import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
+import { ColumnProps } from 'antd/lib/table';
+import React, { useContext, useState } from 'react';
+import { AccountService, IAccount } from '..';
+import { CreateAccountForm } from './CreateAccountForm';
+import { UpdateAccountForm } from './UpdateAccountForm';
 
 interface IAccountListProps {
   accounts: IAccount[];
@@ -12,6 +14,7 @@ export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountL
   const [currentAccount, setCurrentAccount] = useState<IAccount>(accounts[0]);
   const [createAccountModalVisible, setCreateAccountModalVisible] = useState(false);
   const [updateAccountModalVisible, setUpdateAccountModalVisible] = useState(false);
+  // @ts-ignore
   const { publish } = useContext(DefaultPubSubContext);
 
   const openCreateDialog = () => {

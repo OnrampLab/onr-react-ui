@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
-import { Select, message } from 'antd';
-import Router from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { IAccount } from '@onr/account';
 import { coreActions, CoreStore } from '@onr/core';
+import { message, Select } from 'antd';
+import Router from 'next/router';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { IAccount } from '../entities';
 
 export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
@@ -12,13 +12,17 @@ export const AccountSelector: React.FC = () => {
   const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
 
   useEffect(() => {
+    //@ts-ignore
     if (currentUser.accounts) {
+      //@ts-ignore
       setAccounts(currentUser.accounts);
 
       if (accounts[0] && !accountId) {
         changeAccount(accounts[0].id);
       }
     }
+    // @ts-ignore
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser.accounts]);
 
   function changeAccount(accountId: number) {
@@ -36,7 +40,7 @@ export const AccountSelector: React.FC = () => {
         onChange={changeAccount}
         value={accountId}
         filterOption={(input, option) =>
-          option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+          option?.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
         }
       >
         {accounts.map(account => (

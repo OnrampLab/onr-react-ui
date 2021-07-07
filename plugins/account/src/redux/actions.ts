@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
+import { AccountService } from '../services/AccountService';
 import { actionConsts } from './actionConsts';
-import { AccountService } from '@onr/account';
 
 export const accountActions = {
   setAccounts: (payload: {}) => ({

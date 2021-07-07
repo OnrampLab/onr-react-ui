@@ -1,7 +1,7 @@
-import React from 'react';
-import { Switch, Form, Input, Button } from 'antd';
+import { Button, Form, Input } from 'antd';
 import { FormProps } from 'antd/lib/form';
-import { IAccount } from '@onr/account';
+import React from 'react';
+import { IAccount } from '../..';
 
 interface IAccountFormProps extends FormProps {
   currentAccount: Partial<IAccount>;
@@ -32,7 +32,6 @@ export const AccountForm: React.FC<IAccountFormProps> = ({
         initialValues={{
           account: {
             ...currentAccount,
-            redirect_domain: currentAccount.redirect_domain || 'https://g17.net',
           },
         }}
       >

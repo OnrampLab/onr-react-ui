@@ -27,6 +27,7 @@
     "@onr/common": "^0.5.2",
     "@onr/core": "^0.6.2",
     "@onr/mock": "^0.1.8",
+    "@onr/plugin-account": "^0.0.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",

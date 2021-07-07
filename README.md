@@ -39,3 +39,14 @@ or
 ```sh
 yarn lerna version patch
 ```
+
+## Development Tools
+
+### VS Code
+
+- plugins
+  - Code Spell Checker (streetsidesoftware.code-spell-checker)
+  - EditorConfig for VS Code (editorconfig.editorconfig)
+  - Prettier - Code formatter (esbenp.prettier-vscode)
+  - ESLint (dbaeumer.vscode-eslint)
+  - PostCSS Sorting (mrmlnc.vscode-postcss-sorting)
