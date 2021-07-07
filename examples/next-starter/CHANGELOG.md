@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.8.4](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.8.3...next-starter@0.8.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* **starter:** original tailwindcss theme colors are overrided ([2b1d3d0](https://github.com/OnrampLab/onr-react-ui/commit/2b1d3d0a7e3cb58d66afb52a5551facf0f55f0b2))
+* **starter:** rollback original global styles ([0941c98](https://github.com/OnrampLab/onr-react-ui/commit/0941c98b0d8c0e50c2571da4f2bf9edb3006603d))
+
+
+
 ### [0.8.3](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.8.2...next-starter@0.8.3) (2021-07-05)
 
 **Note:** Version bump only for package next-starter
