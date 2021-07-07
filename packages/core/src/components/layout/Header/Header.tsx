@@ -31,6 +31,7 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
           </a>
         </Link>
 
+        {/* @ts-ignore */}
         <HeaderMainSection />
 
         <span className="mr-auto" />
