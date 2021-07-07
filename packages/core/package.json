@@ -1,6 +1,6 @@
 {
   "name": "@onr/core",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "core module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -33,7 +33,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.5.2"
+    "@onr/common": "^0.5.3"
   },
   "peerDependencies": {
     "antd": "^4.16.1",
@@ -49,8 +49,8 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",
-    "@onr/eslint-config": "^0.2.8",
-    "@onr/prettier-config": "^1.1.0",
+    "@onr/eslint-config": "^0.2.9",
+    "@onr/prettier-config": "^1.1.1",
     "@types/antd": "^1.0.0",
     "@types/lodash": "^4.14.168",
     "@types/node": "^14.14.21",
