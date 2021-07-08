@@ -1,5 +1,5 @@
 import { AuthWrapper, logout } from '@onr/auth';
-import { Page } from '@onr/core';
+import { Page } from '@onr/core-antd';
 import { AccountSelector } from '@onr/plugin-account';
 import { AppProps } from 'next/app';
 import { theme } from './GlobalStyles';

@@ -1,4 +1,5 @@
 import { createApp, OnrApp } from '@onr/core';
+import { Header, Page, SidebarMenu } from '@onr/core-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import { AppContext, AppProps } from 'next/app';
 import Head from 'next/head';
@@ -17,6 +18,11 @@ const wrapper = createWrapper(makeStore, { debug: false });
 const app: OnrApp = createApp({
   appConfig,
   routes: menuItems,
+  components: {
+    Header,
+    SidebarMenu,
+    Page,
+  },
 });
 
 const AppProvider = app.getProvider();
