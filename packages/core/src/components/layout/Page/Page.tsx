@@ -1,11 +1,12 @@
 import { Layout, Spin } from 'antd';
 import { useRouter } from 'next/router';
-import { FC, useEffect, useState } from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
 import { CoreStore } from '../../../redux';
+import { AppContext } from '../../App';
 import { Container, Inner } from './styles';
 
 interface Props {
@@ -17,23 +18,18 @@ interface Props {
 
 const { Content } = Layout;
 
-const NonDashboardRoutes = [
-  '/auth/signin',
-  '/auth/signup',
-  '/auth/forgot',
-  '/lockscreen',
-  '/_error',
-];
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, logout, children } = props;
   const router = useRouter();
+  const appConfig = useContext(AppContext).getAppConfig();
+  const fullPageRoutes = appConfig.fullPageRoutes;
   const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
   const [loading, setLoading] = useState(true);
-  const isNotDashboard = router && NonDashboardRoutes.includes(router.pathname);
+  const isNotDashboard = router && fullPageRoutes.includes(router.pathname);
 
   useEffect(() => {
     setTimeout(() => {
