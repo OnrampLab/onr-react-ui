@@ -1,0 +1,66 @@
+{
+  "name": "@onr/core-antd",
+  "version": "0.0.1",
+  "description": "core-antd package",
+  "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "types",
+    "src"
+  ],
+  "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
+  },
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "build": "tsc",
+    "prepublishOnly": "yarn build",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "bugs": {
+    "url": "https://github.com/OnrampLab/onr-react-ui/issues"
+  },
+  "dependencies": {
+    "@onr/common": "^0.5.2",
+    "@onr/core": "^0.6.2"
+  },
+  "peerDependencies": {
+    "antd": "^4.16.1",
+    "lodash": "^4.14.0",
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-feather": "^2.0.9",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^4.3.1"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@onr/eslint-config": "^0.2.8",
+    "@onr/prettier-config": "^1.1.0",
+    "@types/antd": "^1.0.0",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "eslint": "^7.29.0",
+    "typescript": "^4.3.4"
+  },
+  "prettier": "@onr/prettier-config",
+  "publishConfig": {
+    "access": "public"
+  }
+}
