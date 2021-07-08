@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.6.5...@onr/core@0.7.0) (2021-07-08)
+
+
+### Features
+
+* **starter/config:** [appConfig] add full-page-routes ([d85302d](https://github.com/OnrampLab/onr-react-ui/commit/d85302d41cea57802da2b74d7cfb46bcccbfa5ea))
+
+
+
 ### [0.6.5](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.6.4...@onr/core@0.6.5) (2021-07-07)
 
 **Note:** Version bump only for package @onr/core
