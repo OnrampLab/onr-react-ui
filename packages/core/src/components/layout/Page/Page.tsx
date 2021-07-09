@@ -1,4 +1,3 @@
-import { Layout, Spin } from 'antd';
 import { useRouter } from 'next/router';
 import { FC, useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -7,7 +6,7 @@ import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
 import { CoreStore } from '../../../redux';
 import { AppContext } from '../../App';
-import { Container, Inner } from './styles';
+import { Container } from './styles';
 
 interface Props {
   children: JSX.Element;
@@ -15,8 +14,6 @@ interface Props {
   HeaderMainSection: FC;
   logout: () => AnyAction;
 }
-
-const { Content } = Layout;
 
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
@@ -37,27 +34,26 @@ export const Page = (props: Props) => {
     }, 1000);
   }, [loading]);
 
+  // TODO: create a simple page component
   return (
-    <Spin tip="Loading..." size="large" spinning={loading}>
-      <ThemeProvider theme={theme}>
-        <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-          {!isNotDashboard && <Header HeaderMainSection={HeaderMainSection} />}
-          <Layout className="workspace">
-            {!isNotDashboard && (
-              <SidebarMenu
-                logout={logout}
-                currentUser={currentUser}
-                sidebarTheme={darkSidebar ? 'dark' : 'light'}
-                sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
-              />
-            )}
+    <ThemeProvider theme={theme}>
+      <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
+        {!isNotDashboard && <Header HeaderMainSection={HeaderMainSection} />}
+        <div className="workspace">
+          {!isNotDashboard && (
+            <SidebarMenu
+              logout={logout}
+              currentUser={currentUser}
+              sidebarTheme={darkSidebar ? 'dark' : 'light'}
+              sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
+            />
+          )}
 
-            <Layout>
-              <Content>{!isNotDashboard ? <Inner>{children}</Inner> : children}</Content>
-            </Layout>
-          </Layout>
-        </Container>
-      </ThemeProvider>
-    </Spin>
+          <div>
+            <div>{!isNotDashboard ? <div>{children}</div> : children}</div>
+          </div>
+        </div>
+      </Container>
+    </ThemeProvider>
   );
 };

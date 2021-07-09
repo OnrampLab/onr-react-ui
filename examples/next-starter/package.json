@@ -24,8 +24,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@onr/auth": "^0.0.1",
     "@onr/common": "^0.5.3",
     "@onr/core": "^0.7.0",
+    "@onr/core-antd": "^0.0.1",
     "@onr/mock": "^0.1.10",
     "@onr/plugin-account": "^0.1.4",
     "@tailwindcss/postcss7-compat": "^2.0.2",

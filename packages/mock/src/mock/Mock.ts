@@ -7,7 +7,7 @@ const debug = getDebugger('onr:core:mock');
 
 type IMock = {
   resource: string;
-  model: ModelDefinition;
+  model?: ModelDefinition;
   factory?: FactoryDefinition;
   serializer?: Serializer;
   seeds?: any;

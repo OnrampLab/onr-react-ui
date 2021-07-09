@@ -1,4 +1,6 @@
-import { ComponentType } from 'react';
+import { Component, ComponentType, ReactNode } from 'react';
+import { AnyAction } from 'redux';
+import { AuthUser } from '../types';
 
 export type AppComponents = {
   NotFoundErrorPage: ComponentType<{}>;
@@ -13,6 +15,12 @@ export type AppComponents = {
    * and which point the AppRouter and all of its children will be rendered instead.
    */
   SignInPage?: ComponentType<SignInPageProps>;
+
+  Page?: ComponentType<PageProps>;
+
+  Header?: ComponentType<HeaderProps>;
+
+  SidebarMenu?: ComponentType<SidebarMenuProps>;
 };
 
 export type SignInPageProps = {
@@ -20,4 +28,22 @@ export type SignInPageProps = {
    * Set the sign-in result for the app. This should only be called once.
    */
   onResult(result: {}): void;
+};
+
+export type HeaderProps = {
+  HeaderMainSection: ReactNode;
+};
+
+export type SidebarMenuProps = {
+  sidebarTheme: 'dark' | 'light';
+  sidebarMode: 'vertical' | 'inline';
+  currentUser: AuthUser;
+  logout: () => AnyAction;
+};
+
+export type PageProps = {
+  children: JSX.Element;
+  theme: any;
+  HeaderMainSection: Component;
+  logout: () => AnyAction;
 };
