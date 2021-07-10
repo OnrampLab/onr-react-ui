@@ -1,21 +1,17 @@
-import { DefaultPubSubContext } from '@onr/core';
 import { IAccount } from '@onr/plugin-account';
 import { CreateUserForm, IUser, UpdateUserForm, UserRole, UserService } from '@onr/user';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const UserListPage: React.FC = () => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [currentUser, setCurrentUser] = useState<IUser>({});
   const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
   const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);
-  const { publish, subscribe } = useContext(DefaultPubSubContext);
 
   useEffect(() => {
     fetchUserListData();
-    const unsub = subscribe('users.updated', fetchUserListData);
-    return unsub;
   }, []);
 
   const columns: ColumnProps<IUser>[] = [
@@ -86,12 +82,12 @@ export const UserListPage: React.FC = () => {
 
   const onCreateUserFormSubmit = () => {
     setCreateUserModalVisible(false);
-    publish('users.updated');
+    fetchUserListData();
   };
 
   const onUpdateUserFormSubmit = () => {
     setUpdateUserModalVisible(false);
-    publish('users.updated');
+    fetchUserListData();
   };
 
   const deleteUser = async (user: IUser) => {
@@ -101,7 +97,7 @@ export const UserListPage: React.FC = () => {
       }
       await UserService.deleteUser({ userId: user.id });
       message.success(`User ${user.name} deleted`);
-      publish('users.updated');
+      fetchUserListData();
     } catch (e) {
       message.error(`Failed to delete user${e.message && `: ${e.message}`}`);
     }
