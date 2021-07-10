@@ -1,4 +1,4 @@
-import { AppProvider, createApp, OnrApp } from '@onr/core';
+import { createApp, OnrApp } from '@onr/core';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import { AppContext, AppProps } from 'next/app';
 import Head from 'next/head';
@@ -19,7 +19,7 @@ const app: OnrApp = createApp({
   routes: menuItems,
 });
 
-const NewAppProvider = app.getProvider();
+const AppProvider = app.getProvider();
 
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
@@ -83,9 +83,7 @@ export class AppComponent extends Component<AppProps> {
           )}
         </Head>
         <AppProvider>
-          <NewAppProvider>
-            <PageContainer {...this.props} />
-          </NewAppProvider>
+          <PageContainer {...this.props} />
         </AppProvider>
       </>
     );
