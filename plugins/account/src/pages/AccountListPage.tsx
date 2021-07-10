@@ -1,5 +1,5 @@
-import { CoreStore, DefaultPubSubContext } from '@onr/core';
-import React, { useContext, useEffect } from 'react';
+import { CoreStore } from '@onr/core';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AccountList } from '../components/AccountList';
 import { accountActions } from '../redux';
@@ -10,29 +10,22 @@ type Store = CoreStore & StoreProps;
 export const AccountListPage: React.FC = () => {
   const dispatch = useDispatch();
   const accounts = useSelector((store: Store) => store.accountStore.accounts);
-  // @ts-ignore
-  const { subscribe } = useContext(DefaultPubSubContext);
+
+  const fetchData = useCallback(() => {
+    dispatch(
+      accountActions.getAccounts({
+        params: {},
+      }),
+    );
+  }, [dispatch]);
 
   useEffect(() => {
-    async function fetchData() {
-      dispatch(
-        accountActions.getAccounts({
-          params: {},
-        }),
-      );
-    }
-
     fetchData();
-
-    const unsub = subscribe('account.updated', fetchData);
-
-    return unsub;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchData]);
 
   return (
     <>
-      <AccountList accounts={accounts} />
+      <AccountList accounts={accounts} onAccountsChanged={() => fetchData()} />
     </>
   );
 };
