@@ -97,7 +97,8 @@ export class Mock implements IMock {
     server.delete(`/${resource}/:id`, (schema, request) => {
       const { id } = request.params;
 
-      schema.db[resource].remove(id);
+      // @ts-ignore
+      schema[resource].find(id).destroy();
 
       return {
         message: 'success',
