@@ -1,15 +1,18 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CoreStore } from '@onr/core';
-import { IAccount } from '@onr/plugin-account';
+import { accountActions, IAccount } from '@onr/plugin-account';
 import { IUser, UserRequestPayload, UserRoleName } from '@onr/user';
 import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
-import { TransferItem } from 'antd/lib/transfer';
-import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+interface AccountUser extends IUser {
+  accounts: IAccount[];
+}
 
 interface IUserFormProps extends FormProps {
-  currentUser: IUser;
+  currentUser: AccountUser;
   handleSubmit(user: UserRequestPayload): Promise<void>;
 }
 
@@ -23,12 +26,33 @@ const layout = {
   },
 };
 
-const UserForm: React.FC<IUserFormProps> = ({ currentUser, handleSubmit }: IUserFormProps) => {
+const accountsToTransferOptions = (accounts: IAccount[]) =>
+  accounts.map(account => ({
+    key: `${account.id}`,
+    title: account.name,
+  }));
+
+export const UserForm: React.FC<IUserFormProps> = ({
+  currentUser,
+  handleSubmit,
+}: IUserFormProps) => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const accounts: IAccount[] = useSelector((store: CoreStore) => store.accountStore.accounts);
+  const { accounts } = currentUser;
+  const allAccounts: IAccount[] = useSelector((store: CoreStore) => store.accountStore.accounts);
+  const allAccountOptions = accountsToTransferOptions(allAccounts);
+
+  const fetchData = useCallback(() => {
+    dispatch(
+      accountActions.getAccounts({
+        params: {},
+      }),
+    );
+  }, [dispatch]);
 
   useEffect(() => {
+    fetchData();
     form?.resetFields();
   }, [currentUser]);
 
@@ -55,7 +79,7 @@ const UserForm: React.FC<IUserFormProps> = ({ currentUser, handleSubmit }: IUser
         initialValues={{
           ...currentUser,
           roles: currentUser?.roles?.map(role => role.name) || [],
-          accounts: currentUser?.accounts?.map(x => `${x.id}`) || [],
+          accounts: accounts?.map(x => `${x.id}`) || [],
         }}
         form={form}
       >
@@ -120,13 +144,7 @@ const UserForm: React.FC<IUserFormProps> = ({ currentUser, handleSubmit }: IUser
             listStyle={{
               width: 250,
             }}
-            dataSource={accounts.map(account => {
-              const transferItem: TransferItem = {
-                key: `${account.id}`,
-                title: account.name,
-              };
-              return transferItem;
-            })}
+            dataSource={allAccountOptions}
             titles={['Available Accounts', 'My Accounts']}
             render={item => item.title || ''}
           />
@@ -141,5 +159,3 @@ const UserForm: React.FC<IUserFormProps> = ({ currentUser, handleSubmit }: IUser
     </Spin>
   );
 };
-
-export { UserForm };
