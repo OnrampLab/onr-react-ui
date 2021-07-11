@@ -79,7 +79,7 @@ export class Mock implements IMock {
     server.post(`/${resource}`, (schema, request) => {
       return {
         // @ts-ignore
-        data: [schema[resource].create(JSON.parse(request.requestBody))],
+        data: schema[resource].create(JSON.parse(request.requestBody)),
       };
     });
 
