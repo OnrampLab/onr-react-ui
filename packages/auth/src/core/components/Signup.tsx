@@ -1,9 +1,7 @@
-import React from 'react';
-import { Button, Input, message as Message, Row, Tooltip, Form } from 'antd';
-import { Eye, HelpCircle, Mail, Triangle, User } from 'react-feather';
-
+import { Button, Form, Input, message as Message, Row, Tooltip } from 'antd';
 import Link from 'next/link';
 import Router from 'next/router';
+import { Eye, HelpCircle, Mail, Triangle, User } from 'react-feather';
 import styled from 'styled-components';
 
 const FormItem = Form.Item;
@@ -112,7 +110,7 @@ const Signup = () => (
               message: 'Please confirm your password!',
             },
             form => ({
-              validator: (rule, value, callback) => {
+              validator: (_, value, callback) => {
                 if (value && value !== form.getFieldValue('password')) {
                   callback("Passwords don't match!");
                 } else {

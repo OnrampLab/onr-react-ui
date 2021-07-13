@@ -1,13 +1,12 @@
-import React from 'react';
-import { Button, Checkbox, Input, message as Message, Row, Spin, Form } from 'antd';
-import { Eye, Mail, Triangle } from 'react-feather';
-
+import { Button, Checkbox, Form, Input, message as Message, Row, Spin } from 'antd';
 import Link from 'next/link';
-import styled from 'styled-components';
-import styles from './Signin.module.scss';
-
-import { useAuth, AuthState, login } from '@onr/auth';
+import React from 'react';
+import { Eye, Mail, Triangle } from 'react-feather';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
+import { useAuth } from '../hooks/useAuth';
+import { login } from '../redux/actions';
+import { AuthState } from '../redux/consts';
 
 const FormItem = Form.Item;
 
@@ -83,7 +82,9 @@ const Signin: React.FC = () => {
             </Link>
             <h5 className="mb-0 mt-3">Sign in</h5>
 
-            <p className={styles.error}>get started with our service</p>
+            <p style={{ color: 'rgb(131, 118, 118)', backgroundColor: '#fff' }}>
+              get started with our service
+            </p>
           </div>
 
           <Form
@@ -96,6 +97,7 @@ const Signin: React.FC = () => {
             }}
             initialValues={INIT_VALUES}
           >
+            {/* @ts-ignore  */}
             <FormItem label="Email" name="email" rules={EMAIL_RULES}>
               <Input
                 prefix={<Mail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}

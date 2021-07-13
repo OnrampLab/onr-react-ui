@@ -1,5 +1,5 @@
-import { AuthConsts, STORE_KEY, INITIAL_STATE } from './consts';
 import { IAction } from '@onr/core';
+import { AuthConsts, INITIAL_STATE, STORE_KEY } from './consts';
 
 export const authReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   switch (action.type) {

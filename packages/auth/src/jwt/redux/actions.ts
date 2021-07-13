@@ -1,12 +1,13 @@
-import { Dispatch } from 'redux';
 import { message } from 'antd';
-import { setAuthState, setAuthData, resolveAuthFromStorage } from '@onr/auth';
-import { AuthService, AuthState } from '@onr/auth';
+import { Dispatch } from 'redux';
+import { AuthService, AuthState } from '..';
+import { resolveAuthFromStorage, setAuthData, setAuthState } from '../../core/redux/actions';
 
 export const resolveJWTAuthState = () => async (dispatch: Dispatch) => {
   const session = resolveAuthFromStorage();
 
   if (session.access_token) {
+    // @ts-ignore
     dispatch(refreshToken(session.access_token, session.email));
   } else {
     dispatch(setAuthState(AuthState.Unauthorized));

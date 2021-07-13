@@ -1,9 +1,11 @@
-import { Dispatch } from 'redux';
-import { SESSION_KEY } from './consts';
-import { AuthService, AuthModel, AuthConsts, AuthState } from '@onr/auth';
 import { message } from 'antd';
+import { Dispatch } from 'redux';
+import { AuthState } from '../../jwt/redux/consts';
+import { AuthService } from '../services/AuthService';
+import { SigninPayload, SigninResponse } from '../services/interfaces/AuthModel';
+import { AuthConsts, SESSION_KEY } from './consts';
 
-export const setCurrentUser = currentUser => ({
+export const setCurrentUser = (currentUser: any) => ({
   type: AuthConsts.SET_CURRENT_USER,
   payload: {
     currentUser,
@@ -21,14 +23,14 @@ export const getCurrentUser = () => async (dispatch: Dispatch) => {
   }
 };
 
-export const setAuthState = state => ({
+export const setAuthState = (state: any) => ({
   type: AuthConsts.SET_AUTH_STATE,
   payload: {
     state,
   },
 });
 
-export const setAuthData = data => ({
+export const setAuthData = (data: any) => ({
   type: AuthConsts.SET_AUTH_DATA,
   payload: {
     data,
@@ -60,11 +62,11 @@ export const resolveAuthState = () => async (dispatch: Dispatch) => {
   }
 };
 
-export const login = (form: AuthModel.SigninPayload) => async (dispatch: Dispatch) => {
+export const login = (form: SigninPayload) => async (dispatch: Dispatch) => {
   dispatch(setAuthState(AuthState.Pending));
 
   try {
-    const loginData: AuthModel.SigninResponse = await AuthService.login(form);
+    const loginData: SigninResponse = await AuthService.login(form);
 
     const sessionData = {
       ...loginData,

@@ -1,6 +1,6 @@
 import { Http } from '@onr/common';
-import { AuthService as AuthCoreService } from '@onr/auth/core';
-import { AuthModel } from '@onr/auth';
+import { AuthService as AuthCoreService } from '../../core/services';
+import { SigninResponse } from '../../core/services/interfaces/AuthModel';
 
 export const AuthService = {
   ...AuthCoreService,
@@ -8,7 +8,7 @@ export const AuthService = {
     try {
       Http.setToken(token);
 
-      const response = await Http.post<AuthModel.SigninResponse, any>('/auth/refresh');
+      const response = await Http.post<SigninResponse, any>('/auth/refresh');
 
       Http.setToken(response.data.access_token);
 

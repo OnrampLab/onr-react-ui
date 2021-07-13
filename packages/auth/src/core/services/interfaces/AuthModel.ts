@@ -1,0 +1,21 @@
+import { LoginPayload, LoginResponse } from '.';
+
+export interface SigninPayload {
+  data: LoginPayload;
+}
+
+export interface SigninResponse extends LoginResponse {}
+
+export interface SignoutResponse {
+  message: string;
+}
+
+export interface SessionData extends LoginResponse {
+  email: string;
+}
+
+export interface IAuthContext {
+  login: Function;
+  logout: Function;
+  data?: SigninResponse;
+}

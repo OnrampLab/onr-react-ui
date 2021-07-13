@@ -1,4 +1,4 @@
-Core
+# `onr-core`
 
 AuthWrapper
    - call useAuth & useAuthEffect & getCurrentUser when authorized
@@ -8,7 +8,7 @@ useAuth
 
 useAuthEffect: control the effect corresponding to different auth status
    - resolve previous session from localStorage with SESSION_KEY as key
-   - redirect to auth if not authorized 
+   - redirect to auth if not authorized
    - redirect to home if authorized but visting auth-related pages
 
 Note on customization:
