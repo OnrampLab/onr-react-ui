@@ -1,11 +1,16 @@
-//#region Local Imports
 import { Http } from '@onr/common';
-import { IUser } from '@onr/user';
-import { UserModel } from './interfaces';
-//#endregion Local Imports
+import { IUser } from '../entities/interfaces';
+import {
+  CreateUserPayload,
+  DeleteUserPayload,
+  GetUserPayload,
+  GetUserResponse,
+  GetUsersPayload,
+  UpdateUserPayload,
+} from './interfaces/UserModel';
 
 export const UserService = {
-  getUsers: async (payload: UserModel.GetUsersPayload): Promise<IUser[]> => {
+  getUsers: async (payload: GetUsersPayload): Promise<IUser[]> => {
     try {
       const response = await Http.get<IUser[]>(`/users`, {
         params: payload.params,
@@ -18,9 +23,9 @@ export const UserService = {
     }
   },
 
-  getUser: async (payload: UserModel.GetUserPayload): Promise<UserModel.GetUserResponse> => {
+  getUser: async (payload: GetUserPayload): Promise<GetUserResponse> => {
     try {
-      const response = await Http.get<UserModel.GetUserResponse>(`/users/${payload.userId}`);
+      const response = await Http.get<GetUserResponse>(`/users/${payload.userId}`);
 
       return response.data;
     } catch (error) {
@@ -29,9 +34,9 @@ export const UserService = {
     }
   },
 
-  createUser: async (payload: UserModel.CreateUserPayload): Promise<UserModel.GetUserResponse> => {
+  createUser: async (payload: CreateUserPayload): Promise<GetUserResponse> => {
     try {
-      const response = await Http.post<UserModel.GetUserResponse>(`/users`, {
+      const response = await Http.post<GetUserResponse>(`/users`, {
         data: payload.data,
       });
 
@@ -42,9 +47,9 @@ export const UserService = {
     }
   },
 
-  updateUser: async (payload: UserModel.UpdateUserPayload): Promise<UserModel.GetUserResponse> => {
+  updateUser: async (payload: UpdateUserPayload): Promise<GetUserResponse> => {
     try {
-      const response = await Http.patch<UserModel.GetUserResponse>(`/users/${payload.userId}`, {
+      const response = await Http.patch<GetUserResponse>(`/users/${payload.userId}`, {
         data: payload.data,
       });
 
@@ -55,9 +60,9 @@ export const UserService = {
     }
   },
 
-  deleteUser: async (payload: UserModel.DeleteUserPayload): Promise<UserModel.GetUserResponse> => {
+  deleteUser: async (payload: DeleteUserPayload): Promise<GetUserResponse> => {
     try {
-      const response = await Http.delete<UserModel.GetUserResponse>(`/users/${payload.userId}`);
+      const response = await Http.delete<GetUserResponse>(`/users/${payload.userId}`);
 
       return response.data;
     } catch (error) {

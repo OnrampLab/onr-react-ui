@@ -1,10 +1,4 @@
-import { IUser } from '@onr/user';
-
-/**
- *
- * @export
- * @interface UserResponse
- */
+import { IUser } from '../../entities/interfaces';
 
 export interface UserResponse {
   /**
