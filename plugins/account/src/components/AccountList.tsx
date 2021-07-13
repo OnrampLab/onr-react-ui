@@ -1,21 +1,22 @@
-import { DefaultPubSubContext } from '@onr/core';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { AccountService, IAccount } from '..';
 import { CreateAccountForm } from './CreateAccountForm';
 import { UpdateAccountForm } from './UpdateAccountForm';
 
 interface IAccountListProps {
   accounts: IAccount[];
+  onAccountsChanged(): void;
 }
 
-export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountListProps) => {
+export const AccountList: React.FC<IAccountListProps> = ({
+  accounts,
+  onAccountsChanged,
+}: IAccountListProps) => {
   const [currentAccount, setCurrentAccount] = useState<IAccount>(accounts[0]);
   const [createAccountModalVisible, setCreateAccountModalVisible] = useState(false);
   const [updateAccountModalVisible, setUpdateAccountModalVisible] = useState(false);
-  // @ts-ignore
-  const { publish } = useContext(DefaultPubSubContext);
 
   const openCreateDialog = () => {
     setCreateAccountModalVisible(true);
@@ -33,7 +34,7 @@ export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountL
       }
       await AccountService.deleteAccount({ accountId: account.id });
       message.success(`Account ${account.name} deleted`);
-      publish('account.updated');
+      onAccountsChanged();
     } catch (e) {
       message.error(`Failed to delete account${e.message && `: ${e.message}`}`);
     }
@@ -93,7 +94,7 @@ export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountL
         >
           <CreateAccountForm
             onSubmit={() => {
-              publish('account.updated');
+              onAccountsChanged();
               setCreateAccountModalVisible(false);
             }}
           />
@@ -111,7 +112,7 @@ export const AccountList: React.FC<IAccountListProps> = ({ accounts }: IAccountL
           <UpdateAccountForm
             currentAccount={currentAccount}
             onSubmit={() => {
-              publish('account.updated');
+              onAccountsChanged();
               setUpdateAccountModalVisible(false);
             }}
           />
