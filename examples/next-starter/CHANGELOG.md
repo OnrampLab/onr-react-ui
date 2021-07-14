@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.9.0...next-starter@0.10.0) (2021-07-14)
+
+
+### Features
+
+* **core:** remove AppProvider and usePubSub hook ([d73b2b9](https://github.com/OnrampLab/onr-react-ui/commit/d73b2b9c89277ff0b0fb2f4ccfb73a70ada9a7fe))
+* **module:** [auth] move to packages ([e985888](https://github.com/OnrampLab/onr-react-ui/commit/e985888a92957fdcb36fa089a704ccb0c73d6223))
+* **starter/package:** [@onr/auth] new ([c455b6e](https://github.com/OnrampLab/onr-react-ui/commit/c455b6eb33b2bfd0306d08009668f8201908043b))
+
+
+
 ## [0.9.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.8.7...next-starter@0.9.0) (2021-07-08)
 
 

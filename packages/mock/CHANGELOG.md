@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.11](https://github.com/OnrampLab/onr-react-ui/compare/@onr/mock@0.1.10...@onr/mock@0.1.11) (2021-07-14)
+
+
+### Bug Fixes
+
+* **mock/mock:** [Mock] make model as optional ([81fe47f](https://github.com/OnrampLab/onr-react-ui/commit/81fe47fb4dfcf499f0253daf76d869efdb27a7d8))
+
+
+
 ### [0.1.10](https://github.com/OnrampLab/onr-react-ui/compare/@onr/mock@0.1.9...@onr/mock@0.1.10) (2021-07-07)
 
 **Note:** Version bump only for package @onr/mock

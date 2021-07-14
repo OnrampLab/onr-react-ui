@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.7.0...@onr/core@0.8.0) (2021-07-14)
+
+
+### Features
+
+* **core:** remove AppProvider and usePubSub hook ([d73b2b9](https://github.com/OnrampLab/onr-react-ui/commit/d73b2b9c89277ff0b0fb2f4ccfb73a70ada9a7fe))
+
+
+
 ## [0.7.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.6.5...@onr/core@0.7.0) (2021-07-08)
 
 

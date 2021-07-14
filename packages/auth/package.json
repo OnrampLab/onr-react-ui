@@ -1,6 +1,6 @@
 {
   "name": "@onr/auth",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "auth package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",

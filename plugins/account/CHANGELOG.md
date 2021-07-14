@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.1.4...@onr/plugin-account@0.2.0) (2021-07-14)
+
+
+### Features
+
+* **account/component:** [AccountList] add onAccountsChanged to props ([5a45d90](https://github.com/OnrampLab/onr-react-ui/commit/5a45d90785bfaba179c6925254d8fafe734c09a8))
+
+
+
 ### [0.1.4](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.1.3...@onr/plugin-account@0.1.4) (2021-07-08)
 
 **Note:** Version bump only for package @onr/plugin-account

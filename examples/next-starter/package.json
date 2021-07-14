@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -24,11 +24,11 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@onr/auth": "^0.0.1",
+    "@onr/auth": "^0.1.0",
     "@onr/common": "^0.5.3",
-    "@onr/core": "^0.7.0",
-    "@onr/mock": "^0.1.10",
-    "@onr/plugin-account": "^0.1.4",
+    "@onr/core": "^0.8.0",
+    "@onr/mock": "^0.1.11",
+    "@onr/plugin-account": "^0.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",
