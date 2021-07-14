@@ -1,9 +1,10 @@
+import { ReactNode } from 'react';
 import { AppComponents } from './AppComponents';
 
 export type OnrApp = {
   initialize(): void;
   getComponents(): AppComponents;
-  getProvider(): JSX.Element;
+  getProvider(): ReactNode;
   getAppConfig(): any;
   getRoutes(): any;
 };
