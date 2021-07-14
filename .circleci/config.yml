@@ -14,6 +14,9 @@ jobs:
       - run:
           command: yarn lerna run test
           name: Run YARN tests
+      - run:
+          name: Test build
+          command: yarn build
 
   release:
     working_directory: ~/repo
@@ -44,7 +47,9 @@ jobs:
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run: yarn lerna publish --yes
+      - run:
+          name: Publish to NPM
+          command: yarn lerna publish --yes
 
 workflows:
     build-and-test:
