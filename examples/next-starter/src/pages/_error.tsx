@@ -1,3 +1,3 @@
-import { Error } from '@app';
+import { Error } from '@onr/core-antd';
 
 export default Error;
