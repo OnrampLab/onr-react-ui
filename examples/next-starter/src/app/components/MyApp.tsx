@@ -1,7 +1,7 @@
 import { createApp, OnrApp } from '@onr/core';
 import { Header, Page, SidebarMenu } from '@onr/core-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
-import { AppContext, AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
@@ -11,7 +11,7 @@ import { afterComponentDidMount, store } from '../redux';
 import { GlobalStyles } from './GlobalStyles';
 import { PageContainer } from './PageContainer';
 
-const makeStore: MakeStore = (context: Context) => store();
+const makeStore: MakeStore<any> = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
 
@@ -66,7 +66,7 @@ export class AppComponent extends Component<AppProps> {
     afterComponentDidMount();
   }
 
-  render(): JSX.Element {
+  render() {
     const { pageProps } = this.props;
 
     return (
