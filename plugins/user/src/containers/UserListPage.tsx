@@ -1,11 +1,15 @@
 import { IAccount } from '@onr/plugin-account';
-import { CreateUserForm, IUser, UpdateUserForm, UserRole, UserService } from '@onr/user';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React, { useEffect, useState } from 'react';
+import { CreateUserForm } from '../components/CreateUserForm';
+import { UpdateUserForm } from '../components/UpdateUserForm';
+import { IUser, UserRole } from '../entities/interfaces/IUser';
+import { UserService } from '../services/UserService';
 
 export const UserListPage: React.FC = () => {
   const [users, setUsers] = useState<IUser[]>([]);
+  // @ts-ignore
   const [currentUser, setCurrentUser] = useState<IUser>({});
   const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
   const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);

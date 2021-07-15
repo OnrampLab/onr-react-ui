@@ -1,11 +1,12 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CoreStore } from '@onr/core';
 import { accountActions, IAccount } from '@onr/plugin-account';
-import { IUser, UserRequestPayload, UserRoleName } from '@onr/user';
 import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IUser, UserRoleName } from '../entities/interfaces/IUser';
+import { UserRequestPayload } from '../services/interfaces';
 
 interface AccountUser extends IUser {
   accounts: IAccount[];
@@ -14,6 +15,10 @@ interface AccountUser extends IUser {
 interface IUserFormProps extends FormProps {
   currentUser: AccountUser;
   handleSubmit(user: UserRequestPayload): Promise<void>;
+}
+
+interface AccountStore extends CoreStore {
+  accountStore: any;
 }
 
 const layout = {
@@ -54,7 +59,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
   useEffect(() => {
     fetchData();
     form?.resetFields();
-  }, [currentUser]);
+  }, [fetchData, currentUser]);
 
   const onFinish = async (values: UserRequestPayload['data']) => {
     console.log('Received values of form: ', values);
@@ -120,16 +125,15 @@ export const UserForm: React.FC<IUserFormProps> = ({
           rules={[{ required: false, type: 'array' }]}
         >
           <Select mode="multiple" style={{ width: 300 }}>
-            {/* {Object.entries(UserRoleName).map((ele, i) => {
-              <Select.Option key={i.toString()} value={ele[1]}>
-                {ele[1].replace('-', ' ')}
-              </Select.Option>;
-            })} */}
-            {Object.keys(UserRoleName).map((key, i) => (
-              <Select.Option key={i.toString()} value={UserRoleName[key]}>
-                {UserRoleName[key].replace('-', ' ')}
-              </Select.Option>
-            ))}
+            {Object.keys(UserRoleName).map((key, i) => {
+              // @ts-ignore
+              const roleName = UserRoleName[key];
+              return (
+                <Select.Option key={i.toString()} value={roleName}>
+                  {roleName.replace('-', ' ')}
+                </Select.Option>
+              );
+            })}
           </Select>
         </Form.Item>
 

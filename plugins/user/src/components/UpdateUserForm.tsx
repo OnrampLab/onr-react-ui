@@ -1,5 +1,7 @@
 import React from 'react';
-import { IUser, UserService, UserRequestPayload } from '@onr/user';
+import { IUser } from '../entities/interfaces';
+import { UserRequestPayload } from '../services/interfaces';
+import { UserService } from '../services/UserService';
 import { UserForm } from './UserForm';
 
 interface UpdateUserFormProps {
