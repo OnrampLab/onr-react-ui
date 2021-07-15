@@ -66,7 +66,7 @@ export class AppComponent extends Component<AppProps> {
     afterComponentDidMount();
   }
 
-  render() {
+  render(): JSX.Element {
     const { pageProps } = this.props;
 
     return (
