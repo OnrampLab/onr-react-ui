@@ -12,7 +12,7 @@ import {
   Popconfirm,
   Row,
   Switch,
-  Tooltip
+  Tooltip,
 } from 'antd';
 import { capitalize } from 'lodash';
 import Link from 'next/link';
