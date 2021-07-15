@@ -1,13 +1,18 @@
 {
-  "name": "cli-boilerplate",
-  "version": "1.0.0",
+  "name": "@onr/cli",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "types": "types/index.d.ts",
   "scripts": {
-    "build": "tsc && cp -r ./lib/templates ./dist/lib",
-    "test": "jest --coverage",
-    "start": "node ./dist/index.js a",
-    "watch": "tsc -w"
+    "dev": "cp -r ./src/templates ./lib/ && tsc --watch --preserveWatchOutput",
+    "start": "node ./lib/index.js a",
+    "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "build": "tsc && cp -r ./src/templates ./lib",
+    "prepublishOnly": "yarn build",
+    "test": "jest --coverage --passWithNoTests"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +27,11 @@
     "mustache": "^4.0.1"
   },
   "devDependencies": {
+    "@onr/eslint-config": "^0.2.8",
+    "@onr/prettier-config": "^1.1.0",
+    "@types/figlet": "^1.5.4",
     "@types/inquirer": "^6.5.0",
+    "@types/inquirer-fuzzy-path": "^2.3.1",
     "@types/jest": "^25.1.4",
     "@types/mustache": "^4.0.1",
     "@types/node": "^13.9.1",
@@ -32,8 +41,9 @@
     "memory-fs": "^0.5.0",
     "minimist": "^1.2.5",
     "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
+    "typescript": "^4.3.4"
   },
+  "prettier": "@onr/prettier-config",
   "jest": {
     "testResultsProcessor": "jest-teamcity",
     "coverageDirectory": "<rootDir>/coverage",

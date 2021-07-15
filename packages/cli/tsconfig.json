@@ -1,20 +1,10 @@
 {
+  "extends": "../../tsconfig.components.json",
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "sourceMap": true,
-    "allowJs": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "pretty": true,
-    "types": [
-      "jest",
-      "node"
-    ]
+    "outDir": "lib",
+    "declarationDir": "./types",
+    "sourceMap": true
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.tsx?"]
 }
