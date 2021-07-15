@@ -27,6 +27,8 @@ const app: OnrApp = createApp({
 
 const AppProvider = app.getProvider();
 
+console.log('app config', app.getAppConfig());
+
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
 Router.events.on('routeChangeError', () => done());

@@ -29,8 +29,10 @@ export class App implements OnrApp {
   }
 
   getProvider() {
+    // @ts-ignore
     // eslint-disable-next-line
-    const Provider: FC = ({ children }: ProviderProps): JSX.Element => {
+    const Provider: FC<ReactNode> = ({ children }: ProviderProps): ReactNode => {
+      console.log({ config: this.getAppConfig() });
       return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
     };
 
