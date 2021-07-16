@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     // Disabled Rules
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
 
     // Enabled rules
   },

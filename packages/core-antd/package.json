@@ -1,7 +1,7 @@
 {
-  "name": "@onr/auth",
-  "version": "0.1.0",
-  "description": "auth package",
+  "name": "@onr/core-antd",
+  "version": "0.0.1",
+  "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -32,8 +32,8 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.5.3",
-    "@onr/core": "^0.8.0"
+    "@onr/common": "0.5.3",
+    "@onr/core": "0.8.0"
   },
   "peerDependencies": {
     "antd": "^4.16.1",

@@ -29,6 +29,7 @@
     "@onr/core": "^0.8.0",
     "@onr/mock": "^0.1.11",
     "@onr/plugin-account": "^0.2.0",
+    "@onr/core-antd": "^0.0.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",
