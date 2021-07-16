@@ -134,7 +134,7 @@ export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: 
       >
         {appRoutes.map((route, index) => (
           <SidebarMenuItem
-            key={getSidebarItemKey(route.name, itemIndex)}
+            key={getSidebarItemKey(route.name, index)}
             itemIndex={index}
             route={route}
             setOpenKeys={setOpenKeys}
