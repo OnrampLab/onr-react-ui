@@ -19,7 +19,7 @@ interface Props {
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, logout, children } = props;
   const router = useRouter();
-  const appConfig = useContext(AppContext).getAppConfig();
+  const appConfig = useContext(AppContext)?.getAppConfig();
   const fullPageRoutes = appConfig.fullPageRoutes;
   const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
