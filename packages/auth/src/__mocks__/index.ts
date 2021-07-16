@@ -16,3 +16,5 @@ export const mocks = [
     routesCallback: authRouteCallback,
   }),
 ];
+
+export { roleModel };

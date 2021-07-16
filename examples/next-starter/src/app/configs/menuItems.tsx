@@ -1,6 +1,6 @@
+import { UserRoleName } from '@onr/plugin-user';
 import React, { ReactElement } from 'react';
 import { Home, Server } from 'react-feather';
-import { UserRoleName } from '@onr/user';
 
 export interface MenuItem {
   name: string;

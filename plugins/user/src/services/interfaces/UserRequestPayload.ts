@@ -1,10 +1,10 @@
-import { UserRoleName } from '@onr/user';
-
 /**
  *
  * @export
  * @interface UserRequestPayload
  */
+
+import { UserRoleName } from '../../entities/interfaces/IUser';
 
 export interface UserRequestPayload {
   /**

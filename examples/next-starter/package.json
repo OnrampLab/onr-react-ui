@@ -30,6 +30,7 @@
     "@onr/core-antd": "^0.1.0",
     "@onr/mock": "^0.1.12",
     "@onr/plugin-account": "^0.2.1",
+    "@onr/plugin-user": "^0.0.1",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",

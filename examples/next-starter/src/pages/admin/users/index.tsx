@@ -1,10 +1,9 @@
 //#region Global Imports
-import * as React from 'react';
-import Head from 'next/head';
 //#endregion Global Imports
-
 //#region Interface Imports
-import { UserListPage } from '@onr/user';
+import { UserListPage } from '@onr/plugin-user';
+import Head from 'next/head';
+import * as React from 'react';
 //#endregion Interface Imports
 
 export class UserPage extends React.Component {
