@@ -11,7 +11,7 @@ import {
   Popconfirm,
   Row,
   Switch,
-  Tooltip
+  Tooltip,
 } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
