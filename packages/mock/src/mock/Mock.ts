@@ -79,7 +79,7 @@ export class Mock implements IMock {
     server.post(`/${resource}`, (schema, request) => {
       return {
         // @ts-ignore
-        data: [schema[resource].create(JSON.parse(request.requestBody))],
+        data: schema[resource].create(JSON.parse(request.requestBody)),
       };
     });
 
@@ -97,7 +97,8 @@ export class Mock implements IMock {
     server.delete(`/${resource}/:id`, (schema, request) => {
       const { id } = request.params;
 
-      schema.db[resource].remove(id);
+      // @ts-ignore
+      schema[resource].find(id).destroy();
 
       return {
         message: 'success',
