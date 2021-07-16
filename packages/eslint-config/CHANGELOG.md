@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/eslint-config@0.2.9...@onr/eslint-config@0.3.0) (2021-07-16)
+
+
+### Features
+
+* **eslint-config/config:** [react] ignore rule of proptype ([532bc58](https://github.com/OnrampLab/onr-react-ui/commit/532bc58ff3375b309b58ffb23426c9ce75169020))
+
+
+
 ### [0.2.9](https://github.com/OnrampLab/onr-react-ui/compare/@onr/eslint-config@0.2.8...@onr/eslint-config@0.2.9) (2021-07-07)
 
 **Note:** Version bump only for package @onr/eslint-config

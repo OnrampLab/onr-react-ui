@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.8.0...@onr/core@0.9.0) (2021-07-16)
+
+
+### Features
+
+* **core/component:** remove antd dependency ([9097c14](https://github.com/OnrampLab/onr-react-ui/commit/9097c14fa6401eaa25794a6b5babce6637682510))
+* **core/type:** [AppComponents] add more component support: Header, Page, Sidebar ([14244ae](https://github.com/OnrampLab/onr-react-ui/commit/14244aef722ea03e0d76887203d06012d5eccdce))
+
+
+### Bug Fixes
+
+* **core/component:** [App] wrong type definition ([fff0790](https://github.com/OnrampLab/onr-react-ui/commit/fff0790fc5151a5ba5b704f621b0bc8b3c09b40c))
+* **core/component:** [Page] possible null pointer ([61af235](https://github.com/OnrampLab/onr-react-ui/commit/61af2356f374b3bba4001beaa1870e1e0ab6be54))
+* **core/component:** [SidebarMenu] possible null pointer ([9ed0499](https://github.com/OnrampLab/onr-react-ui/commit/9ed04993f1fced481e56eb17b403197d74350b98))
+
+
+
 ## [0.8.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.7.0...@onr/core@0.8.0) (2021-07-14)
 
 

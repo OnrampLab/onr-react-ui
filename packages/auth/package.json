@@ -1,6 +1,6 @@
 {
   "name": "@onr/auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "auth package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -32,8 +32,8 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.5.3",
-    "@onr/core": "^0.8.0"
+    "@onr/common": "^0.5.4",
+    "@onr/core": "^0.9.0"
   },
   "peerDependencies": {
     "antd": "^4.16.1",
@@ -49,7 +49,7 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",
-    "@onr/eslint-config": "^0.2.9",
+    "@onr/eslint-config": "^0.3.0",
     "@onr/prettier-config": "^1.1.1",
     "@types/antd": "^1.0.0",
     "@types/lodash": "^4.14.168",

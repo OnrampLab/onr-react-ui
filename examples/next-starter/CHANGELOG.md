@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.10.0...next-starter@0.11.0) (2021-07-16)
+
+
+### Features
+
+* **starter/component:** use Page, Header, SidebarMenu components from @onr/core-antd ([17c14fb](https://github.com/OnrampLab/onr-react-ui/commit/17c14fb7ffb4ca8efa2e6fbd41b53dafe31e23e3))
+
+
+
 ## [0.10.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.9.0...next-starter@0.10.0) (2021-07-14)
 
 
