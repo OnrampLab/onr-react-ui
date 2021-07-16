@@ -4,13 +4,14 @@ import { ColumnProps } from 'antd/lib/table';
 import React, { useEffect, useState } from 'react';
 import { CreateUserForm } from '../components/CreateUserForm';
 import { UpdateUserForm } from '../components/UpdateUserForm';
-import { IUser, UserRole } from '../entities/interfaces/IUser';
+import { AccountUser } from '../entities/interfaces/AccountUser';
+import { UserRole } from '../entities/interfaces/IUser';
 import { UserService } from '../services/UserService';
 
 export const UserListPage: React.FC = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
+  const [users, setUsers] = useState<AccountUser[]>([]);
   // @ts-ignore
-  const [currentUser, setCurrentUser] = useState<IUser>({});
+  const [currentUser, setCurrentUser] = useState<AccountUser>({});
   const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
   const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);
 
@@ -18,7 +19,7 @@ export const UserListPage: React.FC = () => {
     fetchUserListData();
   }, []);
 
-  const columns: ColumnProps<IUser>[] = [
+  const columns: ColumnProps<AccountUser>[] = [
     {
       title: 'ID',
       dataIndex: 'id',
@@ -72,7 +73,7 @@ export const UserListPage: React.FC = () => {
     setCreateUserModalVisible(true);
   }
 
-  function openEditDialog(user: IUser) {
+  function openEditDialog(user: AccountUser) {
     if (user) {
       setCurrentUser(user);
       setUpdateUserModalVisible(true);
@@ -94,7 +95,7 @@ export const UserListPage: React.FC = () => {
     fetchUserListData();
   };
 
-  const deleteUser = async (user: IUser) => {
+  const deleteUser = async (user: AccountUser) => {
     try {
       if (!user.id) {
         throw new Error('No user id');
@@ -117,7 +118,7 @@ export const UserListPage: React.FC = () => {
           </Button>
         }
       >
-        <Table<IUser>
+        <Table<AccountUser>
           rowKey="id"
           columns={columns}
           dataSource={users}

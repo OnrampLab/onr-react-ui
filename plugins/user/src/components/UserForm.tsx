@@ -5,12 +5,9 @@ import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { IUser, UserRoleName } from '../entities/interfaces/IUser';
+import { AccountUser } from '../entities/interfaces/AccountUser';
+import { UserRoleName } from '../entities/interfaces/IUser';
 import { UserRequestPayload } from '../services/interfaces';
-
-interface AccountUser extends IUser {
-  accounts: IAccount[];
-}
 
 interface IUserFormProps extends FormProps {
   currentUser: AccountUser;
@@ -45,7 +42,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   const { accounts } = currentUser;
-  const allAccounts: IAccount[] = useSelector((store: CoreStore) => store.accountStore.accounts);
+  const allAccounts: IAccount[] = useSelector((store: AccountStore) => store.accountStore.accounts);
   const allAccountOptions = accountsToTransferOptions(allAccounts);
 
   const fetchData = useCallback(() => {

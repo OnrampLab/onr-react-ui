@@ -1,5 +1,5 @@
 import { Http } from '@onr/common';
-import { IUser } from '../entities/interfaces';
+import { AccountUser } from '../entities/interfaces/AccountUser';
 import {
   CreateUserPayload,
   DeleteUserPayload,
@@ -10,9 +10,9 @@ import {
 } from './interfaces/UserModel';
 
 export const UserService = {
-  getUsers: async (payload: GetUsersPayload): Promise<IUser[]> => {
+  getUsers: async (payload: GetUsersPayload): Promise<AccountUser[]> => {
     try {
-      const response = await Http.get<IUser[]>(`/users`, {
+      const response = await Http.get<AccountUser[]>(`/users`, {
         params: payload.params,
       });
 

@@ -1,21 +1,26 @@
-import { getDebugger } from '@onr/common';
-import { Server } from 'miragejs';
+import { roleModel } from '@onr/auth';
+import { Registry, Server } from 'miragejs';
+import Schema from 'miragejs/orm/schema';
+import { userModel } from './userModel';
 
-const debug = getDebugger('onr:user:userRouteCallback');
+// const debug = getDebugger('onr:user:userRouteCallback');
+
+type AppRegistry = Registry<{ user: typeof userModel; role: typeof roleModel }, {}>;
+type AppSchema = Schema<AppRegistry>;
 
 export function userRouteCallback(server: Server): void {
-  server.post('/users', function (schema, request) {
+  server.post('/users', function (schema: AppSchema, request) {
     const data = JSON.parse(request.requestBody);
 
     data.accountIds = data.accounts;
-    data.roleIds = schema.roles
-      .where(role => data.roles.includes(role.name))
+    data.roleIds = schema
+      .where('role', role => data.roles.includes(role.name))
       .models.map(role => role.id);
 
     delete data.accounts;
     delete data.roles;
 
-    const user = schema.users.create(data);
+    const user = schema.create('user', data);
 
     return {
       // @ts-ignore
@@ -23,14 +28,14 @@ export function userRouteCallback(server: Server): void {
     };
   });
 
-  server.patch(`/users/:id`, (schema, request) => {
+  server.patch(`/users/:id`, (schema: AppSchema, request) => {
     const { id } = request.params;
     const data = JSON.parse(request.requestBody);
 
     data.accountIds = data.accounts;
-    data.roleIds = schema.roles
-      .where(role => data.roles.includes(role.name))
-      .models.map(role => role.id);
+    data.roleIds = schema
+      .where('role', (role: any) => data.roles.includes(role.name))
+      .models.map((role: any) => role.id);
 
     delete data.accounts;
     delete data.roles;

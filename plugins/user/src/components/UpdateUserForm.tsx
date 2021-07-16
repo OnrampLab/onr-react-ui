@@ -1,11 +1,11 @@
 import React from 'react';
-import { IUser } from '../entities/interfaces';
+import { AccountUser } from '../entities/interfaces/AccountUser';
 import { UserRequestPayload } from '../services/interfaces';
 import { UserService } from '../services/UserService';
 import { UserForm } from './UserForm';
 
 interface UpdateUserFormProps {
-  currentUser: IUser;
+  currentUser: AccountUser;
   onSubmit: () => void;
 }
 
