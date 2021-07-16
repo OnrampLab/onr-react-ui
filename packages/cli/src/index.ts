@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-/* eslint-disable complexity */
-import * as chalk from 'chalk';
-/* import * as clear from 'clear'; */
-import * as program from 'commander';
-import * as figlet from 'figlet';
-import * as inquirer from 'inquirer';
-import * as inquirerFuzzyPath from 'inquirer-fuzzy-path';
-import { Common } from './lib/commonQuestion';
-import { TemplateCreator, createCustomRoute, caseTransform } from './lib/helper';
+import chalk from 'chalk';
+import program from 'commander';
+import figlet from 'figlet';
+import inquirer from 'inquirer';
+import inquirerFuzzyPath from 'inquirer-fuzzy-path';
+import { Common } from './commonQuestion';
+import { caseTransform, createCustomRoute, TemplateCreator } from './helper';
 
 inquirer.registerPrompt('fuzzypath', inquirerFuzzyPath);
 console.clear();
