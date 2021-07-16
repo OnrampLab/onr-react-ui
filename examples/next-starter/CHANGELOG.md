@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.12.0...next-starter@0.13.0) (2021-07-16)
+
+
+### Features
+
+* **starter:** move documentation to root folder ([8e72fc6](https://github.com/OnrampLab/onr-react-ui/commit/8e72fc67446cfe36b57f7bba6d4fdcefc6e55e07))
+
+
+
 ## [0.12.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.11.0...next-starter@0.12.0) (2021-07-16)
 
 
