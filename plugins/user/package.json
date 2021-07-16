@@ -32,6 +32,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
+    "@onr/auth": "^0.1.1",
     "@onr/common": "^0.5.3",
     "@onr/core": "^0.7.0",
     "@onr/mock": "^0.1.10",
