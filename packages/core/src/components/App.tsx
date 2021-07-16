@@ -2,7 +2,7 @@ import { Http } from '@onr/common';
 import { createContext, FC, ReactNode } from 'react';
 import { AppComponents, FullAppOptions, OnrApp } from '../types';
 
-export const AppContext = createContext<any | null>(null);
+export const AppContext = createContext<App | null>(null);
 
 type ProviderProps = {
   children?: ReactNode;

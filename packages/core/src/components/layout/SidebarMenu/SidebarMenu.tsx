@@ -11,9 +11,8 @@ import {
   Popconfirm,
   Row,
   Switch,
-  Tooltip,
+  Tooltip
 } from 'antd';
-import { capitalize } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
@@ -24,6 +23,7 @@ import { coreActions, CoreStore } from '../../../redux';
 import { AuthUser } from '../../../types';
 import { AppContext } from '../../App';
 import { DashHeader } from '../Header';
+import { SidebarMenuItem } from './SidebarMenuItem';
 import { Sidebar } from './styles';
 
 /* eslint-disable complexity  */
@@ -39,7 +39,7 @@ const { Header, Sider } = Layout;
 
 const rootSubMenuKeys: string[] = [];
 
-const getKey = (name: string, index: number) => {
+export const getSidebarItemKey = (name: string, index: number) => {
   const string = `${name}-${index}`;
   const key = string.replace(' ', '-');
   return key.charAt(0).toLowerCase() + key.slice(1);
@@ -106,7 +106,7 @@ export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: 
   React.useEffect(() => {
     appRoutes.forEach((route, index) => {
       const isCurrentPath = pathname.indexOf(route.name.toLowerCase()) > -1 ? true : false;
-      const key = getKey(route.name, index);
+      const key = getSidebarItemKey(route.name, index);
       rootSubMenuKeys.push(key);
       if (isCurrentPath) setOpenKeys([...openKeys, key]);
     });
@@ -132,57 +132,14 @@ export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: 
         openKeys={openKeys}
         onOpenChange={onOpenChange}
       >
-        {appRoutes.map((route, index) => {
-          const hasChildren = route.children ? true : false;
-          if (!hasChildren)
-            return (
-              <Menu.Item
-                key={getKey(route.name, index)}
-                className={pathname === route.path ? 'ant-menu-item-selected' : ''}
-                onClick={() => {
-                  setOpenKeys([getKey(route.name, index)]);
-                  if (mobile) dispatch(setMobileDrawer());
-                }}
-              >
-                <Link href={route.path}>
-                  <a>
-                    {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                    <span className="mr-auto">{capitalize(route.name)}</span>
-                  </a>
-                </Link>
-              </Menu.Item>
-            );
-
-          if (hasChildren)
-            return (
-              <SubMenu
-                key={getKey(route.name, index)}
-                title={
-                  <span>
-                    {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                    <span>{capitalize(route.name)}</span>
-                  </span>
-                }
-              >
-                {route.children &&
-                  route.children.map((subitem, index) => (
-                    <Menu.Item
-                      key={getKey(subitem.name, index)}
-                      className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
-                      onClick={() => {
-                        if (mobile) dispatch(setMobileDrawer());
-                      }}
-                    >
-                      <Link href={`${subitem.path ? subitem.path : ''}`}>
-                        <a>
-                          <span className="mr-auto">{capitalize(subitem.name)}</span>
-                        </a>
-                      </Link>
-                    </Menu.Item>
-                  ))}
-              </SubMenu>
-            );
-        })}
+        {appRoutes.map((route, index) => (
+          <SidebarMenuItem
+            key={getSidebarItemKey(route.name, itemIndex)}
+            itemIndex={index}
+            route={route}
+            setOpenKeys={setOpenKeys}
+          />
+        ))}
       </Menu>
 
       <Divider
