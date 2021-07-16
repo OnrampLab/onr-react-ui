@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.11.0...next-starter@0.12.0) (2021-07-16)
+
+
+### Features
+
+* **module:** [user] move to plugins ([a8072f7](https://github.com/OnrampLab/onr-react-ui/commit/a8072f72347013fabd5eae998d2c7805770eb57d))
+* **starter/plugin:** add @onr/plugin-user ([8053b77](https://github.com/OnrampLab/onr-react-ui/commit/8053b77b78004f3ff766a375cc8a2dd72aedc8a2))
+
+
+### Bug Fixes
+
+* **starter/component:** [UserForm] could not show Available Accounts ([abb5c21](https://github.com/OnrampLab/onr-react-ui/commit/abb5c214ca08f4e9da4d2331c1e276f97b1f2dbc))
+
+
+
 ## [0.11.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.10.0...next-starter@0.11.0) (2021-07-16)
 
 
