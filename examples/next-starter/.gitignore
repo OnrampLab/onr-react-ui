@@ -41,6 +41,8 @@ node_modules/
 jspm_packages/
 
 
+# Bundle analysis
+bundle/
 
 # TypeScript v1 declaration files
 typings/
