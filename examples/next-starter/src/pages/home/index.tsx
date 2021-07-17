@@ -1,3 +1,3 @@
-import { HomeMainPage } from '@onr/home';
+import { HomeMainPage } from '@onr/plugin-custom-home';
 
 export default HomeMainPage;

@@ -10,17 +10,8 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "src/**/*"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "src/**/*"]
 }
