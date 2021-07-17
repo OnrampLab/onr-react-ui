@@ -33,6 +33,7 @@
     "@onr/core": "^0.9.0",
     "@onr/core-antd": "^0.1.0",
     "@onr/mock": "^0.1.13",
+    "@onr/next-server": "^0.0.1",
     "@onr/plugin-account": "^0.2.2",
     "@onr/plugin-custom-home": "^0.0.1",
     "@onr/plugin-user": "^0.1.0",
