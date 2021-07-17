@@ -4,6 +4,10 @@
   "version": "0.13.0",
   "description": "",
   "main": "src/server/index.js",
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ],
   "scripts": {
     "dev": "nodemon --watch app --watch src/server/index.js",
     "build": "NODE_ENV=production next build",
