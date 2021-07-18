@@ -1,0 +1,30 @@
+{
+  "useWorkspaces": true,
+  "packages": ["packages/*/*", "plugins/*/*"],
+  "version": "independent",
+  "command": {
+    "run": {
+      "npmClient": "yarn"
+    },
+    "version": {
+      "allowBranch": "main",
+      "ignoreChanges": [
+        "*.md",
+        "__test__/**",
+        "__fixtures__/**",
+        "**/*.test.{j|t}s",
+        "@(!(package)).json"
+      ],
+      "message": "chore(release): publish [ci skip]",
+      "conventionalCommits": true,
+      "createRelease": "github"
+    },
+    "publish": {
+      "allowBranch": "main",
+      "conventionalCommits": true
+    }
+  },
+  "changelogPreset": {
+    "name": "conventionalcommits"
+  }
+}

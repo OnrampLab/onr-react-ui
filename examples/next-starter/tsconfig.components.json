@@ -1,0 +1,3 @@
+{
+  "extends": "@onr/tsconfig/tsconfig.components.json"
+}

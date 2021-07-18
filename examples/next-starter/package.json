@@ -4,6 +4,10 @@
   "version": "0.13.0",
   "description": "",
   "main": "src/server/index.js",
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ],
   "scripts": {
     "dev": "nodemon --watch app --watch src/server/index.js",
     "build": "NODE_ENV=production next build",
@@ -30,6 +34,7 @@
     "@onr/core-antd": "^0.1.0",
     "@onr/mock": "^0.1.13",
     "@onr/plugin-account": "^0.2.2",
+    "@onr/plugin-custom-home": "^0.0.1",
     "@onr/plugin-user": "^0.1.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-bundle-analyzer": "^0.1.2",
@@ -111,6 +116,7 @@
     "husky": "^5.0.0",
     "jest": "^24.8.0",
     "jest-junit": "^10.0.0",
+    "lerna": "^3.22.1",
     "less": "^3.9.0",
     "lint-staged": "^10.2.11",
     "minimist": "^1.2.5",

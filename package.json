@@ -3,6 +3,8 @@
   "private": true,
   "workspaces": [
     "examples/*",
+    "examples/**/packages/*",
+    "examples/**/plugins/*",
     "packages/*",
     "plugins/*"
   ],
