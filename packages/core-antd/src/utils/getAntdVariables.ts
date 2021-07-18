@@ -1,7 +1,9 @@
-const lessToJs = require('less-vars-to-js');
-const { camelCase } = require('change-case');
+import { camelCase } from 'change-case';
+// @ts-ignore
+import lessToJs from 'less-vars-to-js';
+import { Theme } from '../definitions';
 
-function getAntdVariables(paletteLess) {
+export function getAntdVariables(paletteLess: string): Theme {
   const lessVariables = lessToJs(paletteLess || '', {
     resolveVariables: true,
     stripPrefix: true,
@@ -9,18 +11,16 @@ function getAntdVariables(paletteLess) {
 
   const antdVariables = objectToCamelCase(lessVariables);
 
-  return antdVariables;
+  return antdVariables as Theme;
 }
 
-function objectToCamelCase(origObj) {
+function objectToCamelCase(origObj: any) {
   return Object.keys(origObj).reduce(function (newObj, key) {
     const val = origObj[key];
     const newVal = typeof val === 'object' ? objectToCamelCase(val) : val;
+    // @ts-ignore
     newObj[camelCase(key)] = newVal;
+
     return newObj;
   }, {});
 }
-
-module.exports = {
-  getAntdVariables,
-};

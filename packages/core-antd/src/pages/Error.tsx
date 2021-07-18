@@ -1,7 +1,6 @@
-import { NextPageContext } from 'next';
-import React from 'react';
-import HTTPStatus from 'http-status';
 import { Row } from 'antd';
+import HTTPStatus from 'http-status';
+import { NextPageContext } from 'next';
 
 interface Props {
   code: number;
@@ -15,6 +14,7 @@ export const Error = ({ code }: Props) => {
 
   return (
     <Row
+      // @ts-ignore
       type="flex"
       align="middle"
       justify="center"

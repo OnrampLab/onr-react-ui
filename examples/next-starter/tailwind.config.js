@@ -1,7 +1,7 @@
 const { generatePalette } = require('@onr/tailwind-palette');
+const { getAntdVariables } = require('@onr/core-antd');
 const { paramCase } = require('change-case');
 const fs = require('fs');
-const { getAntdVariables } = require('./src/lib/getAntdVariables');
 const { rgbHex } = require('./src/lib/rgbHex');
 const { mergeArrayToObject } = require('./src/lib/mergeArrayToObject');
 const paletteLess = fs.readFileSync(__dirname + '/src/assets/antd-custom.less', 'utf8');
