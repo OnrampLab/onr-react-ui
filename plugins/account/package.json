@@ -53,11 +53,13 @@
     "@onr/eslint-config": "^0.3.0",
     "@onr/prettier-config": "^1.1.1",
     "@types/antd": "^1.0.0",
+    "@types/faker": "^5.5.7",
     "@types/lodash": "^4.14.168",
     "@types/node": "^14.14.21",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "eslint": "^7.29.0",
+    "faker": "^5.5.3",
     "typescript": "^4.3.4"
   },
   "prettier": "@onr/prettier-config",

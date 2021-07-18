@@ -47,5 +47,8 @@
   "prettier": "@onr/prettier-config",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "faker": "^5.5.3"
   }
 }
