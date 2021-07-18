@@ -20,3 +20,17 @@ services:
         npm rebuild node-sass;
         yarn start:dev;
         "
+  ruby:
+    build:
+      context: .
+      dockerfile: tools/docker/ruby/Dockerfile
+    volumes:
+      - .:/app
+      - ~/.ssh:/root/.ssh:ro
+    working_dir: /app
+    command:
+      >
+        sh -i -c -e
+        "
+        bundle install;
+        "

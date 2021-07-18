@@ -89,10 +89,10 @@ _Here are a few highlights to look out for in this boilerplate_
    yarn install
    ```
 
-3. Create `.env.local`
+3. Create `.env`
 
    ```sh
-   cp .env.example .env.local
+   cp .env.example .env
    ```
 
 4. Once the installation is done, you can run the following command:
@@ -166,6 +166,11 @@ If you choose yes, the following store connection methods and imports are genera
 - If you choose yes, a style.scss file is created in to same directory with page the component.
 
 After answering questions it generates files in miliseconds.
+
+## How to deploy
+
+1. [Using Kubernetes](tools/infrastructure/container-based/ochestration/kubernetes/README.md)
+2. [Using Capistrano]
 
 ## Development Tools
 
