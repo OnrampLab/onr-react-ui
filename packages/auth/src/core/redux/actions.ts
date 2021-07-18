@@ -2,8 +2,9 @@ import { message } from 'antd';
 import { Dispatch } from 'redux';
 import { AuthState } from '../../jwt/redux/consts';
 import { AuthService } from '../services/AuthService';
-import { SigninPayload, SigninResponse } from '../services/interfaces/AuthModel';
-import { AuthConsts, SESSION_KEY } from './consts';
+import { authTokenService } from '../services/AuthTokenService';
+import { JWTTokenClaims, SigninPayload, SigninResponse } from '../services/interfaces/AuthModel';
+import { AuthConsts } from './consts';
 
 export const setCurrentUser = (currentUser: any) => ({
   type: AuthConsts.SET_CURRENT_USER,
@@ -37,24 +38,22 @@ export const setAuthData = (data: any) => ({
   },
 });
 
-export const resolveAuthFromStorage = () => {
-  const localSession = localStorage.getItem(SESSION_KEY) || '{}';
-
+export const resolveAuthFromStorage = (): JWTTokenClaims | undefined => {
   try {
-    const sessionObj = JSON.parse(localSession);
+    const sessionObj: JWTTokenClaims = authTokenService.getToken();
 
     return sessionObj;
   } catch (error) {
     console.error(error);
 
-    return {};
+    return;
   }
 };
 
 export const resolveAuthState = () => async (dispatch: Dispatch) => {
   const session = resolveAuthFromStorage();
 
-  if (session.access_token) {
+  if (session?.access_token) {
     dispatch(setAuthData(session));
     dispatch(setAuthState(AuthState.Authorized));
   } else {

@@ -7,7 +7,7 @@ useAuth
    - return the auth status with state, data, user and isResolved, isAuthroized, isPending, isUnAuthroized.
 
 useAuthEffect: control the effect corresponding to different auth status
-   - resolve previous session from localStorage with SESSION_KEY as key
+   - resolve previous session from cookies with authService.accessTokenName as key
    - redirect to auth if not authorized
    - redirect to home if authorized but visting auth-related pages
 

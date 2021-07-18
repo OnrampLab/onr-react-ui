@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { resolveAuthState } from '../redux/actions';
-import { AuthState, SESSION_KEY } from '../redux/consts';
+import { AuthState } from '../redux/consts';
 import { selectAuthData, selectAuthState } from '../redux/selectors';
+import { authTokenService } from '../services/AuthTokenService';
 
 export const useAuth = () => {
   const state = useSelector(selectAuthState);
@@ -54,7 +55,7 @@ export const usePersistAuthEffect = (data: any) => {
 
 export const useAuthStorageEffect = (data: any) => {
   useEffect(() => {
-    localStorage.setItem(SESSION_KEY, JSON.stringify(data));
+    authTokenService.setToken(data);
   }, [data]);
 };
 
