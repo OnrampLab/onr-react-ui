@@ -19,3 +19,12 @@ export interface IAuthContext {
   logout: Function;
   data?: SigninResponse;
 }
+
+export type JWTToken = string;
+
+export interface JWTTokenClaims {
+  access_token: JWTToken;
+  expires_in: number;
+  token_type: 'bearer';
+  email?: string;
+}

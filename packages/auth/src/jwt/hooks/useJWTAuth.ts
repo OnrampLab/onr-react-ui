@@ -1,6 +1,7 @@
 import { Modal } from 'antd';
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { JWTTokenClaims } from '../../core';
 import { useAuth, useAuthStorageEffect, useRedirectAuthEffect } from '../../core/hooks/useAuth';
 import { setAuthState } from '../../core/redux/actions';
 import { refreshToken, resolveJWTAuthState } from '../redux/actions';
@@ -27,7 +28,7 @@ export const useJWTAuthEffect = () => {
   useExpireEffect(data, isAuthroized, isUnAuthroized, isNeedRefresh);
 };
 
-export const usePersistJWTAuthEffect = (data: any) => {
+const usePersistJWTAuthEffect = (data: any) => {
   useResolveJWTAuthEffect();
   useAuthStorageEffect(data);
 };
@@ -41,7 +42,7 @@ export const useResolveJWTAuthEffect = () => {
 };
 
 const useExpireEffect = (
-  data: any,
+  data: JWTTokenClaims,
   isAuthroized: boolean,
   isUnAuthroized: boolean,
   isNeedRefresh: boolean,
