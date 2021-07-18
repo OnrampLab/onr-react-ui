@@ -1,7 +1,6 @@
 # add git-ignore syntax here of things you don't want copied into docker image
 
 .env*
-!.env.local
 .git/
 .results/
 .storybook/
@@ -9,6 +8,8 @@
 .__mocks__/
 
 node_modules/
+.next/
+bundle/
 coverage/
 reports/
 storybook-static/
