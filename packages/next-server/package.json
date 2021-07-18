@@ -1,6 +1,6 @@
 {
   "name": "@onr/next-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "next-server package",
   "author": "",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -32,7 +32,6 @@
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
-  "peerDependencies": {},
   "devDependencies": {
     "@onr/common": "^0.5.4",
     "@onr/eslint-config": "^0.3.0",

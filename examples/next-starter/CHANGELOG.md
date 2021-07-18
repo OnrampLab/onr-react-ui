@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.13.0...next-starter@0.14.0) (2021-07-18)
+
+
+### Features
+
+* **starter:** [server] use @onr/next-server to simplify logic ([30f3bc8](https://github.com/OnrampLab/onr-react-ui/commit/30f3bc839f6a9ba3b0ea6bf2a68252020b9eb134))
+* **starter/package:** [@onr/plugin-custom-home] new ([fc5c27f](https://github.com/OnrampLab/onr-react-ui/commit/fc5c27f499ab480b5ea60f55ea0ce1c24140fd7c))
+* **starter/plugin:** [@onr/plugin-custom-home] extract from home module ([233d668](https://github.com/OnrampLab/onr-react-ui/commit/233d668756edcc59b2c93c3582a41134c109813f))
+
+
+
 ## [0.13.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.12.0...next-starter@0.13.0) (2021-07-16)
 
 
