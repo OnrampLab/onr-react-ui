@@ -5,7 +5,6 @@ module.exports = {
     es2021: true,
   },
   extends: ['@onr/eslint-config'],
-  parser: '@typescript-eslint/parser',
   overrides: [
     {
       files: ['*.ts', '*.tsx'], // Your TypeScript files extension

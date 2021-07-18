@@ -1,9 +1,8 @@
-const routes = require('next-routes')();
-
-routes
-  .add('/', '/home/index')
-  .add('/signin', '/auth/signin')
-  .add('/signup', '/auth/signup')
-  .add('/forgot', '/auth/forgot');
+const routes = [
+  { from: '/', to: '/home/index' },
+  { from: '/signin', to: '/auth/signin' },
+  { from: '/signup', to: '/auth/signup' },
+  { from: '/forgot', to: '/auth/forgot' },
+];
 
 module.exports = routes;
