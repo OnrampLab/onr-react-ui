@@ -167,6 +167,11 @@ If you choose yes, the following store connection methods and imports are genera
 
 After answering questions it generates files in miliseconds.
 
+## How to deploy
+
+1. [Using Kubernetes](tools/infrastructure/container-based/ochestration/kubernetes/README.md)
+2. [Using Capistrano]
+
 ## Development Tools
 
 ### VS Code
