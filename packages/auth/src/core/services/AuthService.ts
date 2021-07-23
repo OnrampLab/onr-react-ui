@@ -31,7 +31,7 @@ export const AuthService = {
 
       return response.data;
     } catch (error) {
-      throw new Error(`Get current auth Error: ${error.response.data.message}`);
+      throw new Error(`Get current auth Error: ${error.message}`);
     }
   },
 };
