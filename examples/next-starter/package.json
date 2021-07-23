@@ -9,7 +9,7 @@
     "plugins/*"
   ],
   "scripts": {
-    "dev": "nodemon --watch app --watch src/server/index.js",
+    "dev": "next dev",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node ./src/server/index.js",
     "heroku-prebuild": "npm i --dev && NODE_ENV=production next build",
@@ -40,6 +40,7 @@
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-less": "1.0.1",
     "next": "^11.0.1",
+    "next-auth": "^3.27.3",
     "next-compose-plugins": "^2.2.1",
     "next-pwa": "^5.2.21",
     "next-redux-wrapper": "^7.0.2",
