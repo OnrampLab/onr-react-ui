@@ -17,7 +17,7 @@ Note on customization:
 
 Note on developing sub-modules:
    - you can import core functions or hooks from '@onr/auth/core'
-   - try to export or import from '@onr/aut', so others can override for customization
+   - try to export or import from '@onr/auth', so others can override for customization
 
 
 JWT
