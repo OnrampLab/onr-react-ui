@@ -1,4 +1,3 @@
-import { logout } from '@onr/auth';
 import { Page } from '@onr/core-antd';
 import { AccountSelector } from '@onr/plugin-account';
 import { AppProps } from 'next/app';
@@ -8,7 +7,7 @@ const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
 
   return (
-    <Page {...props} theme={theme} logout={logout} HeaderMainSection={AccountSelector}>
+    <Page {...props} theme={theme} HeaderMainSection={AccountSelector}>
       <Component {...pageProps} />
     </Page>
   );
