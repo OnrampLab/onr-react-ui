@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
-import { FC, useContext, useEffect, useState } from 'react';
+import { FC, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
+import { useAuth } from '../../../hooks';
 import { CoreStore } from '../../../redux';
 import { AppContext } from '../../App';
 import { Container } from './styles';
@@ -21,18 +22,12 @@ export const Page = (props: Props) => {
   const router = useRouter();
   const appConfig = useContext(AppContext)?.getAppConfig();
   const fullPageRoutes = appConfig.fullPageRoutes;
-  const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
+  // @ts-ignore
+  const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
-  const [loading, setLoading] = useState(true);
   const isNotDashboard = router && fullPageRoutes.includes(router.pathname);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, [loading]);
 
   // TODO: create a simple page component
   return (
@@ -43,7 +38,7 @@ export const Page = (props: Props) => {
           {!isNotDashboard && (
             <SidebarMenu
               logout={logout}
-              currentUser={currentUser}
+              currentUser={user}
               sidebarTheme={darkSidebar ? 'dark' : 'light'}
               sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
             />
