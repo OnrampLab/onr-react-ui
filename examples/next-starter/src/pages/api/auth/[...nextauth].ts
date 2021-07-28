@@ -102,7 +102,7 @@ export default NextAuth({
   // pages is not specified for that route.
   // https://next-auth.js.org/configuration/pages
   pages: {
-    // signIn: '/auth/signin',  // Displays signin buttons
+    signIn: '/auth/signin', // Displays signin buttons
     // signOut: '/auth/signout', // Displays form with sign out button
     // error: '/auth/error', // Error code passed in query string as ?error=
     // verifyRequest: '/auth/verify-request', // Used for check email page
@@ -123,6 +123,7 @@ export default NextAuth({
     },
     async session(session, token) {
       session.accessToken = token.accessToken;
+      session.user = token.user;
 
       return session;
     },
