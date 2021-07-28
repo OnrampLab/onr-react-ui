@@ -81,6 +81,7 @@ const useExpireEffect = (
         onOk: () => {
           const { access_token, email } = data;
 
+          // @ts-ignore
           dispatch(refreshToken(access_token, email));
         },
       });
