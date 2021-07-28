@@ -33,10 +33,10 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "peerDependencies": {
+    "@onr/common": "^0.5.4",
     "miragejs": "^0.1.41"
   },
   "devDependencies": {
-    "@onr/common": "^0.5.4",
     "@onr/eslint-config": "^0.3.0",
     "@onr/prettier-config": "^1.1.1",
     "@types/node": "^14.14.21",
