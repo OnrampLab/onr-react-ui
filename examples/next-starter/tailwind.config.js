@@ -22,7 +22,7 @@ const colorCollection = Object.keys(antdVariables)
 const customColors = mergeArrayToObject(colorCollection);
 
 module.exports = {
-  mode: 'jit',
+  mode: process.env.ENABLE_TAILWINDCSS_JIT ? 'jit' : null,
   purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
