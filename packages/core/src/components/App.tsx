@@ -31,15 +31,20 @@ export class App implements OnrApp {
   }
 
   getProvider() {
+    const authEnabled = this.appConfig.auth.enabled;
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
-      return (
-        <NextAuthProvider session={session}>
-          <AppContext.Provider value={this}>
-            {/* @ts-ignore */}
-            <AuthProvider>{children}</AuthProvider>
-          </AppContext.Provider>
-        </NextAuthProvider>
-      );
+      if (authEnabled) {
+        return (
+          <NextAuthProvider session={session}>
+            <AppContext.Provider value={this}>
+              {/* @ts-ignore */}
+              <AuthProvider>{children}</AuthProvider>
+            </AppContext.Provider>
+          </NextAuthProvider>
+        );
+      } else {
+        return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
+      }
     };
 
     return Provider;
