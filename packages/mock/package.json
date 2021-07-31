@@ -49,6 +49,8 @@
     "access": "public"
   },
   "dependencies": {
-    "faker": "^5.5.3"
+    "faker": "^5.5.3",
+    "@onr/common": "^0.5.4",
+    "miragejs": "^0.1.41"
   }
 }
