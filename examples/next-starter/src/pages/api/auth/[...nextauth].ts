@@ -1,5 +1,8 @@
+import { appConfig } from '@app';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
+
+const API_BASE_URL = appConfig.apiBaseUrl;
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
@@ -24,30 +27,8 @@ export default NextAuth({
         // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
         // You can also use the `req` object to obtain additional parameters
         // (i.e., the request IP address)
-        let res = await fetch('http://localhost:8000/api/auth/login', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        const { data: token } = await res.json();
-
-        if (!res.ok) {
-          throw new Error('Auth failed');
-        }
-
-        res = await fetch('http://localhost:8000/api/auth/me', {
-          method: 'POST',
-          body: JSON.stringify(credentials),
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token.access_token}`,
-          },
-        });
-        const { data: user } = await res.json();
-
-        if (!res.ok) {
-          throw new Error('Auth failed');
-        }
+        const token = await login(credentials);
+        const user = await getUser(token);
 
         user.token = token;
         return user;
@@ -60,7 +41,7 @@ export default NextAuth({
   // Notes:
   // * You must install an appropriate node_module for your database
   // * The Email provider requires a database (OAuth providers do not)
-  database: process.env.DATABASE_URL,
+  database: process.env.DATAAPI_BASE_URL,
 
   // The secret should be set to a reasonably long random string.
   // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
@@ -125,31 +106,30 @@ export default NextAuth({
       session.accessToken = token.accessToken;
       session.user = token.user;
 
+      console.log('session will be expired at', new Date(token.accessTokenExpires).toISOString());
+
       return session;
     },
     // @ts-ignore
     async jwt(token, user, account, profile, isNewUser) {
       if (user?.token) {
-        // @ts-ignore
-        token.accessToken = user.token.access_token;
+        const token = user.token;
+        const transformedToken = transformToken(token);
+
+        delete user.token;
 
         return {
-          // @ts-ignore
-          accessToken: user.token.access_token,
-          // @ts-ignore
-          accessTokenExpires: Date.now() + user.token.expires_in * 1000,
+          ...transformedToken,
           user,
         };
       }
 
-      // Return previous token if the access token has not expired yet
-      // @ts-ignore
-      if (Date.now() < token.accessTokenExpires) {
-        return token;
+      if (tokenWillExpire(token)) {
+        // Access token has expired, try to update it
+        return refreshAccessToken(token);
       }
 
-      // Access token has expired, try to update it
-      return refreshAccessToken(token);
+      return token;
     },
   },
 
@@ -165,6 +145,21 @@ export default NextAuth({
   debug: true,
 });
 
+function tokenWillExpire(token: any) {
+  const remaining = token.accessTokenExpires - Date.now();
+  // TODO: should extract to env
+  const lessThanOneDay = remaining < 60 * 60 * 24 * 1000;
+
+  return lessThanOneDay;
+}
+
+function transformToken(token: any) {
+  return {
+    accessToken: token.access_token,
+    accessTokenExpires: Date.now() + token.expires_in * 1000,
+  };
+}
+
 /**
  * Takes a token, and returns a new token with updated
  * `accessToken` and `accessTokenExpires`. If an error occurs,
@@ -172,33 +167,65 @@ export default NextAuth({
  */
 // @ts-ignore
 async function refreshAccessToken(token) {
-  try {
-    let response = await fetch('http://localhost:8000/api/auth/refresh', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token.accessToken}`,
-      },
-    });
-    const { data: refreshedTokens } = await response.json();
+  const refreshedToken = await refreshJWT(token);
+  const user = await getUser(refreshedToken);
+  const transformedToken = transformToken(refreshedToken);
 
-    console.log('refreshedTokens~~', refreshedTokens);
+  return {
+    ...transformedToken,
+    user,
+  };
+}
 
-    if (!response.ok) {
-      throw refreshedTokens;
-    }
+async function login(credentials: any) {
+  let res = await fetch(`${API_BASE_URL}/auth/login`, {
+    method: 'POST',
+    body: JSON.stringify(credentials),
+    headers: { 'Content-Type': 'application/json' },
+  });
+  const { data: token } = await res.json();
 
-    return {
-      ...token,
-      accessToken: refreshedTokens.access_token,
-      accessTokenExpires: Date.now() + refreshedTokens.expires_in * 1000,
-    };
-  } catch (error) {
-    console.log(error);
-
-    return {
-      ...token,
-      error: 'RefreshAccessTokenError',
-    };
+  if (!res.ok) {
+    console.log('login error:', { error: token });
+    throw new Error('Auth failed');
   }
+
+  return token;
+}
+
+async function getUser(token: any) {
+  const res = await fetch(`${API_BASE_URL}/auth/me`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.access_token}`,
+    },
+  });
+  const { data: user } = await res.json();
+
+  if (!res.ok) {
+    console.log('get user error:', { error: user });
+    throw new Error('Auth failed');
+  }
+
+  return user;
+}
+
+async function refreshJWT(token: any) {
+  let res = await fetch(`${API_BASE_URL}/auth/refresh`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token.accessToken}`,
+    },
+  });
+  const { data: refreshedToken } = await res.json();
+
+  if (!res.ok) {
+    console.log('refreshedToken error:', { accessToken: token.accessToken });
+
+    throw new Error('Faild to refresh token');
+  }
+
+  return refreshedToken;
 }
