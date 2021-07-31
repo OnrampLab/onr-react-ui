@@ -219,6 +219,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
               <Popconfirm
                 placement="top"
                 title="Are you sure you want to sign out?"
+                // TODO: should use client side render to improve UX
                 onConfirm={() => signOut()}
                 okText="Yes"
                 cancelText="Cancel"
