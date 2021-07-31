@@ -1,4 +1,5 @@
 import { App } from '../components';
+import { LoadingPage } from '../pages';
 import { AppOptions } from '../types';
 
 /**
@@ -10,6 +11,7 @@ export function createApp(options?: AppOptions) {
 
   const components = {
     NotFoundErrorPage: DefaultNotFoundPage,
+    LoadingPage,
     ...options?.components,
   };
 

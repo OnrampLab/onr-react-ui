@@ -24,4 +24,3 @@ export const INITIAL_STATE = {
 };
 
 export const STORE_KEY = 'authStore';
-export const SESSION_KEY = '@onr/session';

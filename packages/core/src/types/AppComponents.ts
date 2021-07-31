@@ -21,6 +21,8 @@ export type AppComponents = {
   Header?: ComponentType<HeaderProps>;
 
   SidebarMenu?: ComponentType<SidebarMenuProps>;
+
+  LoadingPage?: ComponentType;
 };
 
 export type SignInPageProps = {

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { AppContext, AuthUser, coreActions, CoreStore } from '@onr/core';
+import { AppContext, AuthUser, coreActions, CoreStore, useAuth } from '@onr/core';
 import {
   Avatar,
   Badge,
@@ -20,7 +20,6 @@ import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
 import { Book, LogOut, Triangle } from 'react-feather';
 import { useDispatch, useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
 import { DashHeader } from '../Header';
 import { Sidebar } from './styles';
 
@@ -29,7 +28,6 @@ interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
-  logout: () => AnyAction;
 }
 
 const { SubMenu } = Menu;
@@ -50,7 +48,7 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: Props) => {
+export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const app = useContext(AppContext);
@@ -83,6 +81,7 @@ export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: 
   } = coreActions;
   const { pathname = '' } = router || {};
 
+  const { signOut } = useAuth();
   useEffect(() => {
     const roles = currentUser.roles || [];
     setAppRoutes(
@@ -220,7 +219,8 @@ export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: 
               <Popconfirm
                 placement="top"
                 title="Are you sure you want to sign out?"
-                onConfirm={() => dispatch(logout())}
+                // TODO: should use client side render to improve UX
+                onConfirm={() => signOut()}
                 okText="Yes"
                 cancelText="Cancel"
               >

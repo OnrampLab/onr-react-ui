@@ -10,6 +10,10 @@ export const appConfig: AppConfig = {
 
   apiKey: publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_KEY || '',
 
+  auth: {
+    enabled: true,
+  },
+
   /**
    * Routes which will not show admin layout (with navbar and sidebar)
    */

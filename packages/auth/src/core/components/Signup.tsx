@@ -33,8 +33,7 @@ const Signup = () => (
 
       <Form
         layout="vertical"
-        onFinish={e => {
-          console.log(e);
+        onFinish={() => {
           Message.success('Account created. Please check your inbox!').then(
             async () => Router.push('/signin'),
             () => {},

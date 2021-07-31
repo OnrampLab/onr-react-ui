@@ -6,6 +6,7 @@ import { resolveAuthFromStorage, setAuthData, setAuthState } from '../../core/re
 export const resolveJWTAuthState = () => async (dispatch: Dispatch) => {
   const session = resolveAuthFromStorage();
 
+  // @ts-ignore
   if (session.access_token) {
     // @ts-ignore
     dispatch(refreshToken(session.access_token, session.email));

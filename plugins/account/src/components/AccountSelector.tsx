@@ -1,4 +1,4 @@
-import { coreActions, CoreStore } from '@onr/core';
+import { coreActions, CoreStore, useAuth } from '@onr/core';
 import { message, Select } from 'antd';
 import Router from 'next/router';
 import React, { useEffect } from 'react';
@@ -9,7 +9,8 @@ export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
   const accountId = useSelector((store: CoreStore) => store.coreStore.accountId);
-  const currentUser = useSelector((store: CoreStore) => store.authStore.currentUser);
+  //@ts-ignore
+  const { user: currentUser } = useAuth();
 
   useEffect(() => {
     //@ts-ignore

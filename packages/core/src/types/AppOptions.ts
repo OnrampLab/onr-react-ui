@@ -9,8 +9,13 @@ export type AppOptions = {
   routes?: any;
 };
 
+export type AuthConfig = {
+  enabled: boolean;
+};
+
 export type AppConfig = {
   apiBaseUrl: string;
   apiKey: string;
+  auth: AuthConfig;
   fullPageRoutes: string[];
 };

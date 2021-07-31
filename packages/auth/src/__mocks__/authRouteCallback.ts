@@ -1,6 +1,6 @@
 import { getDebugger } from '@onr/common';
 import { Response, Server } from 'miragejs';
-import { SESSION_KEY } from '../core/redux/consts';
+import { authTokenService } from '../core/services/AuthTokenService';
 
 const debug = getDebugger('onr:core:mock');
 
@@ -35,7 +35,7 @@ export function authRouteCallback(server: Server): void {
 
   debug(`register static route => post[/auth/me]`);
   server.post('/auth/me', function (schema) {
-    const data = JSON.parse(localStorage.getItem(SESSION_KEY) || '{}');
+    const data = authTokenService.getToken();
 
     // @ts-ignore
     const user = schema.users.findBy({
