@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.9.0...@onr/core@0.10.0) (2021-07-31)
+
+
+### Features
+
+* **component:** add Loading pages ([39e0425](https://github.com/OnrampLab/onr-react-ui/commit/39e0425ab6aa6fe454512cd95b8c07652c9bc39c))
+* **core/api:** [createNextAuthApi] new for creating NextAuth API ([7056868](https://github.com/OnrampLab/onr-react-ui/commit/70568683364d61f669030f98565825ec86c7e899))
+* **core/component:** [App] can wrap auth by config ([2b59c0d](https://github.com/OnrampLab/onr-react-ui/commit/2b59c0d11c460ad1cbeac934fde27f5d2a4ac665))
+* **core/component:** [App] integrate with NextAuthProvider and AuthProvider ([136abcf](https://github.com/OnrampLab/onr-react-ui/commit/136abcf389d2820e9bb8ab089c56d9add5aa2415))
+* **core/component:** [Page] use useAuth hook to handle user ([035a9e2](https://github.com/OnrampLab/onr-react-ui/commit/035a9e27be8489eb0cb4de7f02351c2ba9a4c51a))
+* **core/hook:** [useAuth] new ([ca346d7](https://github.com/OnrampLab/onr-react-ui/commit/ca346d78bfada6a10c1d22246d3f0bce54a0364f))
+* **core/hook:** [useSession] new ([8c8584b](https://github.com/OnrampLab/onr-react-ui/commit/8c8584b3fdc3f00f6b08f237860fe0b397868093))
+* **core/provider:** [AuthProvider] new ([b767b3b](https://github.com/OnrampLab/onr-react-ui/commit/b767b3b9f81451e39041d081f626d99fc9eb1446))
+* **core/provider:** [NextAuthProvider] new ([d23ec70](https://github.com/OnrampLab/onr-react-ui/commit/d23ec706b8a7d1c1fb2ad65b42c82f1ff2c89f2b))
+
+
+
 ## [0.9.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.8.0...@onr/core@0.9.0) (2021-07-16)
 
 

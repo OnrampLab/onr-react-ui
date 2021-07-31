@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.14.0...next-starter@0.15.0) (2021-07-31)
+
+
+### Features
+
+* **component:** add Loading pages ([39e0425](https://github.com/OnrampLab/onr-react-ui/commit/39e0425ab6aa6fe454512cd95b8c07652c9bc39c))
+* **core/component:** [App] can wrap auth by config ([2b59c0d](https://github.com/OnrampLab/onr-react-ui/commit/2b59c0d11c460ad1cbeac934fde27f5d2a4ac665))
+* **core/component:** [Signin] integrate with next-auth ([b6e08c9](https://github.com/OnrampLab/onr-react-ui/commit/b6e08c93ae4677b443fcc444288d0b9e54284721))
+* **starter/api:** [/api/auth/*] add dynamic auth APIs ([5a5feca](https://github.com/OnrampLab/onr-react-ui/commit/5a5fecae0e7d602eaac5fc4e15122fb9d0b3100e))
+* **starter/comopnent:** [PageComponent] no need to pass logout props ([0b6b76d](https://github.com/OnrampLab/onr-react-ui/commit/0b6b76d9cf753d3bf8debd873c804f7b703b935f))
+* **starter/component:** [MyApp] add next-auth provider ([a3b7644](https://github.com/OnrampLab/onr-react-ui/commit/a3b7644c8dc4729dee17668e0c1e5e19a39cfa22))
+* **starter/component:** [MyApp] pass session into AppProvider; remove getInitialProps ([4a65416](https://github.com/OnrampLab/onr-react-ui/commit/4a65416177b52ff43aa78f42e2bb7376498e125b))
+* **starter/component:** [PageContainer] remove old AuthWrapper ([60a824e](https://github.com/OnrampLab/onr-react-ui/commit/60a824eab0f0ed044c7621b8caed0406cd709a2a))
+* **starter/page:** [home] set server side token ([d2e982e](https://github.com/OnrampLab/onr-react-ui/commit/d2e982e7367fc87ce5e1b6632402ac96d85b48b0))
+
+
+
 ## [0.14.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.13.0...next-starter@0.14.0) (2021-07-18)
 
 

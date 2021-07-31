@@ -1,6 +1,6 @@
 {
   "name": "@onr/mock",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "description": "mock module",
   "author": "",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -49,8 +49,8 @@
     "access": "public"
   },
   "dependencies": {
-    "faker": "^5.5.3",
     "@onr/common": "^0.5.4",
+    "faker": "^5.5.3",
     "miragejs": "^0.1.41"
   }
 }

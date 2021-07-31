@@ -1,6 +1,6 @@
 {
   "name": "@onr/auth",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "auth package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@onr/common": "^0.5.4",
-    "@onr/core": "^0.9.0",
+    "@onr/core": "^0.10.0",
     "next-auth": "^3.27.3",
     "nookies": "^2.5.2"
   },

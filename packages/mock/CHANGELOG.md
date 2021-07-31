@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.15](https://github.com/OnrampLab/onr-react-ui/compare/@onr/mock@0.1.14...@onr/mock@0.1.15) (2021-07-31)
+
+
+### Bug Fixes
+
+* **mock:** wrong pacakge dependency ([86db359](https://github.com/OnrampLab/onr-react-ui/commit/86db35934a053cf4f2ca588915db5b0c6b00fd08))
+
+
+
 ### [0.1.14](https://github.com/OnrampLab/onr-react-ui/compare/@onr/mock@0.1.13...@onr/mock@0.1.14) (2021-07-18)
 
 **Note:** Version bump only for package @onr/mock

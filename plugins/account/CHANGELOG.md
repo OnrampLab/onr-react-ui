@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.2.3...@onr/plugin-account@0.3.0) (2021-07-31)
+
+
+### Features
+
+* **account/component:** [AccountSelector] use useAuth hook to handle user ([b3ea2fb](https://github.com/OnrampLab/onr-react-ui/commit/b3ea2fbecc996296268c4d80ac883e5e9a7ebd97))
+
+
+
 ### [0.2.3](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.2.2...@onr/plugin-account@0.2.3) (2021-07-18)
 
 **Note:** Version bump only for package @onr/plugin-account

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/auth@0.2.0...@onr/auth@0.3.0) (2021-07-31)
+
+
+### Features
+
+* **auth/service:** [AuthService] add new method in order to be compatible with next-auth ([40f0486](https://github.com/OnrampLab/onr-react-ui/commit/40f0486a4a8355e430a28fe060ca08262f58e303))
+* **auth/service:** [AuthTokenService] new ([1c43f38](https://github.com/OnrampLab/onr-react-ui/commit/1c43f3857d5c23b491f010b29719484aac517160))
+* **core/component:** [Signin] integrate with next-auth ([b6e08c9](https://github.com/OnrampLab/onr-react-ui/commit/b6e08c93ae4677b443fcc444288d0b9e54284721))
+
+
+### Bug Fixes
+
+* **auth/service:** [AuthService] could not get error message ([23acefd](https://github.com/OnrampLab/onr-react-ui/commit/23acefda5db6e722849f2d4b81ac66353eed40a8))
+
+
+
 ## [0.2.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/auth@0.1.1...@onr/auth@0.2.0) (2021-07-16)
 
 
