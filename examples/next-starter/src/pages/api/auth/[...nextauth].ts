@@ -5,8 +5,8 @@ import { createNextAuthApi } from '@onr/core/api';
 // https://next-auth.js.org/configuration/options
 export default createNextAuthApi({
   apis: {
-    login: AuthService.newLogin,
+    login: AuthService.login,
     getUser: AuthService.getCurrentUser,
-    refreshJWT: AuthService.loginWithJWT,
+    refreshJWT: AuthService.refreshJWT,
   },
 });
