@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.0 (2021-08-01)
+
+
+### Features
+
+* **plugin:** [@onr/plugin-antd] move from @onr/core-antd ([e45e664](https://github.com/OnrampLab/onr-react-ui/commit/e45e664ec94357dc21feef026498d4e93c599334))
+
+
+
 ### [0.2.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core-antd@0.2.1...@onr/core-antd@0.2.2) (2021-08-01)
 
 **Note:** Version bump only for package @onr/core-antd

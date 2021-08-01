@@ -1,7 +1,7 @@
 {
   "name": "next-starter-app",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -28,9 +28,9 @@
     "@ant-design/icons": "^4.2.1",
     "@next/bundle-analyzer": "^11.0.1",
     "@onr/core": "^0.10.2",
-    "@onr/plugin-antd": "^0.2.2",
     "@onr/mock": "^0.1.15",
     "@onr/plugin-account": "^0.3.2",
+    "@onr/plugin-antd": "^0.3.0",
     "@onr/plugin-auth": "^0.4.0",
     "@onr/plugin-custom-home": "^0.1.0",
     "@onr/plugin-user": "^0.2.0",
