@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.15.0",
+  "version": "0.15.1",
   "description": "",
   "main": "src/server/index.js",
   "workspaces": [
@@ -31,13 +31,13 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@next/bundle-analyzer": "^11.0.1",
-    "@onr/auth": "^0.3.0",
-    "@onr/core": "^0.10.0",
-    "@onr/core-antd": "^0.2.0",
+    "@onr/auth": "^0.3.1",
+    "@onr/core": "^0.10.1",
+    "@onr/core-antd": "^0.2.1",
     "@onr/mock": "^0.1.15",
-    "@onr/plugin-account": "^0.3.0",
+    "@onr/plugin-account": "^0.3.1",
     "@onr/plugin-custom-home": "^0.1.0",
-    "@onr/plugin-user": "^0.1.2",
+    "@onr/plugin-user": "^0.1.3",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-less": "1.0.1",
     "next": "^11.0.1",
