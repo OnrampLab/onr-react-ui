@@ -1,3 +1,2 @@
 *.config.js
 examples/next-starter/documentation/**/*.js
-examples/next-starter/project-cli/**/*.js

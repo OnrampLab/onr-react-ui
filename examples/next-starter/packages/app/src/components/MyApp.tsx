@@ -12,7 +12,7 @@ import { PageContainer } from './PageContainer';
 
 // https://www.npmjs.com/package/next-plugin-antd-less?activeTab=readme
 // Need to use require to import less
-require('../../assets/styles.less');
+require('../assets/styles.less');
 
 const makeStore: MakeStore = (context: Context) => store();
 
