@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.15.1...next-starter@0.16.0) (2021-08-01)
+
+
+### Features
+
+* **plugin/auth:** create from auth package ([0e2cdb0](https://github.com/OnrampLab/onr-react-ui/commit/0e2cdb07cdcb7943440dfda7a5f01d0ce732d1fb))
+
+
+
 ### [0.15.1](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.15.0...next-starter@0.15.1) (2021-08-01)
 
 **Note:** Version bump only for package next-starter
