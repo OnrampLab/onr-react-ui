@@ -1,5 +1,5 @@
-import { Page } from '@onr/core-antd';
 import { AccountSelector } from '@onr/plugin-account';
+import { Page } from '@onr/plugin-antd';
 import { AppProps } from 'next/app';
 import { theme } from './GlobalStyles';
 

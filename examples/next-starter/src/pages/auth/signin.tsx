@@ -1,4 +1,4 @@
-import { Signin } from '@onr/core-antd';
-export { getSigninServerSideProps as getServerSideProps } from '@onr/core-antd';
+import { Signin } from '@onr/plugin-antd';
+export { getSigninServerSideProps as getServerSideProps } from '@onr/plugin-antd';
 
 export default Signin;

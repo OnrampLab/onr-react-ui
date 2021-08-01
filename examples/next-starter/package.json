@@ -32,7 +32,7 @@
     "@ant-design/icons": "^4.2.1",
     "@next/bundle-analyzer": "^11.0.1",
     "@onr/core": "^0.10.2",
-    "@onr/core-antd": "^0.2.2",
+    "@onr/plugin-antd": "^0.2.2",
     "@onr/mock": "^0.1.15",
     "@onr/plugin-account": "^0.3.2",
     "@onr/plugin-auth": "^0.4.0",

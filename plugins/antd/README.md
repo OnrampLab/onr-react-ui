@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn add @onr/core-antd
+yarn add @onr/plugin-antd
 yarn add --dev next-plugin-antd-less
 ```
 

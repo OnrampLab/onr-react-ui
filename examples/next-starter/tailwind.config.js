@@ -1,5 +1,5 @@
 const { generatePalette } = require('@onr/tailwind-palette');
-const { getAntdVariables } = require('@onr/core-antd');
+const { getAntdVariables } = require('@onr/plugin-antd');
 const { paramCase } = require('change-case');
 const fs = require('fs');
 const { rgbHex } = require('./src/lib/rgbHex');

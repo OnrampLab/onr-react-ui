@@ -1,5 +1,5 @@
 import { createApp, OnrApp } from '@onr/core';
-import { Header, LoadingPage, Page, SidebarMenu } from '@onr/core-antd';
+import { Header, LoadingPage, Page, SidebarMenu } from '@onr/plugin-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import Head from 'next/head';
 import Router from 'next/router';
