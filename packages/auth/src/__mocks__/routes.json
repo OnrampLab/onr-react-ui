@@ -1,7 +1,0 @@
-{
-  "post": {
-    "/auth/logout": {
-      "message": "success"
-    }
-  }
-}

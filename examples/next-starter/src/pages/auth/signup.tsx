@@ -1,3 +1,3 @@
-import { Signup } from '@onr/auth';
+import { Signup } from '@onr/core-antd';
 
 export default Signup;
