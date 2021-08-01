@@ -50,17 +50,17 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
     <Row
       align="middle"
       justify="center"
-      className="px-3 bg-white mh-page flex"
+      className="flex px-3 bg-white mh-page"
       style={{ minHeight: '100vh' }}
     >
       <Content>
-        <div className="text-center mb-5">
+        <div className="mb-5 text-center">
           <Link href="/signin">
-            <a className="brand mr-0">
+            <a className="mr-0 brand">
               <Triangle size={32} strokeWidth={1} />
             </a>
           </Link>
-          <h5 className="mb-0 mt-3">Sign in</h5>
+          <h5 className="mt-3 mb-0">Sign in</h5>
 
           <p style={{ color: 'rgb(131, 118, 118)', backgroundColor: '#fff' }}>
             get started with our service
@@ -125,7 +125,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
   );
 };
 
-export async function getServerSideProps(context: NextPageContext) {
+export async function getSigninServerSideProps(context: NextPageContext) {
   // @ts-ignore
   const { callbackUrl }: string = context.query;
   const session = await getSession(context);
