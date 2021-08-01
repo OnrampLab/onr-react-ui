@@ -1,3 +1,3 @@
-import { Forgot } from '@onr/core-antd';
+import { Forgot } from '@onr/plugin-antd';
 
 export default Forgot;

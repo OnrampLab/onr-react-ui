@@ -77,7 +77,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-* **starter/component:** use Page, Header, SidebarMenu components from @onr/core-antd ([17c14fb](https://github.com/OnrampLab/onr-react-ui/commit/17c14fb7ffb4ca8efa2e6fbd41b53dafe31e23e3))
+* **starter/component:** use Page, Header, SidebarMenu components from @onr/plugin-antd ([17c14fb](https://github.com/OnrampLab/onr-react-ui/commit/17c14fb7ffb4ca8efa2e6fbd41b53dafe31e23e3))
 
 
 
