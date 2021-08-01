@@ -32,11 +32,11 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/auth": "^0.3.1",
     "@onr/common": "^0.5.3",
     "@onr/core": "^0.7.0",
     "@onr/mock": "^0.1.15",
-    "@onr/plugin-account": "^0.1.4"
+    "@onr/plugin-account": "^0.1.4",
+    "@onr/plugin-auth": "^0.3.1"
   },
   "peerDependencies": {
     "antd": "^4.16.1",
