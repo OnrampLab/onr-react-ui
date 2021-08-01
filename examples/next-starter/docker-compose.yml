@@ -6,8 +6,8 @@ services:
       dockerfile: Dockerfile
       target: dev
     volumes:
-      - .:/app
-    working_dir: /app
+      - .:/project
+    working_dir: /project
     environment:
       - PORT=3000
     ports:
@@ -17,7 +17,6 @@ services:
         sh -i -c -e
         "
         yarn install;
-        npm rebuild node-sass;
         yarn start:dev;
         "
   ruby:
@@ -25,9 +24,9 @@ services:
       context: .
       dockerfile: tools/docker/ruby/Dockerfile
     volumes:
-      - .:/app
+      - .:/project
       - ~/.ssh:/root/.ssh:ro
-    working_dir: /app
+    working_dir: /project
     command:
       >
         sh -i -c -e

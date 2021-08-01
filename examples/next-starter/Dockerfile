@@ -1,14 +1,14 @@
 FROM mhart/alpine-node:12 AS dev
 
-WORKDIR /app
+WORKDIR /project
 
 RUN apk add --no-cache make gcc g++ python2 python3 git
 
-ADD . /app
+ADD . /project
 
 # Do the npm install or yarn install in the full image
 FROM mhart/alpine-node:12 AS builder
-WORKDIR /app
+WORKDIR /project
 
 RUN apk add --no-cache make gcc g++ python2 python3 git
 
@@ -32,14 +32,14 @@ FROM mhart/alpine-node:slim-12 AS prod-runtime
 # RUN apk update && \
 #   apk add --no-cache libstdc++ libgcc ca-certificates && \
 #   rm -rf /var/cache/apk/*
-WORKDIR /app
+WORKDIR /project
 
 # COPY package.json next.config.js .env* ./
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/next.config.js ./next.config.js
+COPY --from=builder /project/node_modules ./node_modules
+COPY --from=builder /project/packages/app/.next ./packages/app/.next
+COPY --from=builder /project/packages/app/public ./packages/app/public
+COPY --from=builder /project/packages/app/next.config.js ./packages/app/next.config.js
 
 EXPOSE 3000
 
-CMD ["node_modules/.bin/next", "start"]
+CMD ["packages/project/node_modules/.bin/next", "start"]
