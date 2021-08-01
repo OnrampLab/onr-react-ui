@@ -8,7 +8,7 @@ const MODULE_ENTRIES = {
 // Building submodule entries
 
 const BUILD_TARGETS = {
-  [`${MODULE_ENTRIES.API}.js`]: "module.exports = require('./lib/api').default;\n",
+  [`${MODULE_ENTRIES.API}.js`]: "module.exports = require('./lib/api');\n",
 };
 
 Object.entries(BUILD_TARGETS).forEach(([target, content]) => {
