@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "@onr/common": "^0.5.4",
+    "minimatch": "^3.0.4",
     "next-auth": "^3.27.3",
     "swr": "^0.5.6"
   },
