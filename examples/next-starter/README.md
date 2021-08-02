@@ -92,7 +92,7 @@ _Here are a few highlights to look out for in this boilerplate_
 3. Create `.env`
 
    ```sh
-   cp .env.example .env
+   cp packages/app/.env.example cp pages.app/.env
    ```
 
 4. Once the installation is done, you can run the following command:
