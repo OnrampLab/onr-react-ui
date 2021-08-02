@@ -1,12 +1,10 @@
-import { useRouter } from 'next/router';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
-import { useAuth } from '../../../hooks';
+import { useAuth, usePage } from '../../../hooks';
 import { CoreStore } from '../../../redux';
-import { AppContext } from '../../App';
 import { Container } from './styles';
 
 interface Props {
@@ -19,15 +17,12 @@ interface Props {
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, logout, children } = props;
-  const router = useRouter();
-  const appConfig = useContext(AppContext)?.getAppConfig();
-  const fullPageRoutes = appConfig.fullPageRoutes;
+  const { isNotDashboard = false } = usePage();
   // @ts-ignore
   const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
-  const isNotDashboard = router && fullPageRoutes.includes(router.pathname);
 
   // TODO: create a simple page component
   return (

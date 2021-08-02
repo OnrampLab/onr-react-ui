@@ -19,9 +19,7 @@ export const appConfig: AppConfig = {
    */
   // prettier-ignore
   fullPageRoutes: [
-    '/auth/signin',
-    '/auth/signup',
-    '/auth/forgot',
+    '/auth/*',
     '/lockscreen',
     '/_error',
   ],
