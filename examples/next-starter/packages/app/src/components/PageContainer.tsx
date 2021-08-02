@@ -1,3 +1,4 @@
+import { PageProvider } from '@onr/core';
 import { AccountSelector } from '@onr/plugin-account';
 import { Page } from '@onr/plugin-antd';
 import { AppProps } from 'next/app';
@@ -7,9 +8,11 @@ const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
 
   return (
-    <Page {...props} theme={theme} HeaderMainSection={AccountSelector}>
-      <Component {...pageProps} />
-    </Page>
+    <PageProvider>
+      <Page {...props} theme={theme} HeaderMainSection={AccountSelector}>
+        <Component {...pageProps} />
+      </Page>
+    </PageProvider>
   );
 };
 

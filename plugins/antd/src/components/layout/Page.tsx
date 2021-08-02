@@ -1,7 +1,6 @@
-import { AppContext, Container, CoreStore, Inner, useAuth } from '@onr/core';
+import { Container, CoreStore, Inner, useAuth, usePage } from '@onr/core';
 import { Layout } from 'antd';
-import { useRouter } from 'next/router';
-import { FC, useContext } from 'react';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { Header } from './Header';
@@ -18,16 +17,13 @@ const { Content } = Layout;
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, children } = props;
-  const router = useRouter();
-  const appConfig = useContext(AppContext)?.getAppConfig();
-  const fullPageRoutes = appConfig.fullPageRoutes;
+  const { isNotDashboard = false } = usePage();
   //@ts-ignore
   const { user } = useAuth();
 
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
-  const isNotDashboard = router && fullPageRoutes.includes(router.pathname);
 
   return (
     <ThemeProvider theme={theme}>
