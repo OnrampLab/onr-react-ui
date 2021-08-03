@@ -28,7 +28,7 @@ export const AccountSelector: React.FC = () => {
 
   function changeAccount(accountId: number) {
     dispatch(coreActions.setAccountId(accountId));
-    Router.push('/');
+    Router.push('/admin');
     message.info('Account has been changed');
   }
 

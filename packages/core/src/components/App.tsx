@@ -1,7 +1,9 @@
 import { Http } from '@onr/common';
+import minimatch from 'minimatch';
+import { useRouter } from 'next/router';
 import { createContext, FC, ReactNode } from 'react';
 import { AuthProvider, NextAuthProvider } from '../providers';
-import { AppComponents, FullAppOptions, OnrApp } from '../types';
+import { AppComponents, AppConfig, FullAppOptions, OnrApp } from '../types';
 
 export const AppContext = createContext<App | null>(null);
 
@@ -12,12 +14,14 @@ interface ProviderProps {
 
 export class App implements OnrApp {
   private readonly components: AppComponents;
-  private readonly appConfig: any;
+  private readonly appConfig: AppConfig;
+  private readonly menuItems: any;
   private readonly routes: any;
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
     this.appConfig = options.appConfig;
+    this.menuItems = options.menuItems;
     this.routes = options.routes;
   }
 
@@ -32,8 +36,15 @@ export class App implements OnrApp {
 
   getProvider() {
     const authEnabled = this.appConfig.auth.enabled;
+
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
-      if (authEnabled) {
+      const router = useRouter();
+
+      const currentRoute = this.routes.find((route: any) => {
+        return minimatch(router.pathname, route.path);
+      });
+
+      if (authEnabled && currentRoute.authRequired) {
         return (
           <NextAuthProvider session={session}>
             <AppContext.Provider value={this}>
@@ -42,9 +53,9 @@ export class App implements OnrApp {
             </AppContext.Provider>
           </NextAuthProvider>
         );
-      } else {
-        return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
       }
+
+      return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
     };
 
     return Provider;
@@ -52,6 +63,10 @@ export class App implements OnrApp {
 
   getAppConfig() {
     return this.appConfig;
+  }
+
+  getMenuItems() {
+    return this.menuItems;
   }
 
   getRoutes() {

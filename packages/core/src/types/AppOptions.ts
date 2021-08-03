@@ -6,6 +6,7 @@ export type AppOptions = {
    */
   components?: Partial<AppComponents>;
   appConfig?: AppConfig;
+  menuItems?: any;
   routes?: any;
 };
 
@@ -17,5 +18,4 @@ export type AppConfig = {
   apiBaseUrl: string;
   apiKey: string;
   auth: AuthConfig;
-  fullPageRoutes: string[];
 };

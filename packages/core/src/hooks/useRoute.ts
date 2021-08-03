@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import { IPageContext, PageContext } from '../providers';
+import { IPageContext, RouteContext } from '../providers';
 
-export function usePage() {
-  const context = useContext(PageContext);
+export function useRoute() {
+  const context = useContext(RouteContext);
   if (context === undefined) {
     throw new Error(`usePage must be used within a AppProvider`);
   }

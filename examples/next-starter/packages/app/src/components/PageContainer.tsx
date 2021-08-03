@@ -1,19 +1,24 @@
-import { PageProvider } from '@onr/core';
+import { useRoute } from '@onr/core';
 import { AccountSelector } from '@onr/plugin-account';
-import { Page } from '@onr/plugin-antd';
 import { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import { theme } from './GlobalStyles';
+
+const AntdPage = dynamic(() => import('@onr/plugin-antd').then(mod => mod.Page));
 
 const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
+  const { currentRoute } = useRoute();
 
-  return (
-    <PageProvider>
-      <Page {...props} theme={theme} HeaderMainSection={AccountSelector}>
+  if (currentRoute.layout === 'antd-admin' || currentRoute.layout === 'antd-full-page') {
+    return (
+      <AntdPage {...props} theme={theme} HeaderMainSection={AccountSelector}>
         <Component {...pageProps} />
-      </Page>
-    </PageProvider>
-  );
+      </AntdPage>
+    );
+  } else {
+    return <Component {...pageProps} />;
+  }
 };
 
 export const PageContainer: React.FC = props => {

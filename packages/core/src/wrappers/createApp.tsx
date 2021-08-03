@@ -18,6 +18,7 @@ export function createApp(options?: AppOptions) {
   const app = new App({
     components,
     appConfig: options?.appConfig,
+    menuItems: options?.menuItems,
     routes: options?.routes,
   });
 

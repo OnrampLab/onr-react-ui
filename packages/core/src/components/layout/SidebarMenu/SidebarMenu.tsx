@@ -14,7 +14,7 @@ interface Props {
 // @ts-ignore
 export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: Props) => {
   const app = useContext(AppContext);
-  const menuItems = app?.getRoutes();
+  const menuItems = app?.getMenuItems();
   // @ts-ignore
   const [appRoutes, setAppRoutes] = React.useState(menuItems);
 

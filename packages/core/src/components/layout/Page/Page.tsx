@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
-import { useAuth, usePage } from '../../../hooks';
+import { useAuth, useRoute } from '../../../hooks';
 import { CoreStore } from '../../../redux';
 import { Container } from './styles';
 
@@ -17,20 +17,21 @@ interface Props {
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, logout, children } = props;
-  const { isNotDashboard = false } = usePage();
+  const { currentRoute } = useRoute();
   // @ts-ignore
   const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
+  const isAdminLayout = currentRoute.layout === 'antd-admin';
 
   // TODO: create a simple page component
   return (
     <ThemeProvider theme={theme}>
       <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-        {!isNotDashboard && <Header HeaderMainSection={HeaderMainSection} />}
+        {isAdminLayout && <Header HeaderMainSection={HeaderMainSection} />}
         <div className="workspace">
-          {!isNotDashboard && (
+          {isAdminLayout && (
             <SidebarMenu
               logout={logout}
               currentUser={user}
@@ -40,7 +41,7 @@ export const Page = (props: Props) => {
           )}
 
           <div>
-            <div>{!isNotDashboard ? <div>{children}</div> : children}</div>
+            <div>{isAdminLayout ? <div>{children}</div> : children}</div>
           </div>
         </div>
       </Container>
