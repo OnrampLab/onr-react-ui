@@ -12,8 +12,8 @@ export interface MenuItem {
 
 export const menuItems: MenuItem[] = [
   {
-    path: '/',
-    name: 'Home',
+    path: '/admin',
+    name: 'Dashboard',
     icon: <Home strokeWidth={1} size={16} />,
   },
   {
