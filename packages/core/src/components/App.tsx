@@ -1,7 +1,7 @@
 import { Http } from '@onr/common';
 import { createContext, FC, ReactNode } from 'react';
 import { AuthProvider, NextAuthProvider } from '../providers';
-import { AppComponents, FullAppOptions, OnrApp } from '../types';
+import { AppComponents, AppConfig, FullAppOptions, OnrApp } from '../types';
 
 export const AppContext = createContext<App | null>(null);
 
@@ -12,13 +12,13 @@ interface ProviderProps {
 
 export class App implements OnrApp {
   private readonly components: AppComponents;
-  private readonly appConfig: any;
-  private readonly routes: any;
+  private readonly appConfig: AppConfig;
+  private readonly menuItems: any;
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
     this.appConfig = options.appConfig;
-    this.routes = options.routes;
+    this.menuItems = options.menuItems;
   }
 
   initialize() {
@@ -54,7 +54,7 @@ export class App implements OnrApp {
     return this.appConfig;
   }
 
-  getRoutes() {
-    return this.routes;
+  getMenuItems() {
+    return this.menuItems;
   }
 }

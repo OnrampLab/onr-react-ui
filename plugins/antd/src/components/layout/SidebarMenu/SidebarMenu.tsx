@@ -52,7 +52,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
   const dispatch = useDispatch();
   const router = useRouter();
   const app = useContext(AppContext);
-  const menuItems = app.getRoutes();
+  const menuItems = app.getMenuItems();
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
   const [appRoutes, setAppRoutes] = React.useState(menuItems);
   const {

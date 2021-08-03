@@ -6,11 +6,11 @@ export type OnrApp = {
   getComponents(): AppComponents;
   getProvider(): ReactNode;
   getAppConfig(): any;
-  getRoutes(): any;
+  getMenuItems(): any;
 };
 
 export type FullAppOptions = {
   components: AppComponents;
   appConfig: any;
-  routes: any;
+  menuItems: any;
 };

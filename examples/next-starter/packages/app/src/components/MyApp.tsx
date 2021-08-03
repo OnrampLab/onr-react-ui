@@ -20,7 +20,7 @@ const wrapper = createWrapper(makeStore, { debug: false });
 
 const app: OnrApp = createApp({
   appConfig,
-  routes: menuItems,
+  menuItems,
   components: {
     Header,
     SidebarMenu,
