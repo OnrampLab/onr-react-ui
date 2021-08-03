@@ -9,9 +9,9 @@ export interface IPageContext {
   currentRoute: any;
 }
 
-export const PageContext = createContext<IPageContext | null>(null);
+export const RouteContext = createContext<IPageContext | null>(null);
 
-export const PageProvider = (props: any) => {
+export const RouteProvider = (props: any) => {
   const router = useRouter();
   const appConfig = useApp()?.getAppConfig();
   const routes = useApp()?.getRoutes();
@@ -25,7 +25,7 @@ export const PageProvider = (props: any) => {
   });
 
   return (
-    <PageContext.Provider
+    <RouteContext.Provider
       value={{ isNotDashboard, currentPath: router.pathname, currentRoute }}
       {...props}
     />

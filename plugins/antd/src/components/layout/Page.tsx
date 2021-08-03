@@ -1,4 +1,4 @@
-import { Container, CoreStore, Inner, useAuth, usePage } from '@onr/core';
+import { Container, CoreStore, Inner, useAuth, useRoute } from '@onr/core';
 import { Layout } from 'antd';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
@@ -17,7 +17,7 @@ const { Content } = Layout;
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, children } = props;
-  const { isNotDashboard = false } = usePage();
+  const { isNotDashboard = false } = useRoute();
   //@ts-ignore
   const { user } = useAuth();
 

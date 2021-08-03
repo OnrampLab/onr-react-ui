@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { ThemeProvider } from 'styled-components';
 import { Header, SidebarMenu } from '../';
-import { useAuth, usePage } from '../../../hooks';
+import { useAuth, useRoute } from '../../../hooks';
 import { CoreStore } from '../../../redux';
 import { Container } from './styles';
 
@@ -17,7 +17,7 @@ interface Props {
 /* eslint-disable complexity */
 export const Page = (props: Props) => {
   const { HeaderMainSection, theme, logout, children } = props;
-  const { isNotDashboard = false } = usePage();
+  const { isNotDashboard = false } = useRoute();
   // @ts-ignore
   const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(

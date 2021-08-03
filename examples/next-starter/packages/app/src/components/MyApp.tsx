@@ -1,4 +1,4 @@
-import { createApp, OnrApp, PageProvider } from '@onr/core';
+import { createApp, OnrApp, RouteProvider } from '@onr/core';
 import { Header, LoadingPage, Page, SidebarMenu } from '@onr/plugin-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import Head from 'next/head';
@@ -75,9 +75,9 @@ export function AppComponent(props: Props) {
         )}
       </Head>
       <AppProvider session={pageProps.session}>
-        <PageProvider>
+        <RouteProvider>
           <PageContainer {...props} />
-        </PageProvider>
+        </RouteProvider>
       </AppProvider>
     </>
   );
