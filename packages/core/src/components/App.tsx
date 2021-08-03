@@ -1,4 +1,6 @@
 import { Http } from '@onr/common';
+import minimatch from 'minimatch';
+import { useRouter } from 'next/router';
 import { createContext, FC, ReactNode } from 'react';
 import { AuthProvider, NextAuthProvider } from '../providers';
 import { AppComponents, AppConfig, FullAppOptions, OnrApp } from '../types';
@@ -34,8 +36,15 @@ export class App implements OnrApp {
 
   getProvider() {
     const authEnabled = this.appConfig.auth.enabled;
+
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
-      if (authEnabled) {
+      const router = useRouter();
+
+      const currentRoute = this.routes.find((route: any) => {
+        return minimatch(router.pathname, route.path);
+      });
+
+      if (authEnabled && currentRoute.authRequired) {
         return (
           <NextAuthProvider session={session}>
             <AppContext.Provider value={this}>
@@ -44,9 +53,9 @@ export class App implements OnrApp {
             </AppContext.Provider>
           </NextAuthProvider>
         );
-      } else {
-        return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
       }
+
+      return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
     };
 
     return Provider;

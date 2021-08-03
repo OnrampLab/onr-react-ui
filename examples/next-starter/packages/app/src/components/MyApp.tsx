@@ -1,11 +1,11 @@
-import { createApp, OnrApp } from '@onr/core';
+import { createApp, OnrApp, PageProvider } from '@onr/core';
 import { Header, LoadingPage, Page, SidebarMenu } from '@onr/plugin-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
 import React, { useEffect } from 'react';
-import { appConfig, menuItems } from '../configs';
+import { appConfig, menuItems, routes } from '../configs';
 import { afterComponentDidMount, store } from '../redux';
 import { GlobalStyles } from './GlobalStyles';
 import { PageContainer } from './PageContainer';
@@ -21,6 +21,7 @@ const wrapper = createWrapper(makeStore, { debug: false });
 const app: OnrApp = createApp({
   appConfig,
   menuItems,
+  routes,
   components: {
     Header,
     SidebarMenu,
@@ -74,7 +75,9 @@ export function AppComponent(props: Props) {
         )}
       </Head>
       <AppProvider session={pageProps.session}>
-        <PageContainer {...props} />
+        <PageProvider>
+          <PageContainer {...props} />
+        </PageProvider>
       </AppProvider>
     </>
   );
