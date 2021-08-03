@@ -7,10 +7,12 @@ export type OnrApp = {
   getProvider(): ReactNode;
   getAppConfig(): any;
   getMenuItems(): any;
+  getRoutes(): any;
 };
 
 export type FullAppOptions = {
   components: AppComponents;
   appConfig: any;
   menuItems: any;
+  routes: any;
 };

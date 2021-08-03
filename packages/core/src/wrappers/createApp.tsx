@@ -19,6 +19,7 @@ export function createApp(options?: AppOptions) {
     components,
     appConfig: options?.appConfig,
     menuItems: options?.menuItems,
+    routes: options?.routes,
   });
 
   app.initialize();

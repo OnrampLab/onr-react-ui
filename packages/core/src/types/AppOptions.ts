@@ -7,6 +7,7 @@ export type AppOptions = {
   components?: Partial<AppComponents>;
   appConfig?: AppConfig;
   menuItems?: any;
+  routes?: any;
 };
 
 export type AuthConfig = {

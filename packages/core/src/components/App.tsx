@@ -14,11 +14,13 @@ export class App implements OnrApp {
   private readonly components: AppComponents;
   private readonly appConfig: AppConfig;
   private readonly menuItems: any;
+  private readonly routes: any;
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
     this.appConfig = options.appConfig;
     this.menuItems = options.menuItems;
+    this.routes = options.routes;
   }
 
   initialize() {
@@ -56,5 +58,9 @@ export class App implements OnrApp {
 
   getMenuItems() {
     return this.menuItems;
+  }
+
+  getRoutes() {
+    return this.routes;
   }
 }
