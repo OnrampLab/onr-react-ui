@@ -13,14 +13,4 @@ export const appConfig: AppConfig = {
   auth: {
     enabled: true,
   },
-
-  /**
-   * Routes which will not show admin layout (with navbar and sidebar)
-   */
-  // prettier-ignore
-  fullPageRoutes: [
-    '/auth/*',
-    '/lockscreen',
-    '/_error',
-  ],
 } as const;

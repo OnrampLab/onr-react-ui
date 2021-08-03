@@ -15,6 +15,11 @@ export const routes = [
     authRequired: true,
   },
   {
+    path: '/_error',
+    layout: 'antd-full-page',
+    authRequired: false,
+  },
+  {
     path: '/',
     layout: 'simple-full-page',
     authRequired: false,

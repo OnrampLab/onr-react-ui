@@ -18,5 +18,4 @@ export type AppConfig = {
   apiBaseUrl: string;
   apiKey: string;
   auth: AuthConfig;
-  fullPageRoutes: string[];
 };
