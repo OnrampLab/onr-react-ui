@@ -33,6 +33,7 @@
     "@onr/plugin-antd": "^0.3.0",
     "@onr/plugin-auth": "^0.4.0",
     "@onr/plugin-custom-home": "^0.1.0",
+    "@onr/plugin-custom-admin-dashboard": "^0.0.1",
     "@onr/plugin-user": "^0.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "@zeit/next-less": "1.0.1",
