@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.3.2...@onr/plugin-account@0.4.0) (2021-08-03)
+
+
+### Features
+
+* **starter/page:** [admin] new ([3a9b803](https://github.com/OnrampLab/onr-react-ui/commit/3a9b803e639b54c71bdaf4411710c9bb2cd95ff7))
+
+
+
 ### [0.3.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.3.1...@onr/plugin-account@0.3.2) (2021-08-01)
 
 **Note:** Version bump only for package @onr/plugin-account

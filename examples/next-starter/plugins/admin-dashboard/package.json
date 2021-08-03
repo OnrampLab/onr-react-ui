@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-custom-admin-dashboard",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "custom dashboard plugin",
   "license": "ISC",
   "main": "lib/index.js",

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.10.2...@onr/core@0.11.0) (2021-08-03)
+
+
+### Features
+
+* **core:** rename PageContainer to RouteContainer ([865e8d8](https://github.com/OnrampLab/onr-react-ui/commit/865e8d8a7c97a516c5fc9819079ba0d638441ac2))
+* **core/component:** [App] rename routes to menuItems ([b8e6a01](https://github.com/OnrampLab/onr-react-ui/commit/b8e6a013028b8cac098517a6caa15d96c4ed4bf0))
+* **core/component:** [App] support routes ([978ecb4](https://github.com/OnrampLab/onr-react-ui/commit/978ecb43a60936fcdabc9cad1b44a0b363f6ab9d))
+* **core/hook:** [useApp] new ([2734145](https://github.com/OnrampLab/onr-react-ui/commit/273414569b51e6dd417f9d72be94307d09714e61))
+* **core/hook:** [usePage] new ([9835e3d](https://github.com/OnrampLab/onr-react-ui/commit/9835e3da04cb9551b8b29fda9ff4749c99ddb600))
+* **core/provider:** [PageProvider] add currentRoute ([4ec62aa](https://github.com/OnrampLab/onr-react-ui/commit/4ec62aa0e6b508e24d92322275134e876e34aa90))
+* **core/provider:** [PageProvider] new ([ee8e882](https://github.com/OnrampLab/onr-react-ui/commit/ee8e8829b98ea8446b443785407dc99f0dbc8a28))
+* **core/provider:** [RouteProvider] remove isNotDashboard; ([2421baa](https://github.com/OnrampLab/onr-react-ui/commit/2421baab7b8d43a3d24410f4a00290dd7ee85865))
+* **starter:** can define routes and apply layout on different routes ([1f85063](https://github.com/OnrampLab/onr-react-ui/commit/1f850630434690292621141a3908b4bfa9afa98d))
+* **starter:** use wildcard for layout path matching ([add3fbf](https://github.com/OnrampLab/onr-react-ui/commit/add3fbfe923692fb9e5528c836a3f92a9157ce2b))
+
+
+
 ### [0.10.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.10.1...@onr/core@0.10.2) (2021-08-01)
 
 **Note:** Version bump only for package @onr/core
