@@ -17764,10 +17764,45 @@ reduce-css-calc@^2.1.8:
     css-unit-converter "^1.1.1"
     postcss-value-parser "^3.3.0"
 
-redux-devtools-extension@^2.13.8:
+redux-devtools-extension@^2.13.7, redux-devtools-extension@^2.13.8:
   version "2.13.9"
   resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.9.tgz#6b764e8028b507adcb75a1cae790f71e6be08ae7"
   integrity sha512-cNJ8Q/EtjhQaZ71c8I9+BPySIBVEKssbPpskBfsXqb8HJ002A3KRVHfeRzwRo6mGPqsm7XuHTqNSNeS1Khig0A==
+
+redux-dynamic-middlewares@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-middlewares/-/redux-dynamic-middlewares-1.0.0.tgz#a4c5859a6018a1d7fab3bdd4989f51095c806d15"
+  integrity sha512-smX1eY17dH90FVtXL6JPW01on1ptP4SOlkDYON5Lka52RNcZfgWM6hvtoZKA3O+dZL2/ytbS+tHo2gdKln5iHw==
+
+redux-dynamic-modules-core@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-modules-core/-/redux-dynamic-modules-core-5.2.3.tgz#ebee39513c6e605fdf940a61e77ccc65d104c035"
+  integrity sha512-4UyJY+r9llTYO2AJj/HMY2M/FPvcks169V3o0wUr1ViIFC8cmNsq9f1DRsNqI2Ns57hAvpvdd8fU6nm+GczRnw==
+  dependencies:
+    redux-devtools-extension "^2.13.7"
+    redux-dynamic-middlewares "^1.0.0"
+
+redux-dynamic-modules-react@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-modules-react/-/redux-dynamic-modules-react-5.2.3.tgz#91e97a48474beecf59e53fc9f43bde01cb96eb2f"
+  integrity sha512-JuRBjjTL0WAcTu0sdTVghTrxWHc8G9d4cLzUy5m3m51ycW3W7hnq2mZNo/eaoIADYtMMWtpnhEm+z9KeNyp0kA==
+  dependencies:
+    redux-devtools-extension "^2.13.7"
+    redux-dynamic-middlewares "^1.0.0"
+    redux-dynamic-modules-core "^5.2.3"
+
+redux-dynamic-modules-thunk@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-modules-thunk/-/redux-dynamic-modules-thunk-5.2.3.tgz#b71eef5907c4661f1ff3072c720e6a99870386ab"
+  integrity sha512-r6PMeDwydxT7pbEm41FewiwEbwCO9qPHEvbsnpvQFktwziSlCyfXgCywOiKEO/sdReBbGQER7cXPn4jf1+yj0g==
+
+redux-dynamic-modules@^5.2.3:
+  version "5.2.3"
+  resolved "https://registry.yarnpkg.com/redux-dynamic-modules/-/redux-dynamic-modules-5.2.3.tgz#a035e981b4ad1fa75ff7d106740b92cf5ede58ed"
+  integrity sha512-eL3b82N4YiBYkXcWOMVFm7AOdNkwa6xp8jeXIoLAivoG1gjxNVg6AQIN7xmiB+PR7qBfN0QoPIiZ/uKmA9UhXw==
+  dependencies:
+    redux-dynamic-modules-core "^5.2.3"
+    redux-dynamic-modules-react "^5.2.3"
 
 redux-thunk@^2.3.0:
   version "2.3.0"

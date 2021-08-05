@@ -1,10 +1,7 @@
-import { createStore, applyMiddleware, Store } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-
-import { coreActions, CoreStore } from '@onr/core';
-
-import reducers from './reducers';
+// TODO: to reduce the bundle size, we can export @onr/core/redux only
+import { coreActions, CoreStore, reducers as coreReducers } from '@onr/core';
+import { createStore, IModule } from 'redux-dynamic-modules-core';
+import { getThunkExtension } from 'redux-dynamic-modules-thunk';
 
 const saveToLocal = (state: CoreStore) => {
   if (typeof localStorage === 'undefined') {
@@ -29,10 +26,20 @@ const saveToLocal = (state: CoreStore) => {
   );
 };
 
-const _store: Store = createStore(
-  reducers,
-  {},
-  composeWithDevTools(applyMiddleware(thunkMiddleware)),
+export function getCoreModule(): IModule<CoreStore> {
+  return {
+    id: 'coreStore',
+    reducerMap: {
+      coreStore: coreReducers.coreStore,
+    },
+  };
+}
+
+const _store = createStore(
+  {
+    extensions: [getThunkExtension()],
+  },
+  getCoreModule(),
 );
 
 export const afterComponentDidMount = () => {
