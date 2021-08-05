@@ -1,7 +1,7 @@
 {
   "name": "next-starter-app",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -29,7 +29,7 @@
     "@next/bundle-analyzer": "^11.0.1",
     "@onr/core": "^0.11.0",
     "@onr/mock": "^0.1.15",
-    "@onr/plugin-account": "^0.4.0",
+    "@onr/plugin-account": "^0.4.1",
     "@onr/plugin-antd": "^0.4.0",
     "@onr/plugin-auth": "^0.4.1",
     "@onr/plugin-custom-admin-dashboard": "^0.1.0",
