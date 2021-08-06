@@ -5,15 +5,16 @@ import { createContext, useContext, useEffect, useMemo } from 'react';
 import { AppContext } from '../components/App';
 import { useSession } from '../hooks';
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext({});
 
 export const AuthProvider = (props: any) => {
-  const loginPage = '/auth/signin';
   const router = useRouter();
+  const loginPage = '/auth/signin';
+  const isLoginPage = router.asPath.includes(loginPage);
 
   const [session, loading] = useSession({
-    required: true,
-    redirectTo: loginPage,
+    required: !isLoginPage,
+    redirect: () => signIn('Credential', { callbackUrl: router.asPath }),
     swrConfig: {
       // NOTE: should consider to make the refresh interval less than token expiry time
       refreshInterval: 60 * 60 * 1000, // 1 hour
@@ -23,7 +24,6 @@ export const AuthProvider = (props: any) => {
 
   const user = session?.user;
   const isUser = !!session?.user;
-  const isLoginPage = router.asPath.includes(loginPage);
   const value = useMemo(() => ({ user, signIn, signOut }), [user]);
 
   if (typeof window !== 'undefined' && session?.accessToken) {
@@ -35,11 +35,7 @@ export const AuthProvider = (props: any) => {
 
   useEffect(() => {
     if (loading) return; // Do nothing while loading
-    if (!isUser && !isLoginPage) {
-      console.log('If not authenticated, force log in');
-      signIn();
-    }
-  }, [isUser, isLoginPage, loading, session]);
+  }, [loading]);
 
   if (isUser || isLoginPage) {
     return <AuthContext.Provider value={value} {...props} />;
