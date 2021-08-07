@@ -18,7 +18,7 @@ import { capitalize } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
-import { Book, LogOut, Triangle } from 'react-feather';
+import { FiBook, FiLogOut, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from '../Header';
 import { Sidebar } from './styles';
@@ -212,7 +212,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
                 href="https://one-readme.fusepx.com"
               >
                 <Tooltip title="Help">
-                  <Book size={20} strokeWidth={1} />
+                  <FiBook size={20} strokeWidth={1} />
                 </Tooltip>
               </a>
 
@@ -225,7 +225,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
                 cancelText="Cancel"
               >
                 <a className={`px-3 ${sidebarTheme === 'dark' ? 'text-white' : 'text-body'}`}>
-                  <LogOut size={20} strokeWidth={1} />
+                  <FiLogOut size={20} strokeWidth={1} />
                 </a>
               </Popconfirm>
             </>
@@ -278,7 +278,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
                 <Header>
                   <Link href="/">
                     <a className="brand">
-                      <Triangle size={24} strokeWidth={1} />
+                      <FiTriangle size={24} strokeWidth={1} />
                       <strong
                         className="mx-1"
                         style={{

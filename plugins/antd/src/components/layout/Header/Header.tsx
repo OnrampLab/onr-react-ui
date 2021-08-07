@@ -2,7 +2,7 @@ import { coreActions, CoreStore } from '@onr/core';
 import { Avatar, Layout, Menu } from 'antd';
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
-import { BarChart, Settings, Triangle } from 'react-feather';
+import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
 
@@ -21,12 +21,12 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
       <Layout.Header>
         {mobile && (
           <a onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
-            <BarChart size={20} strokeWidth={1} />
+            <FiBarChart size={20} strokeWidth={1} />
           </a>
         )}
         <Link href="/">
           <a className="brand">
-            <Triangle size={24} strokeWidth={1} />
+            <FiTriangle size={24} strokeWidth={1} />
             <strong className="mx-1 text-black">{name}</strong>
           </a>
         </Link>
@@ -37,11 +37,11 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
         <span className="mr-auto" />
         <Menu mode="horizontal">
           <Menu.Item onClick={() => dispatch(coreActions.setOptionDrawer())}>
-            <Settings size={20} strokeWidth={1} />
+            <FiSettings size={20} strokeWidth={1} />
           </Menu.Item>
 
           <SubMenu title={<Avatar src="/static/images/avatar.jpg" />}>
-            <Menu.Item>Settings</Menu.Item>
+            <Menu.Item>FiSettings</Menu.Item>
             <Menu.Item>Profile</Menu.Item>
             <Menu.Divider />
             <Menu.Item>

@@ -1,7 +1,7 @@
 import { Button, Form, Input, message as Message, Row, Tooltip } from 'antd';
 import Link from 'next/link';
 import Router from 'next/router';
-import { Eye, HelpCircle, Mail, Triangle, User } from 'react-feather';
+import { FiEye, FiHelpCircle, FiMail, FiTriangle, FiUser } from 'react-icons/fi';
 import styled from 'styled-components';
 
 const FormItem = Form.Item;
@@ -23,7 +23,7 @@ const Signup = () => (
       <div className="text-center mb-5">
         <Link href="/signup">
           <a className="brand mr-0">
-            <Triangle size={32} strokeWidth={1} />
+            <FiTriangle size={32} strokeWidth={1} />
           </a>
         </Link>
         <h5 className="mb-0 mt-3">Sign up</h5>
@@ -54,7 +54,7 @@ const Signup = () => (
             <span>
               Nickname&nbsp;
               <Tooltip title="What do you want others to call you?">
-                <HelpCircle size={16} strokeWidth={1} />
+                <FiHelpCircle size={16} strokeWidth={1} />
               </Tooltip>
             </span>
           }
@@ -62,7 +62,7 @@ const Signup = () => (
           rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
         >
           <Input
-            prefix={<User size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+            prefix={<FiUser size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
             placeholder="Nickname"
           />
         </FormItem>
@@ -82,7 +82,7 @@ const Signup = () => (
           ]}
         >
           <Input
-            prefix={<Mail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+            prefix={<FiMail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
             type="email"
             placeholder="Email"
           />
@@ -94,7 +94,7 @@ const Signup = () => (
           rules={[{ required: true, message: 'Please input your Password!' }]}
         >
           <Input
-            prefix={<Eye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+            prefix={<FiEye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
             type="password"
             placeholder="Password"
           />
@@ -120,7 +120,7 @@ const Signup = () => (
           ]}
         >
           <Input
-            prefix={<Eye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+            prefix={<FiEye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
             type="password"
             placeholder="Confirm password"
           />
