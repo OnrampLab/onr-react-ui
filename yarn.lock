@@ -3109,13 +3109,6 @@
   dependencies:
     "@octokit/openapi-types" "^7.4.0"
 
-"@onr/core@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@onr/core/-/core-0.7.0.tgz#877b1fae4ba36c3eac36fc49b5741a24fce6a068"
-  integrity sha512-AEfKp10lcvljyVtJwxcRerf72p/O52aJMGhYnpbalndLgW9kKH/zZQOqZ9KkB2j4srh0H1LkxIXJGvUBHKqohg==
-  dependencies:
-    "@onr/common" "^0.5.3"
-
 "@onr/eslint-config@^0.2.8", "@onr/eslint-config@^0.2.9":
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/@onr/eslint-config/-/eslint-config-0.2.9.tgz#845675a1dcd1f1f7894af38f8b20cc8a960f0ea3"
@@ -3130,15 +3123,6 @@
     eslint-plugin-promise "^5.1.0"
     eslint-plugin-react "^7.24.0"
     eslint-plugin-react-hooks "^4.2.0"
-
-"@onr/plugin-account@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@onr/plugin-account/-/plugin-account-0.1.4.tgz#5f67fdab3e6bb919b8a486a9e1c4351efb8139d4"
-  integrity sha512-tlICUML4o/HP2DsiAif/2/E4CTyokVr3aT+mmQqtRop2kh+kiIGovxKK9CHSmlgKC26v46Phk1slqRE1R12H1w==
-  dependencies:
-    "@onr/common" "^0.5.3"
-    "@onr/core" "^0.7.0"
-    "@onr/mock" "^0.1.10"
 
 "@open-draft/until@^1.0.3":
   version "1.0.3"
