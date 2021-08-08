@@ -62,7 +62,6 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
     optionDrawer,
     boxed,
     darkSidebar,
-    sidebarMode,
     sidebarTheme,
     sidebarPopup,
     collapsed,
