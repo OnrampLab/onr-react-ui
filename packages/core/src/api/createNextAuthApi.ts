@@ -104,7 +104,7 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
       },
       // @ts-ignore
       async redirect(url, baseUrl) {
-        return baseUrl;
+        return url;
       },
       async session(session, token) {
         session.accessToken = token.accessToken;

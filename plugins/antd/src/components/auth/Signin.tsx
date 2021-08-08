@@ -3,7 +3,7 @@ import { NextPageContext } from 'next';
 import { getCsrfToken, getSession } from 'next-auth/client';
 import Link from 'next/link';
 import React from 'react';
-import { Eye, Mail, Triangle } from 'react-feather';
+import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';
 import styled from 'styled-components';
 
 const FormItem = Form.Item;
@@ -57,7 +57,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
         <div className="mb-5 text-center">
           <Link href="/signin">
             <a className="mr-0 brand">
-              <Triangle size={32} strokeWidth={1} />
+              <FiTriangle size={32} strokeWidth={1} />
             </a>
           </Link>
           <h5 className="mt-3 mb-0">Sign in</h5>
@@ -81,7 +81,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           {/* @ts-ignore  */}
           <FormItem label="Email" name="email" rules={EMAIL_RULES}>
             <Input
-              prefix={<Mail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<FiMail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="email"
               type="email"
               placeholder="Email"
@@ -90,7 +90,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
 
           <FormItem label="Password" name="password" rules={PASSWORD_RULES}>
             <Input
-              prefix={<Eye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<FiEye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
               name="password"
               type="password"
               placeholder="Password"

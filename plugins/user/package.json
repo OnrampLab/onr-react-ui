@@ -32,10 +32,10 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.5.3",
-    "@onr/core": "^0.7.0",
+    "@onr/common": "^0.5.4",
+    "@onr/core": "^0.11.0",
     "@onr/mock": "^0.1.15",
-    "@onr/plugin-account": "^0.1.4",
+    "@onr/plugin-account": "^0.4.1",
     "@onr/plugin-auth": "^0.4.1"
   },
   "peerDependencies": {
@@ -44,7 +44,6 @@
     "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-feather": "^2.0.9",
     "react-redux": "^7.2.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",

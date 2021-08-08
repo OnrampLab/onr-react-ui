@@ -1,6 +1,6 @@
-import { UserRoleName } from '@onr/plugin-user';
-import React, { ReactElement } from 'react';
-import { Home, Server } from 'react-feather';
+import { ReactElement } from 'react';
+import { FiHome, FiServer } from 'react-icons/fi';
+import { UserRoleName } from './roles';
 
 export interface MenuItem {
   name: string;
@@ -14,11 +14,11 @@ export const menuItems: MenuItem[] = [
   {
     path: '/admin',
     name: 'Dashboard',
-    icon: <Home strokeWidth={1} size={16} />,
+    icon: <FiHome strokeWidth={1} size={16} />,
   },
   {
     name: 'Admin',
-    icon: <Server strokeWidth={1} size={16} />,
+    icon: <FiServer strokeWidth={1} size={16} />,
     roles: [UserRoleName.SystemAdmin],
     children: [
       {

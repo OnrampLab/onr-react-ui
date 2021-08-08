@@ -1,9 +1,8 @@
-import React from 'react';
-import { Button, Input, message as Message, Row, Form } from 'antd';
-import { Mail, Triangle } from 'react-feather';
-
+import { Button, Form, Input, message as Message, Row } from 'antd';
 import Link from 'next/link';
 import Router from 'next/router';
+import React from 'react';
+import { FiMail, FiTriangle } from 'react-icons/fi';
 import styled from 'styled-components';
 
 const FormItem = Form.Item;
@@ -31,7 +30,7 @@ export const Forgot: React.FC = () => {
         <div className="text-center mb-5">
           <Link href="/forgot">
             <a className="brand mr-0">
-              <Triangle size={32} strokeWidth={1} />
+              <FiTriangle size={32} strokeWidth={1} />
             </a>
           </Link>
           <h5 className="mb-0 mt-3">Recover your password</h5>
@@ -61,7 +60,7 @@ export const Forgot: React.FC = () => {
             ]}
           >
             <Input
-              prefix={<Mail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<FiMail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="email"
               placeholder="Email"
             />

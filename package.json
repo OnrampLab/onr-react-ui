@@ -9,8 +9,8 @@
     "plugins/*"
   ],
   "scripts": {
-    "start": "lerna run start --parallel",
-    "dev": "lerna run dev --parallel",
+    "start": "lerna run start --parallel --ignore next-starter",
+    "dev": "lerna run dev --parallel --ignore next-starter",
     "build": "lerna run build --stream",
     "storybook": "lerna run storybook --stream",
     "lint": "lerna run lint --parallel",

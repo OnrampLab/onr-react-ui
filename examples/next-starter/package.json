@@ -9,11 +9,11 @@
     "plugins/*"
   ],
   "scripts": {
-    "dev": "lerna run dev",
+    "dev": "lerna run dev --parallel",
     "dev:old": "lerna run dev:old",
-    "build": "lerna run build",
+    "build": "lerna run build --stream",
     "start:old": "lerna run start:old",
-    "start": "lerna run start",
+    "start": "lerna run start --parallel",
     "heroku-prebuild": "npm i --dev && NODE_ENV=production next build",
     "export": "lerna run export",
     "analyze": "lerna run analyze",
