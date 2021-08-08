@@ -1,6 +1,6 @@
-import { UserRoleName } from '@onr/plugin-user';
 import { ReactElement } from 'react';
 import { FiHome, FiServer } from 'react-icons/fi';
+import { UserRoleName } from './roles';
 
 export interface MenuItem {
   name: string;
