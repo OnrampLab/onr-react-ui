@@ -46,6 +46,8 @@
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.2",
+    "react-spinners": "^0.11.0",
+    "react-useanimations": "^2.0.6",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-dynamic-modules": "^5.2.3",
