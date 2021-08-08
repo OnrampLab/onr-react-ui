@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.19.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.18.1...next-starter@0.19.0) (2021-08-08)
+
+
+### Features
+
+* **component:** [Page] remove handling theme ([b5af6ff](https://github.com/OnrampLab/onr-react-ui/commit/b5af6ffa13383a5689d12b1ad354e9ee2c34a5a5))
+* **starter/component:** [LoadingPage] new ([208acde](https://github.com/OnrampLab/onr-react-ui/commit/208acde84f8dc4279ae5e3efba582c232023615e))
+* **starter/component:** [MyApp] remove global style and antd components to reduce bundle size ([f8fe069](https://github.com/OnrampLab/onr-react-ui/commit/f8fe069b1cfc7b06362fd4c4bce84cce769d5f78))
+
+
+### Bug Fixes
+
+* **plugin-antd/component:** [SidebardMenu] eslint error ([d4431aa](https://github.com/OnrampLab/onr-react-ui/commit/d4431aa2d777590e1eb870aa069cd78a8ee90949))
+
+
+
 ### [0.18.1](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.18.0...next-starter@0.18.1) (2021-08-05)
 
 **Note:** Version bump only for package next-starter

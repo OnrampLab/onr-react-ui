@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.4.0...@onr/plugin-antd@0.5.0) (2021-08-08)
+
+
+### Features
+
+* **component:** [Page] remove handling theme ([b5af6ff](https://github.com/OnrampLab/onr-react-ui/commit/b5af6ffa13383a5689d12b1ad354e9ee2c34a5a5))
+
+
+### Bug Fixes
+
+* **plugin-antd/component:** [SidebardMenu] eslint error ([d4431aa](https://github.com/OnrampLab/onr-react-ui/commit/d4431aa2d777590e1eb870aa069cd78a8ee90949))
+
+
+
 ## [0.4.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.3.0...@onr/plugin-antd@0.4.0) (2021-08-03)
 
 

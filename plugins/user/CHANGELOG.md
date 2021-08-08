@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.2.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-user@0.2.1...@onr/plugin-user@0.2.2) (2021-08-08)
+
+**Note:** Version bump only for package @onr/plugin-user
+
+
+
+
+
 ### [0.2.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-user@0.2.0...@onr/plugin-user@0.2.1) (2021-08-03)
 
 **Note:** Version bump only for package @onr/plugin-user

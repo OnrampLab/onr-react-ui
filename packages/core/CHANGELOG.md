@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.11.0...@onr/core@0.12.0) (2021-08-08)
+
+
+### Features
+
+* **component:** [Page] remove handling theme ([b5af6ff](https://github.com/OnrampLab/onr-react-ui/commit/b5af6ffa13383a5689d12b1ad354e9ee2c34a5a5))
+* **core/container:** [LayoutContainer] new with wrapper ([39b6076](https://github.com/OnrampLab/onr-react-ui/commit/39b6076e047b9ee80065c546a98b4353407f88dd))
+* **core/container:** [StyleContainer] new ([f0e795b](https://github.com/OnrampLab/onr-react-ui/commit/f0e795bd4f4cf5168799583c60a1ef7964166192))
+* **core/provider:** [AuthProvider] can redirect to original url after login ([ef392af](https://github.com/OnrampLab/onr-react-ui/commit/ef392af37ff86b84f2ca779caabfa1ab0562b016))
+
+
+
 ## [0.11.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.10.2...@onr/core@0.11.0) (2021-08-03)
 
 
