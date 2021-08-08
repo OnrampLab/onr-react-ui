@@ -1,13 +1,14 @@
 import { createApp, OnrApp, RouteProvider } from '@onr/core';
-import { Header, LoadingPage, Page, SidebarMenu } from '@onr/plugin-antd';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
 import React, { useEffect } from 'react';
-import { appConfig, menuItems, routes } from '../configs';
+import { appConfig } from '../configs/appConfig';
+import { menuItems } from '../configs/menuItems';
+import { routes } from '../configs/routes';
 import { afterComponentDidMount, store } from '../redux';
-import { GlobalStyles } from './GlobalStyles';
+import { LoadingPage } from './LoadingPage';
 import { PageContainer } from './PageContainer';
 
 // https://www.npmjs.com/package/next-plugin-antd-less?activeTab=readme
@@ -23,9 +24,6 @@ const app: OnrApp = createApp({
   menuItems,
   routes,
   components: {
-    Header,
-    SidebarMenu,
-    Page,
     LoadingPage,
   },
 });
@@ -55,8 +53,6 @@ export function AppComponent(props: Props) {
 
   return (
     <>
-      <GlobalStyles />
-
       <Head>
         <meta
           name="viewport"
