@@ -10,5 +10,11 @@
   },
   "devDependencies": {
     "docusaurus": "^1.14.7"
+  },
+  "resolutions": {
+    "browserslist": "^4.16.5",
+    "glob-parent": "^5.1.2",
+    "highlight.js": "^10.4.1",
+    "trim-newlines": "^3.0.1"
   }
 }
