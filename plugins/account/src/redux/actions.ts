@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import { Dispatch } from 'redux';
 import { AccountService } from '../services/AccountService';
 import { actionConsts } from './actionConsts';
@@ -9,7 +10,8 @@ export const accountActions = {
   }),
 
   getAccounts: (payload: any) => async (dispatch: Dispatch) => {
-    const accounts = await AccountService.getAccounts({
+    const accountService = App.getInstance().getService('accountService') as AccountService;
+    const accounts = await accountService.getAccounts({
       params: payload.params,
     });
 
