@@ -3,7 +3,7 @@ import { AnyAction } from 'redux';
 import { AuthUser } from '../types';
 
 export type AppComponents = {
-  NotFoundErrorPage: ComponentType<{}>;
+  NotFoundErrorPage?: ComponentType<{}>;
 
   /**
    * An optional sign-in page that will be rendered instead of the AppRouter at startup.

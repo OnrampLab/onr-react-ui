@@ -1,14 +1,14 @@
-import { Http } from '@onr/common';
 import { signIn, signOut } from 'next-auth/client';
 import { useRouter } from 'next/router';
-import { createContext, useContext, useEffect, useMemo } from 'react';
-import { AppContext } from '../components/App';
-import { useSession } from '../hooks';
+import { createContext, useEffect, useMemo } from 'react';
+import { AxiosHelper } from '../helpers';
+import { useApp, useSession } from '../hooks';
 
 export const AuthContext = createContext({});
 
 export const AuthProvider = (props: any) => {
   const router = useRouter();
+  const app = useApp();
   const loginPage = '/auth/signin';
   const isLoginPage = router.asPath.includes(loginPage);
 
@@ -20,7 +20,7 @@ export const AuthProvider = (props: any) => {
       refreshInterval: 60 * 60 * 1000, // 1 hour
     },
   });
-  const components = useContext(AppContext)?.getComponents();
+  const components = app?.getComponents();
 
   const user = session?.user;
   const isUser = !!session?.user;
@@ -29,7 +29,7 @@ export const AuthProvider = (props: any) => {
   if (typeof window !== 'undefined' && session?.accessToken) {
     // NOTE: update client side token
     if (session?.accessToken) {
-      Http.setToken(session?.accessToken);
+      AxiosHelper.setToken(app?.apis.adminAxiosInstance, session?.accessToken);
     }
   }
 
