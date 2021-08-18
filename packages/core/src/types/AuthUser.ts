@@ -20,4 +20,6 @@ export interface AuthUser extends Identity {
    * Email ID.
    */
   email?: string;
+
+  password?: string;
 }

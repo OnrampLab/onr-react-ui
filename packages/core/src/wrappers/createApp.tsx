@@ -15,11 +15,12 @@ export function createApp(options?: AppOptions) {
     ...options?.components,
   };
 
-  const app = new App({
+  const app = App.create({
     components,
     appConfig: options?.appConfig,
     menuItems: options?.menuItems,
     routes: options?.routes,
+    apis: options?.apis,
   });
 
   app.initialize();

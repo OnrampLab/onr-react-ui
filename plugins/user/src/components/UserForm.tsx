@@ -65,6 +65,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
     Object.keys(formData).forEach(key => {
       formData[key as keyof typeof formData] || delete formData[key as keyof typeof formData];
     });
+    // @ts-ignore
     formData.accounts = formData.accounts.map(accountId => +accountId);
     await handleSubmit({ data: formData });
 

@@ -8,6 +8,7 @@ export type AppOptions = {
   appConfig?: AppConfig;
   menuItems?: any;
   routes?: any;
+  apis?: any;
 };
 
 export type AuthConfig = {

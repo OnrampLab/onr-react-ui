@@ -4,9 +4,10 @@ import { NextPageContext } from 'next';
 
 interface Props {
   code: number;
+  error: string;
 }
 
-export const Error = ({ code }: Props) => {
+export const Error = ({ code, error }: Props) => {
   const title =
     code === 404
       ? 'This page could not be found'
@@ -26,13 +27,22 @@ export const Error = ({ code }: Props) => {
           {code}
         </h1>
         <h2 className="text-body">{title}</h2>
+        <h3 className="text-body">{error}</h3>
       </div>
     </Row>
   );
 };
 
-Error.getInitialProps = ({ res, err }: NextPageContext) => {
+export const getErrorServerSideProps = ({ res, err, query }: NextPageContext) => {
   const code = res ? res.statusCode : err ? err.statusCode : 404;
+  const error = query.error ?? null;
 
-  return { code };
+  console.log({ error });
+
+  return {
+    props: {
+      code,
+      error,
+    },
+  };
 };

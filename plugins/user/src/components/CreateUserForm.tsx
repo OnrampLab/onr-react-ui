@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import React from 'react';
 import { UserRequestPayload } from '../services/interfaces';
 import { UserService } from '../services/UserService';
@@ -14,7 +15,8 @@ export const CreateUserForm: React.FC<CreateUserFormProps> = ({
   return <UserForm handleSubmit={handleSubmit} currentUser={{}} />;
 
   async function handleSubmit(user: UserRequestPayload) {
-    await UserService.createUser(user);
+    const userService = App.getInstance().getService('userService') as UserService;
+    await userService.createUser(user);
 
     if (onSubmit) {
       onSubmit();

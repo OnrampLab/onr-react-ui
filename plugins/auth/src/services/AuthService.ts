@@ -1,56 +1,55 @@
-import { Http } from '@onr/common';
 import { AuthUser } from '@onr/core';
-import { LoginPayload } from './interfaces';
-import { SigninResponse, SignoutResponse } from './interfaces/AuthModel';
+import { BasicClient } from '@onr/ts-rest-client';
+import { LoginPayload, LoginResponse } from './interfaces';
 
-export const AuthService = {
-  login: async (credentials: LoginPayload): Promise<SigninResponse> => {
+export class AuthService extends BasicClient {
+  async login(credentials: LoginPayload): Promise<LoginResponse> {
     try {
-      const response = await Http.post<SigninResponse>('/auth/login', {
-        data: credentials,
+      const response = await this.post<LoginResponse>('/auth/login', {
+        ...credentials,
       });
 
-      Http.setToken(response.data.access_token);
+      this.setToken(response.data.access_token);
 
       return response.data;
     } catch (error) {
-      throw new Error(`Login Error: ${error.message}`);
+      throw new Error(`Login Error: ${(error as Error).message}`);
     }
-  },
+  }
 
-  refreshJWT: async (token: string) => {
+  async refreshJWT(token: string) {
     try {
-      Http.setToken(token);
+      this.setToken(token);
 
-      const response = await Http.post<SigninResponse, any>('/auth/refresh');
+      const response = await this.post<LoginResponse>('/auth/refresh');
 
-      Http.setToken(response.data.access_token);
+      this.setToken(response.data.access_token);
 
       return response.data;
     } catch (error) {
       throw error;
     }
-  },
+  }
 
-  logout: async () => {
+  async logout() {
     try {
-      await Http.post<SignoutResponse>('/auth/logout');
+      await this.post('/auth/logout');
 
       return;
     } catch (error) {
-      throw new Error(`Logout Error: ${error.message}`);
+      throw new Error(`Logout Error: ${(error as Error).message}`);
     }
-  },
+  }
 
-  getCurrentUser: async (token: string): Promise<AuthUser> => {
+  async getCurrentUser(token: string): Promise<AuthUser> {
     try {
-      Http.setToken(token);
+      this.setToken(token);
 
-      const response = await Http.post<AuthUser>('/auth/me');
+      const response = await this.post<AuthUser>('/auth/me');
 
       return response.data;
     } catch (error) {
-      throw new Error(`Get current auth Error: ${error.message}`);
+      throw new Error(`Get current auth Error: ${(error as Error).message}`);
     }
-  },
-};
+  }
+}

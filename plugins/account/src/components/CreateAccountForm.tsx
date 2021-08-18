@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import { message } from 'antd';
 import React from 'react';
 import { AccountForm } from '.';
@@ -13,7 +14,8 @@ export const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   const currentAccount: Partial<IAccount> = {};
 
   async function handleSubmit(Account: IAccount) {
-    await AccountService.createAccount({
+    const accountService = App.getInstance().getService('accountService') as AccountService;
+    await accountService.createAccount({
       data: Account,
     });
 

@@ -32,21 +32,24 @@
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "build": "tsc && node ./config/build.js",
-    "prepublishOnly": "yarn build",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "prepublishOnly": "yarn build"
   },
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
     "@onr/common": "^0.5.5",
+    "@onr/ts-rest-client": "^0.0.1",
+    "axios": "^0.21.1",
     "minimatch": "^3.0.4",
     "next-auth": "^3.27.3",
     "swr": "^0.5.6"
   },
   "peerDependencies": {
     "lodash": "^4.14.0",
-    "next": "^10.0.3",
+    "next": "^11.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",

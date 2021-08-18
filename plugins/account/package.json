@@ -25,8 +25,9 @@
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "build": "tsc",
-    "prepublishOnly": "yarn build",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "prepublishOnly": "yarn build"
   },
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
@@ -35,6 +36,7 @@
     "@onr/common": "^0.5.5",
     "@onr/core": "^0.12.0",
     "@onr/mock": "^0.1.16",
+    "@onr/ts-rest-client": "^0.0.1",
     "redux-dynamic-modules": "^5.2.3",
     "redux-dynamic-modules-react": "^5.2.3",
     "redux-dynamic-modules-thunk": "^5.2.3"
@@ -42,7 +44,7 @@
   "peerDependencies": {
     "antd": "^4.16.1",
     "lodash": "^4.14.0",
-    "next": "^10.0.3",
+    "next": "^11.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.2.0",

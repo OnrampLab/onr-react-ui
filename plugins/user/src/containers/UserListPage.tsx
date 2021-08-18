@@ -1,19 +1,23 @@
-import { IAccount } from '@onr/plugin-account';
+import { App } from '@onr/core';
+import { getAccountModule, IAccount } from '@onr/plugin-account';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React, { useEffect, useState } from 'react';
+import { DynamicModuleLoader } from 'redux-dynamic-modules-react';
 import { CreateUserForm } from '../components/CreateUserForm';
 import { UpdateUserForm } from '../components/UpdateUserForm';
 import { AccountUser } from '../entities/interfaces/AccountUser';
 import { UserRole } from '../entities/interfaces/IUser';
 import { UserService } from '../services/UserService';
 
-export const UserListPage: React.FC = () => {
+const UserListContainer: React.FC = () => {
   const [users, setUsers] = useState<AccountUser[]>([]);
   // @ts-ignore
   const [currentUser, setCurrentUser] = useState<AccountUser>({});
   const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
   const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);
+
+  const userService = App.getInstance().getService('userService') as UserService;
 
   useEffect(() => {
     fetchUserListData();
@@ -81,7 +85,7 @@ export const UserListPage: React.FC = () => {
   }
 
   async function fetchUserListData() {
-    const users = await UserService.getUsers({});
+    const users = await userService.getUsers({});
     setUsers(users);
   }
 
@@ -100,7 +104,7 @@ export const UserListPage: React.FC = () => {
       if (!user.id) {
         throw new Error('No user id');
       }
-      await UserService.deleteUser({ userId: user.id });
+      await userService.deleteUser({ userId: user.id });
       message.success(`User ${user.name} deleted`);
       fetchUserListData();
     } catch (e) {
@@ -147,5 +151,13 @@ export const UserListPage: React.FC = () => {
         <UpdateUserForm currentUser={currentUser} onSubmit={() => onUpdateUserFormSubmit()} />
       </Modal>
     </>
+  );
+};
+
+export const UserListPage: React.FC = () => {
+  return (
+    <DynamicModuleLoader modules={[getAccountModule()]}>
+      <UserListContainer />
+    </DynamicModuleLoader>
   );
 };

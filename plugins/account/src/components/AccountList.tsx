@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React, { useState } from 'react';
@@ -32,7 +33,8 @@ export const AccountList: React.FC<IAccountListProps> = ({
       if (!account.id) {
         throw new Error('No account id');
       }
-      await AccountService.deleteAccount({ accountId: account.id });
+      const accountService = App.getInstance().getService('accountService') as AccountService;
+      await accountService.deleteAccount({ accountId: account.id });
       message.success(`Account ${account.name} deleted`);
       onAccountsChanged();
     } catch (e) {

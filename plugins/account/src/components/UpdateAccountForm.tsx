@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import { message } from 'antd';
 import React from 'react';
 import { AccountForm } from '.';
@@ -13,7 +14,8 @@ export const UpdateAccountForm: React.FC<UpdateAccountFormProps> = ({
   currentAccount,
 }: UpdateAccountFormProps) => {
   async function handleSubmit(account: IAccount) {
-    await AccountService.updateAccount({
+    const accountService = App.getInstance().getService('accountService') as AccountService;
+    await accountService.updateAccount({
       accountId: currentAccount.id!,
       data: account,
     });

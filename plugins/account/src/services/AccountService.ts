@@ -1,52 +1,45 @@
-//#region Local Imports
-import { Http } from '@onr/common';
-import { GetAccountsPayload, GetAccountsResponse } from './interfaces';
-//#endregion Local Imports
+import { ResourceClient } from '@onr/ts-rest-client';
+import { IAccount } from '../entities/interfaces/IAccount';
+import { GetAccountsPayload } from './interfaces/AccountModel';
 
-export const AccountService = {
-  getAccounts: async (payload: GetAccountsPayload): Promise<GetAccountsResponse> => {
+export class AccountService extends ResourceClient<IAccount> {
+  async getAccounts(payload: GetAccountsPayload): Promise<IAccount[]> {
     try {
-      const response = await Http.get<GetAccountsResponse>(`/accounts`, {
-        params: payload.params,
-      });
-      return response.data;
+      const accounts = await this.list(payload.params);
+
+      return accounts;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] getAccounts Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  createAccount: async (payload: { data: any }): Promise<{}> => {
+  async createAccount(payload: { data: IAccount }) {
     try {
-      const response = await Http.post<{}>(`/accounts`, {
-        data: payload.data,
-      });
-      return response.data;
+      const account = await this.create(payload.data);
+      return account;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] createAccount Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  updateAccount: async (payload: { data: any; accountId: number }): Promise<{}> => {
+  async updateAccount(payload: { data: any; accountId: number }) {
     try {
-      const response = await Http.patch<{}>(`/accounts/${payload.accountId}`, {
-        data: payload.data,
-      });
-      return response.data;
+      const account = await this.update(payload.accountId, payload.data);
+      return account;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] updateAccount Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  deleteAccount: async (payload: { accountId: number }): Promise<{}> => {
+  async deleteAccount(payload: { accountId: number }): Promise<void> {
     try {
-      const response = await Http.delete<{}>(`/accounts/${payload.accountId}`);
-      return response.data;
+      await this.delete(payload.accountId);
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] deleteAccount Error: ${JSON.stringify(error)}`);
     }
-  },
-};
+  }
+}

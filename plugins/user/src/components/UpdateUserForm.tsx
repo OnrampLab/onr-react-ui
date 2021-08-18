@@ -1,3 +1,4 @@
+import { App } from '@onr/core';
 import React from 'react';
 import { AccountUser } from '../entities/interfaces/AccountUser';
 import { UserRequestPayload } from '../services/interfaces';
@@ -20,7 +21,9 @@ export const UpdateUserForm: React.FC<UpdateUserFormProps> = ({
       return;
     }
 
-    await UserService.updateUser(Object.assign({ userId: currentUser.id }, user));
+    const userService = App.getInstance().getService('userService') as UserService;
+
+    await userService.updateUser({ userId: currentUser.id, ...user });
 
     if (onSubmit) {
       onSubmit();
