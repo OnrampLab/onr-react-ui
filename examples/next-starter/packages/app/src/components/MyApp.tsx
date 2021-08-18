@@ -1,14 +1,11 @@
-import { createApp, OnrApp, RouteProvider } from '@onr/core';
+import { RouteProvider } from '@onr/core';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
 import React, { useEffect } from 'react';
-import { appConfig } from '../configs/appConfig';
-import { menuItems } from '../configs/menuItems';
-import { routes } from '../configs/routes';
 import { afterComponentDidMount, store } from '../redux';
-import { LoadingPage } from './LoadingPage';
+import { app } from './app';
 import { PageContainer } from './PageContainer';
 
 // https://www.npmjs.com/package/next-plugin-antd-less?activeTab=readme
@@ -18,15 +15,6 @@ require('../assets/styles.less');
 const makeStore: MakeStore = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
-
-const app: OnrApp = createApp({
-  appConfig,
-  menuItems,
-  routes,
-  components: {
-    LoadingPage,
-  },
-});
 
 const AppProvider = app.getProvider();
 
