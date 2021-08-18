@@ -1,73 +1,56 @@
-import { Http } from '@onr/common';
+import { ResourceClient } from '@onr/ts-rest-client';
 import { AccountUser } from '../entities/interfaces/AccountUser';
-import {
-  CreateUserPayload,
-  DeleteUserPayload,
-  GetUserPayload,
-  GetUserResponse,
-  GetUsersPayload,
-  UpdateUserPayload,
-} from './interfaces/UserModel';
+import { GetUserPayload, GetUsersPayload } from './interfaces/UserModel';
 
-export const UserService = {
-  getUsers: async (payload: GetUsersPayload): Promise<AccountUser[]> => {
+export class UserService extends ResourceClient<AccountUser> {
+  async getUsers(payload: GetUsersPayload): Promise<AccountUser[]> {
     try {
-      const response = await Http.get<AccountUser[]>(`/users`, {
-        params: payload.params,
-      });
+      const users = await this.list(payload.params);
 
-      return response.data;
+      return users;
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] getUsers Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  getUser: async (payload: GetUserPayload): Promise<GetUserResponse> => {
+  async getUser(payload: GetUserPayload): Promise<AccountUser> {
     try {
-      const response = await Http.get<GetUserResponse>(`/users/${payload.userId}`);
+      const user = await this.find(payload.userId);
 
-      return response.data;
+      return user;
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] getUser Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  createUser: async (payload: CreateUserPayload): Promise<GetUserResponse> => {
+  async createUser(payload: { data: AccountUser }) {
     try {
-      const response = await Http.post<GetUserResponse>(`/users`, {
-        data: payload.data,
-      });
-
-      return response.data;
+      const user = await this.create(payload.data);
+      return user;
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] createUser Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  updateUser: async (payload: UpdateUserPayload): Promise<GetUserResponse> => {
+  async updateUser(payload: { data: any; userId: number }) {
     try {
-      const response = await Http.patch<GetUserResponse>(`/users/${payload.userId}`, {
-        data: payload.data,
-      });
-
-      return response.data;
+      const user = await this.update(payload.userId, payload.data);
+      return user;
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] updateUser Error: ${JSON.stringify(error)}`);
     }
-  },
+  }
 
-  deleteUser: async (payload: DeleteUserPayload): Promise<GetUserResponse> => {
+  async deleteUser(payload: { userId: number }): Promise<void> {
     try {
-      const response = await Http.delete<GetUserResponse>(`/users/${payload.userId}`);
-
-      return response.data;
+      await this.delete(payload.userId);
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] deleteUser Error: ${JSON.stringify(error)}`);
     }
-  },
-};
+  }
+}
