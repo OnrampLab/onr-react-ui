@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.components.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "declarationDir": "./types",
+    "sourceMap": true,
+    "target": "es6"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.tsx?"]
+}
