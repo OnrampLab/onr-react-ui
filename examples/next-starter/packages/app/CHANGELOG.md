@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter-app@0.3.0...next-starter-app@0.4.0) (2021-08-25)
+
+
+### Features
+
+* **core/helper:** [env] new ([d19ab2c](https://github.com/OnrampLab/onr-react-ui/commit/d19ab2c7a1eac100ed1376e36a5106df5ed35e85))
+* **starter:** use new way to do auth and services ([4cb2f65](https://github.com/OnrampLab/onr-react-ui/commit/4cb2f65cf7d4c61466aadf4c902cb4ca66e66cd3))
+
+
+
 ## [0.3.0](https://github.com/OnrampLab/onr-react-ui/compare/next-starter-app@0.2.1...next-starter-app@0.3.0) (2021-08-08)
 
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.4.2...@onr/plugin-account@0.5.0) (2021-08-25)
+
+
+### Features
+
+* **plugin/account:** use new way for api service ([cac6da3](https://github.com/OnrampLab/onr-react-ui/commit/cac6da363cb86e60355a3d980875c81654a08f30))
+
+
+
 ### [0.4.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.4.1...@onr/plugin-account@0.4.2) (2021-08-08)
 
 **Note:** Version bump only for package @onr/plugin-account

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.12.0...@onr/core@0.13.0) (2021-08-25)
+
+
+### Features
+
+* **core/component:** [App] support api service for front and admin ([11d91ab](https://github.com/OnrampLab/onr-react-ui/commit/11d91ab5d02d134f9e03c9c2625defcb8ea1f46d))
+* **core/component:** [App] support logger with logConfig ([a9a496e](https://github.com/OnrampLab/onr-react-ui/commit/a9a496e70942e9aec0969b9215b7bcd2f6c0fc07))
+* **core/helper:** [env] new ([d19ab2c](https://github.com/OnrampLab/onr-react-ui/commit/d19ab2c7a1eac100ed1376e36a5106df5ed35e85))
+
+
+
 ## [0.12.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.11.0...@onr/core@0.12.0) (2021-08-08)
 
 

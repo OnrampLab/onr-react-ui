@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.19.0",
+  "version": "0.20.0",
   "description": "",
   "main": "src/server/index.js",
   "workspaces": [
@@ -29,7 +29,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "next-starter-app": "^0.3.0"
+    "next-starter-app": "^0.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",

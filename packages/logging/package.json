@@ -1,6 +1,6 @@
 {
   "name": "@onr/logging",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "shared utils module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -34,10 +34,10 @@
   },
   "dependencies": {
     "@livy/browser-console-handler": "^1.0.3",
-    "@livy/logger": "^1.0.5",
+    "@livy/contracts": "^1.1.1",
     "@livy/http-handler": "^1.0.3",
-    "@livy/util": "^1.0.5",
-    "@livy/contracts": "^1.1.1"
+    "@livy/logger": "^1.0.5",
+    "@livy/util": "^1.0.5"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",

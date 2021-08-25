@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.5.0...@onr/plugin-antd@0.6.0) (2021-08-25)
+
+
+### Features
+
+* **plugin/antd:** use new way to do auth and save token to cookie ([cdccabd](https://github.com/OnrampLab/onr-react-ui/commit/cdccabdf8c5fe86fc76f076d4063a536e484c936))
+
+
+
 ## [0.5.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.4.0...@onr/plugin-antd@0.5.0) (2021-08-08)
 
 
