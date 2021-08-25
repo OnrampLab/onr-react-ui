@@ -6,6 +6,7 @@ export type AppOptions = {
    */
   components?: Partial<AppComponents>;
   appConfig?: AppConfig;
+  logConfig?: any;
   menuItems?: any;
   routes?: any;
   apis?: any;
