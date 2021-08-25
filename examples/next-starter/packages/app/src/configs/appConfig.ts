@@ -1,14 +1,9 @@
-import { AppConfig } from '@onr/core';
-import getConfig from 'next/config';
-
-const { publicRuntimeConfig } = getConfig() as {
-  publicRuntimeConfig: Record<'processEnv' | string, unknown>;
-};
+import { AppConfig, env } from '@onr/core';
 
 export const appConfig: AppConfig = {
-  apiBaseUrl: `${publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_URL}/api`,
+  apiBaseUrl: `${env('NEXT_PUBLIC_API_URL')}/api`,
 
-  apiKey: publicRuntimeConfig.processEnv.NEXT_PUBLIC_API_KEY || '',
+  apiKey: env('NEXT_PUBLIC_API_KEY', ''),
 
   auth: {
     enabled: true,

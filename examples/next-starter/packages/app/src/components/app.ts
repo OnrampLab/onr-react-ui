@@ -3,12 +3,14 @@ import { AccountService } from '@onr/plugin-account';
 import { AuthService } from '@onr/plugin-auth';
 import { UserService } from '@onr/plugin-user';
 import { appConfig } from '../configs/appConfig';
+import { logConfig } from '../configs/logging';
 import { menuItems } from '../configs/menuItems';
 import { routes } from '../configs/routes';
 import { LoadingPage } from './LoadingPage';
 
 const app: OnrApp = createApp({
   appConfig,
+  logConfig,
   menuItems,
   routes,
   components: {
@@ -16,7 +18,7 @@ const app: OnrApp = createApp({
   },
 });
 
-app.apis.adminAxiosInstance.interceptors.response.use(function(response: any) {
+app.apis.adminAxiosInstance.interceptors.response.use(function (response: any) {
   return response.data;
 });
 

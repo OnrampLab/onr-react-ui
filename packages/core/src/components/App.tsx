@@ -1,10 +1,11 @@
+import { createLogger, Handler } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
 import axios from 'axios';
 import minimatch from 'minimatch';
 import { useRouter } from 'next/router';
 import { createContext, FC, ReactNode } from 'react';
 import { AuthProvider, NextAuthProvider } from '../providers';
-import { AppComponents, AppConfig, FullAppOptions, OnrApp } from '../types';
+import { AppComponents, AppConfig, FullAppOptions, LogConfig, OnrApp } from '../types';
 
 export const AppContext = createContext<App | null>(null);
 
@@ -17,15 +18,18 @@ export class App implements OnrApp {
   private static instance: App;
 
   private readonly components: AppComponents;
-  private readonly appConfig: AppConfig;
+  private readonly appConfig?: AppConfig;
+  private readonly logConfig: LogConfig;
   private readonly menuItems: any;
   private readonly routes: any;
   private readonly services: any;
   public apis: any;
+  public logger: any;
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
     this.appConfig = options.appConfig;
+    this.logConfig = options.logConfig;
     this.menuItems = options.menuItems;
     this.routes = options.routes;
     this.apis = options.routes;
@@ -49,22 +53,9 @@ export class App implements OnrApp {
   }
 
   initialize() {
-    this.apis = {
-      ...this.apis,
-      adminAxiosInstance: axios.create({
-        baseURL: this.appConfig.apiBaseUrl,
-        headers: {
-          'content-type': 'application/json',
-        },
-      }),
-      frontAxiosInstance: axios.create({
-        baseURL: this.appConfig.apiBaseUrl,
-        headers: {
-          'content-type': 'application/json',
-          authorization: `Bearer ${this.appConfig.apiKey}`,
-        },
-      }),
-    };
+    this.initApis();
+
+    this.initLogger();
   }
 
   addService<T extends Client>(serviceName: string, service: T) {
@@ -82,7 +73,7 @@ export class App implements OnrApp {
   }
 
   getProvider() {
-    const authEnabled = this.appConfig.auth.enabled;
+    const authEnabled = this.appConfig?.auth.enabled;
 
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
       const router = useRouter();
@@ -118,5 +109,56 @@ export class App implements OnrApp {
 
   getRoutes() {
     return this.routes;
+  }
+
+  private initApis() {
+    if (!this.appConfig) {
+      return;
+    }
+
+    this.apis = {
+      ...this.apis,
+      adminAxiosInstance: axios.create({
+        baseURL: this.appConfig.apiBaseUrl,
+        headers: {
+          'content-type': 'application/json',
+        },
+      }),
+      frontAxiosInstance: axios.create({
+        baseURL: this.appConfig.apiBaseUrl,
+        headers: {
+          'content-type': 'application/json',
+          authorization: `Bearer ${this.appConfig.apiKey}`,
+        },
+      }),
+    };
+  }
+
+  private initLogger() {
+    const defaultChannelName = this.logConfig.default;
+    const channel = this.logConfig.channels[defaultChannelName];
+    const handlers: Handler[] = [];
+
+    if (channel.driver === 'stack') {
+      channel.channels.forEach((channelName: string) => {
+        const subChannel = this.logConfig.channels[channelName];
+        const handler = this.createMonologHandler(subChannel);
+        handlers.push(handler);
+      });
+    } else if (channel.driver === 'monolog') {
+      handlers.push(this.createMonologHandler(channel));
+    }
+
+    this.logger = createLogger({
+      channel: 'app-logger',
+      handlers,
+    });
+  }
+
+  private createMonologHandler(channel: any) {
+    return new channel.handler({
+      ...channel.handlerWith,
+      level: channel.level,
+    });
   }
 }
