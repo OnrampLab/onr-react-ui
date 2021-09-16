@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.13.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.13.0...@onr/core@0.13.1) (2021-09-16)
+
+
+### Bug Fixes
+
+* **core/componnet:** [App] getting wrong apis from options ([e752cd8](https://github.com/OnrampLab/onr-react-ui/commit/e752cd8a9d77e47b968152ffd0aceb1f5b72b56f))
+
+
+
 ## [0.13.0](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.12.0...@onr/core@0.13.0) (2021-08-25)
 
 

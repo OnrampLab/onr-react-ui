@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-auth",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "auth plugin",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@onr/common": "^0.5.6",
-    "@onr/core": "^0.13.0"
+    "@onr/core": "^0.13.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.7",

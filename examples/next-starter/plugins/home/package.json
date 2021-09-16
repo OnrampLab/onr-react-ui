@@ -1,7 +1,7 @@
 {
   "name": "@onr/plugin-custom-home",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "custom home plugin",
   "license": "ISC",
   "main": "lib/index.js",
@@ -29,7 +29,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/core": "^0.13.0",
+    "@onr/core": "^0.13.1",
     "next": "^11.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
