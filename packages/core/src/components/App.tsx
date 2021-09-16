@@ -32,7 +32,7 @@ export class App implements OnrApp {
     this.logConfig = options.logConfig;
     this.menuItems = options.menuItems;
     this.routes = options.routes;
-    this.apis = options.routes;
+    this.apis = options.apis;
     this.services = {};
   }
 
