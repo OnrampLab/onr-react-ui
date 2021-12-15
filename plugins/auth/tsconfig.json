@@ -2,9 +2,13 @@
   "extends": "../../tsconfig.components.json",
   "compilerOptions": {
     "outDir": "lib",
-    "declarationDir": "./types",
+    "declarationDir": "lib",
     "sourceMap": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/*.spec.tsx?"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.tsx?"
+  ]
 }

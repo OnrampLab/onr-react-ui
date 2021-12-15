@@ -15,7 +15,6 @@
     "types",
     "src"
   ],
-  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"

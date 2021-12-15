@@ -1,5 +1,5 @@
 import { hasMany, Model } from 'miragejs';
-import { ModelDefinition } from 'miragejs/-types';
+import type { ModelDefinition } from 'miragejs/-types';
 
 export type IRole = {
   id: number;
