@@ -1,9 +1,9 @@
-const { generatePalette } = require('@onr/tailwind-palette');
-const { getAntdVariables } = require('@onr/plugin-antd');
+const { generatePalette } = require('@onr/tailwind-palette/lib');
 const { paramCase } = require('change-case');
 const fs = require('fs');
-const { rgbHex } = require('./src/lib/rgbHex');
 const { mergeArrayToObject } = require('./src/lib/mergeArrayToObject');
+const { rgbHex } = require('./src/lib/rgbHex');
+const lessToJs = require('less-vars-to-js');
 const paletteLess = fs.readFileSync(__dirname + '/src/assets/antd-custom.less', 'utf8');
 
 let colors;
@@ -43,3 +43,24 @@ module.exports = {
   },
   plugins: [],
 };
+function getAntdVariables(paletteLess) {
+  const lessVariables = lessToJs(paletteLess || '', {
+    resolveVariables: true,
+    stripPrefix: true,
+  });
+
+  const antdVariables = objectToCamelCase(lessVariables);
+
+  return antdVariables;
+}
+
+function objectToCamelCase(origObj) {
+  return Object.keys(origObj).reduce(function (newObj, key) {
+    const val = origObj[key];
+    const newVal = typeof val === 'object' ? objectToCamelCase(val) : val;
+    // @ts-ignore
+    newObj[camelCase(key)] = newVal;
+
+    return newObj;
+  }, {});
+}

@@ -14,7 +14,7 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
-import { capitalize } from 'lodash';
+import capitalize from 'lodash/capitalize';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
@@ -48,7 +48,11 @@ const UserMenu = (
   </Menu>
 );
 
-export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) => {
+export const SidebarMenu = ({
+  currentUser,
+  sidebarMode,
+  sidebarTheme: propSideBarTheme,
+}: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const app = useContext(AppContext);
@@ -62,7 +66,7 @@ export const SidebarMenu = ({ currentUser, sidebarMode, sidebarTheme }: Props) =
     optionDrawer,
     boxed,
     darkSidebar,
-    sidebarTheme,
+    sidebarTheme = propSideBarTheme,
     sidebarPopup,
     collapsed,
     sidebarIcons,
