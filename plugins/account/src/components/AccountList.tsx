@@ -37,7 +37,7 @@ export const AccountList: React.FC<IAccountListProps> = ({
       await accountService.deleteAccount({ accountId: account.id });
       message.success(`Account ${account.name} deleted`);
       onAccountsChanged();
-    } catch (e) {
+    } catch (e: any) {
       message.error(`Failed to delete account${e.message && `: ${e.message}`}`);
     }
   };
