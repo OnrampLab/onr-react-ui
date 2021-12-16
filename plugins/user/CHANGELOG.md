@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.3.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-user@0.3.1...@onr/plugin-user@0.3.2) (2021-12-16)
+
+
+### Bug Fixes
+
+* **package:** mirage should not export in production build ([fde2abd](https://github.com/OnrampLab/onr-react-ui/commit/fde2abd50733e1cb91b259a1de62bfbd4f16899e))
+
+
+
 ### [0.3.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-user@0.3.0...@onr/plugin-user@0.3.1) (2021-09-16)
 
 **Note:** Version bump only for package @onr/plugin-user

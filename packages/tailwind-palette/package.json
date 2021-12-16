@@ -1,6 +1,6 @@
 {
   "name": "@onr/tailwind-palette",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "shared utils module",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",

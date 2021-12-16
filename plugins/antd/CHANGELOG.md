@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.6.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.6.1...@onr/plugin-antd@0.6.2) (2021-12-16)
+
+
+### Bug Fixes
+
+* **package:** tailwind and transpile module update ([ce2930e](https://github.com/OnrampLab/onr-react-ui/commit/ce2930e56c70104b8497eef830d9cc38ba1e110d))
+
+
+
 ### [0.6.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-antd@0.6.0...@onr/plugin-antd@0.6.1) (2021-09-16)
 
 **Note:** Version bump only for package @onr/plugin-antd

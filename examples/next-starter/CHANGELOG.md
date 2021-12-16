@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.20.2](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.20.1...next-starter@0.20.2) (2021-12-16)
+
+
+### Bug Fixes
+
+* **package:** mirage should not export in production build ([fde2abd](https://github.com/OnrampLab/onr-react-ui/commit/fde2abd50733e1cb91b259a1de62bfbd4f16899e))
+* **package:** tailwind and transpile module update ([ce2930e](https://github.com/OnrampLab/onr-react-ui/commit/ce2930e56c70104b8497eef830d9cc38ba1e110d))
+
+
+
 ### [0.20.1](https://github.com/OnrampLab/onr-react-ui/compare/next-starter@0.20.0...next-starter@0.20.1) (2021-09-16)
 
 **Note:** Version bump only for package next-starter

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.5.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.5.1...@onr/plugin-account@0.5.2) (2021-12-16)
+
+
+### Bug Fixes
+
+* **package:** mirage should not export in production build ([fde2abd](https://github.com/OnrampLab/onr-react-ui/commit/fde2abd50733e1cb91b259a1de62bfbd4f16899e))
+* **plugn:** [AccountList] fix type error ([f86f14d](https://github.com/OnrampLab/onr-react-ui/commit/f86f14d2940a9be2d08a5207a124e2b439f09ba6))
+
+
+
 ### [0.5.1](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.5.0...@onr/plugin-account@0.5.1) (2021-09-16)
 
 **Note:** Version bump only for package @onr/plugin-account

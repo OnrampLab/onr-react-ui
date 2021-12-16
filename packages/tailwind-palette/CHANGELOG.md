@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.5](https://github.com/OnrampLab/onr-react-ui/compare/@onr/tailwind-palette@0.1.4...@onr/tailwind-palette@0.1.5) (2021-12-16)
+
+
+### Bug Fixes
+
+* **package:** tailwind and transpile module update ([ce2930e](https://github.com/OnrampLab/onr-react-ui/commit/ce2930e56c70104b8497eef830d9cc38ba1e110d))
+
+
+
 ### [0.1.4](https://github.com/OnrampLab/onr-react-ui/compare/@onr/tailwind-palette@0.1.3...@onr/tailwind-palette@0.1.4) (2021-08-25)
 
 **Note:** Version bump only for package @onr/tailwind-palette
