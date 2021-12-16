@@ -3,6 +3,16 @@ const withPlugins = require('next-compose-plugins');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+const fg = require('fast-glob');
+const files = fg
+  .sync('../../../../(packages|plugins)/**/package.json', { deep: 3 })
+  .map(e => require('./' + e).name);
+if (!files.length) {
+  console.error(new Error('no files'));
+  process.exit(1);
+}
+const withTm = require('next-transpile-modules')(files);
+
 const withPWA = require('next-pwa');
 const withAntdLess = require('next-plugin-antd-less');
 
@@ -56,7 +66,7 @@ const nextConfig = {
   },
 };
 
-const plugins = [[withAntdLess], [withBundleAnalyzer]];
+const plugins = [[withAntdLess], [withBundleAnalyzer], [withTm]];
 
 if (process.env.NODE_ENV !== 'development') {
   plugins.push([withPWA]);

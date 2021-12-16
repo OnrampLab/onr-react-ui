@@ -1,5 +1,3 @@
-const _ = require('lodash');
-
 function mergeArrayToObject(arr) {
   const myArray = arr || [];
   if (!Array.isArray(myArray)) {

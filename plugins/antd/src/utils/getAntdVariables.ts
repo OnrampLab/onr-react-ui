@@ -1,7 +1,7 @@
 import { camelCase } from 'change-case';
 // @ts-ignore
 import lessToJs from 'less-vars-to-js';
-import { Theme } from '../definitions';
+import type { Theme } from '../definitions';
 
 export function getAntdVariables(paletteLess: string): Theme {
   const lessVariables = lessToJs(paletteLess || '', {

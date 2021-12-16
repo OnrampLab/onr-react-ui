@@ -1,4 +1,4 @@
-import { roleModel } from '@onr/plugin-auth';
+import { roleModel } from '@onr/plugin-auth/lib/__mocks__';
 import { Registry, Server } from 'miragejs';
 import Schema from 'miragejs/orm/schema';
 import { userModel } from './userModel';
