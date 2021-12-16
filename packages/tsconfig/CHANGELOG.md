@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.1.5](https://github.com/onramplab/onr-react-ui/compare/@onr/tsconfig@0.1.3...@onr/tsconfig@0.1.5) (2021-12-16)
+
+**Note:** Version bump only for package @onr/tsconfig
+
+
+
+
+
 ### [0.1.3](https://github.com/onramplab/onr-react-ui/compare/@onr/tsconfig@0.1.2...@onr/tsconfig@0.1.3) (2021-07-07)
 
 **Note:** Version bump only for package @onr/tsconfig

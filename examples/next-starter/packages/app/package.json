@@ -1,7 +1,7 @@
 {
   "name": "next-starter-app",
   "private": true,
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -67,7 +67,7 @@
     "@onr/eslint-config": "^0.3.0",
     "@onr/prettier-config": "^1.1.1",
     "@onr/tailwind-palette": "^0.1.5",
-    "@onr/tsconfig": "^0.1.4",
+    "@onr/tsconfig": "^0.1.5",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.3.6",
     "@storybook/addon-essentials": "^6.3.6",
