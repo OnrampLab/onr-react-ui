@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.5.3](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.5.2...@onr/plugin-account@0.5.3) (2021-12-27)
+
+
+### Bug Fixes
+
+* fix export packages get error, update transpile with core and antd for treeshake ([5a9c9e5](https://github.com/OnrampLab/onr-react-ui/commit/5a9c9e5d2bce31ab8d53c0cacac731d2623ca7d2))
+
+
+
 ### [0.5.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/plugin-account@0.5.1...@onr/plugin-account@0.5.2) (2021-12-16)
 
 

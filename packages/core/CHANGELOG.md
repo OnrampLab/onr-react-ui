@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.13.3](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.13.2...@onr/core@0.13.3) (2021-12-27)
+
+
+### Bug Fixes
+
+* fix export packages get error, update transpile with core and antd for treeshake ([5a9c9e5](https://github.com/OnrampLab/onr-react-ui/commit/5a9c9e5d2bce31ab8d53c0cacac731d2623ca7d2))
+* **package/plugin:** [jest.config.js] change to .cjs to fix es module problem ([a602fed](https://github.com/OnrampLab/onr-react-ui/commit/a602fedf27e17c375a350dca520dafc721e8aa6e))
+
+
+
 ### [0.13.2](https://github.com/OnrampLab/onr-react-ui/compare/@onr/core@0.13.1...@onr/core@0.13.2) (2021-12-16)
 
 **Note:** Version bump only for package @onr/core

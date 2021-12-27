@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### [0.4.4](https://github.com/OnrampLab/onr-react-ui/compare/next-starter-app@0.4.3...next-starter-app@0.4.4) (2021-12-27)
+
+
+### Bug Fixes
+
+* fix export packages get error, update transpile with core and antd for treeshake ([5a9c9e5](https://github.com/OnrampLab/onr-react-ui/commit/5a9c9e5d2bce31ab8d53c0cacac731d2623ca7d2))
+
+
+
 ### [0.4.3](https://github.com/OnrampLab/onr-react-ui/compare/next-starter-app@0.4.2...next-starter-app@0.4.3) (2021-12-16)
 
 **Note:** Version bump only for package next-starter-app
