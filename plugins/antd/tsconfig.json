@@ -5,6 +5,10 @@
     "declarationDir": "./types",
     "sourceMap": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/*.spec.tsx?"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.tsx?"
+  ]
 }

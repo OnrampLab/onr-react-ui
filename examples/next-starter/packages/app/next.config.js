@@ -4,14 +4,18 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 const fg = require('fast-glob');
+const path = require('path');
+
 const files = fg
-  .sync('../../../../(packages|plugins)/**/package.json', { deep: 3 })
-  .map(e => require('./' + e).name);
+  .sync(`../../(packages|plugins)/**/package.json`, { deep: 3 })
+  .map(e => path.relative(process.cwd(), e))
+  .filter(e => e.startsWith('.'))
+  .map(e => require(e).name);
 if (!files.length) {
   console.error(new Error('no files'));
   process.exit(1);
 }
-const withTm = require('next-transpile-modules')(files);
+const withTm = require('next-transpile-modules')([...files, '@onr/plugin-antd', '@onr/core']);
 
 const withPWA = require('next-pwa');
 const withAntdLess = require('next-plugin-antd-less');
@@ -63,6 +67,13 @@ const nextConfig = {
   },
   pwa: {
     dest: 'public',
+  },
+  experimental: {
+    esmExternals: 'loose',
+  },
+  webpack(config) {
+    config.optimization.usedExports = true;
+    return config;
   },
 };
 
