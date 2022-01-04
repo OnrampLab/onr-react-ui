@@ -14,7 +14,7 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
-import { capitalize } from 'lodash-es';
+import capitalize from 'lodash/capitalize';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
