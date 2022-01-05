@@ -2,6 +2,5 @@
   "extends": "@onr/tsconfig/tsconfig.components.json",
   "compilerOptions": {
     "importHelpers": true,
-    "target": "ES2016"
   }
 }
