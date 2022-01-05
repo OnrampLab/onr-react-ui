@@ -2,10 +2,16 @@
   "extends": "../../tsconfig.components.json",
   "compilerOptions": {
     "outDir": "lib",
-    "declarationDir": "./types",
+    "declarationDir": "./lib",
     "sourceMap": true,
-    "target": "es6"
+    "target": "es2021",
+    "module": "ESNext",
+    "moduleResolution": "Node"
   },
-  "include": ["src/**/*"],
-  "exclude": ["**/*.spec.tsx?"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.tsx?"
+  ]
 }
