@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.components.json",
+  "compilerOptions": {
+    "outDir": "lib",
+    "sourceMap": true,
+    "module": "Commonjs",
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/*.spec.tsx?"
+  ]
+}
