@@ -7,10 +7,6 @@
   "license": "ISC",
   "main": "lib/index.js",
   "source": "src/index.ts",
-  "exports": {
-    ".": "./lib/index.js",
-    "./api": "./lib/api/index.js"
-  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -22,16 +18,16 @@
     "api",
     "api.js"
   ],
-  "types": "types/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "yarn build && tsc --watch --preserveWatchOutput",
+    "dev": "rollup -c ./rollup.config.js -w --environment NODE_ENV:development",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc && node ./config/build.js",
+    "build": "rollup -c --environment NODE_ENV:production",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -62,11 +58,16 @@
     "@babel/preset-typescript": "^7.12.7",
     "@onr/eslint-config": "^0.3.0",
     "@onr/prettier-config": "^1.1.1",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-multi-entry": "^4.1.0",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@types/lodash-es": "^4.17.5",
     "@types/node": "^14.14.21",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "eslint": "^7.29.0",
+    "rollup": "^2.62.0",
+    "rollup-plugin-dts": "^4.1.0",
     "typescript": "^4.3.4"
   },
   "prettier": "@onr/prettier-config",
