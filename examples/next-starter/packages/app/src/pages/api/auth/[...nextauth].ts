@@ -1,4 +1,4 @@
-import { createNextAuthApi } from '@onr/core/api';
+import { createNextAuthApi } from '@onr/core/lib/api';
 import { AuthService } from '@onr/plugin-auth';
 import { app } from '../../../components/app';
 
