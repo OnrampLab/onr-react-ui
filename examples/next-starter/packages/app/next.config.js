@@ -15,7 +15,9 @@ if (!files.length) {
   console.error(new Error('no files'));
   process.exit(1);
 }
-const withTm = require('next-transpile-modules')([...files, '@onr/plugin-antd', '@onr/core']);
+/** need to transpile the stuff, when using `next` in package
+ */
+const withTm = require('next-transpile-modules')([...files, '@onr/core', '@onr/plugin-antd']);
 
 const withPWA = require('next-pwa');
 const withAntdLess = require('next-plugin-antd-less');
