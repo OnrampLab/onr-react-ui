@@ -57,7 +57,7 @@ workflows:
         - build-and-test
         - release:
             email: koshuang@gmail.com
-            fullname: Kos
+            fullname: Kos Huang
             fingerprint: a6:f1:b5:11:dd:8b:a6:7e:17:82:1c:a8:89:cd:fb:c3
             filters:
               branches:
