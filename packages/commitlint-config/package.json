@@ -1,0 +1,36 @@
+{
+  "name": "@onr/commitlint-config",
+  "version": "1.0.0",
+  "license": "Apache-2.0",
+  "description": "Shareable commitlint config enforcing conventional commits",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "deps": "dep-check",
+    "pkg": "pkg-check"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OnrampLab/onr-react-ui.git",
+    "directory": "@onr/commitlint-config"
+  },
+  "keywords": [
+    "conventional-changelog",
+    "commitlint",
+    "commitlint-config",
+    "angular"
+  ],
+  "engines": {
+    "node": ">=v14"
+  },
+  "devDependencies": {
+    "@commitlint/lint": "^17.3.0"
+  },
+  "dependencies": {
+    "conventional-changelog-conventionalcommits": "^5.0.0"
+  }
+}
