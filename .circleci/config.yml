@@ -3,6 +3,8 @@ orbs:
   node: circleci/node@4.5.0
 jobs:
   build-and-test:
+    docker:
+      - image: 'cimg/node:14.21.1'
     working_directory: ~/repo
     executor:
       name: node/default
