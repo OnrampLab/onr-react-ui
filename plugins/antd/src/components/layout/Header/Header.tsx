@@ -24,11 +24,9 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
             <FiBarChart size={20} strokeWidth={1} />
           </a>
         )}
-        <Link href="/">
-          <a className="brand">
-            <FiTriangle size={24} strokeWidth={1} />
-            <strong className="mx-1 text-black">{name}</strong>
-          </a>
+        <Link href="/" className="brand">
+          <FiTriangle size={24} strokeWidth={1} />
+          <strong className="mx-1 text-black">{name}</strong>
         </Link>
 
         {/* @ts-ignore */}

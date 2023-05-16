@@ -28,10 +28,8 @@ export const Forgot: React.FC = () => {
     >
       <Content>
         <div className="text-center mb-5">
-          <Link href="/forgot">
-            <a className="brand mr-0">
-              <FiTriangle size={32} strokeWidth={1} />
-            </a>
+          <Link href="/forgot" className="brand mr-0">
+            <FiTriangle size={32} strokeWidth={1} />
           </Link>
           <h5 className="mb-0 mt-3">Recover your password</h5>
 
@@ -75,9 +73,7 @@ export const Forgot: React.FC = () => {
           <div className="text-center">
             <small className="text-muted text-center">
               <span>{`Don't have an account yet?`}</span>
-              <Link href="/signup">
-                <a>&nbsp;Create one now!</a>
-              </Link>
+              <Link href="/signup">&nbsp;Create one now!</Link>
             </small>
           </div>
         </Form>

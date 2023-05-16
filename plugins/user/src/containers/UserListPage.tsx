@@ -107,8 +107,14 @@ const UserListContainer: React.FC = () => {
       await userService.deleteUser({ userId: user.id });
       message.success(`User ${user.name} deleted`);
       fetchUserListData();
-    } catch (e) {
-      message.error(`Failed to delete user${e.message && `: ${e.message}`}`);
+    } catch (error) {
+      let errorMessage = 'Unknown Error';
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+
+      message.error(`Failed to delete user: ${errorMessage}`);
     }
   };
 

@@ -25,7 +25,7 @@
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
     "build": "tsc --build tsconfig.json",
-    "test:skip-fow-now": "jest --coverage --passWithNoTests",
+    "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
   },
