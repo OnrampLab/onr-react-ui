@@ -97,7 +97,7 @@ jobs:
   run_test:
     working_directory: ~/app
     docker:
-      - image: circleci/node:12.15.0
+      - image: 'cimg/node:18.16.0'
     steps:
       - run_test
 
