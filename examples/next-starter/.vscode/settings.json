@@ -47,7 +47,16 @@
       "source.postcssSorting.execute": true
     }
   },
-  "cSpell.words": ["antd", "consts", "lerna", "miragejs", "npmjs", "npmrc", "serializers", "sider"],
+  "cSpell.words": [
+    "antd",
+    "consts",
+    "turborepo",
+    "miragejs",
+    "npmjs",
+    "npmrc",
+    "serializers",
+    "sider"
+  ],
   "postcssSorting.config": {
     "order": [
       "custom-properties",

@@ -17,7 +17,6 @@ if (!files.length) {
 }
 const withTm = require('next-transpile-modules')([...files, '@onr/plugin-antd', '@onr/core']);
 
-const withPWA = require('next-pwa');
 const withAntdLess = require('next-plugin-antd-less');
 
 /* eslint-enable @typescript-eslint/no-var-requires */
@@ -27,14 +26,6 @@ if (typeof require !== 'undefined') {
 }
 
 const nextConfig = {
-  webpack5: true,
-
-  // optional
-  modifyVars: {},
-  // optional
-  lessVarsFilePath: './src/assets/antd-custom.less',
-  // optional
-  lessVarsFilePathAppendToEndOfContent: false,
   // optional https://github.com/webpack-contrib/css-loader#object
   cssLoaderOptions: {},
 
@@ -49,24 +40,12 @@ const nextConfig = {
   lessLoaderOptions: {
     javascriptEnabled: true,
   },
-  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
-  bundleAnalyzerConfig: {
-    server: {
-      analyzerMode: 'static',
-      reportFilename: '../bundles/server.html',
-    },
-    browser: {
-      analyzerMode: 'static',
-      reportFilename: '../bundles/client.html',
-    },
-  },
   typescript: {
-    ignoreDevErrors: true,
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
     ignoreBuildErrors: true,
-  },
-  pwa: {
-    dest: 'public',
   },
   experimental: {
     esmExternals: 'loose',
@@ -80,7 +59,6 @@ const nextConfig = {
 const plugins = [[withAntdLess], [withBundleAnalyzer], [withTm]];
 
 if (process.env.NODE_ENV !== 'development') {
-  plugins.push([withPWA]);
 } else {
   // plugins.push([]);
 }

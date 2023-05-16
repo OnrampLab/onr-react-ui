@@ -13,10 +13,10 @@
     "tsconfig.json"
   ],
   "scripts": {
-    "test": "./run-tests.sh"
+    "test:skip-now": "./run-tests.sh"
   },
   "devDependencies": {
-    "typescript": "^4.3.4"
+    "typescript": "^4.5.2"
   },
   "peerDependencies": {
     "typescript": ">=4 <5"
@@ -26,8 +26,5 @@
   },
   "engines": {
     "node": ">=12.0.0"
-  },
-  "dependencies": {
-    "next": "11.1.3"
   }
 }

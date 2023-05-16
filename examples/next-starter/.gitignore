@@ -97,3 +97,5 @@ storybook-static
 # public
 public/*
 !public/static
+
+.turbo
