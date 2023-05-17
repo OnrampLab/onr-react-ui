@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+- change tsconfig target to es5 and commonjs
+- Updated dependencies
+  - @onr/common@0.6.1
+  - @onr/core@0.14.2
+  - @onr/mock@1.0.1
+  - @onr/plugin-account@0.6.2
+  - @onr/plugin-auth@0.6.2
+
 ## 0.4.1
 
 ### Patch Changes

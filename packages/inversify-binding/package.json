@@ -1,6 +1,6 @@
 {
   "name": "@onr/inversify-binding",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "inversify module library",
   "keywords": [],
   "author": "Paul Lee <e0991100238@gmail.com>",

@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- change tsconfig target to es5 and commonjs
+- Updated dependencies
+  - @onr/core@0.14.2
+  - @onr/ts-rest-client@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

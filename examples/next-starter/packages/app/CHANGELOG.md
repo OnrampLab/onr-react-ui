@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- change tsconfig target to es5 and commonjs
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.3.1
+  - @onr/plugin-custom-home@0.3.1
+  - @onr/core@0.14.2
+  - @onr/logging@0.2.2
+  - @onr/mock@1.0.1
+  - @onr/plugin-account@0.6.2
+  - @onr/plugin-antd@0.7.2
+  - @onr/plugin-auth@0.6.2
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.2.1
+  - @onr/plugin-user@0.4.2
+
 ## 0.5.1
 
 ### Patch Changes

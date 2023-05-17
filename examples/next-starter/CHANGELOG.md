@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.2
+
+### Patch Changes
+
+- change tsconfig target to es5 and commonjs
+- Updated dependencies
+  - next-starter-app@0.5.2
+
 ## 0.22.1
 
 ### Patch Changes

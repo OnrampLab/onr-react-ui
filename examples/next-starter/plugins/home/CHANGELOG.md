@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- change tsconfig target to es5 and commonjs
+- Updated dependencies
+  - @onr/core@0.14.2
+
 ## 0.3.0
 
 ### Minor Changes
