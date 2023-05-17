@@ -9,13 +9,14 @@
     "plugins/*"
   ],
   "scripts": {
-    "start": "lerna run start --parallel --ignore next-starter",
-    "dev": "lerna run dev --parallel --ignore next-starter",
-    "build": "lerna run build --stream",
-    "storybook": "lerna run storybook --stream",
-    "lint": "lerna run lint --parallel",
-    "format": "lerna run format --parallel",
-    "test": "lerna run test --parallel",
+    "start": "turbo run start --parallel --scope='!next-starter'",
+    "dev": "turbo run dev --parallel --scope='!next-starter'",
+    "build": "turbo run build",
+    "storybook": "turbo run storybook",
+    "lint": "turbo run lint --parallel",
+    "format": "turbo run format --parallel",
+    "test": "turbo run test --parallel",
+    "test:ci": "turbo run test --concurrency=1",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build",
     "postinstall": "husky install"
@@ -24,8 +25,9 @@
     "node": ">=12"
   },
   "devDependencies": {
-    "lerna": "^3.22.1",
-    "@onr/prettier-config": "^1.1.1"
+    "@changesets/cli": "^2.26.1",
+    "@onr/prettier-config": "^1.1.1",
+    "turbo": "^1.9.6"
   },
   "prettier": "@onr/prettier-config",
   "lint-staged": {
@@ -33,5 +35,6 @@
       "eslint -c .eslintrc.js --fix",
       "prettier --write"
     ]
-  }
+  },
+  "packageManager": "^yarn@1.22.19"
 }

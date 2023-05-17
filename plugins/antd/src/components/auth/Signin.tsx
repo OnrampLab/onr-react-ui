@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, message as Message, Row } from 'antd';
 import { NextPageContext } from 'next';
-import { getCsrfToken, getSession } from 'next-auth/client';
+import { getCsrfToken, getSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';
@@ -42,7 +42,13 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
     try {
       document.querySelector('form')?.submit();
     } catch (error) {
-      Message.error(error.message);
+      let message = 'Unknown Error';
+
+      if (error instanceof Error) {
+        message = error.message;
+      }
+
+      Message.error(message);
     }
   }
 
@@ -55,10 +61,8 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
     >
       <Content>
         <div className="mb-5 text-center">
-          <Link href="/signin">
-            <a className="mr-0 brand">
-              <FiTriangle size={32} strokeWidth={1} />
-            </a>
+          <Link href="/signin" className="mr-0 brand">
+            <FiTriangle size={32} strokeWidth={1} />
           </Link>
           <h5 className="mt-3 mb-0">Sign in</h5>
 
@@ -101,10 +105,8 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
             <FormItem name="remember" noStyle valuePropName="checked">
               <Checkbox>Remember me</Checkbox>
             </FormItem>
-            <Link href="/forgot">
-              <a className="text-xs-right">
-                <small>Forgot password</small>
-              </a>
+            <Link href="/forgot" className="text-xs-right">
+              <small>Forgot password</small>
             </Link>
             <Button type="primary" htmlType="submit" block className="mt-3">
               Log in
@@ -114,9 +116,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           <div className="text-center">
             <small className="text-muted">
               <span>{`Don't have an account yet?`}</span>{' '}
-              <Link href="/signup">
-                <a>&nbsp;Create one now!</a>
-              </Link>
+              <Link href="/signup">&nbsp;Create one now!</Link>
             </small>
           </div>
         </Form>

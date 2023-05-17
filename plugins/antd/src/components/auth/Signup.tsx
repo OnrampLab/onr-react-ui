@@ -21,10 +21,8 @@ const Signup = () => (
   >
     <Content>
       <div className="text-center mb-5">
-        <Link href="/signup">
-          <a className="brand mr-0">
-            <FiTriangle size={32} strokeWidth={1} />
-          </a>
+        <Link href="/signup" className="brand mr-0">
+          <FiTriangle size={32} strokeWidth={1} />
         </Link>
         <h5 className="mb-0 mt-3">Sign up</h5>
 
@@ -134,10 +132,7 @@ const Signup = () => (
 
         <div className="text-center">
           <small className="text-muted">
-            <span>Already have an account?</span>{' '}
-            <Link href="/signin">
-              <a>&nbsp;Login Now!</a>
-            </Link>
+            <span>Already have an account?</span> <Link href="/signin">&nbsp;Login Now!</Link>
           </small>
         </div>
       </Form>

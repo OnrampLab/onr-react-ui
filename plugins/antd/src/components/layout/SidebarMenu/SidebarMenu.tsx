@@ -145,10 +145,8 @@ export const SidebarMenu = ({
                 }}
               >
                 <Link href={route.path}>
-                  <a>
-                    {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                    <span className="mr-auto">{capitalize(route.name)}</span>
-                  </a>
+                  {sidebarIcons && <span className="anticon">{route.icon}</span>}
+                  <span className="mr-auto">{capitalize(route.name)}</span>
                 </Link>
               </Menu.Item>
             );
@@ -174,9 +172,7 @@ export const SidebarMenu = ({
                       }}
                     >
                       <Link href={`${subitem.path ? subitem.path : ''}`}>
-                        <a>
-                          <span className="mr-auto">{capitalize(subitem.name)}</span>
-                        </a>
+                        <span className="mr-auto">{capitalize(subitem.name)}</span>
                       </Link>
                     </Menu.Item>
                   ))}
@@ -279,18 +275,16 @@ export const SidebarMenu = ({
             <div style={InnerDivStyle}>
               <DashHeader>
                 <Header>
-                  <Link href="/">
-                    <a className="brand">
-                      <FiTriangle size={24} strokeWidth={1} />
-                      <strong
-                        className="mx-1"
-                        style={{
-                          display: 'inline',
-                        }}
-                      >
-                        {name}
-                      </strong>
-                    </a>
+                  <Link href="/" className="brand">
+                    <FiTriangle size={24} strokeWidth={1} />
+                    <strong
+                      className="mx-1"
+                      style={{
+                        display: 'inline',
+                      }}
+                    >
+                      {name}
+                    </strong>
                   </Link>
                 </Header>
               </DashHeader>

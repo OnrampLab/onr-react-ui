@@ -4,7 +4,7 @@ orbs:
 jobs:
   build-and-test:
     docker:
-      - image: 'cimg/node:14.21.1'
+      - image: 'cimg/node:18.16.0'
     working_directory: ~/repo
     executor:
       name: node/default
@@ -14,7 +14,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn lerna run test
+          command: yarn test:ci
           name: Run YARN tests
       - run:
           name: Test build
@@ -28,11 +28,11 @@ jobs:
     parameters:
       email:
         type: string
-        description: E-mail that to use for git commits created by Lerna.
+        description: E-mail that to use for git commits created by Changesets.
       fullname:
         type: string
         description: Full name to use as the committer for git commits created by
-          Lerna.
+          Changesets.
       fingerprint:
         type: string
         description: |
@@ -51,7 +51,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish to NPM
-          command: yarn lerna publish --yes
+          command: yarn changeset publish --yes
 
 workflows:
     build-and-test:

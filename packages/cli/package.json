@@ -41,7 +41,7 @@
     "memory-fs": "^0.5.0",
     "minimist": "^1.2.5",
     "ts-jest": "^27.0.4",
-    "typescript": "^4.3.4"
+    "typescript": "^4.5.2"
   },
   "prettier": "@onr/prettier-config",
   "jest": {
