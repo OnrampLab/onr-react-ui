@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- do not package as esm module
+- Updated dependencies
+  - @onr/core@0.14.1
+  - @onr/plugin-account@0.6.1
+  - @onr/plugin-auth@0.6.1
+
 ## 0.4.0
 
 ### Minor Changes

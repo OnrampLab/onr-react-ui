@@ -1,6 +1,6 @@
 {
   "name": "@onr/core",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "core module",
   "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@onr/common": "^0.6.0",
-    "@onr/logging": "^0.2.0",
+    "@onr/logging": "^0.2.1",
     "@onr/ts-rest-client": "^0.2.0",
     "axios": "^0.21.1",
     "minimatch": "^3.0.4",

@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- do not package as esm module
+- Updated dependencies
+  - @onr/core@0.14.1
+  - @onr/logging@0.2.1
+  - @onr/plugin-account@0.6.1
+  - @onr/plugin-antd@0.7.1
+  - @onr/plugin-auth@0.6.1
+  - @onr/plugin-user@0.4.1
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.1
+
+### Patch Changes
+
+- do not package as esm module
+- Updated dependencies
+  - next-starter-app@0.5.1
+
 ## 0.22.0
 
 ### Minor Changes

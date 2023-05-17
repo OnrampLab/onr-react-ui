@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- do not package as esm module
+- Updated dependencies
+  - @onr/core@0.14.1
+
 ## 0.6.0
 
 ### Minor Changes

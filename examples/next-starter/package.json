@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "",
   "main": "src/server/index.js",
   "workspaces": [
@@ -29,7 +29,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "next-starter-app": "^0.5.0",
+    "next-starter-app": "^0.5.1",
     "turbo": "^1.9.6"
   },
   "devDependencies": {
