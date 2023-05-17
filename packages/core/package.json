@@ -72,6 +72,5 @@
   "prettier": "@onr/prettier-config",
   "publishConfig": {
     "access": "public"
-  },
-  "type": "module"
+  }
 }
