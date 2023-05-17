@@ -31,15 +31,11 @@ if (process.env.TAILWINDCSS_ADD_ANTD_PALETTE === 'true') {
 
 module.exports = {
   mode: process.env.ENABLE_TAILWINDCSS_JIT === 'true' ? 'jit' : null,
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false, // or 'media' or 'class'
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors,
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 };
