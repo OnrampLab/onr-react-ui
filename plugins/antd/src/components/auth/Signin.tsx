@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, message as Message, Row } from 'antd';
 import { NextPageContext } from 'next';
-import { getCsrfToken, getSession } from 'next-auth/client';
+import { getCsrfToken, getSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';

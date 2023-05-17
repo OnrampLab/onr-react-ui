@@ -1,7 +1,7 @@
 import { App, AxiosHelper } from '@onr/core';
 import { DashboardPage } from '@onr/plugin-custom-admin-dashboard';
 import { NextPageContext } from 'next';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 
 export default DashboardPage;
 

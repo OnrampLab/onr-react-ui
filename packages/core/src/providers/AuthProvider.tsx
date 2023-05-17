@@ -1,4 +1,4 @@
-import { signIn, signOut } from 'next-auth/client';
+import { signIn, signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { createContext, useEffect, useMemo } from 'react';
 import { AxiosHelper } from '../helpers';
@@ -11,10 +11,9 @@ export const AuthProvider = (props: any) => {
   const app = useApp();
   const loginPage = '/auth/signin';
   const isLoginPage = router.asPath.includes(loginPage);
-
   const [session, loading] = useSession({
     required: !isLoginPage,
-    redirect: () => signIn('Credential', { callbackUrl: router.asPath }),
+    redirect: () => signIn('credentials', { callbackUrl: router.asPath }),
     swrConfig: {
       // NOTE: should consider to make the refresh interval less than token expiry time
       refreshInterval: 60 * 60 * 1000, // 1 hour

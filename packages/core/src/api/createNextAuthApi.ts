@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { LaravelJWT, NextAuthAPIOptions, NextAuthToken } from '../types';
 
 // const API_BASE_URL = appConfig.apiBaseUrl;
@@ -12,7 +12,7 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
   return NextAuth({
     // https://next-auth.js.org/configuration/providers
     providers: [
-      Providers.Credentials({
+      CredentialsProvider({
         // The name to display on the sign in form (e.g. 'Sign in with...')
         name: 'Credentials',
         // The credentials is used to generate a suitable form on the sign in page.
@@ -30,37 +30,27 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
           // e.g. return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
           // You can also use the `req` object to obtain additional parameters
           // (i.e., the request IP address)
-          const token = await login(credentials);
+          try {
+            const token = await login(credentials);
 
-          const user = await getUser(token.access_token);
+            const user = await getUser(token.access_token);
 
-          user.token = token;
-          return user;
+            user.token = token;
+            return user;
+          } catch (error) {
+            return null;
+          }
         },
       }),
     ],
-    // Database optional. MySQL, Maria DB, Postgres and MongoDB are supported.
-    // https://next-auth.js.org/configuration/databases
-    //
-    // Notes:
-    // * You must install an appropriate node_module for your database
-    // * The Email provider requires a database (OAuth providers do not)
-    database: process.env.DATAAPI_BASE_URL,
-
     // The secret should be set to a reasonably long random string.
     // It is used to sign cookies and to sign and encrypt JSON Web Tokens, unless
     // a separate secret is defined explicitly for encrypting the JWT.
     secret: process.env.SECRET,
 
     session: {
-      // Use JSON Web Tokens for session instead of database sessions.
-      // This option can be used with or without a database for users/accounts.
-      // Note: `jwt` is automatically set to `true` if no database is specified.
-      jwt: true,
-
       // Seconds - How long until an idle session expires and is no longer valid.
       // maxAge: 30 * 24 * 60 * 60, // 30 days
-
       // Seconds - Throttle how frequently to write to database to extend a session.
       // Use it to limit write operations. Set to 0 to always update the database.
       // Note: This option is ignored if using JSON Web Tokens
@@ -98,15 +88,14 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
     // when an action is performed.
     // https://next-auth.js.org/configuration/callbacks
     callbacks: {
-      // @ts-ignore
-      async signIn(user, account, profile) {
+      async signIn() {
         return true;
       },
-      // @ts-ignore
-      async redirect(url, baseUrl) {
+      async redirect({ url }) {
         return url;
       },
-      async session(session, token) {
+      async session({ session, token }) {
+        // @ts-ignore
         session.accessToken = token.accessToken;
         // @ts-ignore
         session.user = token.user;
@@ -116,12 +105,14 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
 
         return session;
       },
-      // @ts-ignore
-      async jwt(token, user, account, profile, isNewUser) {
+      async jwt({ token, user }) {
+        // @ts-ignore
         if (user?.token) {
+          // @ts-ignore
           const nextAuthToken = user.token as LaravelJWT;
           const transformedToken = transformToken(nextAuthToken);
 
+          // @ts-ignore
           delete user.token;
 
           return {
@@ -163,7 +154,9 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
 
     // You can set the theme to 'light', 'dark' or use 'auto' to default to the
     // whatever prefers-color-scheme is set to in the browser. Default is 'auto'
-    theme: 'light',
+    theme: {
+      colorScheme: 'light',
+    },
 
     // Enable debug messages in the console if you are having problems
     debug: true,
