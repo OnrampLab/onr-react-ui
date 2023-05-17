@@ -14,7 +14,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn turbo run test
+          command: yarn test:ci
           name: Run YARN tests
       - run:
           name: Test build
