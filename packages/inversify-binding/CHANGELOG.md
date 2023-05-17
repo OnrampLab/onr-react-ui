@@ -1,11 +1,16 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- Use turborepo, upgrade to next.js v13 and antd v5
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## 0.2.0 (2022-01-05)
 
-
 ### Features
 
-* **inversify-binding:** add implementation and test spec ([2a39921](https://github.com/OnrampLab/onr-react-ui/commit/2a399214a4300563622578b0f75e993dd51467bb))
+- **inversify-binding:** add implementation and test spec ([2a39921](https://github.com/OnrampLab/onr-react-ui/commit/2a399214a4300563622578b0f75e993dd51467bb))
