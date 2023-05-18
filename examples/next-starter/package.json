@@ -29,7 +29,7 @@
     "lint-staged": "lint-staged"
   },
   "dependencies": {
-    "next-starter-app": "^0.5.2",
+    "app": "^0.5.2",
     "turbo": "^1.9.6"
   },
   "devDependencies": {
