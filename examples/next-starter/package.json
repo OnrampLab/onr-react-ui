@@ -5,6 +5,7 @@
   "description": "",
   "main": "src/server/index.js",
   "workspaces": [
+    "apps/*",
     "packages/*",
     "plugins/*"
   ],
