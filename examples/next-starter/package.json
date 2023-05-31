@@ -21,22 +21,20 @@
     "_postinstall": "husky install",
     "build-project-cli": "cd project-cli && npm i && npm run build",
     "test": "turbo run test",
-    "test:ci": "turbo run test:ci",
+    "test:ci": "turbo run test --concurrency=1",
     "lint": "turbo run lint",
     "format": "turbo run format",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint-staged": "lint-staged"
   },
-  "dependencies": {
-    "app": "^0.5.2",
-    "turbo": "^1.9.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@onr/commitlint-config": "^1.2.1",
     "husky": "^5.0.0",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "turbo": "^1.9.6"
   },
   "resolutions": {
     "minimist": "^1.2.5"

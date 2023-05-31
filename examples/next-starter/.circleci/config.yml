@@ -126,7 +126,7 @@ registry-id: AWS_ACCOUNT_ID
           region: "${AWS_REGION}"
           repo: next-starter
           tag: "latest,release-${CIRCLE_SHA1}"
-          extra-build-args: "--target prod-runtime"
+          extra-build-args: "--target runner"
 
   build-production-image:
     executor: aws-ecr/default
@@ -141,7 +141,7 @@ registry-id: AWS_ACCOUNT_ID
           region: "${AWS_REGION}"
           repo: next-starter
           tag: "${CIRCLE_TAG}"
-          extra-build-args: "--target prod-runtime"
+          extra-build-args: "--target runner"
 
   create-deployment:
     docker:

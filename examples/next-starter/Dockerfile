@@ -1,45 +1,60 @@
-FROM mhart/alpine-node:12 AS dev
+FROM node:18-alpine AS base
 
-WORKDIR /project
+# This Dockerfile is copy-pasted from https://github.com/vercel/turbo/blob/main/examples/with-docker/apps/web/Dockerfile
+# Only customize one line for tsconfig.components.json
 
-RUN apk add --no-cache make gcc g++ python2 python3 git
-
-ADD . /project
-
-# Do the npm install or yarn install in the full image
-FROM mhart/alpine-node:12 AS builder
-WORKDIR /project
-
-RUN apk add --no-cache make gcc g++ python2 python3 git
-
-COPY package.json yarn.lock ./
-
-# RUN yarn --production
-RUN yarn install  --frozen-lockfile
-
+FROM base AS builder
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+RUN apk update
+# Set working directory
+WORKDIR /app
+RUN yarn global add turbo
 COPY . .
+RUN turbo prune --scope=app --docker
 
-RUN yarn build
-RUN yarn install --production --frozen-lockfile
+# Add lockfile and package.json's of isolated subworkspace
+FROM base AS installer
+RUN apk add --no-cache libc6-compat
+RUN apk update
+WORKDIR /app
 
-# RUN npm install modclean pkg -g
-# RUN modclean -r ; yarn autoclean --force
+# First install the dependencies (as they change less often)
+COPY .gitignore .gitignore
+COPY --from=builder /app/out/json/ .
+COPY --from=builder /app/out/yarn.lock ./yarn.lock
+RUN yarn install
 
-# RUN yarn dist
+# Build the project
+COPY --from=builder /app/out/full/ .
+COPY turbo.json turbo.json
 
-# And then copy over node_modules, etc from that stage to the smaller base image
-FROM mhart/alpine-node:slim-12 AS prod-runtime
-# RUN apk update && \
-#   apk add --no-cache libstdc++ libgcc ca-certificates && \
-#   rm -rf /var/cache/apk/*
-WORKDIR /project
+# Uncomment and use build args to enable remote caching
+# ARG TURBO_TEAM
+# ENV TURBO_TEAM=$TURBO_TEAM
 
-# COPY package.json next.config.js .env* ./
-COPY --from=builder /project/node_modules ./node_modules
-COPY --from=builder /project/packages/app/.next ./packages/app/.next
-COPY --from=builder /project/packages/app/public ./packages/app/public
-COPY --from=builder /project/packages/app/next.config.js ./packages/app/next.config.js
+# ARG TURBO_TOKEN
+# ENV TURBO_TOKEN=$TURBO_TOKEN
 
-EXPOSE 3000
+COPY --from=builder /app/tsconfig.components.json .
 
-CMD ["packages/project/node_modules/.bin/next", "start"]
+RUN yarn turbo run build --filter=app...
+
+FROM base AS runner
+WORKDIR /app
+
+# Don't run production as root
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+USER nextjs
+
+COPY --from=installer /app/packages/app/next.config.js .
+COPY --from=installer /app/packages/app/package.json .
+
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=installer --chown=nextjs:nodejs /app/packages/app/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/packages/app/.next/static ./packages/app/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/packages/app/public ./packages/app/public
+
+CMD ["node", "packages/app/server.js"]
