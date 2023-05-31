@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  aws-ecr: circleci/aws-ecr@6.12.2
-  aws-eks: circleci/aws-eks@1.0.0
+  aws-ecr: circleci/aws-ecr@8.2.1
+  aws-eks: circleci/aws-eks@2.2.0
   kustomize: finc/kustomize@0.0.2
 
 commands:
@@ -89,8 +89,8 @@ commands:
 
             if [[ -n "${CIRCLE_TAG}" ]]; then
               USERNAME=${CIRCLE_USERNAME} VIA_BASTION=1 CI_BRANCH="${CIRCLE_TAG}" cap production deploy --trace
-            elif [[ "${CIRCLE_BRANCH}" == "master" ]]; then
-              USERNAME=${CIRCLE_USERNAME} VIA_BASTION=1 CI_BRANCH=master cap staging deploy --trace
+            elif [[ "${CIRCLE_BRANCH}" == "main" ]]; then
+              USERNAME=${CIRCLE_USERNAME} VIA_BASTION=1 CI_BRANCH=main cap staging deploy --trace
             fi
 
 jobs:
@@ -117,13 +117,13 @@ jobs:
     executor: aws-ecr/default
     steps:
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
+registry-id: AWS_ACCOUNT_ID
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: false
           dockerfile: Dockerfile
           path: .
-          region: AWS_REGION
+          region: "${AWS_REGION}"
           repo: next-starter
           tag: "latest,release-${CIRCLE_SHA1}"
           extra-build-args: "--target prod-runtime"
@@ -132,19 +132,20 @@ jobs:
     executor: aws-ecr/default
     steps:
       - aws-ecr/build-and-push-image:
-          account-url: AWS_ECR_ACCOUNT_URL
+          registry-id: AWS_ACCOUNT_ID
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: false
           dockerfile: Dockerfile
           path: .
-          region: AWS_REGION
+          region: "${AWS_REGION}"
           repo: next-starter
           tag: "${CIRCLE_TAG}"
           extra-build-args: "--target prod-runtime"
 
   create-deployment:
-    executor: aws-eks/python3
+    docker:
+      - image: cimg/python:3.10
     parameters:
       cluster-name:
         description: |
@@ -182,7 +183,7 @@ jobs:
               echo "deploying ${TAG} to ${ENVIRONMENT}"
 
               cd ${root}/tools/infrastructure/container-based/ochestration/kubernetes/bases
-              kustomize edit set image "next-starter=aws_account_id.dkr.ecr.us-east-1.amazonaws.com/next-starter:${TAG}"
+              kustomize edit set image "next-starter=${AWS_ACCOUNT_ID}.dkr.ecr.us-west-2.amazonaws.com/ultron-client:${TAG}"
 
               cd ${root}/tools/infrastructure/container-based/ochestration/kubernetes/${ENVIRONMENT}/bases
               kustomize build | kubectl apply -f -
@@ -203,7 +204,7 @@ workflows:
       #       - run_test
       #     filters:
       #       branches:
-      #         only: master
+      #         only: main
 
       # - build-production-image:
       #     requires:
@@ -222,7 +223,7 @@ workflows:
       #       - build-staging-image
       #     filters:
       #       branches:
-      #         only: master
+      #         only: main
 
       # for production
       # - create-deployment:
