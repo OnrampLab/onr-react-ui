@@ -2,7 +2,7 @@
 set :application, ENV['APPLICATION']
 set :repo_url, ENV['REPO']
 set :deploy_to, ENV['DEPLOY_TO']
-# Default branch is :master
+# Default branch is :main
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # config/deploy.rb

@@ -5,7 +5,7 @@ set -e
 
 # CI_BRANCH="issue-10-testing"
 # CI_BRANCH="release-1.0.0"
-# CI_BRANCH="master"
+# CI_BRANCH="main"
 
 function checkWIP() {
   msg=`git log -1 --pretty=%B`
@@ -26,7 +26,7 @@ function checkWIP() {
 
 function deploy() {
   case $CI_BRANCH in
-    master )
+    main )
       echo "cap staging deploy"
       cap staging deploy
       ;;
