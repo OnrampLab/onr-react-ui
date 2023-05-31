@@ -3,5 +3,7 @@ kind: ConfigMap
 metadata:
   name: frontend-config
 data:
-  NEXT_PUBLIC_API_URL: https://api.example.com
+  NEXTAUTH_URL: https://next-starter.com
+  NEXT_PUBLIC_API_URL: https://api.next-starter.com
   NEXT_PUBLIC_API_KEY: production_key
+  TAILWINDCSS_ADD_ANTD_PALETTE: false
