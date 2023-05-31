@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: frontend-config
+  namespace: next-starter-namespace
 data:
   NEXTAUTH_URL: https://next-starter.com
   NEXT_PUBLIC_API_URL: https://api.next-starter.com
