@@ -1,0 +1,9 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: next-starter
+  namespace: next-starter-namespace
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: www.next-starter.com

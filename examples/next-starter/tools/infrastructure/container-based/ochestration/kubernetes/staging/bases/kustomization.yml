@@ -4,3 +4,4 @@ bases:
   - ../../bases/
 patchesStrategicMerge:
   - frontend/config-map-patch.yaml
+  - frontend/ingress-patch.yaml
