@@ -33,6 +33,8 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@onr/commitlint-config": "^1.2.1",
+    "@onr/eslint-config": "^0.4.1",
+    "@onr/prettier-config": "^1.2.1",
     "husky": "^5.0.0",
     "lint-staged": "^10.2.11",
     "turbo": "^1.9.6"
@@ -42,6 +44,7 @@
   },
   "author": "",
   "license": "ISC",
+  "prettier": "@onr/prettier-config",
   "lint-staged": {
     "src/**/*.(js|ts|tsx)": [
       "eslint -c .eslintrc.js --fix",
