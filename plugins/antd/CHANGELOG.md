@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- remove less style; refine antd styles
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.15.0
+
 ## 0.7.2
 
 ### Patch Changes

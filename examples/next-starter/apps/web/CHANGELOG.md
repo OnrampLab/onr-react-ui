@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- remove less style; refine antd styles
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.15.0
+  - @onr/plugin-antd@0.8.0
+  - @onr/plugin-custom-admin-dashboard@0.3.2
+  - @onr/plugin-custom-home@0.3.2
+  - @onr/plugin-account@0.6.3
+  - @onr/plugin-auth@0.6.3
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.2.2
+  - @onr/plugin-user@0.4.3
+
 ## 0.5.2
 
 ### Patch Changes

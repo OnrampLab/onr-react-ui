@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.0
+
+### Minor Changes
+
+- remove less style; refine antd styles
+
 ## 0.14.2
 
 ### Patch Changes
