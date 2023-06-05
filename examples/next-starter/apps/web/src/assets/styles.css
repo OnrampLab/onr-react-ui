@@ -1,0 +1,6 @@
+@import './tailwind-extension.css';
+@import '~nprogress/nprogress.css';
+
+body {
+  margin: 0;
+}

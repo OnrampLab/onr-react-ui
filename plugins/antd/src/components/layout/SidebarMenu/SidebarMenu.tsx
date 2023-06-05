@@ -1,27 +1,11 @@
 // @ts-nocheck
-import { AppContext, AuthUser, coreActions, CoreStore, useAuth } from '@onr/core';
-import {
-  Avatar,
-  Badge,
-  Divider,
-  Drawer,
-  Dropdown,
-  Layout,
-  List,
-  Menu,
-  Popconfirm,
-  Row,
-  Switch,
-  Tooltip,
-} from 'antd';
+import { AppContext, AuthUser, coreActions, CoreStore } from '@onr/core';
+import { Divider, Drawer, Layout, List, Menu, Switch } from 'antd';
 import { capitalize } from 'lodash-es';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useContext, useEffect } from 'react';
-import { FiBook, FiLogOut, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { DashHeader } from '../Header';
-import { Sidebar } from './styles';
 
 /* eslint-disable complexity  */
 interface Props {
@@ -38,15 +22,9 @@ const rootSubMenuKeys: string[] = [];
 const getKey = (name: string, index: number) => {
   const string = `${name}-${index}`;
   const key = string.replace(' ', '-');
+
   return key.charAt(0).toLowerCase() + key.slice(1);
 };
-
-const UserMenu = (
-  <Menu>
-    <Menu.Item>Settings</Menu.Item>
-    <Menu.Item>Profile</Menu.Item>
-  </Menu>
-);
 
 export const SidebarMenu = ({
   currentUser,
@@ -84,7 +62,6 @@ export const SidebarMenu = ({
   } = coreActions;
   const { pathname = '' } = router || {};
 
-  const { signOut } = useAuth();
   useEffect(() => {
     const roles = currentUser.roles || [];
     setAppRoutes(
@@ -122,16 +99,9 @@ export const SidebarMenu = ({
     }
   };
 
-  const menu = (
+  const MyMenu = () => (
     <>
-      <Menu
-        theme={sidebarTheme}
-        className="border-0 scroll-y"
-        style={{ flex: 1, height: '100%' }}
-        mode={sidebarMode}
-        openKeys={openKeys}
-        onOpenChange={onOpenChange}
-      >
+      <Menu theme={sidebarTheme} mode={sidebarMode} openKeys={openKeys} onOpenChange={onOpenChange}>
         {appRoutes.map((route, index) => {
           const hasChildren = route.children ? true : false;
           if (!hasChildren)
@@ -187,197 +157,113 @@ export const SidebarMenu = ({
           display: `${sidebarTheme === 'dark' ? 'none' : ''}`,
         }}
       />
-      <div className={`py-3 px-4 bg-${sidebarTheme}`}>
-        <Row type="flex" align="middle" justify="space-around">
-          <Dropdown overlay={UserMenu}>
-            <span>
-              <Badge
-                count={6}
-                overflowCount={5}
-                style={{
-                  color: 'rgb(245, 106, 0)',
-                  backgroundColor: 'rgb(253, 227, 207)',
-                }}
-              >
-                <Avatar shape="circle" size={40} src="/static/images/avatar.jpg" />
-              </Badge>
-            </span>
-          </Dropdown>
-          {!collapsed && (
-            <>
-              <span className="mr-auto" />
-              <a
-                className={`px-3 ${sidebarTheme === 'dark' ? 'text-white' : 'text-body'}`}
-                href="https://one-readme.fusepx.com"
-              >
-                <Tooltip title="Help">
-                  <FiBook size={20} strokeWidth={1} />
-                </Tooltip>
-              </a>
-
-              <Popconfirm
-                placement="top"
-                title="Are you sure you want to sign out?"
-                // TODO: should use client side render to improve UX
-                onConfirm={() => signOut()}
-                okText="Yes"
-                cancelText="Cancel"
-              >
-                <a className={`px-3 ${sidebarTheme === 'dark' ? 'text-white' : 'text-body'}`}>
-                  <FiLogOut size={20} strokeWidth={1} />
-                </a>
-              </Popconfirm>
-            </>
-          )}
-        </Row>
-      </div>
     </>
   );
 
-  const InnerDivStyle: React.CSSProperties = {
-    overflow: 'hidden',
-    flex: '1 1 auto',
-    flexDirection: 'column',
-    display: 'flex',
-    height: '100vh',
-  };
-
-  const ListItemSpanStylye: React.CSSProperties = {
-    WebkitBoxFlex: 1,
-    WebkitFlex: '1 0',
-    msFlex: '1 0',
-    flex: '1 0',
-  };
-
   return (
     <>
-      <Sidebar>
-        {!mobile && (
-          <Sider
-            width={240}
-            className={`bg-${sidebarTheme}`}
-            theme={sidebarTheme}
-            collapsed={collapsed}
-          >
-            {menu}
-          </Sider>
-        )}
-
-        <Drawer
-          closable={false}
+      {!mobile && (
+        <Sider
           width={240}
-          placement="left"
-          onClose={() => dispatch(setMobileDrawer())}
-          visible={mobileDrawer}
-          className="chat-drawer"
+          theme={sidebarTheme}
+          collapsible
+          collapsed={collapsed}
+          onCollapse={() => dispatch(setCollapse())}
         >
-          <Sidebar>
-            <div style={InnerDivStyle}>
-              <DashHeader>
-                <Header>
-                  <Link href="/" className="brand">
-                    <FiTriangle size={24} strokeWidth={1} />
-                    <strong
-                      className="mx-1"
-                      style={{
-                        display: 'inline',
-                      }}
-                    >
-                      {name}
-                    </strong>
-                  </Link>
-                </Header>
-              </DashHeader>
-              {menu}
-            </div>
-          </Sidebar>
-        </Drawer>
+          <MyMenu />
+        </Sider>
+      )}
 
-        <Drawer
-          title="Settings"
-          placement="right"
-          closable={true}
-          width={300}
-          onClose={() => dispatch(setOptionDrawer())}
-          visible={optionDrawer}
+      <Drawer
+        closable={false}
+        width={240}
+        placement="left"
+        onClose={() => dispatch(setMobileDrawer())}
+        visible={mobileDrawer}
+        className="chat-drawer"
+      >
+        <MyMenu />
+      </Drawer>
+
+      <Drawer
+        title="Settings"
+        placement="right"
+        closable={true}
+        width={300}
+        onClose={() => dispatch(setOptionDrawer())}
+        visible={optionDrawer}
+      >
+        <List.Item
+          actions={[
+            <Switch key={1} size="small" checked={!!boxed} onChange={() => dispatch(setBoxed())} />,
+          ]}
         >
-          <List.Item
-            actions={[
-              <Switch
-                key={1}
-                size="small"
-                checked={!!boxed}
-                onChange={() => dispatch(setBoxed())}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Boxed view</span>
-          </List.Item>
-          <List.Item
-            actions={[
-              <Switch
-                key={1}
-                size="small"
-                checked={!!darkSidebar}
-                disabled={weakColor}
-                onChange={() => dispatch(setSidebarTheme())}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Dark sidebar menu</span>
-          </List.Item>
-          <List.Item
-            actions={[
-              <Switch
-                size="small"
-                checked={!!sidebarPopup}
-                disabled={collapsed}
-                onChange={() => dispatch(setSidebarPopup())}
-                key={1}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Popup sub menus</span>
-          </List.Item>
-          <List.Item
-            actions={[
-              <Switch
-                key={1}
-                size="small"
-                checked={!!sidebarIcons}
-                disabled={collapsed}
-                onChange={() => dispatch(setSidebarIcons())}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Sidebar menu icons</span>
-          </List.Item>
-          <List.Item
-            actions={[
-              <Switch
-                key={1}
-                size="small"
-                checked={!!collapsed}
-                onChange={() => dispatch(setCollapse())}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Collapsed sidebar menu</span>
-          </List.Item>
-          <List.Item
-            actions={[
-              <Switch
-                key={1}
-                size="small"
-                checked={!!weakColor}
-                onChange={() => dispatch(setWeak())}
-              />,
-            ]}
-          >
-            <span style={ListItemSpanStylye}>Weak colors</span>
-          </List.Item>
-        </Drawer>
-      </Sidebar>
+          <span>Boxed view</span>
+        </List.Item>
+        <List.Item
+          actions={[
+            <Switch
+              key={1}
+              size="small"
+              checked={!!darkSidebar}
+              disabled={weakColor}
+              onChange={() => dispatch(setSidebarTheme())}
+            />,
+          ]}
+        >
+          <span>Dark sidebar menu</span>
+        </List.Item>
+        <List.Item
+          actions={[
+            <Switch
+              size="small"
+              checked={!!sidebarPopup}
+              disabled={collapsed}
+              onChange={() => dispatch(setSidebarPopup())}
+              key={1}
+            />,
+          ]}
+        >
+          <span>Popup sub menus</span>
+        </List.Item>
+        <List.Item
+          actions={[
+            <Switch
+              key={1}
+              size="small"
+              checked={!!sidebarIcons}
+              disabled={collapsed}
+              onChange={() => dispatch(setSidebarIcons())}
+            />,
+          ]}
+        >
+          <span>Sidebar menu icons</span>
+        </List.Item>
+        <List.Item
+          actions={[
+            <Switch
+              key={1}
+              size="small"
+              checked={!!collapsed}
+              onChange={() => dispatch(setCollapse())}
+            />,
+          ]}
+        >
+          <span>Collapsed sidebar menu</span>
+        </List.Item>
+        <List.Item
+          actions={[
+            <Switch
+              key={1}
+              size="small"
+              checked={!!weakColor}
+              onChange={() => dispatch(setWeak())}
+            />,
+          ]}
+        >
+          <span>Weak colors</span>
+        </List.Item>
+      </Drawer>
     </>
   );
 };

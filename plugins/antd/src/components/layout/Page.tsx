@@ -27,7 +27,7 @@ export const Page = (props: Props) => {
   return (
     <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
       {isAdminLayout && <Header HeaderMainSection={HeaderMainSection} />}
-      <Layout className="workspace">
+      <Layout style={{ minHeight: '100vh' }}>
         {isAdminLayout && (
           <SidebarMenu
             currentUser={user}

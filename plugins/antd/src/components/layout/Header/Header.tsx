@@ -1,5 +1,5 @@
-import { coreActions, CoreStore } from '@onr/core';
-import { Avatar, Layout, Menu } from 'antd';
+import { coreActions, CoreStore, useAuth } from '@onr/core';
+import { Avatar, Layout, Menu, Popconfirm } from 'antd';
 import Link from 'next/link';
 import React, { ReactNode } from 'react';
 import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
@@ -14,11 +14,14 @@ type Props = {
 
 export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
   const dispatch = useDispatch();
+  // @ts-ignore
+  const { signOut } = useAuth();
+
   const { name, mobile } = useSelector((store: CoreStore) => store.coreStore);
 
   return (
     <DashHeader>
-      <Layout.Header>
+      <Layout.Header className="header">
         {mobile && (
           <a onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
             <FiBarChart size={20} strokeWidth={1} />
@@ -34,16 +37,27 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
 
         <span className="mr-auto" />
         <Menu mode="horizontal">
-          <Menu.Item onClick={() => dispatch(coreActions.setOptionDrawer())}>
+          <Menu.Item key="m1" onClick={() => dispatch(coreActions.setOptionDrawer())}>
             <FiSettings size={20} strokeWidth={1} />
           </Menu.Item>
 
-          <SubMenu title={<Avatar src="/static/images/avatar.jpg" />}>
-            <Menu.Item>FiSettings</Menu.Item>
-            <Menu.Item>Profile</Menu.Item>
+          <SubMenu key="submenu" title={<Avatar src="/static/images/avatar.jpg" />}>
+            <Menu.Item key="sub1">Profile</Menu.Item>
             <Menu.Divider />
-            <Menu.Item>
+            <Menu.Item key="sub2">
               <a href="https://one-readme.fusepx.com">Help?</a>
+            </Menu.Item>
+            <Menu.Item key="sub3">
+              <Popconfirm
+                placement="top"
+                title="Are you sure you want to sign out?"
+                // TODO: should use client side render to improve UX
+                onConfirm={() => signOut()}
+                okText="Yes"
+                cancelText="Cancel"
+              >
+                <a>Sign Out</a>
+              </Popconfirm>
             </Menu.Item>
           </SubMenu>
         </Menu>
