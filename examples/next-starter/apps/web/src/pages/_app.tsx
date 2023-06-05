@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_ENABLE_MIR
 
   makeServer({ environment: 'development', mocks });
 }
-import '../assets/tailwind-extension.css';
+import '../assets/styles.css';
 import { MyApp } from '../components';
 
 export default MyApp;

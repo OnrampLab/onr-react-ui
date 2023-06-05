@@ -6,9 +6,6 @@ const AntdPage = dynamic(() => import('@onr/plugin-antd').then(mod => mod.Page))
 const AccountSelector = dynamic(() =>
   import('@onr/plugin-account').then(mod => mod.AccountSelector),
 );
-const AntdStyleContainer = dynamic(() =>
-  import('@onr/plugin-custom-admin-dashboard').then(mod => mod.AntdStyleContainer),
-);
 
 const Container: React.FC = (props: AppProps) => {
   const { Component, pageProps } = props;
