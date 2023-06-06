@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.15.2
+
+### Patch Changes
+
+- test
+- Updated dependencies
+  - @onr/logging@0.2.3
+
 ## 0.15.1
 
 ### Patch Changes
