@@ -21,10 +21,6 @@ const withAntdLess = require('next-plugin-antd-less');
 
 /* eslint-enable @typescript-eslint/no-var-requires */
 
-if (typeof require !== 'undefined') {
-  require.extensions['.less'] = () => {};
-}
-
 const nextConfig = {
   // optional https://github.com/webpack-contrib/css-loader#object
   cssLoaderOptions: {},

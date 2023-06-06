@@ -1,7 +1,7 @@
-import React from 'react';
 import { addDecorator, addParameters } from '@storybook/react';
+import React from 'react';
 // import { DocsPage } from 'storybook-addon-deps/blocks';
-import '../src/assets/styles.less';
+import '../src/assets/styles.css';
 import '../src/assets/tailwind-extension.css';
 
 addParameters({

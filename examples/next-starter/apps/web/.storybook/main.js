@@ -35,41 +35,22 @@ module.exports = {
       },
     });
 
-    config.module.rules.push(
-      {
-        test: /\.less$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'less-loader',
-            options: {
-              javascriptEnabled: true,
+    config.module.rules.push({
+      test: /\.css$/,
+      loaders: [
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            config: {
+              path: './.storybook/',
             },
           },
-        ],
-      },
-      {
-        test: /\.css$/,
-        loaders: [
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: {
-                path: './.storybook/',
-              },
-            },
-          },
-        ],
+        },
+      ],
 
-        include: path.resolve(__dirname, '../src/'),
-      },
-    );
+      include: path.resolve(__dirname, '../src/'),
+    });
 
     config.resolve.extensions.push('.ts', '.tsx');
 
