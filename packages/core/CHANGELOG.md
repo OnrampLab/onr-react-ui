@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.3
+
+### Patch Changes
+
+- Show error logs for login and refresh access token
+
 ## 0.15.2
 
 ### Patch Changes
