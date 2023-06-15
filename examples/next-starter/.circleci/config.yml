@@ -117,7 +117,7 @@ jobs:
     executor: aws-ecr/default
     steps:
       - aws-ecr/build-and-push-image:
-registry-id: AWS_ACCOUNT_ID
+          registry-id: AWS_ACCOUNT_ID
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: false
