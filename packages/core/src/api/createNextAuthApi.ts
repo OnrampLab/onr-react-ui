@@ -38,6 +38,8 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
             user.token = token;
             return user;
           } catch (error) {
+            console.log('Failed to login', { error });
+
             return null;
           }
         },
@@ -127,14 +129,20 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
          * returns the old token and an error property
          */
         const refreshAccessToken = async (token: NextAuthToken) => {
-          const refreshedToken = await refreshJWT(token.accessToken);
-          const user = await getUser(refreshedToken.access_token);
-          const transformedToken = transformToken(refreshedToken);
+          try {
+            const refreshedToken = await refreshJWT(token.accessToken);
+            const user = await getUser(refreshedToken.access_token);
+            const transformedToken = transformToken(refreshedToken);
 
-          return {
-            ...transformedToken,
-            user,
-          };
+            return {
+              ...transformedToken,
+              user,
+            };
+          } catch (error) {
+            console.log('Failed to refresh access token', { error });
+
+            throw error;
+          }
         };
 
         const nextAuthToken = token as NextAuthToken;
