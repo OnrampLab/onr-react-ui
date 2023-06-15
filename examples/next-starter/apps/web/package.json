@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -28,11 +28,11 @@
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@next/bundle-analyzer": "^13.4.2",
-    "@onr/core": "^0.15.1",
+    "@onr/core": "^0.15.2",
     "@onr/logging": "^0.2.2",
     "@onr/mock": "^1.0.1",
     "@onr/plugin-account": "^0.6.3",
-    "@onr/plugin-antd": "^0.8.1",
+    "@onr/plugin-antd": "^0.8.3",
     "@onr/plugin-auth": "^0.6.3",
     "@onr/plugin-custom-admin-dashboard": "^0.3.2",
     "@onr/plugin-custom-home": "^0.3.2",

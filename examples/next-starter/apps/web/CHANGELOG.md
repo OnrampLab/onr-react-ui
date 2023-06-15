@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @onr/plugin-antd@0.8.3
+
 ## 0.6.1
 
 ### Patch Changes
