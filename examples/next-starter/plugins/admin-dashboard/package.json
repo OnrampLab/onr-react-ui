@@ -1,7 +1,7 @@
 {
   "name": "@onr/plugin-custom-admin-dashboard",
   "private": true,
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "custom dashboard plugin",
   "license": "ISC",
   "main": "lib/index.js",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@onr/core": "^0.15.2",
-    "@onr/plugin-antd": "^0.9.0",
+    "@onr/plugin-antd": "^0.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^4.3.1"

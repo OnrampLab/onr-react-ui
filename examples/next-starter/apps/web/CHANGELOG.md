@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- Upgrade dependencies
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.3.5
+
 ## 0.6.3
 
 ### Patch Changes
