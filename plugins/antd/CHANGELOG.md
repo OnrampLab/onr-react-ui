@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- Show login error
+
 ## 0.8.3
 
 ### Patch Changes

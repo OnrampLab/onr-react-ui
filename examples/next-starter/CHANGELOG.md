@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.22.4
+
+### Patch Changes
+
+- Show login error
+
 ## 0.22.3
 
 ### Patch Changes

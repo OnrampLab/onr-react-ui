@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- Show login error
+- Updated dependencies
+  - @onr/plugin-antd@0.9.0
+  - @onr/plugin-custom-admin-dashboard@0.3.4
+
 ## 0.6.2
 
 ### Patch Changes
