@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- Can show url for api error
+  - @onr/core@0.15.4
+
 ## 0.6.4
 
 ### Patch Changes

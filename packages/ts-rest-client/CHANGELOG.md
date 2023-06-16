@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Can show url for api error
+
 ## 0.2.1
 
 ### Patch Changes
