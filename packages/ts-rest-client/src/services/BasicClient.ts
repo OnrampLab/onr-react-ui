@@ -27,6 +27,10 @@ export class BasicClient implements Client {
 
   initialize() {}
 
+  getBaseUrl() {
+    return this.client.defaults.baseURL;
+  }
+
   addResponseTramsform<T>(transformer: (response: AxiosResponse<T>) => any) {
     this.client.interceptors.response.use(transformer);
   }
