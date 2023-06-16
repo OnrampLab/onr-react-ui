@@ -13,7 +13,7 @@ export class AuthService extends BasicClient {
 
       return response.data;
     } catch (error) {
-      throw new Error(`Login Error: ${(error as Error).message}`);
+      throw new Error(`Login Error: ${(error as Error).message} from API ${this.getBaseUrl()}`);
     }
   }
 
