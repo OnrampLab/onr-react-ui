@@ -41,12 +41,6 @@
       "source.organizeImports": true
     }
   },
-  "[less]": {
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.postcssSorting.execute": true
-    }
-  },
   "cSpell.words": [
     "antd",
     "consts",

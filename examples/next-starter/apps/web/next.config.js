@@ -17,8 +17,6 @@ if (!files.length) {
 }
 const withTm = require('next-transpile-modules')([...files, '@onr/plugin-antd', '@onr/core']);
 
-const withAntdLess = require('next-plugin-antd-less');
-
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const nextConfig = {
@@ -33,9 +31,6 @@ const nextConfig = {
     maxInactiveAge: 1000 * 60 * 60,
     pagesBufferLength: 5,
   },
-  lessLoaderOptions: {
-    javascriptEnabled: true,
-  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if
@@ -47,12 +42,11 @@ const nextConfig = {
     esmExternals: 'loose',
   },
   webpack(config) {
-    config.optimization.usedExports = true;
     return config;
   },
 };
 
-const plugins = [[withAntdLess], [withBundleAnalyzer], [withTm]];
+const plugins = [[withBundleAnalyzer], [withTm]];
 
 if (process.env.NODE_ENV !== 'development') {
 } else {
