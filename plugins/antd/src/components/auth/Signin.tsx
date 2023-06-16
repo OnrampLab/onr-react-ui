@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, message as Message, Row } from 'antd';
 import { NextPageContext } from 'next';
-import { getCsrfToken, getSession } from 'next-auth/react';
+import { getCsrfToken, getSession, signIn } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';
@@ -38,9 +38,28 @@ interface Props {
 }
 
 const Signin: React.FC<Props> = ({ csrfToken }) => {
+  const [form] = Form.useForm();
+
   async function onFinish() {
     try {
-      document.querySelector('form')?.submit();
+      // @ts-ignore
+      const { error, ok, url } = await signIn('credentials', {
+        email: form.getFieldValue('email'),
+        password: form.getFieldValue('password'),
+        redirect: false,
+      });
+
+      if (ok) {
+        window.location.href = url;
+      }
+
+      let message = 'Incorrect email or password';
+
+      if (error instanceof Error) {
+        message = error.message;
+      }
+
+      Message.error(message);
     } catch (error) {
       let message = 'Unknown Error';
 
@@ -79,7 +98,6 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           }}
           initialValues={INIT_VALUES}
           method="post"
-          action="/api/auth/callback/credentials"
         >
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           {/* @ts-ignore  */}
