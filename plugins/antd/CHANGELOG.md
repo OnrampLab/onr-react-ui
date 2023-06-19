@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.2
+
+### Patch Changes
+
+- Fix can not get form values in login page
+
 ## 0.9.1
 
 ### Patch Changes
