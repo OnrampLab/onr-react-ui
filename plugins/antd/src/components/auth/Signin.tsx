@@ -38,14 +38,12 @@ interface Props {
 }
 
 const Signin: React.FC<Props> = ({ csrfToken }) => {
-  const [form] = Form.useForm();
-
-  async function onFinish() {
+  async function onFinish({ email, password }: any) {
     try {
       // @ts-ignore
       const { error, ok, url } = await signIn('credentials', {
-        email: form.getFieldValue('email'),
-        password: form.getFieldValue('password'),
+        email: email,
+        password: password,
         redirect: false,
       });
 
@@ -104,7 +102,6 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           <FormItem label="Email" name="email" rules={EMAIL_RULES}>
             <Input
               prefix={<FiMail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="email"
               type="email"
               placeholder="Email"
             />
@@ -113,7 +110,6 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           <FormItem label="Password" name="password" rules={PASSWORD_RULES}>
             <Input
               prefix={<FiEye size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
-              name="password"
               type="password"
               placeholder="Password"
             />
