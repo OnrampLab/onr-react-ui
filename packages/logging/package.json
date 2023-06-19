@@ -1,8 +1,8 @@
 {
   "name": "@onr/logging",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "shared utils module",
-  "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
+  "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.4.6
+
+### Patch Changes
+
+- Upgrade
+- Updated dependencies
+  - @onr/common@0.6.2
+  - @onr/plugin-account@0.6.6
+  - @onr/core@0.15.6
+  - @onr/plugin-auth@0.6.6
+
 ## 0.4.5
 
 ### Patch Changes

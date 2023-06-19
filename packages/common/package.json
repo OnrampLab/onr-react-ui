@@ -1,8 +1,8 @@
 {
   "name": "@onr/common",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "shared utils module",
-  "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
+  "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",

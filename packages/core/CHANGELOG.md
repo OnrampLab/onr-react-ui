@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.15.6
+
+### Patch Changes
+
+- Upgrade
+- Updated dependencies
+  - @onr/logging@0.2.4
+  - @onr/common@0.6.2
+
+## 0.15.5
+
+### Patch Changes
+
+- Fix failed to redirect after login successfully
+
 ## 0.15.4
 
 ### Patch Changes

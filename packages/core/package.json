@@ -1,8 +1,8 @@
 {
   "name": "@onr/core",
-  "version": "0.15.4",
+  "version": "0.15.6",
   "description": "core module",
-  "author": "Raymond Tam <raymondtamtwtp@gmail.com>",
+  "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -40,8 +40,8 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.6.1",
-    "@onr/logging": "^0.2.3",
+    "@onr/common": "^0.6.2",
+    "@onr/logging": "^0.2.4",
     "@onr/ts-rest-client": "^1.0.0",
     "axios": "^0.21.1",
     "minimatch": "^3.0.4",

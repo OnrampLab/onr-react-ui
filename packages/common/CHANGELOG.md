@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- Upgrade
+
 ## 0.6.1
 
 ### Patch Changes

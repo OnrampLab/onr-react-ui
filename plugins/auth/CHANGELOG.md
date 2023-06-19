@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.6
+
+### Patch Changes
+
+- Upgrade
+- Updated dependencies
+  - @onr/common@0.6.2
+  - @onr/core@0.15.6
+
 ## 0.6.5
 
 ### Patch Changes

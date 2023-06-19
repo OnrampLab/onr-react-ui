@@ -34,7 +34,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "devDependencies": {
-    "@onr/common": "^0.6.1",
+    "@onr/common": "^0.6.2",
     "@onr/eslint-config": "^0.4.1",
     "@onr/prettier-config": "^1.2.1",
     "@types/express": "^4.17.13",
