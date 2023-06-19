@@ -93,8 +93,16 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
       async signIn() {
         return true;
       },
-      async redirect({ url }) {
-        return url;
+      async redirect({ url, baseUrl }) {
+        // Allows relative callback URLs
+        if (url.startsWith('/')) {
+          return `${baseUrl}${url}`;
+        }
+        // Allows callback URLs on the same origin
+        else if (new URL(url).origin === baseUrl) {
+          return url;
+        }
+        return baseUrl;
       },
       async session({ session, token }) {
         // @ts-ignore

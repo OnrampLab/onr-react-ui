@@ -2,6 +2,7 @@ import { Button, Checkbox, Form, Input, message as Message, Row } from 'antd';
 import { NextPageContext } from 'next';
 import { getCsrfToken, getSession, signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';
 import styled from 'styled-components';
@@ -38,6 +39,8 @@ interface Props {
 }
 
 const Signin: React.FC<Props> = ({ csrfToken }) => {
+  const router = useRouter();
+
   async function onFinish({ email, password }: any) {
     try {
       // @ts-ignore
@@ -45,6 +48,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
         email: email,
         password: password,
         redirect: false,
+        callbackUrl: (router.query.callbackUrl as string) ?? '/',
       });
 
       if (ok) {
