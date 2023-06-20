@@ -1,6 +1,7 @@
 import { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { BasicClient } from '.';
 import { Resource } from '../definitions';
+import handleApiError from './handleApiError';
 
 export class ResourceClient<T> extends BasicClient implements Resource<T> {
   protected resourceName: string;
@@ -28,6 +29,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     });
   }
 
+  @handleApiError
   async create(requestData: T) {
     const response = await this.client.request<T>({
       url: `/${this.resourceName}`,
@@ -38,6 +40,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     return response.data;
   }
 
+  @handleApiError
   async update(id: number, requestData: T) {
     const response = await this.client.request<T>({
       url: `/${this.resourceName}/${id}`,
@@ -48,6 +51,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     return response.data;
   }
 
+  @handleApiError
   async list(params?: any) {
     const response = await this.client.request<T[]>({
       url: `/${this.resourceName}`,
@@ -57,6 +61,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     return response.data;
   }
 
+  @handleApiError
   async find(id: number) {
     const response = await this.client.request<T>({
       url: `/${this.resourceName}/${id}`,
@@ -65,6 +70,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     return response.data;
   }
 
+  @handleApiError
   async delete(id: number) {
     await this.client.request<void>({
       method: 'DELETE',

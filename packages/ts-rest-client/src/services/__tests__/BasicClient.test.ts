@@ -5,9 +5,9 @@ import { BasicClient } from '../BasicClient';
 describe('BasicClient', () => {
   it('respond for successful API call', async () => {
     const axiosInstance = axios.create();
-    const chatClient = BasicClient.fromAxiosInstance(axiosInstance);
+    const client = BasicClient.fromAxiosInstance(axiosInstance);
 
-    const response = await chatClient.get('https://jsonplaceholder.typicode.com/todos/1');
+    const response = await client.get('https://jsonplaceholder.typicode.com/todos/1');
 
     expect(response.data).toEqual({
       completed: false,
@@ -19,10 +19,10 @@ describe('BasicClient', () => {
 
   it('throw error for 404 error', async () => {
     const axiosInstance = axios.create();
-    const chatClient = BasicClient.fromAxiosInstance(axiosInstance);
+    const client = BasicClient.fromAxiosInstance(axiosInstance);
 
     try {
-      await chatClient.post('https://jsonplaceholder.typicode.com/todos/1');
+      await client.post('https://jsonplaceholder.typicode.com/todos/1');
     } catch (error) {
       expect(error).toBeInstanceOf(RecordNotFoundError);
     }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import nock from 'nock';
-import { ResourceClient } from './ResourceClient';
+import { ResourceClient } from '../ResourceClient';
 
 interface User {
   id: number;
