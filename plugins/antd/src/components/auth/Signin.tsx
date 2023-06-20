@@ -53,6 +53,7 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
 
       if (ok) {
         window.location.href = url;
+        return;
       }
 
       let message = 'Incorrect email or password';
