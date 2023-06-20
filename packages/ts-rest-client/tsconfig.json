@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.components.json",
   "compilerOptions": {
+    "experimentalDecorators": true,
     "outDir": "lib",
     "declarationDir": "./types",
     "sourceMap": true
