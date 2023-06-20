@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- Improve API error handling
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/common@0.8.0
+  - @onr/logging@0.4.0
+  - @onr/ts-rest-client@1.2.0
+
 ## 0.16.0
 
 ### Minor Changes

@@ -1,5 +1,25 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- Improve API error handling
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.0
+  - @onr/plugin-custom-home@0.5.0
+  - @onr/core@0.17.0
+  - @onr/logging@0.4.0
+  - @onr/mock@3.0.0
+  - @onr/plugin-account@0.8.0
+  - @onr/plugin-antd@0.11.0
+  - @onr/plugin-auth@0.8.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.4.0
+  - @onr/plugin-user@0.6.0
+
 ## 0.7.0
 
 ### Minor Changes

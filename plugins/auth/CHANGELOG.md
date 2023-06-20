@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- Improve API error handling
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/common@0.8.0
+  - @onr/core@0.17.0
+
 ## 0.7.0
 
 ### Minor Changes

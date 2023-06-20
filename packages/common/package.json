@@ -1,6 +1,6 @@
 {
   "name": "@onr/common",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "shared utils module",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",
-    "@onr/eslint-config": "^0.5.0",
-    "@onr/prettier-config": "^1.3.0",
+    "@onr/eslint-config": "^0.6.0",
+    "@onr/prettier-config": "^1.4.0",
     "@types/debug": "^4.1.5",
     "@types/nock": "^11.1.0",
     "debug": "^4.3.1",

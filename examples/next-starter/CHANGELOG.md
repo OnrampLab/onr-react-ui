@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.0
+
+### Minor Changes
+
+- Improve API error handling
+
 ## 0.23.0
 
 ### Minor Changes
