@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- Improve api error handling and upgrade typescript
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.16.0
+  - @onr/ts-rest-client@1.1.0
+
 ## 0.2.5
 
 ### Patch Changes

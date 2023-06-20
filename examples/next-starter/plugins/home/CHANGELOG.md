@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- Improve api error handling and upgrade typescript
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.16.0
+
 ## 0.3.4
 
 ### Patch Changes

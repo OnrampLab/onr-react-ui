@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.0
+
+### Minor Changes
+
+- Improve api error handling and upgrade typescript
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/common@0.7.0
+
 ## 1.0.2
 
 ### Patch Changes

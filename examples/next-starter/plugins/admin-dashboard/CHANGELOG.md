@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- Improve api error handling and upgrade typescript
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.16.0
+  - @onr/plugin-antd@0.10.0
+
 ## 0.3.6
 
 ### Patch Changes

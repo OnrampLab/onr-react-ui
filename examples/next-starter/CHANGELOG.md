@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.23.0
+
+### Minor Changes
+
+- Improve api error handling and upgrade typescript
+
 ## 0.22.4
 
 ### Patch Changes
