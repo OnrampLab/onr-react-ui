@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- Improve logging
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.1
+  - @onr/plugin-custom-home@0.5.1
+  - @onr/core@0.17.1
+  - @onr/plugin-account@0.8.1
+  - @onr/plugin-antd@0.11.1
+  - @onr/plugin-auth@0.8.1
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.4.1
+  - @onr/plugin-user@0.6.1
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- Improve logging
+- Updated dependencies
+  - @onr/core@0.17.1
+  - @onr/ts-rest-client@1.2.1
+
 ## 0.4.0
 
 ### Minor Changes

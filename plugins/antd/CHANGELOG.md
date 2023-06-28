@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.11.1
+
+### Patch Changes
+
+- Improve logging
+- Updated dependencies
+  - @onr/core@0.17.1
+
 ## 0.11.0
 
 ### Minor Changes

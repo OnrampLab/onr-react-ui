@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.1
+
+### Patch Changes
+
+- Improve logging
+
 ## 0.24.0
 
 ### Minor Changes

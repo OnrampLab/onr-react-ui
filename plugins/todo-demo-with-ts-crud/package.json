@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-todo-demo-with-ts-rest-client",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "todo demo plugin",
   "license": "ISC",
   "main": "lib/index.js",
@@ -28,8 +28,8 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/core": "^0.17.0",
-    "@onr/ts-rest-client": "^1.2.0",
+    "@onr/core": "^0.17.1",
+    "@onr/ts-rest-client": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^4.3.1"
