@@ -33,6 +33,11 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
           try {
             const token = await login(credentials);
 
+            console.log('Login token', {
+              email: credentials?.email,
+              token,
+            });
+
             const user = await getUser(token.access_token);
 
             user.token = token;
