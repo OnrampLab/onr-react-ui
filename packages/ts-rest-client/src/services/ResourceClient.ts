@@ -21,14 +21,6 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
     return resourceClient;
   }
 
-  setToken(token: string) {
-    this.client.interceptors.request.use(function (config) {
-      config.headers.Authorization = `Bearer ${token}`;
-
-      return config;
-    });
-  }
-
   @handleApiError
   async create(requestData: T) {
     const response = await this.client.request<T>({
