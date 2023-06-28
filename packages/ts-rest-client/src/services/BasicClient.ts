@@ -22,6 +22,8 @@ export class BasicClient implements Client {
     this.client.interceptors.request.use(function (config) {
       config.headers.Authorization = `Bearer ${token}`;
 
+      console.log('Sending header: Authorization', config.headers.Authorization);
+
       return config;
     });
   }
