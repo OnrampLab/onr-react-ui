@@ -19,7 +19,7 @@ export const routes = [
     LayoutContainer: AntdLayoutContainer,
   },
   {
-    path: '/admin/*',
+    path: '/admin/**',
     layout: 'antd-admin',
     authRequired: true,
     LayoutContainer: AntdLayoutContainer,
@@ -41,7 +41,7 @@ export const routes = [
     authRequired: false,
   },
   {
-    path: '/*',
+    path: '/**',
     layout: 'simple-full-page',
     authRequired: false,
   },
