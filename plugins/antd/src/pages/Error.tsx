@@ -37,7 +37,7 @@ export const getErrorServerSideProps = ({ res, err, query }: NextPageContext) =>
   const code = res ? res.statusCode : err ? err.statusCode : 404;
   const error = query.error ?? null;
 
-  console.log({ error });
+  console.log('Error page', { error });
 
   return {
     props: {
