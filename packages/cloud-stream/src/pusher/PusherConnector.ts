@@ -11,7 +11,7 @@ export type PusherOption = {
 export class PusherConnector implements Connector {
   private client: Pusher | null = null;
 
-  constructor(private options: Option) {}
+  constructor(private options: PusherOption) {}
 
   connect() {
     this.client = new Pusher(this.options.appKey, {
