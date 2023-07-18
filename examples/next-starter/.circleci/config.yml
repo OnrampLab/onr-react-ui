@@ -47,6 +47,10 @@ commands:
           environment:
             JEST_JUNIT_OUTPUT_DIR: "reports/jest/js-test-results.xml"
 
+      - run:
+          name: See if passed build
+          command: |
+            yarn turbo run build --filter=web...
       # - run:
       #     name: Build storybooks
       #     command: |
