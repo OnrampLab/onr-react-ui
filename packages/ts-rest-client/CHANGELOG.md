@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+- Add resource for ts-rest-client
+
 ## 1.2.2
 
 ### Patch Changes

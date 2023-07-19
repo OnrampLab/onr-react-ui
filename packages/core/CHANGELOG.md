@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.17.2
+
+### Patch Changes
+
+- Add resource for ts-rest-client
+- Updated dependencies
+  - @onr/ts-rest-client@1.3.0
+
 ## 0.17.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@onr/core",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "description": "core module",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -42,7 +42,7 @@
   "dependencies": {
     "@onr/common": "^0.8.0",
     "@onr/logging": "^0.4.0",
-    "@onr/ts-rest-client": "^1.2.1",
+    "@onr/ts-rest-client": "^1.3.0",
     "axios": "^0.21.1",
     "minimatch": "^3.0.4",
     "next-auth": "^4.22.1",
