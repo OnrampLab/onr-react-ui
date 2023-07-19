@@ -34,7 +34,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^1.0.0"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",
