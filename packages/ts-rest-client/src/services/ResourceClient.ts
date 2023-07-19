@@ -1,13 +1,13 @@
-import { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { BasicClient } from '.';
-import { Resource } from '../definitions';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import { Resourceable } from '../definitions';
 import handleApiError from './handleApiError';
 
-export class ResourceClient<T> extends BasicClient implements Resource<T> {
+export class ResourceClient<T> implements Resourceable<T> {
   protected resourceName: string;
+  protected axiosInstance: AxiosInstance;
 
   constructor(resourceName: string, options?: AxiosRequestConfig) {
-    super(options);
+    this.axiosInstance = axios.create(options);
 
     this.resourceName = resourceName;
   }
@@ -15,8 +15,6 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
   static fromAxiosInstanceAndName(axiosInstance: AxiosInstance, resourceName: string) {
     const resourceClient = new this(resourceName);
     resourceClient.axiosInstance = axiosInstance;
-
-    resourceClient.initialize();
 
     return resourceClient;
   }
