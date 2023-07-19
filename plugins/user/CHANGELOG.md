@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- ts-rest-client's ResourceClient does not extend BasicClient
+- Updated dependencies
+  - @onr/core@0.17.3
+  - @onr/plugin-account@0.8.3
+  - @onr/plugin-auth@0.8.3
+
 ## 0.6.2
 
 ### Patch Changes
