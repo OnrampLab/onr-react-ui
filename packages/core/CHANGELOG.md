@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.17.4
+
+### Patch Changes
+
+- Upgrade axios version
+- Updated dependencies
+  - @onr/ts-rest-client@1.3.2
+
 ## 0.17.3
 
 ### Patch Changes

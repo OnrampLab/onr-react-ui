@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.3
+
+### Patch Changes
+
+- Upgrade axios version
+- Updated dependencies
+  - @onr/core@0.17.4
+  - @onr/plugin-antd@0.11.3
+
 ## 0.5.2
 
 ### Patch Changes
