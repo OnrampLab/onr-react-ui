@@ -14,7 +14,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   static fromAxiosInstanceAndName(axiosInstance: AxiosInstance, resourceName: string) {
     const resourceClient = new this(resourceName);
-    resourceClient.client = axiosInstance;
+    resourceClient.axiosInstance = axiosInstance;
 
     resourceClient.initialize();
 
@@ -23,7 +23,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   @handleApiError
   async create(requestData: T) {
-    const response = await this.client.request<T>({
+    const response = await this.axiosInstance.request<T>({
       url: `/${this.resourceName}`,
       method: 'POST',
       data: requestData,
@@ -34,7 +34,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   @handleApiError
   async update(id: number, requestData: T) {
-    const response = await this.client.request<T>({
+    const response = await this.axiosInstance.request<T>({
       url: `/${this.resourceName}/${id}`,
       method: 'PATCH',
       data: requestData,
@@ -45,7 +45,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   @handleApiError
   async list(params?: any) {
-    const response = await this.client.request<T[]>({
+    const response = await this.axiosInstance.request<T[]>({
       url: `/${this.resourceName}`,
       params,
     });
@@ -55,7 +55,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   @handleApiError
   async find(id: number) {
-    const response = await this.client.request<T>({
+    const response = await this.axiosInstance.request<T>({
       url: `/${this.resourceName}/${id}`,
     });
 
@@ -64,7 +64,7 @@ export class ResourceClient<T> extends BasicClient implements Resource<T> {
 
   @handleApiError
   async delete(id: number) {
-    await this.client.request<void>({
+    await this.axiosInstance.request<void>({
       method: 'DELETE',
       url: `/${this.resourceName}/${id}`,
     });

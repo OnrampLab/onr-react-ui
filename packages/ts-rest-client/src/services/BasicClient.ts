@@ -3,15 +3,15 @@ import { Client } from '../definitions';
 import handleApiError from './handleApiError';
 
 export class BasicClient implements Client {
-  protected client: AxiosInstance;
+  protected axiosInstance: AxiosInstance;
 
   constructor(options?: AxiosRequestConfig) {
-    this.client = axios.create(options);
+    this.axiosInstance = axios.create(options);
   }
 
   static fromAxiosInstance(axiosInstance: AxiosInstance) {
     const basicClient = new this();
-    basicClient.client = axiosInstance;
+    basicClient.axiosInstance = axiosInstance;
 
     basicClient.initialize();
 
@@ -19,7 +19,7 @@ export class BasicClient implements Client {
   }
 
   setToken(token: string) {
-    this.client.interceptors.request.use(function (config) {
+    this.axiosInstance.interceptors.request.use(function (config) {
       config.headers.Authorization = `Bearer ${token}`;
 
       console.log('Sending header: Authorization', config.headers.Authorization);
@@ -31,30 +31,35 @@ export class BasicClient implements Client {
   initialize() {}
 
   getBaseUrl() {
-    return this.client.defaults.baseURL;
+    return this.axiosInstance.defaults.baseURL;
   }
 
   addResponseTramsform<T>(transformer: (response: AxiosResponse<T>) => any) {
-    this.client.interceptors.response.use(transformer);
+    this.axiosInstance.interceptors.response.use(transformer);
   }
 
   @handleApiError
   post<T>(url: string, data?: any, config?: any) {
-    return this.client.post<T>(url, data, config);
+    return this.axiosInstance.post<T>(url, data, config);
   }
 
   @handleApiError
   patch<T>(url: string, data?: any, config?: any) {
-    return this.client.patch<T>(url, data, config);
+    return this.axiosInstance.patch<T>(url, data, config);
   }
 
   @handleApiError
   put<T>(url: string, data?: any, config?: any) {
-    return this.client.put<T>(url, data, config);
+    return this.axiosInstance.put<T>(url, data, config);
   }
 
   @handleApiError
   get<T>(url: string, config?: any) {
-    return this.client.get<T>(url, config);
+    return this.axiosInstance.get<T>(url, config);
+  }
+
+  @handleApiError
+  delete<T>(url: string, config?: any) {
+    return this.axiosInstance.delete<T>(url, config);
   }
 }
