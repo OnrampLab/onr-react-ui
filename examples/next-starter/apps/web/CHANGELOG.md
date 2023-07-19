@@ -1,5 +1,22 @@
 # Change Log
 
+## 0.8.3
+
+### Patch Changes
+
+- Upgrade axios
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.4
+  - @onr/plugin-custom-home@0.5.4
+  - @onr/core@0.17.5
+  - @onr/logging@0.4.1
+  - @onr/mock@3.0.1
+  - @onr/plugin-account@0.8.5
+  - @onr/plugin-antd@0.11.4
+  - @onr/plugin-auth@0.8.5
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.4.5
+  - @onr/plugin-user@0.6.5
+
 ## 0.8.2
 
 ### Patch Changes

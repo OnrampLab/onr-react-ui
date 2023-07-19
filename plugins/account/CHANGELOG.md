@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- Upgrade axios
+- Updated dependencies
+  - @onr/common@0.8.1
+  - @onr/core@0.17.5
+  - @onr/mock@3.0.1
+  - @onr/ts-rest-client@1.3.3
+
 ## 0.8.4
 
 ### Patch Changes

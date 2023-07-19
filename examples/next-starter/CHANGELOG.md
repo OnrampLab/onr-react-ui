@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.4
+
+### Patch Changes
+
+- Upgrade axios
+
 ## 0.24.3
 
 ### Patch Changes

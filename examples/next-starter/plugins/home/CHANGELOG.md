@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.5.4
+
+### Patch Changes
+
+- Upgrade axios
+- Updated dependencies
+  - @onr/core@0.17.5
+
 ## 0.5.3
 
 ### Patch Changes

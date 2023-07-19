@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.17.5
+
+### Patch Changes
+
+- Upgrade axios
+- Updated dependencies
+  - @onr/common@0.8.1
+  - @onr/logging@0.4.1
+  - @onr/ts-rest-client@1.3.3
+
 ## 0.17.4
 
 ### Patch Changes

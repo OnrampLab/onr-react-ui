@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- Upgrade axios
+- Updated dependencies
+  - @onr/common@0.8.1
+  - @onr/core@0.17.5
+  - @onr/mock@3.0.1
+  - @onr/plugin-account@0.8.5
+  - @onr/plugin-auth@0.8.5
+
 ## 0.6.4
 
 ### Patch Changes

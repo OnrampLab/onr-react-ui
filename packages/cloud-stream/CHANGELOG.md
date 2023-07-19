@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- Upgrade axios
+
 ## 1.0.1
 
 ### Patch Changes
