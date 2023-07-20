@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.4
+
+### Patch Changes
+
+- Fix ts-rest-client
+
 ## 1.3.3
 
 ### Patch Changes
