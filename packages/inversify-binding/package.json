@@ -28,8 +28,8 @@
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "devDependencies": {
     "inversify": "^6.0.1",
-    "jest": "^27.4.5",
-    "ts-jest": "^27.1.2"
+    "jest": "^29.6.1",
+    "ts-jest": "^29.1.1"
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13"

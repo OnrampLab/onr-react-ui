@@ -16,7 +16,7 @@
     "storybook": "turbo run storybook",
     "lint": "turbo run lint --parallel",
     "format": "turbo run format --parallel",
-    "test": "turbo run test --parallel",
+    "test": "turbo run test --parallel --scope='!next-starter'",
     "test:ci": "turbo run test --concurrency=1",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build",
