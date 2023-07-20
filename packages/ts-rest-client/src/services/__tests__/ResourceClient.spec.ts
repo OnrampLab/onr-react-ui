@@ -1,4 +1,3 @@
-import axios from 'axios';
 import nock from 'nock';
 import { ResourceClient } from '../ResourceClient';
 
@@ -15,9 +14,6 @@ describe('ResourceClient', () => {
   ];
 
   beforeAll(() => {
-    // fix CORS issue
-    axios.defaults.adapter = require('axios/lib/adapters/http');
-
     resource = new ResourceClient('todos', {
       baseURL: 'https://jsonplaceholder.typicode.com',
     });

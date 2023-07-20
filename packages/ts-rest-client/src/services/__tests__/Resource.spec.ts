@@ -17,8 +17,6 @@ describe('Resource', () => {
   ];
 
   beforeAll(() => {
-    // fix CORS issue
-    axios.defaults.adapter = require('axios/lib/adapters/http');
     const axiosInstance = axios.create({
       baseURL: 'https://jsonplaceholder.typicode.com',
     });
