@@ -38,7 +38,8 @@ export class Resource<T> {
   }
 
   async list(params?: any): Promise<T[]> {
-    const response = await this.client.get<any>(`${this.endpoint}`, params);
+    const paramsString = new URLSearchParams(params);
+    const response = await this.client.get<any>(`${this.endpoint}?${paramsString}`);
 
     return response.data;
   }
