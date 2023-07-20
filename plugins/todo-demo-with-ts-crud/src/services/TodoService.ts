@@ -3,7 +3,7 @@ import { Todo } from '../definitions';
 
 class TodoService extends ResourceClient<Todo> {
   async customList() {
-    const response = await this.client.request<Todo[]>({
+    const response = await this.axiosInstance.request<Todo[]>({
       url: '/todos',
     });
 
