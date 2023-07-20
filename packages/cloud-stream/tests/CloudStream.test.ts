@@ -64,7 +64,8 @@ describe('CloudStream', () => {
 
   describe('Subscribe extra channel', () => {
     it('connect the server', () => {
-      const cloudStream = CloudStream.connect('pusher', {
+      const mockConnector = new MockConnector();
+      const cloudStream = CloudStream.connect(mockConnector, {
         channel: 'channel1',
         config: {
           appKey: 'test',
