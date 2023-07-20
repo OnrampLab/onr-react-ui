@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.6
+
+### Patch Changes
+
+- Fix ts-rest-client test
+
 ## 0.24.5
 
 ### Patch Changes

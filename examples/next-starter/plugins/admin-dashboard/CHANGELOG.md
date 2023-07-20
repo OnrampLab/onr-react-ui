@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.6
+
+### Patch Changes
+
+- Fix ts-rest-client test
+- Updated dependencies
+  - @onr/core@0.17.7
+  - @onr/plugin-antd@0.11.6
+
 ## 0.5.5
 
 ### Patch Changes

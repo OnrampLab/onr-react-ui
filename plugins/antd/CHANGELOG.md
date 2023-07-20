@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.11.6
+
+### Patch Changes
+
+- Fix ts-rest-client test
+- Updated dependencies
+  - @onr/core@0.17.7
+
 ## 0.11.5
 
 ### Patch Changes

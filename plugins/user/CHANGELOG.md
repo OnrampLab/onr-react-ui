@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.7
+
+### Patch Changes
+
+- Fix ts-rest-client test
+- Updated dependencies
+  - @onr/core@0.17.7
+  - @onr/plugin-account@0.8.7
+  - @onr/plugin-auth@0.8.7
+
 ## 0.6.6
 
 ### Patch Changes
