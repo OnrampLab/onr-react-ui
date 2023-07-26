@@ -28,4 +28,8 @@ export class PusherConnector implements Connector {
 
     return new PusherChannel(pusherChannel);
   }
+
+  unsubscribe(channelName: string) {
+    this.client?.unsubscribe(channelName);
+  }
 }

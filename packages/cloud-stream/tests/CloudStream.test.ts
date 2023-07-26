@@ -32,6 +32,8 @@ class MockConnector implements Connector {
     return this.channel;
   }
 
+  unsubscribe(channelName: string) {}
+
   getDefaultChannel() {
     return this.channel;
   }
@@ -52,13 +54,14 @@ describe('CloudStream', () => {
         },
       });
 
-      cloudStream.getDefaultChannel().bind('event1', event => {
+      cloudStream.getDefaultChannel()?.bind('event1', event => {
         eventName = event.name;
       });
 
       mockConnector.getDefaultChannel().emit('event1', { name: 'event1' });
 
       expect(eventName).toEqual('event1');
+      expect(cloudStream.getDefaultChannelSubscribers()).toEqual(1);
     });
   });
 
@@ -82,6 +85,30 @@ describe('CloudStream', () => {
       mockChannel.emit('event1', { name: 'event1' });
 
       expect(eventName).toEqual('event1');
+      expect(cloudStream.getChannelSubscribers('channel2')).toEqual(1);
+    });
+
+    it('manage subscribers', () => {
+      const mockConnector = new MockConnector();
+      const cloudStream = CloudStream.connect(mockConnector, {
+        channel: 'channel1',
+        config: {
+          appKey: 'test',
+          cluster: 'test',
+        },
+      });
+      const mockChannel = new MockChannel();
+      let eventName: string = '';
+
+      cloudStream.subscribe('channel2', mockChannel);
+      cloudStream.subscribe('channel2', mockChannel);
+
+      expect(cloudStream.getChannelSubscribers('channel2')).toEqual(2);
+
+      cloudStream.unsubscribe('channel2');
+      cloudStream.unsubscribe('channel2');
+
+      expect(cloudStream.getChannelSubscribers('channel2')).toEqual(0);
     });
   });
 });
