@@ -1,6 +1,6 @@
 {
   "name": "@onr/cloud-stream",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A module to receive push notifications",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",

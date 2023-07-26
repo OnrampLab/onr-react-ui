@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.7
+
+### Patch Changes
+
+- Improve @onr/cloud-stream
+
 ## 0.24.6
 
 ### Patch Changes
