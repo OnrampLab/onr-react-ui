@@ -4,6 +4,7 @@ import { PusherConnector, PusherOption } from './pusher/PusherConnector';
 
 type CloudStreamOption = {
   channel?: string;
+  disconnectOnNoChannels?: boolean;
   config: PusherOption;
 };
 
@@ -12,8 +13,10 @@ export class CloudStream {
   public connecter: Connector | null = null;
   private channelMap: Map<string, Channel> = new Map();
   private channelSubscribersMap: Map<string, number> = new Map();
+  private options: CloudStreamOption;
 
   constructor(connector: string | Connector, options: CloudStreamOption) {
+    this.options = options;
     const channel = options?.channel;
 
     if (channel) {
@@ -45,6 +48,10 @@ export class CloudStream {
     return cloudStream;
   }
 
+  isConnected(): boolean {
+    return !!this.connecter?.isConnected();
+  }
+
   subscribe(channelName: string, channel?: Channel): Channel {
     if (!this.connecter) {
       throw new Error(`The connector is null, please connect() first`);
@@ -65,10 +72,14 @@ export class CloudStream {
   }
 
   unsubscribe(channelName: string) {
-    const count = this.removeChannelSubscriber(channelName);
+    const subscribers = this.removeChannelSubscriber(channelName);
 
-    if (count === 0) {
+    if (subscribers === 0) {
       this.connecter?.unsubscribe(channelName);
+    }
+
+    if (this.options.disconnectOnNoChannels && this.getChannelCount() === 0) {
+      this.connecter?.disconnect();
     }
   }
 
@@ -93,6 +104,10 @@ export class CloudStream {
 
   getChannelSubscribers(channelName: string): number {
     return this.channelSubscribersMap.get(channelName) ?? 0;
+  }
+
+  private getChannelCount(): number {
+    return this.channelMap.values.length;
   }
 
   private addChannelSubscriber(channelName: string): number {

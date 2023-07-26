@@ -10,6 +10,7 @@ export type PusherOption = {
 
 export class PusherConnector implements Connector {
   private client: Pusher | null = null;
+  private status: string = 'initialized';
 
   constructor(private options: PusherOption) {}
 
@@ -17,6 +18,18 @@ export class PusherConnector implements Connector {
     this.client = new Pusher(this.options.appKey, {
       cluster: this.options.cluster,
     });
+
+    this.client.bind('state_change', (states: any) => {
+      this.status = states.current;
+    });
+  }
+
+  disconnect(): void {
+    this.client?.disconnect();
+  }
+
+  isConnected(): boolean {
+    return this.status === 'connected';
   }
 
   subscribe(channelName: string): Channel {

@@ -23,8 +23,19 @@ class MockChannel implements Channel {
 
 class MockConnector implements Connector {
   private channel: Channel;
+  private connected: boolean = false;
 
-  connect() {}
+  connect() {
+    this.connected = true;
+  }
+
+  disconnect() {
+    this.connected = false;
+  }
+
+  isConnected(): boolean {
+    return this.connected;
+  }
 
   subscribe(channelName: string): Channel {
     this.channel = new MockChannel();
@@ -124,7 +135,26 @@ describe('CloudStream', () => {
       cloudStream.unsubscribe('channel2');
       cloudStream.unsubscribe('channel2');
 
+      expect(cloudStream.isConnected()).toBeTruthy();
       expect(cloudStream.getChannelSubscribers('channel2')).toEqual(0);
+    });
+
+    it('disconnect the connection if there is no channel by setting', () => {
+      const mockConnector = new MockConnector();
+      const cloudStream = CloudStream.connect(mockConnector, {
+        config: {
+          appKey: 'test',
+          cluster: 'test',
+        },
+        disconnectOnNoChannels: true,
+      });
+      const mockChannel = new MockChannel();
+      let eventName: string = '';
+
+      cloudStream.subscribe('channel2', mockChannel);
+      cloudStream.unsubscribe('channel2');
+
+      expect(cloudStream.isConnected()).toBeFalsy();
     });
   });
 });
