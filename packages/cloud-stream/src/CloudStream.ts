@@ -3,12 +3,12 @@ import { Connector } from './Connector';
 import { PusherConnector, PusherOption } from './pusher/PusherConnector';
 
 type CloudStreamOption = {
-  channel: string;
+  channel?: string;
   config: PusherOption;
 };
 
 export class CloudStream {
-  public defaultChannelName: string = 'default';
+  public defaultChannelName: string | null = null;
   public connecter: Connector | null = null;
   private channelMap: Map<string, Channel> = new Map();
   private channelSubscribersMap: Map<string, number> = new Map();
@@ -38,10 +38,9 @@ export class CloudStream {
       cloudStream.connecter.connect();
     }
 
-    cloudStream.channelMap.set(
-      cloudStream.defaultChannelName,
-      cloudStream.subscribe(cloudStream.defaultChannelName),
-    );
+    if (cloudStream.defaultChannelName) {
+      cloudStream.subscribe(cloudStream.defaultChannelName);
+    }
 
     return cloudStream;
   }
@@ -74,7 +73,9 @@ export class CloudStream {
   }
 
   getDefaultChannel(): Channel | undefined {
-    return this.getChannel(this.defaultChannelName);
+    if (this.defaultChannelName) {
+      return this.getChannel(this.defaultChannelName);
+    }
   }
 
   getChannel(channelName: string): Channel | undefined {
@@ -84,6 +85,9 @@ export class CloudStream {
   }
 
   getDefaultChannelSubscribers(): number {
+    if (!this.defaultChannelName) {
+      return 0;
+    }
     return this.getChannelSubscribers(this.defaultChannelName);
   }
 

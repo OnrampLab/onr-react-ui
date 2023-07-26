@@ -41,7 +41,22 @@ class MockConnector implements Connector {
 
 describe('CloudStream', () => {
   describe('Use default channel', () => {
-    it('works', () => {
+    it('will not subscribe default channel if not provided', () => {
+      const mockConnector = new MockConnector();
+
+      let eventName: string = '';
+
+      const cloudStream = CloudStream.connect(mockConnector, {
+        config: {
+          appKey: 'test',
+          cluster: 'test',
+        },
+      });
+
+      expect(cloudStream.getDefaultChannelSubscribers()).toEqual(0);
+    });
+
+    it('subscribe default channel on connect', () => {
       const mockConnector = new MockConnector();
 
       let eventName: string = '';
@@ -85,6 +100,7 @@ describe('CloudStream', () => {
       mockChannel.emit('event1', { name: 'event1' });
 
       expect(eventName).toEqual('event1');
+      expect(cloudStream.getDefaultChannelSubscribers()).toEqual(1);
       expect(cloudStream.getChannelSubscribers('channel2')).toEqual(1);
     });
 
