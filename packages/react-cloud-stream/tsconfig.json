@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.components.json",
+  "compilerOptions": {
+    "target": "ESNext",
+    "outDir": "lib",
+    "declarationDir": "./types",
+    "sourceMap": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["**/*.spec.tsx?", "**/*.test.tsx?"]
+}

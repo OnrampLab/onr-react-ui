@@ -1,0 +1,54 @@
+{
+  "name": "@onr/react-cloud-stream",
+  "version": "0.0.1",
+  "description": "React cloud stream",
+  "author": "Onramp Lab DEV <dev@onramplab.com>",
+  "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "types",
+    "src"
+  ],
+  "types": "types/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
+  },
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "build": "tsc --build tsconfig.json",
+    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "prepublishOnly": "yarn build"
+  },
+  "bugs": {
+    "url": "https://github.com/OnrampLab/onr-react-ui/issues"
+  },
+  "dependencies": {
+    "@onr/cloud-stream": "^1.1.0",
+    "react": "18.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
+    "@onr/eslint-config": "^0.6.0",
+    "@onr/prettier-config": "^1.4.0",
+    "@types/debug": "^4.1.5",
+    "debug": "^4.3.1",
+    "eslint": "^8.40.0",
+    "prettier": "^1.18.2",
+    "typescript": "^5.1.3"
+  },
+  "prettier": "@onr/prettier-config",
+  "publishConfig": {
+    "access": "public"
+  }
+}
