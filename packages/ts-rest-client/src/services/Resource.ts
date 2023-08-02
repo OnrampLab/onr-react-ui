@@ -44,7 +44,7 @@ export class Resource<T> {
       params && Object.keys(params).length
         ? `${this.endpoint}?${encodedQueryString}`
         : this.endpoint;
-    console.log('##################################', url);
+
     const response = await this.client.get<any>(url);
 
     return response.data;
