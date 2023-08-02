@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.8.6
+
+### Patch Changes
+
+- Improve @onr/ts-rest-client
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.7
+  - @onr/plugin-custom-home@0.5.7
+  - @onr/core@0.17.8
+  - @onr/plugin-account@0.8.8
+  - @onr/plugin-antd@0.11.7
+  - @onr/plugin-auth@0.8.8
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.4.8
+  - @onr/plugin-user@0.6.8
+
 ## 0.8.5
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.8
+
+### Patch Changes
+
+- Improve @onr/ts-rest-client
+- Updated dependencies
+  - @onr/core@0.17.8
+  - @onr/plugin-account@0.8.8
+  - @onr/plugin-auth@0.8.8
+
 ## 0.6.7
 
 ### Patch Changes

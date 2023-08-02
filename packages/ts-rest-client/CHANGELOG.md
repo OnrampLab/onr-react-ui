@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.6
+
+### Patch Changes
+
+- Improve @onr/ts-rest-client
+
 ## 1.3.5
 
 ### Patch Changes

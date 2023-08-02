@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.8
+
+### Patch Changes
+
+- Improve @onr/ts-rest-client
+
 ## 0.24.7
 
 ### Patch Changes
