@@ -1,3 +1,4 @@
+import stringify from 'qs-stringify';
 import { BasicClient } from './BasicClient';
 
 export class Resource<T> {
@@ -38,12 +39,9 @@ export class Resource<T> {
   }
 
   async list(params?: any): Promise<T[]> {
-    const paramsString = new URLSearchParams(params);
-    const encodedQueryString = encodeURI(paramsString.toString());
+    const paramsString = stringify(params);
     const url =
-      params && Object.keys(params).length
-        ? `${this.endpoint}?${encodedQueryString}`
-        : this.endpoint;
+      params && Object.keys(params).length ? `${this.endpoint}?${paramsString}` : this.endpoint;
 
     const response = await this.client.get<any>(url);
 
