@@ -22,14 +22,14 @@ describe('Resource', () => {
     });
     client = BasicClient.fromAxiosInstance(axiosInstance);
 
-    resource = Resource.createByResourceName(client, 'todo');
+    resource = Resource.createByResourceName(client, 'comment');
   });
 
-  describe('list', () => {
+  describe.only('list', () => {
     it('should return lists of resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, usersData);
+      nock('https://jsonplaceholder.typicode.com').get('/comments?postId=1').reply(200, usersData);
 
-      const users = await resource.list();
+      const users = await resource.list({ postId: 1 });
 
       expect(users.length).toEqual(2);
     });
@@ -37,7 +37,7 @@ describe('Resource', () => {
 
   describe('get', () => {
     it('should return a resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/todos/1').reply(200, usersData[0]);
+      nock('https://jsonplaceholder.typicode.com').get('/comments/1').reply(200, usersData[0]);
 
       const user = await resource.find(1);
 
@@ -53,7 +53,7 @@ describe('Resource', () => {
         id: 3,
         name: 'C',
       };
-      nock('https://jsonplaceholder.typicode.com').post('/todos').reply(201, userData);
+      nock('https://jsonplaceholder.typicode.com').post('/comments').reply(201, userData);
 
       const user = await resource.create(userData);
 
@@ -70,7 +70,7 @@ describe('Resource', () => {
         name: 'C',
       };
       nock('https://jsonplaceholder.typicode.com')
-        .patch(`/todos/${userData.id}`)
+        .patch(`/comments/${userData.id}`)
         .reply(200, userData);
 
       const user = await resource.update(userData.id, userData);
@@ -83,7 +83,7 @@ describe('Resource', () => {
 
   describe('delete', () => {
     it('should return a resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').delete('/todos/1').reply(204, {});
+      nock('https://jsonplaceholder.typicode.com').delete('/comments/1').reply(204, {});
 
       await resource.delete(1);
     });
