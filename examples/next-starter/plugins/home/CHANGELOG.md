@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.5.9
+
+### Patch Changes
+
+- @onr/ts-rest-client support nested query string
+- Updated dependencies
+  - @onr/core@0.17.10
+
 ## 0.5.8
 
 ### Patch Changes

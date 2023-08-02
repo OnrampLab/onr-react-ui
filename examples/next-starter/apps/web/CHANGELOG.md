@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.8.8
+
+### Patch Changes
+
+- @onr/ts-rest-client support nested query string
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.9
+  - @onr/plugin-custom-home@0.5.9
+  - @onr/core@0.17.10
+  - @onr/plugin-account@0.8.10
+  - @onr/plugin-antd@0.11.9
+  - @onr/plugin-auth@0.8.10
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.4.10
+  - @onr/plugin-user@0.6.10
+
 ## 0.8.7
 
 ### Patch Changes
