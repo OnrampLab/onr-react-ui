@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.17.9
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @onr/ts-rest-client@1.3.7
+
 ## 0.17.8
 
 ### Patch Changes

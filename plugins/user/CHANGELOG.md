@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.9
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @onr/core@0.17.9
+  - @onr/plugin-account@0.8.9
+  - @onr/plugin-auth@0.8.9
+
 ## 0.6.8
 
 ### Patch Changes

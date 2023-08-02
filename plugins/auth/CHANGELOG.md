@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.9
+
+### Patch Changes
+
+- Bump version
+- Updated dependencies
+  - @onr/core@0.17.9
+
 ## 0.8.8
 
 ### Patch Changes

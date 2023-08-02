@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.9
+
+### Patch Changes
+
+- Bump version
+
 ## 0.24.8
 
 ### Patch Changes
