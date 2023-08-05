@@ -37,6 +37,12 @@ export const routes = [
     LayoutContainer: AntdLayoutContainer,
   },
   {
+    path: '/todos/**',
+    layout: 'antd-admin',
+    authRequired: false,
+    LayoutContainer: AntdLayoutContainer,
+  },
+  {
     path: '/_error',
     layout: 'antd-full-page',
     authRequired: false,

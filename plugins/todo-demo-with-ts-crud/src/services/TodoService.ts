@@ -9,6 +9,14 @@ class TodoService extends ResourceClient<Todo> {
 
     return response.data;
   }
+
+  async getTodo(id: number) {
+    const response = await this.axiosInstance.request<Todo>({
+      url: `/todos/${id}`,
+    });
+
+    return response.data;
+  }
 }
 
 export const todoService = new TodoService('todos', {
