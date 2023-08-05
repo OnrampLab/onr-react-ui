@@ -3,7 +3,7 @@ import { Divider, Drawer, Layout, List, Menu, Switch } from 'antd';
 import { capitalize } from 'lodash-es';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 /* eslint-disable complexity  */
@@ -58,7 +58,7 @@ export const SidebarMenu = ({
     setCollapse,
     setWeak,
   } = coreActions;
-  const { pathname = '' } = router || {};
+  const { asPath: pathname = '' } = router || {};
 
   useEffect(() => {
     const roles = currentUser?.roles || [];
@@ -81,15 +81,23 @@ export const SidebarMenu = ({
     );
   }, [currentUser, menuItems]);
 
+  const addOpenKey = (key: string) => {
+    setOpenKeys([...openKeys, key]);
+  };
+
+  const addOpenKeyRef = useRef(addOpenKey);
+
   React.useEffect(() => {
     appRoutes.forEach((route: any, index: number) => {
-      const isCurrentPath = pathname.indexOf(route.name.toLowerCase()) > -1 ? true : false;
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
-      if (isCurrentPath) setOpenKeys([...openKeys, key]);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    const initialOpenKey = getInitialOpenKeyRef.current();
+    if (initialOpenKey) {
+      addOpenKeyRef.current(initialOpenKey);
+    }
+  }, [appRoutes, pathname]);
 
   const onOpenChange = (openKeys: string[]) => {
     const latestOpenKey = openKeys.slice(-1);
@@ -99,6 +107,28 @@ export const SidebarMenu = ({
       setOpenKeys(latestOpenKey ? [...latestOpenKey] : []);
     }
   };
+
+  const getInitialOpenKey = () => {
+    let key = null;
+
+    menuItems.forEach((menuItem: any, index: number) => {
+      if (menuItem.children) {
+        menuItem.children.forEach((subMenuItem: any) => {
+          if (subMenuItem.children) {
+            console.warn('Not exist in our case. We only support 2 layers');
+          } else {
+            if (subMenuItem.path === pathname) {
+              key = getKey(menuItem.name, index);
+            }
+          }
+        });
+      }
+    });
+
+    return key;
+  };
+
+  const getInitialOpenKeyRef = useRef(getInitialOpenKey);
 
   const MyMenu = () => {
     return (
@@ -111,7 +141,7 @@ export const SidebarMenu = ({
         >
           {appRoutes.map((route: any, index: number) => {
             const hasChildren = route.children ? true : false;
-            if (!hasChildren)
+            if (!hasChildren) {
               return (
                 <Menu.Item
                   key={getKey(route.name, index)}
@@ -127,8 +157,9 @@ export const SidebarMenu = ({
                   </Link>
                 </Menu.Item>
               );
+            }
 
-            if (hasChildren)
+            if (hasChildren) {
               return (
                 <SubMenu
                   key={getKey(route.name, index)}
@@ -140,21 +171,24 @@ export const SidebarMenu = ({
                   }
                 >
                   {route.children &&
-                    route.children.map((subitem: any, index: number) => (
-                      <Menu.Item
-                        key={getKey(subitem.name, index)}
-                        className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
-                        onClick={() => {
-                          if (mobile) dispatch(setMobileDrawer());
-                        }}
-                      >
-                        <Link href={`${subitem.path ? subitem.path : ''}`}>
-                          <span className="mr-auto">{capitalize(subitem.name)}</span>
-                        </Link>
-                      </Menu.Item>
-                    ))}
+                    route.children.map((subitem: any, index: number) => {
+                      return (
+                        <Menu.Item
+                          key={getKey(subitem.name, index)}
+                          className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
+                          onClick={() => {
+                            if (mobile) dispatch(setMobileDrawer());
+                          }}
+                        >
+                          <Link href={`${subitem.path ? subitem.path : ''}`}>
+                            <span className="mr-auto">{capitalize(subitem.name)}</span>
+                          </Link>
+                        </Menu.Item>
+                      );
+                    })}
                 </SubMenu>
               );
+            }
           })}
         </Menu>
 
