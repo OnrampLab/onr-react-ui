@@ -2,12 +2,17 @@ import { ResourceClient } from '@onr/ts-rest-client';
 import { Todo } from '../definitions';
 
 class TodoService extends ResourceClient<Todo> {
-  async customList() {
+  async list(params: any = {}) {
+    const { size } = params;
+
     const response = await this.axiosInstance.request<Todo[]>({
       url: '/todos',
     });
 
-    return response.data;
+    const allTodos = response.data;
+    const todos = size ? allTodos.slice(0, size) : allTodos;
+
+    return todos;
   }
 
   async getTodo(id: number) {
