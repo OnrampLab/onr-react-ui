@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.11
+
+### Patch Changes
+
+- Improve sidebar; Add recent todos
+- Updated dependencies
+  - @onr/core@0.18.0
+  - @onr/plugin-account@0.8.11
+  - @onr/plugin-auth@0.8.11
+
 ## 0.6.10
 
 ### Patch Changes

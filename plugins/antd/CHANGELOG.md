@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.12.0
+
+### Minor Changes
+
+- Improve sidebar; Add recent todos
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.18.0
+
 ## 0.11.9
 
 ### Patch Changes

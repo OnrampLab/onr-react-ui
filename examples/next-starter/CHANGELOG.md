@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.25.0
+
+### Minor Changes
+
+- Improve sidebar; Add recent todos
+
 ## 0.24.10
 
 ### Patch Changes

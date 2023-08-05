@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.11
+
+### Patch Changes
+
+- Improve sidebar; Add recent todos
+- Updated dependencies
+  - @onr/core@0.18.0
+
 ## 0.8.10
 
 ### Patch Changes

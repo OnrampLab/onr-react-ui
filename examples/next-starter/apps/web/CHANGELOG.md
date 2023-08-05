@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- Improve sidebar; Add recent todos
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.18.0
+  - @onr/plugin-antd@0.12.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.5.0
+  - @onr/plugin-custom-admin-dashboard@0.5.10
+  - @onr/plugin-custom-home@0.5.10
+  - @onr/plugin-account@0.8.11
+  - @onr/plugin-auth@0.8.11
+  - @onr/plugin-user@0.6.11
+
 ## 0.8.8
 
 ### Patch Changes
