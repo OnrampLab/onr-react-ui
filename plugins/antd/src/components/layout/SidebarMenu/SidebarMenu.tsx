@@ -110,14 +110,16 @@ export const SidebarMenu = ({
   const getInitialOpenKey = () => {
     let key = null;
 
-    menuItems.forEach((menuItem: any, index: number) => {
+    menuItems.find((menuItem: any, index: number) => {
       if (menuItem.children) {
-        menuItem.children.forEach((subMenuItem: any) => {
+        return menuItem.children.find((subMenuItem: any) => {
           if (subMenuItem.children) {
             console.warn('Not exist in our case. We only support 2 layers');
           } else {
             if (subMenuItem.path === pathname) {
               key = getKey(menuItem.name, index);
+
+              return true;
             }
           }
         });
