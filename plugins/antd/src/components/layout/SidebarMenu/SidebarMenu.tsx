@@ -63,9 +63,13 @@ export const SidebarMenu = ({
   const { pathname = '' } = router || {};
 
   useEffect(() => {
-    const roles = currentUser.roles || [];
+    const roles = currentUser?.roles || [];
     setAppRoutes(
       menuItems.filter(route => {
+        if (route.login && !currentUser) {
+          return false;
+        }
+
         if (!route.roles) {
           return true;
         }
@@ -99,66 +103,73 @@ export const SidebarMenu = ({
     }
   };
 
-  const MyMenu = () => (
-    <>
-      <Menu theme={sidebarTheme} mode={sidebarMode} openKeys={openKeys} onOpenChange={onOpenChange}>
-        {appRoutes.map((route, index) => {
-          const hasChildren = route.children ? true : false;
-          if (!hasChildren)
-            return (
-              <Menu.Item
-                key={getKey(route.name, index)}
-                className={pathname === route.path ? 'ant-menu-item-selected' : ''}
-                onClick={() => {
-                  setOpenKeys([getKey(route.name, index)]);
-                  if (mobile) dispatch(setMobileDrawer());
-                }}
-              >
-                <Link href={route.path}>
-                  {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                  <span className="mr-auto">{capitalize(route.name)}</span>
-                </Link>
-              </Menu.Item>
-            );
-
-          if (hasChildren)
-            return (
-              <SubMenu
-                key={getKey(route.name, index)}
-                title={
-                  <span>
+  const MyMenu = () => {
+    return (
+      <>
+        <Menu
+          theme={sidebarTheme}
+          mode={sidebarMode}
+          openKeys={openKeys}
+          onOpenChange={onOpenChange}
+        >
+          {appRoutes.map((route, index) => {
+            const hasChildren = route.children ? true : false;
+            if (!hasChildren)
+              return (
+                <Menu.Item
+                  key={getKey(route.name, index)}
+                  className={pathname === route.path ? 'ant-menu-item-selected' : ''}
+                  onClick={() => {
+                    setOpenKeys([getKey(route.name, index)]);
+                    if (mobile) dispatch(setMobileDrawer());
+                  }}
+                >
+                  <Link href={route.path}>
                     {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                    <span>{capitalize(route.name)}</span>
-                  </span>
-                }
-              >
-                {route.children &&
-                  route.children.map((subitem, index) => (
-                    <Menu.Item
-                      key={getKey(subitem.name, index)}
-                      className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
-                      onClick={() => {
-                        if (mobile) dispatch(setMobileDrawer());
-                      }}
-                    >
-                      <Link href={`${subitem.path ? subitem.path : ''}`}>
-                        <span className="mr-auto">{capitalize(subitem.name)}</span>
-                      </Link>
-                    </Menu.Item>
-                  ))}
-              </SubMenu>
-            );
-        })}
-      </Menu>
+                    <span className="mr-auto">{capitalize(route.name)}</span>
+                  </Link>
+                </Menu.Item>
+              );
 
-      <Divider
-        className={`m-0`}
-        style={{
-          display: `${sidebarTheme === 'dark' ? 'none' : ''}`,
-        }}
-      />
-    </>
-  );
+            if (hasChildren)
+              return (
+                <SubMenu
+                  key={getKey(route.name, index)}
+                  title={
+                    <span>
+                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
+                      <span>{capitalize(route.name)}</span>
+                    </span>
+                  }
+                >
+                  {route.children &&
+                    route.children.map((subitem, index) => (
+                      <Menu.Item
+                        key={getKey(subitem.name, index)}
+                        className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
+                        onClick={() => {
+                          if (mobile) dispatch(setMobileDrawer());
+                        }}
+                      >
+                        <Link href={`${subitem.path ? subitem.path : ''}`}>
+                          <span className="mr-auto">{capitalize(subitem.name)}</span>
+                        </Link>
+                      </Menu.Item>
+                    ))}
+                </SubMenu>
+              );
+          })}
+        </Menu>
+
+        <Divider
+          className={`m-0`}
+          style={{
+            display: `${sidebarTheme === 'dark' ? 'none' : ''}`,
+          }}
+        />
+      </>
+    );
+  };
 
   return (
     <>
