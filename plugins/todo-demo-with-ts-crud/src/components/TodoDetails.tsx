@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Todo } from '../definitions';
+import { useRecentTodos } from '../hooks/useRecentTodos';
 
 interface Props {
   todo: Todo;
@@ -7,6 +8,12 @@ interface Props {
 
 export const TodoDetails: React.FC<Props> = props => {
   const { todo } = props;
+
+  const { addTodo } = useRecentTodos();
+
+  useEffect(() => {
+    addTodo(todo);
+  }, [todo, addTodo]);
 
   return (
     <>

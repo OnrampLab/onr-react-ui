@@ -1,5 +1,5 @@
 import { StyleContainer, useAuth, useRoute } from '@onr/core';
-import { useNewTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
+import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
@@ -19,6 +19,7 @@ const Container: React.FC = (props: AppProps) => {
   const { user } = useAuth();
 
   useNewTodos();
+  useRecentTodos();
 
   const HeaderMainSection = user ? AccountSelector : Empty;
 
