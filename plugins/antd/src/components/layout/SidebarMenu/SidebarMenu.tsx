@@ -1,10 +1,9 @@
-// @ts-nocheck
-import { AppContext, AuthUser, coreActions, CoreStore } from '@onr/core';
+import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
 import { Divider, Drawer, Layout, List, Menu, Switch } from 'antd';
 import { capitalize } from 'lodash-es';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 /* eslint-disable complexity  */
@@ -15,7 +14,7 @@ interface Props {
 }
 
 const { SubMenu } = Menu;
-const { Header, Sider } = Layout;
+const { Sider } = Layout;
 
 const rootSubMenuKeys: string[] = [];
 
@@ -33,17 +32,16 @@ export const SidebarMenu = ({
 }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const app = useContext(AppContext);
-  const menuItems = app.getMenuItems();
+  const { menuItems } = useMenuItems();
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
   const [appRoutes, setAppRoutes] = React.useState(menuItems);
   const {
-    name,
     mobile,
     mobileDrawer,
     optionDrawer,
     boxed,
     darkSidebar,
+    // @ts-ignore
     sidebarTheme = propSideBarTheme,
     sidebarPopup,
     collapsed,
@@ -65,7 +63,7 @@ export const SidebarMenu = ({
   useEffect(() => {
     const roles = currentUser?.roles || [];
     setAppRoutes(
-      menuItems.filter(route => {
+      menuItems.filter((route: any) => {
         if (route.login && !currentUser) {
           return false;
         }
@@ -81,11 +79,10 @@ export const SidebarMenu = ({
         return false;
       }),
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser?.roles]);
+  }, [currentUser, menuItems]);
 
   React.useEffect(() => {
-    appRoutes.forEach((route, index) => {
+    appRoutes.forEach((route: any, index: number) => {
       const isCurrentPath = pathname.indexOf(route.name.toLowerCase()) > -1 ? true : false;
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
@@ -112,7 +109,7 @@ export const SidebarMenu = ({
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {appRoutes.map((route, index) => {
+          {appRoutes.map((route: any, index: number) => {
             const hasChildren = route.children ? true : false;
             if (!hasChildren)
               return (
@@ -143,7 +140,7 @@ export const SidebarMenu = ({
                   }
                 >
                   {route.children &&
-                    route.children.map((subitem, index) => (
+                    route.children.map((subitem: any, index: number) => (
                       <Menu.Item
                         key={getKey(subitem.name, index)}
                         className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}

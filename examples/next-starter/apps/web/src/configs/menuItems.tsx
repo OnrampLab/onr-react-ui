@@ -1,15 +1,7 @@
-import React, { ReactElement } from 'react';
+import { MenuItem } from '@onr/core';
+import React from 'react';
 import { FiHome, FiServer } from 'react-icons/fi';
 import { UserRoleName } from './roles';
-
-export interface MenuItem {
-  name: string;
-  path?: string;
-  icon?: ReactElement;
-  children?: MenuItem[];
-  login: boolean;
-  roles?: UserRoleName[];
-}
 
 export const menuItems: MenuItem[] = [
   {

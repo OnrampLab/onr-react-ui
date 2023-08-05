@@ -22,4 +22,6 @@ export interface AuthUser extends Identity {
   email?: string;
 
   password?: string;
+
+  roles?: any[];
 }

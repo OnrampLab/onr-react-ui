@@ -5,6 +5,7 @@ import minimatch from 'minimatch';
 import { useRouter } from 'next/router';
 import { createContext, FC, ReactNode } from 'react';
 import { AuthProvider, NextAuthProvider } from '../providers';
+import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import { AppComponents, AppConfig, FullAppOptions, LogConfig, OnrApp } from '../types';
 
 export const AppContext = createContext<App | null>(null);
@@ -77,6 +78,7 @@ export class App implements OnrApp {
 
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
       const router = useRouter();
+      const { menuItems, addMenuItem, addSubMenuItem } = useInitializeMenuItems(this.menuItems);
 
       const currentRoute = this.routes.find((route: any) => {
         return minimatch(router.pathname, route.path);
@@ -86,14 +88,22 @@ export class App implements OnrApp {
         return (
           <NextAuthProvider session={session}>
             <AppContext.Provider value={this}>
-              {/* @ts-ignore */}
-              <AuthProvider>{children}</AuthProvider>
+              <MenuItemsContextProvider value={{ menuItems, addMenuItem, addSubMenuItem }}>
+                {/* @ts-ignore */}
+                <AuthProvider>{children}</AuthProvider>
+              </MenuItemsContextProvider>
             </AppContext.Provider>
           </NextAuthProvider>
         );
       }
 
-      return <AppContext.Provider value={this}>{children}</AppContext.Provider>;
+      return (
+        <AppContext.Provider value={this}>
+          <MenuItemsContextProvider value={{ menuItems, addMenuItem, addSubMenuItem }}>
+            {children}
+          </MenuItemsContextProvider>
+        </AppContext.Provider>
+      );
     };
 
     return Provider;
