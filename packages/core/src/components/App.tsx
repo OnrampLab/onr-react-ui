@@ -78,7 +78,7 @@ export class App implements OnrApp {
 
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
       const router = useRouter();
-      const { menuItems, addMenuItem, addSubMenuItem } = useInitializeMenuItems(this.menuItems);
+      const menuItemsContext = useInitializeMenuItems(this.menuItems);
 
       const currentRoute = this.routes.find((route: any) => {
         return minimatch(router.pathname, route.path);
@@ -88,7 +88,7 @@ export class App implements OnrApp {
         return (
           <NextAuthProvider session={session}>
             <AppContext.Provider value={this}>
-              <MenuItemsContextProvider value={{ menuItems, addMenuItem, addSubMenuItem }}>
+              <MenuItemsContextProvider value={menuItemsContext}>
                 {/* @ts-ignore */}
                 <AuthProvider>{children}</AuthProvider>
               </MenuItemsContextProvider>
@@ -99,9 +99,7 @@ export class App implements OnrApp {
 
       return (
         <AppContext.Provider value={this}>
-          <MenuItemsContextProvider value={{ menuItems, addMenuItem, addSubMenuItem }}>
-            {children}
-          </MenuItemsContextProvider>
+          <MenuItemsContextProvider value={menuItemsContext}>{children}</MenuItemsContextProvider>
         </AppContext.Provider>
       );
     };
