@@ -11,6 +11,11 @@ export const menuItems: MenuItem[] = [
     icon: <FiHome strokeWidth={1} size={16} />,
   },
   {
+    name: 'Recent Todos',
+    login: false,
+    icon: <FiHome strokeWidth={1} size={16} />,
+  },
+  {
     path: '/admin',
     name: 'Dashboard',
     login: true,
