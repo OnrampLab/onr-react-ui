@@ -1,6 +1,5 @@
 import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
 import { Divider, Drawer, Layout, List, Menu, Switch } from 'antd';
-import { capitalize } from 'lodash-es';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
@@ -151,10 +150,19 @@ export const SidebarMenu = ({
                     if (mobile) dispatch(setMobileDrawer());
                   }}
                 >
-                  <Link href={route.path}>
-                    {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                    <span className="mr-auto">{capitalize(route.name)}</span>
-                  </Link>
+                  {route.path && (
+                    <Link href={route.path}>
+                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
+                      <span className="mr-auto">{route.name}</span>
+                    </Link>
+                  )}
+
+                  {!route.path && (
+                    <>
+                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
+                      <span className="mr-auto">{route.name}</span>
+                    </>
+                  )}
                 </Menu.Item>
               );
             }
@@ -166,7 +174,7 @@ export const SidebarMenu = ({
                   title={
                     <span>
                       {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                      <span>{capitalize(route.name)}</span>
+                      <span>{route.name}</span>
                     </span>
                   }
                 >
@@ -181,7 +189,7 @@ export const SidebarMenu = ({
                           }}
                         >
                           <Link href={`${subitem.path ? subitem.path : ''}`}>
-                            <span className="mr-auto">{capitalize(subitem.name)}</span>
+                            <span className="mr-auto">{subitem.name}</span>
                           </Link>
                         </Menu.Item>
                       );
