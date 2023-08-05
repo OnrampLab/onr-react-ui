@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- Add recent todos into menu bar
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.19.0
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.12
+
+### Patch Changes
+
+- Add recent todos into menu bar
+- Updated dependencies
+  - @onr/core@0.19.0
+  - @onr/plugin-account@0.8.12
+  - @onr/plugin-auth@0.8.12
+
 ## 0.6.11
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.19.0
+
+### Minor Changes
+
+- Add recent todos into menu bar
+
 ## 0.18.0
 
 ### Minor Changes

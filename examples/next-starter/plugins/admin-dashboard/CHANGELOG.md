@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.11
+
+### Patch Changes
+
+- Add recent todos into menu bar
+- Updated dependencies
+  - @onr/core@0.19.0
+  - @onr/plugin-antd@0.13.0
+
 ## 0.5.10
 
 ### Patch Changes
