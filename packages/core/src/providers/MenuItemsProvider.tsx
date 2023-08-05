@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useRef, useState } from 'react';
 import { MenuItem } from '../types';
 
 export const MenuItemsContext = createContext<any>({});
@@ -30,5 +30,12 @@ export const useInitializeMenuItems = (initialMenuItems: any) => {
     setMenuItems(newMenuItems);
   };
 
-  return { menuItems, addMenuItem, addSubMenuItem };
+  const addMenuItemRef = useRef(addMenuItem);
+  const addSubMenuItemRef = useRef(addSubMenuItem);
+
+  return {
+    menuItems,
+    addMenuItem: addMenuItemRef.current,
+    addSubMenuItem: addSubMenuItemRef.current,
+  };
 };
