@@ -3,13 +3,20 @@ import { Todo } from '../definitions';
 
 class TodoService extends ResourceClient<Todo> {
   async list(params: any = {}) {
-    const { size } = params;
+    const { size, orderBy, sort } = params;
 
     const response = await this.axiosInstance.request<Todo[]>({
       url: '/todos',
     });
 
-    const allTodos = response.data;
+    let allTodos = response.data;
+
+    if (orderBy) {
+      allTodos = allTodos.sort((a: any, b: any) => {
+        return sort === 'asc' ? a[orderBy] - b[orderBy] : b[orderBy] - a[orderBy];
+      });
+    }
+
     const todos = size ? allTodos.slice(0, size) : allTodos;
 
     return todos;

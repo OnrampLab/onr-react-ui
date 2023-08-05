@@ -1,2 +1,2 @@
-export * from './useRecentTodos';
+export * from './useNewTodos';
 export * from './useTodos';

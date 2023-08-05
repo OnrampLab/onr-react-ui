@@ -6,7 +6,12 @@ import { UserRoleName } from './roles';
 export const menuItems: MenuItem[] = [
   {
     path: '/todos',
-    name: 'TODO List',
+    name: 'Todo List',
+    login: false,
+    icon: <FiHome strokeWidth={1} size={16} />,
+  },
+  {
+    name: 'New Todos',
     login: false,
     icon: <FiHome strokeWidth={1} size={16} />,
   },
