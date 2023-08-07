@@ -5,10 +5,10 @@ import { AxiosHelper } from '../helpers';
 import { useApp, useSession } from '../hooks';
 
 export type AuthContextType = {
-  user: any;
+  user: null | any;
 };
 
-export const AuthContext = createContext<AuthContextType>({ user: {} });
+export const AuthContext = createContext<AuthContextType>({ user: null });
 
 export const AuthProvider = (props: any) => {
   const router = useRouter();

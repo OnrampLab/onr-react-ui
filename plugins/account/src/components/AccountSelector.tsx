@@ -21,14 +21,14 @@ export const AccountSelector: React.FC = () => {
   );
 
   useEffect(() => {
-    if (currentUser.accounts) {
+    if (currentUser?.accounts) {
       setAccounts(currentUser.accounts);
 
       if (accounts[0] && !accountId) {
         changeAccount(accounts[0].id);
       }
     }
-  }, [currentUser.accounts, accountId, accounts, changeAccount]);
+  }, [currentUser?.accounts, accountId, accounts, changeAccount]);
 
   return (
     <>
