@@ -4,7 +4,11 @@ import { createContext, useEffect, useMemo } from 'react';
 import { AxiosHelper } from '../helpers';
 import { useApp, useSession } from '../hooks';
 
-export const AuthContext = createContext({});
+export type AuthContextType = {
+  user: any;
+};
+
+export const AuthContext = createContext<AuthContextType>({ user: {} });
 
 export const AuthProvider = (props: any) => {
   const router = useRouter();
