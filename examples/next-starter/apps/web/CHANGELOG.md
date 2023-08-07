@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.10.2
+
+### Patch Changes
+
+- Improve type hinting
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.13
+  - @onr/plugin-custom-home@0.5.13
+  - @onr/core@0.19.2
+  - @onr/plugin-account@0.8.14
+  - @onr/plugin-antd@0.13.2
+  - @onr/plugin-auth@0.8.14
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.6.2
+  - @onr/plugin-user@0.6.14
+
 ## 0.10.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.14
+
+### Patch Changes
+
+- Improve type hinting
+- Updated dependencies
+  - @onr/core@0.19.2
+  - @onr/plugin-account@0.8.14
+  - @onr/plugin-auth@0.8.14
+
 ## 0.6.13
 
 ### Patch Changes
