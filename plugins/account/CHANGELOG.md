@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.15
+
+### Patch Changes
+
+- Add use case
+- Updated dependencies
+  - @onr/core@0.20.0
+
 ## 0.8.14
 
 ### Patch Changes

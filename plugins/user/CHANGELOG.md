@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.15
+
+### Patch Changes
+
+- Add use case
+- Updated dependencies
+  - @onr/core@0.20.0
+  - @onr/plugin-account@0.8.15
+  - @onr/plugin-auth@0.8.15
+
 ## 0.6.14
 
 ### Patch Changes

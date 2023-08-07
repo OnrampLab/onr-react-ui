@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- Add use case
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.20.0
+
 ## 0.6.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.27.0
+
+### Minor Changes
+
+- Add use case
+
 ## 0.26.2
 
 ### Patch Changes
