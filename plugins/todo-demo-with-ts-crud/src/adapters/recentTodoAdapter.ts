@@ -1,5 +1,5 @@
+import { LocalStorageAdapter } from '@onr/core';
 import { Todo } from '../definitions';
-import { LocalStorageAdapter } from './LocalStorageAdapter';
 
 const STORE_NAME = 'recent-todos-store';
 
