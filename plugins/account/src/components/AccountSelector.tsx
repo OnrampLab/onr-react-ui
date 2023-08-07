@@ -1,7 +1,7 @@
 import { coreActions, CoreStore, useAuth } from '@onr/core';
 import { message, Select } from 'antd';
 import Router from 'next/router';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IAccount } from '../entities';
 
@@ -9,28 +9,26 @@ export const AccountSelector: React.FC = () => {
   const dispatch = useDispatch();
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
   const accountId = useSelector((store: CoreStore) => store.coreStore.accountId);
-  //@ts-ignore
+
   const { user: currentUser } = useAuth();
+  const changeAccount = useCallback(
+    (accountId: number) => {
+      dispatch(coreActions.setAccountId(accountId));
+      Router.push('/admin');
+      message.info('Account has been changed');
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
-    //@ts-ignore
     if (currentUser.accounts) {
-      //@ts-ignore
       setAccounts(currentUser.accounts);
 
       if (accounts[0] && !accountId) {
         changeAccount(accounts[0].id);
       }
     }
-    // @ts-ignore
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser.accounts]);
-
-  function changeAccount(accountId: number) {
-    dispatch(coreActions.setAccountId(accountId));
-    Router.push('/admin');
-    message.info('Account has been changed');
-  }
+  }, [currentUser.accounts, accountId, accounts, changeAccount]);
 
   return (
     <>
