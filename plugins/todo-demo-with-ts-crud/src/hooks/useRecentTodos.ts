@@ -1,6 +1,7 @@
 import { useMenuItems } from '@onr/core';
 import { useEffect, useRef, useState } from 'react';
 import { recentTodoAdapter } from '../adapters/recentTodoAdapter';
+import { AddRecentTodoUseCase } from '../application/useCases/AddRecentTodoUseCase';
 import { Todo } from '../definitions';
 
 export const useRecentTodos = () => {
@@ -9,8 +10,7 @@ export const useRecentTodos = () => {
   const [recentTodos, setRecentTodos] = useState(todos);
 
   const addTodo = (todo: Todo) => {
-    recentTodoAdapter.put(todo);
-    const todos = recentTodoAdapter.list();
+    const todos = new AddRecentTodoUseCase(todo).perform();
 
     setRecentTodos(todos);
   };
