@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.19.1
+
+### Patch Changes
+
+- Improve type hinting
+
 ## 0.19.0
 
 ### Minor Changes

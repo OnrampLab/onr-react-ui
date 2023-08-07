@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.12
+
+### Patch Changes
+
+- Improve type hinting
+- Updated dependencies
+  - @onr/core@0.19.1
+  - @onr/plugin-antd@0.13.1
+
 ## 0.5.11
 
 ### Patch Changes

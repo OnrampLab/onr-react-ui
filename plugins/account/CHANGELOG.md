@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.13
+
+### Patch Changes
+
+- Improve type hinting
+- Updated dependencies
+  - @onr/core@0.19.1
+
 ## 0.8.12
 
 ### Patch Changes
