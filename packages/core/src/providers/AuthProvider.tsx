@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { createContext, useEffect, useMemo } from 'react';
 import { AxiosHelper } from '../helpers';
 import { useApp, useSession } from '../hooks';
+import { useRoute } from './RouteProvider';
 
 export type AuthContextType = {
   user: null | any;
@@ -12,11 +13,11 @@ export const AuthContext = createContext<AuthContextType>({ user: null });
 
 export const AuthProvider = (props: any) => {
   const router = useRouter();
+  const { currentRoute } = useRoute();
   const app = useApp();
-  const loginPage = '/auth/signin';
-  const isLoginPage = router.asPath.includes(loginPage);
+
   const [session, loading] = useSession({
-    required: !isLoginPage,
+    required: currentRoute.authRequired,
     redirect: () => signIn('credentials', { callbackUrl: router.asPath }),
     swrConfig: {
       // NOTE: should consider to make the refresh interval less than token expiry time
@@ -40,7 +41,7 @@ export const AuthProvider = (props: any) => {
     if (loading) return; // Do nothing while loading
   }, [loading]);
 
-  if (isUser || isLoginPage) {
+  if (isUser || !loading) {
     return <AuthContext.Provider value={value} {...props} />;
   }
 

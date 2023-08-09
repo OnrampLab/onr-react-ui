@@ -26,12 +26,15 @@ export function useSession({ required = false, redirect, swrConfig = {} }: UseSe
     onSuccess(data, key, config) {
       if (swrConfig.onSuccess) swrConfig.onSuccess(data, key, config);
       if (data || !required) return;
+
       redirectPage();
     },
     onError(error, key, config) {
       if (swrConfig.onError) swrConfig.onError(error, key, config);
+
       redirectPage();
     },
   });
-  return [data, !data];
+
+  return [data, required && !data];
 }
