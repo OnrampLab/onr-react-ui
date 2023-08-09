@@ -27,7 +27,7 @@ export const routes = [
   {
     path: '/auth/*',
     layout: 'antd-full-page',
-    authRequired: true,
+    authRequired: false,
     LayoutContainer: AntdLayoutContainer,
   },
   {
