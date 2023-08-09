@@ -12,7 +12,7 @@ export class AddRecentTodoUseCase extends UseCase {
   }
 
   addRecentTodo(): Todo[] {
-    const todos = recentTodoAdapter.list();
+    let todos = recentTodoAdapter.list();
 
     const index = todos.findIndex(t => {
       return t.id === this.todo.id;
@@ -23,6 +23,10 @@ export class AddRecentTodoUseCase extends UseCase {
     }
 
     todos.unshift(this.todo);
+
+    if (todos.length > 5) {
+      todos = todos.slice(0, 5);
+    }
 
     recentTodoAdapter.replaceWith(todos);
 
