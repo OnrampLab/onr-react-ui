@@ -4,7 +4,7 @@ import axios from 'axios';
 import minimatch from 'minimatch';
 import { useRouter } from 'next/router';
 import { createContext, FC, ReactNode } from 'react';
-import { AuthProvider, NextAuthProvider } from '../providers';
+import { AuthProvider, GlobalModalProvider, NextAuthProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import { AppComponents, AppConfig, FullAppOptions, LogConfig, OnrApp } from '../types';
 
@@ -84,24 +84,23 @@ export class App implements OnrApp {
         return minimatch(router.pathname, route.path);
       });
 
+      const content = (
+        <GlobalModalProvider>
+          <MenuItemsContextProvider value={menuItemsContext}>{children}</MenuItemsContextProvider>
+        </GlobalModalProvider>
+      );
+
       if (authEnabled && currentRoute.authRequired) {
         return (
           <NextAuthProvider session={session}>
             <AppContext.Provider value={this}>
-              <MenuItemsContextProvider value={menuItemsContext}>
-                {/* @ts-ignore */}
-                <AuthProvider>{children}</AuthProvider>
-              </MenuItemsContextProvider>
+              <AuthProvider>{content}</AuthProvider>
             </AppContext.Provider>
           </NextAuthProvider>
         );
       }
 
-      return (
-        <AppContext.Provider value={this}>
-          <MenuItemsContextProvider value={menuItemsContext}>{children}</MenuItemsContextProvider>
-        </AppContext.Provider>
-      );
+      return <AppContext.Provider value={this}>{content}</AppContext.Provider>;
     };
 
     return Provider;
