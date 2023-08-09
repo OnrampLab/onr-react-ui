@@ -1,6 +1,6 @@
 import { Container, CoreStore, Inner, useAuth, useRoute } from '@onr/core';
 import { Layout } from 'antd';
-import { ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
@@ -13,7 +13,7 @@ interface Props {
 const { Content } = Layout;
 
 /* eslint-disable complexity */
-export const Page = (props: Props) => {
+export const Page: FC<Props> = (props: Props) => {
   const { HeaderMainSection, children } = props;
   const { currentRoute } = useRoute();
   // @ts-ignore

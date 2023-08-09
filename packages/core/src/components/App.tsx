@@ -1,19 +1,22 @@
 import { createLogger, Handler } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
 import axios from 'axios';
-import minimatch from 'minimatch';
-import { useRouter } from 'next/router';
-import { createContext, FC, ReactNode } from 'react';
-import { AuthProvider, GlobalModalProvider, NextAuthProvider } from '../providers';
+import { createContext, FC } from 'react';
+import { StyleContainer } from '../containers';
+import { AuthProvider, GlobalModalProvider, NextAuthProvider, RouteProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
-import { AppComponents, AppConfig, FullAppOptions, LogConfig, OnrApp } from '../types';
+import {
+  AppComponents,
+  AppConfig,
+  FullAppOptions,
+  LogConfig,
+  MenuItem,
+  OnrApp,
+  ProviderProps,
+  RouteType,
+} from '../types';
 
 export const AppContext = createContext<App | null>(null);
-
-interface ProviderProps {
-  children: ReactNode;
-  session: any;
-}
 
 export class App implements OnrApp {
   private static instance: App;
@@ -21,8 +24,8 @@ export class App implements OnrApp {
   private readonly components: AppComponents;
   private readonly appConfig?: AppConfig;
   private readonly logConfig: LogConfig;
-  private readonly menuItems: any;
-  private readonly routes: any;
+  private readonly menuItems: MenuItem[];
+  private readonly routes: RouteType[];
   private readonly services: any;
   public apis: any;
   public logger: any;
@@ -73,34 +76,49 @@ export class App implements OnrApp {
     return this.components;
   }
 
+  /** @deprecated */
   getProvider() {
-    const authEnabled = this.appConfig?.auth.enabled;
-
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
-      const router = useRouter();
+      const AppContainer = this.getAppContainer();
+      const PageContainer = this.getPageContainer();
+
+      return (
+        <AppContainer session={session}>
+          <PageContainer>{children}</PageContainer>
+        </AppContainer>
+      );
+    };
+
+    return Provider;
+  }
+
+  getAppContainer() {
+    const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
+      return (
+        <NextAuthProvider session={session}>
+          <AppContext.Provider value={this}>
+            <RouteProvider>
+              <AuthProvider>{children}</AuthProvider>
+            </RouteProvider>
+          </AppContext.Provider>
+        </NextAuthProvider>
+      );
+    };
+
+    return Provider;
+  }
+
+  getPageContainer() {
+    const Provider: FC = ({ children }) => {
       const menuItemsContext = useInitializeMenuItems(this.menuItems);
 
-      const currentRoute = this.routes.find((route: any) => {
-        return minimatch(router.pathname, route.path);
-      });
-
-      const content = (
-        <GlobalModalProvider>
-          <MenuItemsContextProvider value={menuItemsContext}>{children}</MenuItemsContextProvider>
-        </GlobalModalProvider>
+      return (
+        <StyleContainer>
+          <MenuItemsContextProvider value={menuItemsContext}>
+            <GlobalModalProvider>{children}</GlobalModalProvider>
+          </MenuItemsContextProvider>
+        </StyleContainer>
       );
-
-      if (authEnabled && currentRoute.authRequired) {
-        return (
-          <NextAuthProvider session={session}>
-            <AppContext.Provider value={this}>
-              <AuthProvider>{content}</AuthProvider>
-            </AppContext.Provider>
-          </NextAuthProvider>
-        );
-      }
-
-      return <AppContext.Provider value={this}>{content}</AppContext.Provider>;
     };
 
     return Provider;

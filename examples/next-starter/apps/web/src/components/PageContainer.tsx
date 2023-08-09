@@ -1,4 +1,4 @@
-import { StyleContainer, useAuth, useRoute } from '@onr/core';
+import { App, useAuth, useRoute } from '@onr/core';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
@@ -13,8 +13,11 @@ const Empty: FC = () => {
   return <></>;
 };
 
-const Container: React.FC = (props: AppProps) => {
+const Container: React.FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
+  // NOTE: hack for type checking
+  const AnyComponent = Component as any;
+  const Page = AntdPage as any;
   const { currentRoute } = useRoute();
   const { user } = useAuth();
 
@@ -22,23 +25,21 @@ const Container: React.FC = (props: AppProps) => {
   useRecentTodos();
 
   const HeaderMainSection = user ? AccountSelector : Empty;
+  const content = <AnyComponent {...pageProps} />;
 
   if (['antd-full-page', 'antd-admin'].includes(currentRoute.layout)) {
-    return (
-      <AntdPage {...props} HeaderMainSection={HeaderMainSection}>
-        <Component {...pageProps} />
-      </AntdPage>
-    );
+    return <Page HeaderMainSection={HeaderMainSection}>{content}</Page>;
   } else {
-    return <Component {...pageProps} />;
+    return content;
   }
 };
 
-export const PageContainer: React.FC = props => {
-  //wrap root providers here, if any
+export const PageContainer: React.FC<AppProps> = (props: AppProps) => {
+  const CorePageContainer = App.getInstance().getPageContainer();
+
   return (
-    <StyleContainer>
+    <CorePageContainer>
       <Container {...props} />
-    </StyleContainer>
+    </CorePageContainer>
   );
 };

@@ -1,5 +1,5 @@
-import { RouteProvider } from '@onr/core';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
+import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
 import { done, start } from 'nprogress';
@@ -8,11 +8,11 @@ import { afterComponentDidMount, store } from '../redux';
 import { app } from './app';
 import { PageContainer } from './PageContainer';
 
-const makeStore: MakeStore = (context: Context) => store();
+const makeStore: MakeStore<any> = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
 
-const AppProvider = app.getProvider();
+const AppContainer = app.getAppContainer();
 
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
@@ -24,11 +24,7 @@ Router.events.on(
     (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0),
 );
 
-interface Props {
-  pageProps?: any;
-}
-
-export function AppComponent(props: Props) {
+export function AppComponent(props: AppProps) {
   const { pageProps } = props;
 
   useEffect(() => {
@@ -54,11 +50,9 @@ export function AppComponent(props: Props) {
           <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.2.5/polyfill.min.js" />
         )}
       </Head>
-      <AppProvider session={pageProps.session}>
-        <RouteProvider>
-          <PageContainer {...props} />
-        </RouteProvider>
-      </AppProvider>
+      <AppContainer session={pageProps.session}>
+        <PageContainer {...props} />
+      </AppContainer>
     </>
   );
 }

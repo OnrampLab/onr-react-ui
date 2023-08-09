@@ -1,9 +1,9 @@
 import { Modal } from 'antd';
 import { useRouter } from 'next/router';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
 
 type Props = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
 type ModalProps = {
