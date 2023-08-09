@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.13.4
+
+### Patch Changes
+
+- add new hooks: useGlobalModal, useLogger
+- Updated dependencies
+  - @onr/core@0.21.0
+
 ## 0.13.3
 
 ### Patch Changes

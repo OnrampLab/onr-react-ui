@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.12.0
+
+### Minor Changes
+
+- add new hooks: useGlobalModal, useLogger
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-home@0.7.0
+  - @onr/core@0.21.0
+  - @onr/plugin-account@0.8.16
+  - @onr/plugin-antd@0.13.4
+  - @onr/plugin-auth@0.8.16
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.7.1
+  - @onr/plugin-user@0.6.16
+  - @onr/plugin-custom-admin-dashboard@0.5.15
+
 ## 0.11.0
 
 ### Minor Changes

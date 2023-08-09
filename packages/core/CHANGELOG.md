@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.21.0
+
+### Minor Changes
+
+- add new hooks: useGlobalModal, useLogger
+
 ## 0.20.0
 
 ### Minor Changes

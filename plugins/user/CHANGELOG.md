@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.16
+
+### Patch Changes
+
+- add new hooks: useGlobalModal, useLogger
+- Updated dependencies
+  - @onr/core@0.21.0
+  - @onr/plugin-account@0.8.16
+  - @onr/plugin-auth@0.8.16
+
 ## 0.6.15
 
 ### Patch Changes
