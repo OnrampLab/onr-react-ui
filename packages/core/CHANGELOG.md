@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.1
+
+### Patch Changes
+
+- Imrove app architecture
+- Updated dependencies
+  - @onr/logging@0.4.2
+
 ## 0.22.0
 
 ### Minor Changes

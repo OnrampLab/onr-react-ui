@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.1
+
+### Patch Changes
+
+- Imrove app architecture
+
 ## 0.29.0
 
 ### Minor Changes

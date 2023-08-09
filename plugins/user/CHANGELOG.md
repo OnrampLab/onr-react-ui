@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.18
+
+### Patch Changes
+
+- Imrove app architecture
+- Updated dependencies
+  - @onr/core@0.22.1
+  - @onr/plugin-account@0.8.18
+  - @onr/plugin-auth@0.8.18
+
 ## 0.6.17
 
 ### Patch Changes

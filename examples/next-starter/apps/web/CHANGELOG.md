@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.13.1
+
+### Patch Changes
+
+- Imrove app architecture
+- Updated dependencies
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.0
+  - @onr/plugin-custom-admin-dashboard@0.5.17
+  - @onr/plugin-custom-home@0.7.2
+  - @onr/core@0.22.1
+  - @onr/logging@0.4.2
+  - @onr/plugin-account@0.8.18
+  - @onr/plugin-antd@0.14.1
+  - @onr/plugin-auth@0.8.18
+  - @onr/plugin-user@0.6.18
+
 ## 0.13.0
 
 ### Minor Changes

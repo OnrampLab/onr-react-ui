@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.18
+
+### Patch Changes
+
+- Imrove app architecture
+- Updated dependencies
+  - @onr/core@0.22.1
+
 ## 0.8.17
 
 ### Patch Changes

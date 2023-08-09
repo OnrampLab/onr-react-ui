@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.17
+
+### Patch Changes
+
+- Imrove app architecture
+- Updated dependencies
+  - @onr/core@0.22.1
+  - @onr/plugin-antd@0.14.1
+
 ## 0.5.16
 
 ### Patch Changes
