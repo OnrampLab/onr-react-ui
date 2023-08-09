@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- simplify App architecture and provider better customization
+- Updated dependencies
+  - @onr/core@0.22.0
+
 ## 0.7.0
 
 ### Minor Changes

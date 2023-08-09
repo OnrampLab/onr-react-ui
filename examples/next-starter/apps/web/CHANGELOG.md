@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- simplify App architecture and provider better customization
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.22.0
+  - @onr/plugin-antd@0.14.0
+  - @onr/plugin-custom-admin-dashboard@0.5.16
+  - @onr/plugin-custom-home@0.7.1
+  - @onr/plugin-account@0.8.17
+  - @onr/plugin-auth@0.8.17
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.7.2
+  - @onr/plugin-user@0.6.17
+
 ## 0.12.0
 
 ### Minor Changes

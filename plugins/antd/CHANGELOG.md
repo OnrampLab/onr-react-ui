@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.14.0
+
+### Minor Changes
+
+- simplify App architecture and provider better customization
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.22.0
+
 ## 0.13.4
 
 ### Patch Changes

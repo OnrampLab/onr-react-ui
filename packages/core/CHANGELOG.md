@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.22.0
+
+### Minor Changes
+
+- simplify App architecture and provider better customization
+
 ## 0.21.0
 
 ### Minor Changes

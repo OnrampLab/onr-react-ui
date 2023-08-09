@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.17
+
+### Patch Changes
+
+- simplify App architecture and provider better customization
+- Updated dependencies
+  - @onr/core@0.22.0
+  - @onr/plugin-account@0.8.17
+  - @onr/plugin-auth@0.8.17
+
 ## 0.6.16
 
 ### Patch Changes

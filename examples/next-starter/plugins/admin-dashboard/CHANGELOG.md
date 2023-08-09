@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.16
+
+### Patch Changes
+
+- simplify App architecture and provider better customization
+- Updated dependencies
+  - @onr/core@0.22.0
+  - @onr/plugin-antd@0.14.0
+
 ## 0.5.15
 
 ### Patch Changes
