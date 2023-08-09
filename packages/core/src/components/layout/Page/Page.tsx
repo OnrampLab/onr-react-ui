@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { AnyAction } from 'redux';
 import { Header, SidebarMenu } from '../';
-import { useAuth, useRoute } from '../../../hooks';
+import { useAuth } from '../../../hooks';
+import { useRoute } from '../../../providers';
 import { CoreStore } from '../../../redux';
 import { Container } from './styles';
 

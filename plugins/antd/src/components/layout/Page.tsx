@@ -1,13 +1,13 @@
 import { Container, CoreStore, Inner, useAuth, useRoute } from '@onr/core';
 import { Layout } from 'antd';
-import { FC } from 'react';
+import { ReactNode } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
 
 interface Props {
-  children: JSX.Element;
-  HeaderMainSection: FC;
+  children: ReactNode;
+  HeaderMainSection: ReactNode;
 }
 
 const { Content } = Layout;

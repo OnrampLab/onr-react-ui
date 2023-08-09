@@ -1,6 +1,6 @@
 import { LogLevel } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
-import { ReactNode } from 'react';
+import { ComponentType, FC, ReactNode } from 'react';
 import { AppComponents } from './AppComponents';
 import { AppConfig } from './AppOptions';
 
@@ -10,13 +10,20 @@ export type OnrApp = {
 
   initialize(): void;
   getComponents(): AppComponents;
-  getProvider(): ReactNode;
+  getProvider(): FC<ProviderProps>;
+  getAppContainer(): FC<ProviderProps>;
+  getPageContainer(): FC<ProviderProps>;
   getAppConfig(): any;
   getMenuItems(): any;
   getRoutes(): any;
   addService<T extends Client>(serviceName: string, service: T): OnrApp;
   getService(serviceName: string): Client;
 };
+
+export interface ProviderProps {
+  children: ReactNode;
+  session: any;
+}
 
 export type FullAppOptions = {
   components: AppComponents;
@@ -26,6 +33,13 @@ export type FullAppOptions = {
   routes: any;
   apis: any;
 };
+
+export interface RouteType {
+  path: string;
+  layout: string;
+  authRequired: boolean;
+  LayoutContainer: ComponentType;
+}
 
 export type LogConfig = {
   default: string;

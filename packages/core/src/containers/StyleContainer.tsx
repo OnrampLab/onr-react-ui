@@ -1,4 +1,4 @@
-import { useRoute } from '../hooks/useRoute';
+import { useRoute } from '../providers';
 
 interface Props {
   children: JSX.Element;
