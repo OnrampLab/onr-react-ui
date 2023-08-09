@@ -1,11 +1,11 @@
-import { App, useGlobalModal } from '@onr/core';
+import { useGlobalModal, useLogger } from '@onr/core';
 import { Button } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 
 export const HomeMainPage: React.FC = () => {
   const { showModal } = useGlobalModal();
-  const logger = App.getInstance().logger;
+  const logger = useLogger();
 
   const openModal = () => {
     showModal({
