@@ -94,11 +94,17 @@ export class App implements OnrApp {
 
   getAppContainer() {
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
+      const menuItemsContext = useInitializeMenuItems(this.menuItems);
+
       return (
         <NextAuthProvider session={session}>
           <AppContext.Provider value={this}>
             <RouteProvider>
-              <AuthProvider>{children}</AuthProvider>
+              <AuthProvider>
+                <MenuItemsContextProvider value={menuItemsContext}>
+                  {children}
+                </MenuItemsContextProvider>
+              </AuthProvider>
             </RouteProvider>
           </AppContext.Provider>
         </NextAuthProvider>
@@ -110,13 +116,9 @@ export class App implements OnrApp {
 
   getPageContainer() {
     const Provider: FC = ({ children }) => {
-      const menuItemsContext = useInitializeMenuItems(this.menuItems);
-
       return (
         <StyleContainer>
-          <MenuItemsContextProvider value={menuItemsContext}>
-            <GlobalModalProvider>{children}</GlobalModalProvider>
-          </MenuItemsContextProvider>
+          <GlobalModalProvider>{children}</GlobalModalProvider>
         </StyleContainer>
       );
     };
