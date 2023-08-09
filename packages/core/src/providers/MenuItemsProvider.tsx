@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 import { MenuItem } from '../types';
 
 type MenuItemsContextType = {
@@ -16,6 +16,8 @@ const initialContext = {
 };
 
 export const MenuItemsContext = createContext<MenuItemsContextType>(initialContext);
+
+export const useMenuItems = () => useContext(MenuItemsContext);
 
 export const MenuItemsContextProvider = MenuItemsContext.Provider;
 
