@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.2
+
+### Patch Changes
+
+- Improve sidebar menu
+
 ## 0.14.1
 
 ### Patch Changes
