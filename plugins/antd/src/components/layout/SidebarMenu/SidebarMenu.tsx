@@ -107,6 +107,10 @@ export const SidebarMenu = ({
     }
   };
 
+  const isSamePath = (path1: string, path2: string) => {
+    return new URLSearchParams(path1).toString() === new URLSearchParams(path2).toString();
+  };
+
   const getInitialOpenKey = () => {
     let key = null;
 
@@ -116,7 +120,7 @@ export const SidebarMenu = ({
           if (subMenuItem.children) {
             console.warn('Not exist in our case. We only support 2 layers');
           } else {
-            if (subMenuItem.path === pathname) {
+            if (isSamePath(subMenuItem.path, pathname)) {
               key = getKey(menuItem.name, index);
 
               return true;
@@ -146,7 +150,7 @@ export const SidebarMenu = ({
               return (
                 <Menu.Item
                   key={getKey(route.name, index)}
-                  className={pathname === route.path ? 'ant-menu-item-selected' : ''}
+                  className={isSamePath(pathname, route.path) ? 'ant-menu-item-selected' : ''}
                   onClick={() => {
                     setOpenKeys([getKey(route.name, index)]);
                     if (mobile) dispatch(setMobileDrawer());
@@ -185,7 +189,9 @@ export const SidebarMenu = ({
                       return (
                         <Menu.Item
                           key={getKey(subitem.name, index)}
-                          className={pathname === subitem.path ? 'ant-menu-item-selected' : ''}
+                          className={
+                            isSamePath(pathname, subitem.path) ? 'ant-menu-item-selected' : ''
+                          }
                           onClick={() => {
                             if (mobile) dispatch(setMobileDrawer());
                           }}
