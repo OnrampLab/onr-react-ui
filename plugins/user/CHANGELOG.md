@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.19
+
+### Patch Changes
+
+- System will be redirected to login page when session expired
+- Updated dependencies
+  - @onr/core@0.22.2
+  - @onr/plugin-account@0.8.19
+  - @onr/plugin-auth@0.8.19
+
 ## 0.6.18
 
 ### Patch Changes

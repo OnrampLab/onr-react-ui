@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.22.2
+
+### Patch Changes
+
+- System will be redirected to login page when session expired
+
 ## 0.22.1
 
 ### Patch Changes

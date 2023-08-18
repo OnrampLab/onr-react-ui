@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.13.2
+
+### Patch Changes
+
+- System will be redirected to login page when session expired
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.18
+  - @onr/plugin-custom-home@0.7.3
+  - @onr/core@0.22.2
+  - @onr/plugin-account@0.8.19
+  - @onr/plugin-antd@0.14.3
+  - @onr/plugin-auth@0.8.19
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.1
+  - @onr/plugin-user@0.6.19
+
 ## 0.13.1
 
 ### Patch Changes

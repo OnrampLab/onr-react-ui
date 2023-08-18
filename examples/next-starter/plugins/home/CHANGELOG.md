@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.7.3
+
+### Patch Changes
+
+- System will be redirected to login page when session expired
+- Updated dependencies
+  - @onr/core@0.22.2
+
 ## 0.7.2
 
 ### Patch Changes
