@@ -11,8 +11,20 @@ jobs:
       tag: 'lts'
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+      - restore_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
       - node/install-packages:
           pkg-manager: yarn
+      - save_cache:
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - save_cache:
+          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/project/node_modules
       - run:
           command: yarn test:ci
           name: Run YARN tests
