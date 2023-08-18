@@ -37,8 +37,10 @@ export const AccountList: React.FC<IAccountListProps> = ({
       await accountService.deleteAccount({ accountId: account.id });
       message.success(`Account ${account.name} deleted`);
       onAccountsChanged();
-    } catch (e: any) {
-      message.error(`Failed to delete account${e.message && `: ${e.message}`}`);
+    } catch (e) {
+      if (e instanceof Error) {
+        message.error(`Failed to delete account${e.message && `: ${e.message}`}`);
+      }
     }
   };
 
@@ -56,11 +58,10 @@ export const AccountList: React.FC<IAccountListProps> = ({
     {
       key: 'operations',
       title: 'Operations',
-      // eslint-disable-next-line react/display-name
       render: (_text, account) => {
         return (
           <span className="operations">
-            <a onClick={() => openEditDialog(account)}>Edit</a>
+            <a onClick={() => openEditDialog(account)}>Edit</a>{' '}
             <Popconfirm
               title="Confirm delete account"
               onConfirm={async () => deleteAccount(account)}
