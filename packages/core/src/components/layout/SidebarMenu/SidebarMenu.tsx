@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { FC, useContext, useState } from 'react';
 import { AnyAction } from 'redux';
 import { AuthUser } from '../../../types';
 import { AppContext } from '../../App';
@@ -11,12 +11,10 @@ interface Props {
   logout: () => AnyAction;
 }
 
-// @ts-ignore
-export const SidebarMenu = ({ currentUser, logout, sidebarMode, sidebarTheme }: Props) => {
+export const SidebarMenu: FC<Props> = () => {
   const app = useContext(AppContext);
   const menuItems = app?.getMenuItems();
-  // @ts-ignore
-  const [appRoutes, setAppRoutes] = React.useState(menuItems);
+  const [appRoutes] = useState(menuItems);
 
   // TODO: create a simple sidebar menu component
   return (

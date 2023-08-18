@@ -16,7 +16,6 @@ const { Content } = Layout;
 export const Page: FC<Props> = (props: Props) => {
   const { HeaderMainSection, children } = props;
   const { currentRoute } = useRoute();
-  // @ts-ignore
   const { user } = useAuth();
   const isAdminLayout = currentRoute.layout === 'antd-admin';
 

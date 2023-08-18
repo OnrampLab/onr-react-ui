@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input, message as Message, Row } from 'antd';
+import { Button, Checkbox, Form, FormRule, Input, message, Row } from 'antd';
 import { NextPageContext } from 'next';
 import { getCsrfToken, getSession, signIn } from 'next-auth/react';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ const INIT_VALUES = {
   remember: true,
 };
 
-const EMAIL_RULES = [
+const EMAIL_RULES: FormRule[] = [
   {
     type: 'email',
     message: 'The input is not valid E-mail!',
@@ -38,39 +38,36 @@ interface Props {
   csrfToken: string;
 }
 
-const Signin: React.FC<Props> = ({ csrfToken }) => {
+export const Signin: React.FC<Props> = ({ csrfToken }) => {
   const router = useRouter();
 
   async function onFinish({ email, password }: any) {
     try {
-      // @ts-ignore
-      const { error, ok, url } = await signIn('credentials', {
+      const result = await signIn('credentials', {
         email: email,
         password: password,
         redirect: false,
         callbackUrl: (router.query.callbackUrl as string) ?? '/',
       });
 
-      if (ok) {
+      if (!result) {
+        throw new Error('Unknown Error: signIn result is null');
+      }
+
+      const { error, ok, url } = result;
+
+      if (ok && url) {
         window.location.href = url;
         return;
       }
 
-      let message = 'Incorrect email or password';
-
-      if (error instanceof Error) {
-        message = error.message;
+      if (error) {
+        throw new Error('Incorrect email or password');
       }
-
-      Message.error(message);
     } catch (error) {
-      let message = 'Unknown Error';
-
       if (error instanceof Error) {
-        message = error.message;
+        message.error(error.message);
       }
-
-      Message.error(message);
     }
   }
 
@@ -97,13 +94,12 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={err => {
-            Message.error(err);
+            message.error(err);
           }}
           initialValues={INIT_VALUES}
           method="post"
         >
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-          {/* @ts-ignore  */}
           <FormItem label="Email" name="email" rules={EMAIL_RULES}>
             <Input
               prefix={<FiMail size={16} strokeWidth={1} style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -145,11 +141,9 @@ const Signin: React.FC<Props> = ({ csrfToken }) => {
 };
 
 export async function getSigninServerSideProps(context: NextPageContext) {
-  // @ts-ignore
-  const { callbackUrl }: string = context.query;
+  const { callbackUrl } = context.query;
   const session = await getSession(context);
 
-  // @ts-ignore
   if (session && Date.now() < new Date(session.expires).getTime()) {
     return {
       redirect: {
@@ -165,5 +159,3 @@ export async function getSigninServerSideProps(context: NextPageContext) {
     },
   };
 }
-
-export { Signin };

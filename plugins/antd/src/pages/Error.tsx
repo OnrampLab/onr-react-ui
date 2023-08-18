@@ -15,8 +15,6 @@ export const Error = ({ code, error }: Props) => {
 
   return (
     <Row
-      // @ts-ignore
-      type="flex"
       align="middle"
       justify="center"
       className="bg-white text-center"

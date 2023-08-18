@@ -1,9 +1,9 @@
-import React, { ReactNode } from 'react';
+import React, { ElementType } from 'react';
 import { useSelector } from 'react-redux';
 import { CoreStore } from '../../../redux';
 
 type Props = {
-  HeaderMainSection: ReactNode;
+  HeaderMainSection: ElementType;
 };
 
 export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
@@ -14,7 +14,6 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
   return (
     <>
       <div>{name}</div>
-      {/* @ts-ignore */}
       <HeaderMainSection />
     </>
   );

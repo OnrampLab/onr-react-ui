@@ -1,6 +1,6 @@
 import { ActionConsts } from '../actions/ActionConsts';
 
-import { IAction, IStateProps, CoreStore } from '../interfaces';
+import { CoreStore, IAction, IStateProps } from '../interfaces';
 
 const INITIAL_STATE: IStateProps = {
   version: 1,
@@ -10,6 +10,7 @@ const INITIAL_STATE: IStateProps = {
   darkSidebar: false,
   sidebarPopup: false,
   sidebarIcons: false,
+  sidebarTheme: 'light',
   collapsed: false,
   weakColor: false,
   optionDrawer: false,

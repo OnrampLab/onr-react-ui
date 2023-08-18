@@ -1,5 +1,5 @@
 //#region Global Imports
-import { Action as ReduxAction, AnyAction } from 'redux';
+import { AnyAction, Action as ReduxAction } from 'redux';
 //#endregion Global Imports
 
 export interface IAction<T> extends ReduxAction {
@@ -14,6 +14,7 @@ export interface IStateProps {
   darkSidebar: boolean;
   sidebarPopup: boolean;
   sidebarIcons: boolean;
+  sidebarTheme: 'dark' | 'light';
   collapsed: boolean;
   weakColor: boolean;
   optionDrawer: boolean;

@@ -40,7 +40,6 @@ export const SidebarMenu = ({
     optionDrawer,
     boxed,
     darkSidebar,
-    // @ts-ignore
     sidebarTheme = propSideBarTheme,
     sidebarPopup,
     collapsed,

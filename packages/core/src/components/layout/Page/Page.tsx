@@ -17,7 +17,6 @@ interface Props {
 export const Page = (props: Props) => {
   const { HeaderMainSection, logout, children } = props;
   const { currentRoute } = useRoute();
-  // @ts-ignore
   const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,

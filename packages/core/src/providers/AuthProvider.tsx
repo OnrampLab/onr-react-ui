@@ -7,9 +7,15 @@ import { useRoute } from './RouteProvider';
 
 export type AuthContextType = {
   user: null | any;
+  signIn: () => void;
+  signOut: () => void;
 };
 
-export const AuthContext = createContext<AuthContextType>({ user: null });
+export const AuthContext = createContext<AuthContextType>({
+  user: null,
+  signIn: () => {},
+  signOut: () => {},
+});
 
 export const AuthProvider = (props: any) => {
   const router = useRouter();
@@ -32,8 +38,8 @@ export const AuthProvider = (props: any) => {
 
   if (typeof window !== 'undefined' && session?.accessToken) {
     // NOTE: update client side token
-    if (session?.accessToken) {
-      AxiosHelper.setToken(app?.apis.adminAxiosInstance, session?.accessToken);
+    if (session?.accessToken && app) {
+      AxiosHelper.setToken(app.apis.adminAxiosInstance, session?.accessToken);
     }
   }
 
@@ -49,9 +55,11 @@ export const AuthProvider = (props: any) => {
   // If no user, useEffect() will redirect.
   if (components) {
     const { LoadingPage } = components;
-    // @ts-ignore
-    return <LoadingPage />;
-  } else {
-    return <div>Loading...</div>;
+
+    if (LoadingPage) {
+      return <LoadingPage />;
+    }
   }
+
+  return <div>Loading...</div>;
 };

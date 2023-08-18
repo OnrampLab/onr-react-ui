@@ -1,11 +1,12 @@
 import { LogLevel } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
+import { AxiosInstance } from 'axios';
 import { ComponentType, FC, ReactNode } from 'react';
 import { AppComponents } from './AppComponents';
 import { AppConfig } from './AppOptions';
 
 export type OnrApp = {
-  apis: any;
+  apis: Record<string, AxiosInstance>;
   logger: any;
 
   initialize(): void;
