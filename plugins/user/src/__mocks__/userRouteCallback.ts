@@ -23,7 +23,6 @@ export function userRouteCallback(server: Server): void {
     const user = schema.create('user', data);
 
     return {
-      // @ts-ignore
       data: user,
     };
   });

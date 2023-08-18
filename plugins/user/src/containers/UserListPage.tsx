@@ -2,26 +2,23 @@ import { App } from '@onr/core';
 import { getAccountModule, IAccount } from '@onr/plugin-account';
 import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { DynamicModuleLoader } from 'redux-dynamic-modules-react';
 import { CreateUserForm } from '../components/CreateUserForm';
 import { UpdateUserForm } from '../components/UpdateUserForm';
 import { AccountUser } from '../entities/interfaces/AccountUser';
 import { UserRole } from '../entities/interfaces/IUser';
+import { useUsers } from '../hooks/useUsers';
 import { UserService } from '../services/UserService';
 
 const UserListContainer: React.FC = () => {
-  const [users, setUsers] = useState<AccountUser[]>([]);
-  // @ts-ignore
-  const [currentUser, setCurrentUser] = useState<AccountUser>({});
+  const [currentUser, setCurrentUser] = useState<AccountUser | null>(null);
   const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
   const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);
 
   const userService = App.getInstance().getService('userService') as UserService;
 
-  useEffect(() => {
-    fetchUserListData();
-  }, []);
+  const { users, fetch } = useUsers();
 
   const columns: ColumnProps<AccountUser>[] = [
     {
@@ -57,12 +54,11 @@ const UserListContainer: React.FC = () => {
     },
     {
       title: 'Operations',
-      // eslint-disable-next-line react/display-name
       render: (_text, user) => {
         return (
           <>
             <span className="operations">
-              <a onClick={() => openEditDialog(user)}>Edit</a>
+              <a onClick={() => openEditDialog(user)}>Edit</a>{' '}
               <Popconfirm title="Confirm delete user" onConfirm={() => deleteUser(user)}>
                 <a>Delete</a>
               </Popconfirm>
@@ -84,19 +80,14 @@ const UserListContainer: React.FC = () => {
     }
   }
 
-  async function fetchUserListData() {
-    const users = await userService.getUsers({});
-    setUsers(users);
-  }
-
   const onCreateUserFormSubmit = () => {
     setCreateUserModalVisible(false);
-    fetchUserListData();
+    fetch();
   };
 
   const onUpdateUserFormSubmit = () => {
     setUpdateUserModalVisible(false);
-    fetchUserListData();
+    fetch();
   };
 
   const deleteUser = async (user: AccountUser) => {
@@ -106,7 +97,7 @@ const UserListContainer: React.FC = () => {
       }
       await userService.deleteUser({ userId: user.id });
       message.success(`User ${user.name} deleted`);
-      fetchUserListData();
+      fetch();
     } catch (error) {
       let errorMessage = 'Unknown Error';
 
@@ -154,7 +145,9 @@ const UserListContainer: React.FC = () => {
         onCancel={() => setUpdateUserModalVisible(false)}
         footer={null}
       >
-        <UpdateUserForm currentUser={currentUser} onSubmit={() => onUpdateUserFormSubmit()} />
+        {currentUser && (
+          <UpdateUserForm currentUser={currentUser} onSubmit={() => onUpdateUserFormSubmit()} />
+        )}
       </Modal>
     </>
   );

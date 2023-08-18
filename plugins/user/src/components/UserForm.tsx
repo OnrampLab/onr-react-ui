@@ -1,6 +1,6 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { CoreStore } from '@onr/core';
-import { accountActions, IAccount } from '@onr/plugin-account';
+import { IAccount, accountActions } from '@onr/plugin-account';
 import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { useCallback, useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ import { UserRoleName } from '../entities/interfaces/IUser';
 import { UserRequestPayload } from '../services/interfaces';
 
 interface IUserFormProps extends FormProps {
-  currentUser: AccountUser;
+  currentUser?: AccountUser;
   handleSubmit(user: UserRequestPayload): Promise<void>;
 }
 
@@ -41,7 +41,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const { accounts } = currentUser;
+  const accounts = currentUser?.accounts;
   const allAccounts: IAccount[] = useSelector((store: AccountStore) => store.accountStore.accounts);
   const allAccountOptions = accountsToTransferOptions(allAccounts);
 
@@ -56,7 +56,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
   useEffect(() => {
     fetchData();
     form?.resetFields();
-  }, [fetchData, currentUser]);
+  }, [form, fetchData, currentUser]);
 
   const onFinish = async (values: UserRequestPayload['data']) => {
     console.log('Received values of form: ', values);
@@ -72,7 +72,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
     setLoading(false);
   };
 
-  const isCreateForm = Object.keys(currentUser).length === 0;
+  const isCreateForm = !currentUser;
 
   return (
     <Spin spinning={loading}>

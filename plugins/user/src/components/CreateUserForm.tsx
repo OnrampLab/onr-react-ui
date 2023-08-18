@@ -1,7 +1,7 @@
 import { App } from '@onr/core';
 import React from 'react';
-import { UserRequestPayload } from '../services/interfaces';
 import { UserService } from '../services/UserService';
+import { UserRequestPayload } from '../services/interfaces';
 import { UserForm } from './UserForm';
 
 interface CreateUserFormProps {
@@ -11,8 +11,7 @@ interface CreateUserFormProps {
 export const CreateUserForm: React.FC<CreateUserFormProps> = ({
   onSubmit,
 }: CreateUserFormProps) => {
-  // @ts-ignore
-  return <UserForm handleSubmit={handleSubmit} currentUser={{}} />;
+  return <UserForm handleSubmit={handleSubmit} />;
 
   async function handleSubmit(user: UserRequestPayload) {
     const userService = App.getInstance().getService('userService') as UserService;
