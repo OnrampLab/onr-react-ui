@@ -1,6 +1,7 @@
 import { createLogger, Handler } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
-import axios from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
+import { signOut } from 'next-auth/react';
 import { createContext, FC } from 'react';
 import { StyleContainer } from '../containers';
 import { AuthProvider, GlobalModalProvider, NextAuthProvider, RouteProvider } from '../providers';
@@ -15,7 +16,6 @@ import {
   ProviderProps,
   RouteType,
 } from '../types';
-
 export const AppContext = createContext<App | null>(null);
 
 export class App implements OnrApp {
@@ -27,7 +27,7 @@ export class App implements OnrApp {
   private readonly menuItems: MenuItem[];
   private readonly routes: RouteType[];
   private readonly services: any;
-  public apis: any;
+  public apis: Record<string, AxiosInstance>;
   public logger: any;
 
   constructor(options: FullAppOptions) {
@@ -159,6 +159,23 @@ export class App implements OnrApp {
         },
       }),
     };
+
+    Object.values(this.apis).forEach((axiosInstance: AxiosInstance) => {
+      axiosInstance.interceptors.response.use(
+        function (response: any) {
+          return response?.data;
+        },
+        function (error: AxiosError) {
+          if (error?.response?.status === 401) {
+            return signOut({ redirect: true }).then(() => {
+              return Promise.reject(error);
+            });
+          }
+
+          return Promise.reject(error);
+        },
+      );
+    });
   }
 
   private initLogger() {

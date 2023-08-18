@@ -18,10 +18,6 @@ const app: OnrApp = createApp({
   },
 });
 
-app.apis.adminAxiosInstance.interceptors.response.use(function (response: any) {
-  return response.data;
-});
-
 const authService = AuthService.fromAxiosInstance(app.apis.adminAxiosInstance);
 const accountService = AccountService.fromAxiosInstanceAndName(
   app.apis.adminAxiosInstance,

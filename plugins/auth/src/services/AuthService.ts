@@ -27,7 +27,7 @@ export class AuthService extends BasicClient {
 
       return response.data;
     } catch (error) {
-      throw error;
+      throw new Error(`refreshJWT Error: ${(error as Error).message}`);
     }
   }
 
