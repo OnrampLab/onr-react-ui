@@ -1,8 +1,8 @@
-import { App } from '@onr/core';
-import { getAccountModule, IAccount } from '@onr/plugin-account';
-import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
+import { App, useGlobalModal } from '@onr/core';
+import { IAccount, getAccountModule } from '@onr/plugin-account';
+import { Button, Card, Popconfirm, Table, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import React, { useState } from 'react';
+import React from 'react';
 import { DynamicModuleLoader } from 'redux-dynamic-modules-react';
 import { CreateUserForm } from '../components/CreateUserForm';
 import { UpdateUserForm } from '../components/UpdateUserForm';
@@ -12,10 +12,7 @@ import { useUsers } from '../hooks/useUsers';
 import { UserService } from '../services/UserService';
 
 const UserListContainer: React.FC = () => {
-  const [currentUser, setCurrentUser] = useState<AccountUser | null>(null);
-  const [createUserModalVisible, setCreateUserModalVisible] = useState(false);
-  const [updateUserModalVisible, setUpdateUserModalVisible] = useState(false);
-
+  const { showModal } = useGlobalModal();
   const userService = App.getInstance().getService('userService') as UserService;
 
   const { users, fetch } = useUsers();
@@ -69,26 +66,25 @@ const UserListContainer: React.FC = () => {
     },
   ];
 
-  function openCreateDialog() {
-    setCreateUserModalVisible(true);
-  }
+  const showUserModal = (currentUser?: any) => {
+    if (currentUser) {
+      showModal({
+        title: 'Update User',
+        content: <UpdateUserForm currentUser={currentUser} onSubmit={() => fetch()} />,
+      });
+    } else {
+      showModal({
+        title: 'Create User',
+        content: <CreateUserForm onSubmit={() => fetch()} />,
+      });
+    }
+  };
 
   function openEditDialog(user: AccountUser) {
     if (user) {
-      setCurrentUser(user);
-      setUpdateUserModalVisible(true);
+      showUserModal(user);
     }
   }
-
-  const onCreateUserFormSubmit = () => {
-    setCreateUserModalVisible(false);
-    fetch();
-  };
-
-  const onUpdateUserFormSubmit = () => {
-    setUpdateUserModalVisible(false);
-    fetch();
-  };
 
   const deleteUser = async (user: AccountUser) => {
     try {
@@ -114,7 +110,7 @@ const UserListContainer: React.FC = () => {
       <Card
         title="Users"
         extra={
-          <Button type="primary" onClick={() => openCreateDialog()}>
+          <Button type="primary" onClick={() => showUserModal()}>
             Create
           </Button>
         }
@@ -127,28 +123,6 @@ const UserListContainer: React.FC = () => {
           rowClassName={() => 'verticle-top'}
         />
       </Card>
-
-      <Modal
-        title="Create User"
-        visible={createUserModalVisible}
-        width={800}
-        onCancel={() => setCreateUserModalVisible(false)}
-        footer={null}
-      >
-        <CreateUserForm onSubmit={() => onCreateUserFormSubmit()} />
-      </Modal>
-
-      <Modal
-        title="Update User"
-        width={800}
-        visible={updateUserModalVisible}
-        onCancel={() => setUpdateUserModalVisible(false)}
-        footer={null}
-      >
-        {currentUser && (
-          <UpdateUserForm currentUser={currentUser} onSubmit={() => onUpdateUserFormSubmit()} />
-        )}
-      </Modal>
     </>
   );
 };
