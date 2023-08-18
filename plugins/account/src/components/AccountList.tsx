@@ -1,7 +1,7 @@
-import { App } from '@onr/core';
-import { Button, Card, message, Modal, Popconfirm, Table } from 'antd';
+import { App, useGlobalModal } from '@onr/core';
+import { Button, Card, Popconfirm, Table, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
-import React, { useState } from 'react';
+import React from 'react';
 import { AccountService, IAccount } from '..';
 import { CreateAccountForm } from './CreateAccountForm';
 import { UpdateAccountForm } from './UpdateAccountForm';
@@ -15,17 +15,22 @@ export const AccountList: React.FC<IAccountListProps> = ({
   accounts,
   onAccountsChanged,
 }: IAccountListProps) => {
-  const [currentAccount, setCurrentAccount] = useState<IAccount>(accounts[0]);
-  const [createAccountModalVisible, setCreateAccountModalVisible] = useState(false);
-  const [updateAccountModalVisible, setUpdateAccountModalVisible] = useState(false);
+  const { showModal } = useGlobalModal();
 
-  const openCreateDialog = () => {
-    setCreateAccountModalVisible(true);
-  };
-
-  const openEditDialog = (account: IAccount) => {
-    setCurrentAccount(account);
-    setUpdateAccountModalVisible(true);
+  const showAccountModal = (currentAccount?: any) => {
+    if (currentAccount) {
+      showModal({
+        title: 'Update Account',
+        content: (
+          <UpdateAccountForm currentAccount={currentAccount} onSubmit={() => onAccountsChanged()} />
+        ),
+      });
+    } else {
+      showModal({
+        title: 'Create Account',
+        content: <CreateAccountForm onSubmit={() => onAccountsChanged()} />,
+      });
+    }
   };
 
   const deleteAccount = async (account: IAccount) => {
@@ -61,7 +66,7 @@ export const AccountList: React.FC<IAccountListProps> = ({
       render: (_text, account) => {
         return (
           <span className="operations">
-            <a onClick={() => openEditDialog(account)}>Edit</a>{' '}
+            <a onClick={() => showAccountModal(account)}>Edit</a>{' '}
             <Popconfirm
               title="Confirm delete account"
               onConfirm={async () => deleteAccount(account)}
@@ -79,48 +84,13 @@ export const AccountList: React.FC<IAccountListProps> = ({
       <Card
         title="Accounts"
         extra={
-          <Button type="primary" onClick={() => openCreateDialog()}>
+          <Button type="primary" onClick={() => showAccountModal()}>
             Create Account
           </Button>
         }
       >
         <Table<IAccount> rowKey="id" columns={columns} dataSource={accounts} pagination={false} />
       </Card>
-
-      {createAccountModalVisible && (
-        <Modal
-          title="Create Account"
-          visible={createAccountModalVisible}
-          width={600}
-          onCancel={() => setCreateAccountModalVisible(false)}
-          footer={null}
-        >
-          <CreateAccountForm
-            onSubmit={() => {
-              onAccountsChanged();
-              setCreateAccountModalVisible(false);
-            }}
-          />
-        </Modal>
-      )}
-
-      {updateAccountModalVisible && (
-        <Modal
-          title="Update Account"
-          width={800}
-          visible={updateAccountModalVisible}
-          onCancel={() => setUpdateAccountModalVisible(false)}
-          footer={null}
-        >
-          <UpdateAccountForm
-            currentAccount={currentAccount}
-            onSubmit={() => {
-              onAccountsChanged();
-              setUpdateAccountModalVisible(false);
-            }}
-          />
-        </Modal>
-      )}
     </>
   );
 };
