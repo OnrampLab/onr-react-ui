@@ -8,7 +8,7 @@ interface User {
 
 describe('ResourceClient', () => {
   let resource: ResourceClient<User>;
-  const usersData = [
+  const todosData = [
     { id: 1, name: 'A' },
     { id: 2, name: 'B' },
   ];
@@ -21,7 +21,15 @@ describe('ResourceClient', () => {
 
   describe('list', () => {
     it('should return lists of resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, usersData);
+      nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, todosData);
+
+      const users = await resource.list();
+
+      expect(users.length).toEqual(2);
+    });
+
+    it('should return lists of resource', async () => {
+      nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, todosData);
 
       const users = await resource.list();
 
@@ -31,7 +39,7 @@ describe('ResourceClient', () => {
 
   describe('get', () => {
     it('should return a resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/todos/1').reply(200, usersData[0]);
+      nock('https://jsonplaceholder.typicode.com').get('/todos/1').reply(200, todosData[0]);
 
       const user = await resource.find(1);
 
@@ -107,7 +115,7 @@ describe('ResourceClient', () => {
 
       nock('https://jsonplaceholder.typicode.com')
         .get('/todos/1')
-        .reply(200, { data: usersData[0] });
+        .reply(200, { data: todosData[0] });
 
       const user = await resource.find(1);
 
