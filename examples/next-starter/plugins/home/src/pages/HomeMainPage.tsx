@@ -24,6 +24,9 @@ export const HomeMainPage: React.FC = () => {
         You can check out <Link href="/todos">Todos</Link>.
       </p>
       <p>
+        Or go to <Link href="/admin">Admin page</Link>.
+      </p>
+      <p>
         Or test a{' '}
         <Button onClick={openModal} type="primary">
           global modal
