@@ -4,6 +4,7 @@ orbs:
   aws-ecr: circleci/aws-ecr@8.2.1
   aws-eks: circleci/aws-eks@2.2.0
   kustomize: finc/kustomize@0.0.2
+  node: circleci/node@5.1.0
 
 commands:
   run_test:
@@ -11,11 +12,8 @@ commands:
     steps:
       - checkout
 
-      - restore_cache:
-          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
-
-      - restore_cache:
-          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
+      - node/install-packages:
+          pkg-manager: yarn
 
       - run:
           name: Install Dependencies
@@ -24,16 +22,6 @@ commands:
             yarn install
             cp .env.example .env
             cp .env.example .env.test
-
-      - save_cache:
-          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-
-      - save_cache:
-          key: dependency-cache-npm-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/project/node_modules
 
       - run:
           name: Run Linter
