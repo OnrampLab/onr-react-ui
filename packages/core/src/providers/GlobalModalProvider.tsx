@@ -89,6 +89,7 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
         width={1200}
         okText={modalProps?.okText || 'Close'}
         cancelText={modalProps?.cancelText}
+        destroyOnClose
       >
         {store.show && modalProps?.content}
       </Modal>
