@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.13.3
+
+### Patch Changes
+
+- Set global modal destroy on close
+- Updated dependencies
+  - @onr/plugin-custom-home@0.8.0
+  - @onr/plugin-custom-admin-dashboard@0.5.19
+  - @onr/core@0.22.3
+  - @onr/plugin-account@0.8.20
+  - @onr/plugin-antd@0.14.4
+  - @onr/plugin-auth@0.8.20
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.2
+  - @onr/plugin-user@0.6.20
+
 ## 0.13.2
 
 ### Patch Changes

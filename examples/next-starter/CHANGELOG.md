@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.2
+
+### Patch Changes
+
+- Set global modal destroy on close
+
 ## 0.29.1
 
 ### Patch Changes

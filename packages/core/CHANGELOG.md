@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.3
+
+### Patch Changes
+
+- Set global modal destroy on close
+- Updated dependencies
+  - @onr/ts-rest-client@1.3.9
+
 ## 0.22.2
 
 ### Patch Changes

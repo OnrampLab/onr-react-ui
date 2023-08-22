@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- Set global modal destroy on close
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.22.3
+
 ## 0.7.3
 
 ### Patch Changes

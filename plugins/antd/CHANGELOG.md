@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.14.4
+
+### Patch Changes
+
+- Set global modal destroy on close
+- Updated dependencies
+  - @onr/core@0.22.3
+
 ## 0.14.3
 
 ### Patch Changes

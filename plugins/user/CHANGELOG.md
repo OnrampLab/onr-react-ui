@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.20
+
+### Patch Changes
+
+- Set global modal destroy on close
+- Updated dependencies
+  - @onr/core@0.22.3
+  - @onr/plugin-account@0.8.20
+  - @onr/plugin-auth@0.8.20
+
 ## 0.6.19
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.9
+
+### Patch Changes
+
+- Set global modal destroy on close
+
 ## 1.3.8
 
 ### Patch Changes
