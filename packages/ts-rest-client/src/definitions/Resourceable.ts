@@ -1,9 +1,10 @@
+import { AxiosResponse } from 'axios';
 import { Client } from './Client';
 
-export interface Resourceable<T> extends Client {
-  create(requestData: T): Promise<T>;
-  update(id: number, requestData: T): Promise<T>;
-  list(params: any): Promise<T[]>;
-  find(id: number): Promise<T>;
-  delete(id: number): Promise<void>;
+export interface Resourceable extends Client {
+  create(requestData: any): Promise<AxiosResponse>;
+  update(id: number, requestData: any): Promise<AxiosResponse>;
+  list(params: any): Promise<AxiosResponse>;
+  find(id: number): Promise<AxiosResponse>;
+  delete(id: number): Promise<AxiosResponse>;
 }

@@ -9,9 +9,9 @@ describe('ResourceClient', () => {
     });
     const client = ResourceClient.fromAxiosInstanceAndName(axiosInstance, 'todos');
 
-    const response = await client.find(1);
+    const { data: todo } = await client.find(1);
 
-    expect(response).toEqual({
+    expect(todo).toEqual({
       completed: false,
       id: 1,
       title: 'delectus aut autem',

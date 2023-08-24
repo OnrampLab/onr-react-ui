@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Resourceable } from '../definitions';
 import handleApiError from './handleApiError';
 
-export class ResourceClient<T> implements Resourceable<T> {
+export class ResourceClient implements Resourceable {
   protected resourceName: string;
   protected axiosInstance: AxiosInstance;
 
@@ -20,49 +20,49 @@ export class ResourceClient<T> implements Resourceable<T> {
   }
 
   @handleApiError
-  async create(requestData: T) {
-    const response = await this.axiosInstance.request<T>({
+  async create(requestData: any) {
+    const response = await this.axiosInstance.request({
       url: `/${this.resourceName}`,
       method: 'POST',
       data: requestData,
     });
 
-    return response.data;
+    return response;
   }
 
   @handleApiError
-  async update(id: number, requestData: T) {
-    const response = await this.axiosInstance.request<T>({
+  async update(id: number, requestData: any) {
+    const response = await this.axiosInstance.request({
       url: `/${this.resourceName}/${id}`,
       method: 'PATCH',
       data: requestData,
     });
 
-    return response.data;
+    return response;
   }
 
   @handleApiError
   async list(params?: any) {
-    const response = await this.axiosInstance.request<T[]>({
+    const response = await this.axiosInstance.request({
       url: `/${this.resourceName}`,
       params,
     });
 
-    return response.data;
+    return response;
   }
 
   @handleApiError
   async find(id: number) {
-    const response = await this.axiosInstance.request<T>({
+    const response = await this.axiosInstance.request({
       url: `/${this.resourceName}/${id}`,
     });
 
-    return response.data;
+    return response;
   }
 
   @handleApiError
   async delete(id: number) {
-    await this.axiosInstance.request<void>({
+    return await this.axiosInstance.request<void>({
       method: 'DELETE',
       url: `/${this.resourceName}/${id}`,
     });

@@ -1,13 +1,8 @@
 import nock from 'nock';
 import { ResourceClient } from '../ResourceClient';
 
-interface User {
-  id: number;
-  name: string;
-}
-
 describe('ResourceClient', () => {
-  let resource: ResourceClient<User>;
+  let resource: ResourceClient;
   const todosData = [
     { id: 1, name: 'A' },
     { id: 2, name: 'B' },
@@ -23,7 +18,7 @@ describe('ResourceClient', () => {
     it('should return lists of resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, todosData);
 
-      const users = await resource.list();
+      const { data: users } = await resource.list();
 
       expect(users.length).toEqual(2);
     });
@@ -31,7 +26,7 @@ describe('ResourceClient', () => {
     it('should return lists of resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, todosData);
 
-      const users = await resource.list();
+      const { data: users } = await resource.list();
 
       expect(users.length).toEqual(2);
     });
@@ -41,7 +36,7 @@ describe('ResourceClient', () => {
     it('should return a resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/todos/1').reply(200, todosData[0]);
 
-      const user = await resource.find(1);
+      const { data: user } = await resource.find(1);
 
       expect(user).toBeDefined();
       expect(user.id).toBeDefined();
@@ -57,7 +52,7 @@ describe('ResourceClient', () => {
       };
       nock('https://jsonplaceholder.typicode.com').post('/todos').reply(201, userData);
 
-      const user = await resource.create(userData);
+      const { data: user } = await resource.create(userData);
 
       expect(user).toBeDefined();
       expect(user.id).toEqual(userData.id);
@@ -75,7 +70,7 @@ describe('ResourceClient', () => {
         .patch(`/todos/${userData.id}`)
         .reply(200, userData);
 
-      const user = await resource.update(userData.id, userData);
+      const { data: user } = await resource.update(userData.id, userData);
 
       expect(user).toBeDefined();
       expect(user.id).toEqual(userData.id);
@@ -117,7 +112,7 @@ describe('ResourceClient', () => {
         .get('/todos/1')
         .reply(200, { data: todosData[0] });
 
-      const user = await resource.find(1);
+      const { data: user } = await resource.find(1);
 
       expect(user).toBeDefined();
       expect(user.id).toBeDefined();

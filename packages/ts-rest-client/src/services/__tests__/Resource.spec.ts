@@ -3,14 +3,9 @@ import nock from 'nock';
 import { BasicClient } from '../BasicClient';
 import { Resource } from '../Resource';
 
-interface User {
-  id: number;
-  name: string;
-}
-
 describe('Resource', () => {
   let client: BasicClient;
-  let resource: Resource<User>;
+  let resource: Resource;
   const usersData = [
     { id: 1, name: 'A' },
     { id: 2, name: 'B' },
@@ -29,7 +24,7 @@ describe('Resource', () => {
     it('should return lists of resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/comments?postId=1').reply(200, usersData);
 
-      const users = await resource.list({ postId: 1 });
+      const { data: users } = await resource.list({ postId: 1 });
 
       expect(users.length).toEqual(2);
     });
@@ -39,7 +34,7 @@ describe('Resource', () => {
     it('should return a resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/comments/1').reply(200, usersData[0]);
 
-      const user = await resource.find(1);
+      const { data: user } = await resource.find(1);
 
       expect(user).toBeDefined();
       expect(user.id).toBeDefined();
@@ -55,7 +50,7 @@ describe('Resource', () => {
       };
       nock('https://jsonplaceholder.typicode.com').post('/comments').reply(201, userData);
 
-      const user = await resource.create(userData);
+      const { data: user } = await resource.create(userData);
 
       expect(user).toBeDefined();
       expect(user.id).toEqual(userData.id);
@@ -73,7 +68,7 @@ describe('Resource', () => {
         .patch(`/comments/${userData.id}`)
         .reply(200, userData);
 
-      const user = await resource.update(userData.id, userData);
+      const { data: user } = await resource.update(userData.id, userData);
 
       expect(user).toBeDefined();
       expect(user.id).toEqual(userData.id);
