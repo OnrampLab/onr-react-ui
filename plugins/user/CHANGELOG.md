@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.23.0
+  - @onr/plugin-account@0.9.1
+  - @onr/plugin-auth@0.8.22
+
 ## 0.7.0
 
 ### Minor Changes

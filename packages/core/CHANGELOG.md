@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.23.0
+
+### Minor Changes
+
+- GlobalModalProvider support more modal props
+
 ## 0.22.4
 
 ### Patch Changes
