@@ -1,13 +1,15 @@
+import { ListResponse } from '@onr/core';
 import { ResourceClient } from '@onr/ts-rest-client';
 import { IAccount } from '../entities/interfaces/IAccount';
 import { GetAccountsPayload } from './interfaces/AccountModel';
 
 export class AccountService extends ResourceClient {
-  async getAccounts(payload: GetAccountsPayload): Promise<IAccount[]> {
+  async getAccounts(payload: GetAccountsPayload) {
     try {
-      const { data: accounts } = await this.list(payload.params);
+      const response = await this.list(payload.params);
 
-      return accounts as IAccount[];
+      // @ts-ignore
+      return response as ListResponse<IAccount>;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] getAccounts Error: ${JSON.stringify(error)}`);

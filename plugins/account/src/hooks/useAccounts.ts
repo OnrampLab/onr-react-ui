@@ -10,14 +10,18 @@ type Store = CoreStore & StoreProps;
 export const useAccounts = (params?: Parameters) => {
   const dispatch = useDispatch();
   const accounts = useSelector((store: Store) => store.accountStore?.accounts ?? []);
+  const pagination = useSelector((store: Store) => store.accountStore?.pagination ?? []);
 
-  const fetch = useCallback(() => {
-    dispatch(
-      accountActions.getAccounts({
-        params,
-      }),
-    );
-  }, [dispatch, params]);
+  const fetch = useCallback(
+    (payload?: any) => {
+      dispatch(
+        accountActions.getAccounts({
+          params: { ...params, ...payload },
+        }),
+      );
+    },
+    [dispatch, params],
+  );
 
   useEffect(() => {
     fetch();
@@ -25,6 +29,7 @@ export const useAccounts = (params?: Parameters) => {
 
   return {
     accounts,
+    pagination,
     fetch,
   };
 };

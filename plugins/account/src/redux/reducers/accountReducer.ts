@@ -14,6 +14,7 @@ import { IAction } from '@onr/core';
  */
 const INITIAL_STATE = {
   accounts: [],
+  pagination: {},
 };
 
 /**

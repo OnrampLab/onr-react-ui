@@ -4,14 +4,14 @@ import { AccountService } from '../services/AccountService';
 import { actionConsts } from './actionConsts';
 
 export const accountActions = {
-  setAccounts: (payload: {}) => ({
+  setAccounts: (payload: any) => ({
     payload,
     type: actionConsts.account.setAccounts,
   }),
 
   getAccounts: (payload: any) => async (dispatch: Dispatch) => {
     const accountService = App.getInstance().getService('accountService') as AccountService;
-    const accounts = await accountService.getAccounts({
+    const accountsCollection = await accountService.getAccounts({
       params: payload.params,
     });
 
@@ -19,7 +19,8 @@ export const accountActions = {
     // when fetching accounts in account list page, it will affect the data in UserSelector
     dispatch(
       accountActions.setAccounts({
-        accounts,
+        accounts: accountsCollection.data,
+        pagination: accountsCollection.meta,
       }),
     );
   },

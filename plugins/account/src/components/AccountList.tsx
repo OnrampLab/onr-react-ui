@@ -1,5 +1,5 @@
-import { App, useGlobalModal } from '@onr/core';
-import { Button, Card, Popconfirm, Table, message } from 'antd';
+import { App, Pagination, useGlobalModal } from '@onr/core';
+import { Button, Card, Popconfirm, Table, TablePaginationConfig, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React from 'react';
 import { AccountService, IAccount } from '..';
@@ -8,11 +8,13 @@ import { UpdateAccountForm } from './UpdateAccountForm';
 
 interface IAccountListProps {
   accounts: IAccount[];
-  onAccountsChanged(): void;
+  pagination: Pagination;
+  onAccountsChanged(params?: any): void;
 }
 
 export const AccountList: React.FC<IAccountListProps> = ({
   accounts,
+  pagination,
   onAccountsChanged,
 }: IAccountListProps) => {
   const { showModal } = useGlobalModal();
@@ -54,11 +56,20 @@ export const AccountList: React.FC<IAccountListProps> = ({
       key: 'id',
       title: 'ID',
       dataIndex: 'id',
+      sorter: true,
     },
     {
       key: 'name',
       title: 'Name',
       dataIndex: 'name',
+      sorter: true,
+    },
+    {
+      key: 'created_at',
+      title: 'Created At',
+      dataIndex: 'created_at',
+      render: (text, _record) => new Date(text).toLocaleDateString(),
+      sorter: true,
     },
     {
       key: 'operations',
@@ -79,6 +90,15 @@ export const AccountList: React.FC<IAccountListProps> = ({
     },
   ];
 
+  const onChange = ({ current, pageSize }: TablePaginationConfig, _filters: any, sorter: any) => {
+    onAccountsChanged({
+      page: current,
+      size: pageSize,
+      sort_by: sorter.field,
+      sort: sorter.order === 'ascend' ? 'ASC' : 'DESC',
+    });
+  };
+
   return (
     <>
       <Card
@@ -89,7 +109,18 @@ export const AccountList: React.FC<IAccountListProps> = ({
           </Button>
         }
       >
-        <Table<IAccount> rowKey="id" columns={columns} dataSource={accounts} pagination={false} />
+        <Table<IAccount>
+          rowKey="id"
+          columns={columns}
+          dataSource={accounts}
+          pagination={{
+            defaultCurrent: pagination?.current_page ?? 1,
+            showSizeChanger: true,
+            pageSize: pagination?.per_page,
+            total: pagination?.total,
+          }}
+          onChange={onChange}
+        />
       </Card>
     </>
   );
