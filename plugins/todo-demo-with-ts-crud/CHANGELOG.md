@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- Improve todo plugin
+
 ## 0.8.3
 
 ### Patch Changes
