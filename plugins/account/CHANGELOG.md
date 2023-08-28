@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- User can do pagination and sorting on user and account list page
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/ts-rest-client@2.0.0
+  - @onr/core@0.22.4
+
 ## 0.8.20
 
 ### Patch Changes

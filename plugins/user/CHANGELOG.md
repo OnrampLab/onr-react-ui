@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- User can do pagination and sorting on user and account list page
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-account@0.9.0
+  - @onr/core@0.22.4
+  - @onr/plugin-auth@0.8.21
+
 ## 0.6.20
 
 ### Patch Changes

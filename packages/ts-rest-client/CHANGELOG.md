@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- User can do pagination and sorting on user and account list page
+
 ## 1.3.9
 
 ### Patch Changes

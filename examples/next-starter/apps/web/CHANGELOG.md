@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.13.4
+
+### Patch Changes
+
+- User can do pagination and sorting on user and account list page
+- Updated dependencies
+  - @onr/plugin-account@0.9.0
+  - @onr/plugin-user@0.7.0
+  - @onr/plugin-custom-admin-dashboard@0.5.20
+  - @onr/plugin-custom-home@0.8.1
+  - @onr/core@0.22.4
+  - @onr/plugin-antd@0.14.5
+  - @onr/plugin-auth@0.8.21
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.3
+
 ## 0.13.3
 
 ### Patch Changes

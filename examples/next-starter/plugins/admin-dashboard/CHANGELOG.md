@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.20
+
+### Patch Changes
+
+- User can do pagination and sorting on user and account list page
+- Updated dependencies
+  - @onr/core@0.22.4
+  - @onr/plugin-antd@0.14.5
+
 ## 0.5.19
 
 ### Patch Changes

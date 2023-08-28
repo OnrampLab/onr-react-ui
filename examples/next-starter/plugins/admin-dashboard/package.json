@@ -1,7 +1,7 @@
 {
   "name": "@onr/plugin-custom-admin-dashboard",
   "private": true,
-  "version": "0.5.19",
+  "version": "0.5.20",
   "description": "custom dashboard plugin",
   "license": "ISC",
   "main": "lib/index.js",
@@ -29,8 +29,8 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/core": "^0.22.3",
-    "@onr/plugin-antd": "^0.14.4",
+    "@onr/core": "^0.22.4",
+    "@onr/plugin-antd": "^0.14.5",
     "antd": "^5.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

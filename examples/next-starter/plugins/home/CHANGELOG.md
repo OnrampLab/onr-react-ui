@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- User can do pagination and sorting on user and account list page
+- Updated dependencies
+  - @onr/core@0.22.4
+
 ## 0.8.0
 
 ### Minor Changes
