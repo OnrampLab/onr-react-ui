@@ -1,28 +1,33 @@
 import { Modal } from 'antd';
+import type { ModalProps } from 'antd/es';
 import { useRouter } from 'next/router';
-import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  MouseEvent,
+  ReactNode,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 type Props = {
   children: ReactNode;
 };
 
-type ModalProps = {
-  title?: string;
-  okText?: string;
-  cancelText?: string;
+interface OnrModalProps extends ModalProps {
   content: JSX.Element;
-  onOk?(): void;
-  onCancel?(): void;
-};
+  top?: number;
+  height?: number;
+}
 
 type GlobalModalContextContract = {
-  showModal: (modalProps?: ModalProps) => void;
+  showModal: (modalProps?: OnrModalProps) => void;
   hideModal: () => void;
   store: Store;
 };
 
 type Store = {
-  modalProps?: ModalProps;
+  modalProps?: OnrModalProps;
   show: boolean;
 };
 
@@ -55,7 +60,7 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
     };
   }, [router]);
 
-  const showModal = (modalProps?: ModalProps) => {
+  const showModal = (modalProps?: OnrModalProps) => {
     setStore({
       ...store,
       modalProps,
@@ -69,13 +74,13 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
     });
   };
 
-  const onOkClick = () => {
-    modalProps?.onOk?.();
+  const onOkClick = (e: MouseEvent<HTMLButtonElement>) => {
+    modalProps?.onOk?.(e);
     hideModal();
   };
 
-  const onCancelClick = () => {
-    modalProps?.onCancel?.();
+  const onCancelClick = (e: MouseEvent<HTMLButtonElement>) => {
+    modalProps?.onCancel?.(e);
     hideModal();
   };
 
@@ -86,9 +91,12 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
         open={store.show}
         onOk={onOkClick}
         onCancel={onCancelClick}
-        width={1200}
+        width={modalProps?.width ?? 1200}
+        style={{ top: modalProps?.top }}
+        bodyStyle={{ height: modalProps?.height }}
         okText={modalProps?.okText || 'Close'}
         cancelText={modalProps?.cancelText}
+        centered={modalProps?.centered}
         destroyOnClose
       >
         {store.show && modalProps?.content}
