@@ -1,3 +1,4 @@
+import { ListResponse } from '@onr/core';
 import { ResourceClient } from '@onr/ts-rest-client';
 import { AccountUser } from '../entities/interfaces/AccountUser';
 import { GetUserPayload, GetUsersPayload } from './interfaces/UserModel';
@@ -5,9 +6,10 @@ import { GetUserPayload, GetUsersPayload } from './interfaces/UserModel';
 export class UserService extends ResourceClient {
   async getUsers(payload: GetUsersPayload) {
     try {
-      const { data: users } = await this.list(payload.params);
+      const response = await this.list(payload.params);
 
-      return users as AccountUser[];
+      // @ts-ignore
+      return response as ListResponse<AccountUser>;
     } catch (error) {
       console.log(error);
       throw new Error(`[UserService] getUsers Error: ${JSON.stringify(error)}`);

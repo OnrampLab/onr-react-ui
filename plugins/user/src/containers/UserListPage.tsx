@@ -1,6 +1,6 @@
 import { App, useGlobalModal } from '@onr/core';
 import { IAccount, getAccountModule } from '@onr/plugin-account';
-import { Button, Card, Popconfirm, Table, message } from 'antd';
+import { Button, Card, Popconfirm, Table, TablePaginationConfig, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React from 'react';
 import { DynamicModuleLoader } from 'redux-dynamic-modules-react';
@@ -15,20 +15,23 @@ const UserListContainer: React.FC = () => {
   const { showModal } = useGlobalModal();
   const userService = App.getInstance().getService('userService') as UserService;
 
-  const { users, fetch } = useUsers();
+  const { users, pagination, fetch } = useUsers();
 
   const columns: ColumnProps<AccountUser>[] = [
     {
       title: 'ID',
       dataIndex: 'id',
+      sorter: true,
     },
     {
       title: 'Name',
       dataIndex: 'name',
+      sorter: true,
     },
     {
       title: 'Email',
       dataIndex: 'email',
+      sorter: true,
     },
     {
       title: 'Roles',
@@ -48,6 +51,12 @@ const UserListContainer: React.FC = () => {
           </div>
         ));
       },
+    },
+    {
+      title: 'Created At',
+      dataIndex: 'created_at',
+      key: 'created_at',
+      render: (text, _record) => new Date(text).toLocaleDateString(),
     },
     {
       title: 'Operations',
@@ -105,6 +114,15 @@ const UserListContainer: React.FC = () => {
     }
   };
 
+  const onChange = ({ current, pageSize }: TablePaginationConfig, _filters: any, sorter: any) => {
+    fetch({
+      page: current,
+      size: pageSize,
+      sort_by: sorter.field,
+      sort: sorter.order === 'ascend' ? 'ASC' : 'DESC',
+    });
+  };
+
   return (
     <>
       <Card
@@ -119,8 +137,14 @@ const UserListContainer: React.FC = () => {
           rowKey="id"
           columns={columns}
           dataSource={users}
-          pagination={false}
+          pagination={{
+            defaultCurrent: pagination?.current_page ?? 1,
+            showSizeChanger: true,
+            pageSize: pagination?.per_page,
+            total: pagination?.total,
+          }}
           rowClassName={() => 'verticle-top'}
+          onChange={onChange}
         />
       </Card>
     </>
