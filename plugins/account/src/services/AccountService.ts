@@ -2,12 +2,12 @@ import { ResourceClient } from '@onr/ts-rest-client';
 import { IAccount } from '../entities/interfaces/IAccount';
 import { GetAccountsPayload } from './interfaces/AccountModel';
 
-export class AccountService extends ResourceClient<IAccount> {
+export class AccountService extends ResourceClient {
   async getAccounts(payload: GetAccountsPayload): Promise<IAccount[]> {
     try {
-      const accounts = await this.list(payload.params);
+      const { data: accounts } = await this.list(payload.params);
 
-      return accounts;
+      return accounts as IAccount[];
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] getAccounts Error: ${JSON.stringify(error)}`);
@@ -16,8 +16,8 @@ export class AccountService extends ResourceClient<IAccount> {
 
   async createAccount(payload: { data: IAccount }) {
     try {
-      const account = await this.create(payload.data);
-      return account;
+      const { data: account } = await this.create(payload.data);
+      return account as IAccount;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] createAccount Error: ${JSON.stringify(error)}`);
@@ -26,8 +26,8 @@ export class AccountService extends ResourceClient<IAccount> {
 
   async updateAccount(payload: { data: any; accountId: number }) {
     try {
-      const account = await this.update(payload.accountId, payload.data);
-      return account;
+      const { data: account } = await this.update(payload.accountId, payload.data);
+      return account as IAccount;
     } catch (error) {
       console.log(error);
       throw new Error(`[AccountService] updateAccount Error: ${JSON.stringify(error)}`);
