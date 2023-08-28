@@ -1,11 +1,11 @@
 import { ResourceClient } from '@onr/ts-rest-client';
 import { Todo } from '../definitions';
 
-class TodoService extends ResourceClient<Todo> {
-  async list(params: any = {}) {
+class TodoService extends ResourceClient {
+  async listTodos(params: any = {}) {
     const { size, orderBy, sort } = params;
 
-    const response = await this.axiosInstance.request<Todo[]>({
+    const response = await this.axiosInstance.request({
       url: '/todos',
     });
 
@@ -19,7 +19,7 @@ class TodoService extends ResourceClient<Todo> {
 
     const todos = size ? allTodos.slice(0, size) : allTodos;
 
-    return todos;
+    return todos as Todo[];
   }
 
   async getTodo(id: number) {

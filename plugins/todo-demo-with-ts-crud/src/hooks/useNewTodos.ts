@@ -1,10 +1,11 @@
 import { useMenuItems } from '@onr/core';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTodos } from './useTodos';
 
 export const useNewTodos = () => {
   const { addSubMenuItem, clearSubMenuItems } = useMenuItems();
-  const { todos } = useTodos({ size: 5, orderBy: 'id', sort: 'desc' });
+  const [payload] = useState({ size: 5, orderBy: 'id', sort: 'desc' });
+  const { todos } = useTodos(payload);
 
   useEffect(() => {
     todos.map(todo => {
