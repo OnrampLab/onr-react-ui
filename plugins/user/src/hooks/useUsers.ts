@@ -9,7 +9,7 @@ export const useUsers = (params?: Parameters) => {
   const userService = App.getInstance().getService('userService') as UserService;
   const [users, setUsers] = useState<AccountUser[]>();
   const fetch = useCallback(() => {
-    userService.list(params).then(setUsers);
+    userService.getUsers({ params }).then(setUsers);
   }, [userService, params]);
 
   useEffect(() => {

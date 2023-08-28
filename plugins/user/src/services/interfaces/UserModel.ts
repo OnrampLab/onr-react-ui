@@ -1,8 +1,7 @@
-import { AnyNsRecord } from 'dns';
 import { UserRequestPayload, UserResponse, UsersResponse } from '.';
 
 export interface GetUsersPayload {
-  params?: AnyNsRecord;
+  params?: any;
 }
 
 export interface GetUserPayload extends GetUsersPayload {
