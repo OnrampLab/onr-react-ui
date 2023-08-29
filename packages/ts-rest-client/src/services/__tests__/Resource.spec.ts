@@ -20,7 +20,7 @@ describe('Resource', () => {
     resource = Resource.createByResourceName(client, 'comment');
   });
 
-  describe.only('list', () => {
+  describe('list', () => {
     it('should return lists of resource', async () => {
       nock('https://jsonplaceholder.typicode.com').get('/comments?postId=1').reply(200, usersData);
 
