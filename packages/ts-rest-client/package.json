@@ -33,7 +33,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "axios": "^1.0.0",
+    "axios": "^1.5.0",
     "qs-stringify": "^1.2.1"
   },
   "devDependencies": {
