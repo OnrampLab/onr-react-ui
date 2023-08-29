@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- Upgrade axios to v1.5
+
 ## 2.0.0
 
 ### Major Changes

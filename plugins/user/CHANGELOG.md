@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.2
+
+### Patch Changes
+
+- Upgrade axios to v1.5
+- Updated dependencies
+  - @onr/core@0.23.1
+  - @onr/plugin-account@0.9.2
+  - @onr/plugin-auth@0.8.23
+
 ## 0.7.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.23
+
+### Patch Changes
+
+- Upgrade axios to v1.5
+- Updated dependencies
+  - @onr/core@0.23.1
+
 ## 0.8.22
 
 ### Patch Changes

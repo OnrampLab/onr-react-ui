@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.13.6
+
+### Patch Changes
+
+- Upgrade axios to v1.5
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.5.22
+  - @onr/plugin-custom-home@0.8.3
+  - @onr/core@0.23.1
+  - @onr/plugin-account@0.9.2
+  - @onr/plugin-antd@0.14.7
+  - @onr/plugin-auth@0.8.23
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.6
+  - @onr/plugin-user@0.7.2
+
 ## 0.13.5
 
 ### Patch Changes
