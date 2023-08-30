@@ -1,8 +1,9 @@
-import { App, useAuth, useRoute } from '@onr/core';
+import { App, CoreStore, useAuth, useRoute } from '@onr/core';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
 
 const AntdPage = dynamic(() => import('@onr/plugin-antd').then(mod => mod.Page));
 const AccountSelector = dynamic(() =>
@@ -11,6 +12,17 @@ const AccountSelector = dynamic(() =>
 
 const Empty: FC = () => {
   return <></>;
+};
+
+const DefaultLogo: FC = () => {
+  const { name } = useSelector((store: CoreStore) => store.coreStore);
+
+  return (
+    <>
+      <img src="/static/images/triangle.png" style={{ height: 24 }} />
+      <strong className="mx-1 text-black">{name}</strong>
+    </>
+  );
 };
 
 const Container: React.FC<AppProps> = (props: AppProps) => {
@@ -32,7 +44,7 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
       <Page
         HeaderMainSection={HeaderMainSection}
         avatar="/static/images/avatar.jpg"
-        logo="/static/images/triangle.png"
+        logo={<DefaultLogo />}
       >
         {content}
       </Page>
