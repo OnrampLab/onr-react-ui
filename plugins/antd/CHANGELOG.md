@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.0
+
+### Minor Changes
+
+- Can customize logo and avatar
+
 ## 0.14.7
 
 ### Patch Changes

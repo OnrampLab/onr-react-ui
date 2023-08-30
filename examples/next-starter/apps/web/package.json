@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "0.13.6",
+  "version": "0.14.0",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -32,9 +32,9 @@
     "@onr/logging": "^0.4.2",
     "@onr/mock": "^3.0.1",
     "@onr/plugin-account": "^0.9.2",
-    "@onr/plugin-antd": "^0.14.7",
+    "@onr/plugin-antd": "^0.15.0",
     "@onr/plugin-auth": "^0.8.23",
-    "@onr/plugin-custom-admin-dashboard": "^0.5.22",
+    "@onr/plugin-custom-admin-dashboard": "^0.5.23",
     "@onr/plugin-custom-home": "^0.8.3",
     "@onr/plugin-todo-demo-with-ts-rest-client": "^0.8.6",
     "@onr/plugin-user": "^0.7.2",
