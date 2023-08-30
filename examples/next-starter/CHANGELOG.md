@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.31.0
+
+### Minor Changes
+
+- Can do better customization for logo
+
 ## 0.30.0
 
 ### Minor Changes

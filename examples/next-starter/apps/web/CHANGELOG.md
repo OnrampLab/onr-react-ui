@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.15.0
+
+### Minor Changes
+
+- Can do better customization for logo
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-antd@0.16.0
+  - @onr/plugin-custom-admin-dashboard@0.5.24
+
 ## 0.14.0
 
 ### Minor Changes
