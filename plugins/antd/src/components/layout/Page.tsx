@@ -8,7 +8,7 @@ import { SidebarMenu } from './SidebarMenu';
 interface Props {
   children: ReactNode;
   HeaderMainSection: ComponentType;
-  logo?: string;
+  logo?: ReactNode;
   avatar?: string;
 }
 

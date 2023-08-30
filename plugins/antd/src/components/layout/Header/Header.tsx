@@ -1,7 +1,7 @@
 import { coreActions, CoreStore, useAuth } from '@onr/core';
 import { Avatar, Layout, Menu, MenuProps, Popconfirm } from 'antd';
 import Link from 'next/link';
-import React, { ComponentType } from 'react';
+import { ComponentType, FC, ReactNode } from 'react';
 import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
@@ -11,7 +11,7 @@ type AvatarProps = {
 };
 
 type LogoProps = {
-  logo?: string;
+  logo?: ReactNode;
 };
 
 type Props = {
@@ -19,7 +19,7 @@ type Props = {
 } & AvatarProps &
   LogoProps;
 
-const UserMenu: React.FC<AvatarProps> = ({ avatar }) => {
+const UserMenu: FC<AvatarProps> = ({ avatar }) => {
   const dispatch = useDispatch();
   const { user, signOut, signIn } = useAuth();
 
@@ -67,8 +67,18 @@ const UserMenu: React.FC<AvatarProps> = ({ avatar }) => {
   return <Menu mode="horizontal" items={items} />;
 };
 
-export const Header: React.FC<Props> = ({ HeaderMainSection, avatar, logo }: Props) => {
-  const { name, mobile } = useSelector((store: CoreStore) => store.coreStore);
+const DefaultLogo: FC = () => {
+  const { name } = useSelector((store: CoreStore) => store.coreStore);
+  return (
+    <>
+      <FiTriangle size={24} strokeWidth={1} />
+      <strong className="mx-1 text-black">{name}</strong>
+    </>
+  );
+};
+
+export const Header: FC<Props> = ({ HeaderMainSection, avatar, logo = <DefaultLogo /> }: Props) => {
+  const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
   return (
@@ -80,9 +90,7 @@ export const Header: React.FC<Props> = ({ HeaderMainSection, avatar, logo }: Pro
           </a>
         )}
         <Link href="/" className="brand">
-          {logo && <img src={logo} style={{ height: 24 }} />}
-          {!logo && <FiTriangle size={24} strokeWidth={1} />}
-          <strong className="mx-1 text-black">{name}</strong>
+          {logo}
         </Link>
 
         <HeaderMainSection />
