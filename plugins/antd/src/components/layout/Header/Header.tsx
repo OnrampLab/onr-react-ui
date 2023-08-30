@@ -6,18 +6,27 @@ import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
 
-type Props = {
-  HeaderMainSection: ComponentType;
+type AvatarProps = {
+  avatar?: string;
 };
 
-const UserMenu: React.FC = () => {
+type LogoProps = {
+  logo?: string;
+};
+
+type Props = {
+  HeaderMainSection: ComponentType;
+} & AvatarProps &
+  LogoProps;
+
+const UserMenu: React.FC<AvatarProps> = ({ avatar }) => {
   const dispatch = useDispatch();
   const { user, signOut, signIn } = useAuth();
 
   const items: MenuProps['items'] = [
     {
       key: 'submenu',
-      icon: <Avatar src="/static/images/avatar.jpg" />,
+      icon: <Avatar src={avatar ?? '/static/images/avatar.jpg'} />,
       children: [
         {
           key: 'setting',
@@ -58,7 +67,7 @@ const UserMenu: React.FC = () => {
   return <Menu mode="horizontal" items={items} />;
 };
 
-export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
+export const Header: React.FC<Props> = ({ HeaderMainSection, avatar, logo }: Props) => {
   const { name, mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -71,14 +80,15 @@ export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {
           </a>
         )}
         <Link href="/" className="brand">
-          <FiTriangle size={24} strokeWidth={1} />
+          {logo && <img src={logo} style={{ height: 24 }} />}
+          {!logo && <FiTriangle size={24} strokeWidth={1} />}
           <strong className="mx-1 text-black">{name}</strong>
         </Link>
 
         <HeaderMainSection />
 
         <span className="mr-auto" />
-        <UserMenu />
+        <UserMenu avatar={avatar} />
       </Layout.Header>
     </DashHeader>
   );

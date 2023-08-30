@@ -8,13 +8,15 @@ import { SidebarMenu } from './SidebarMenu';
 interface Props {
   children: ReactNode;
   HeaderMainSection: ComponentType;
+  logo?: string;
+  avatar?: string;
 }
 
 const { Content } = Layout;
 
 /* eslint-disable complexity */
 export const Page: FC<Props> = (props: Props) => {
-  const { HeaderMainSection, children } = props;
+  const { HeaderMainSection, avatar, logo, children } = props;
   const { currentRoute } = useRoute();
   const { user } = useAuth();
   const isAdminLayout = currentRoute.layout === 'antd-admin';
@@ -25,7 +27,9 @@ export const Page: FC<Props> = (props: Props) => {
 
   return (
     <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-      {isAdminLayout && <Header HeaderMainSection={HeaderMainSection} />}
+      {isAdminLayout && (
+        <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
+      )}
       <Layout style={{ minHeight: '100vh' }}>
         {isAdminLayout && (
           <SidebarMenu
