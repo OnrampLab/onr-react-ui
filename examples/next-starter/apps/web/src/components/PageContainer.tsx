@@ -28,7 +28,15 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   const content = <AnyComponent {...pageProps} />;
 
   if (['antd-full-page', 'antd-admin'].includes(currentRoute.layout)) {
-    return <Page HeaderMainSection={HeaderMainSection}>{content}</Page>;
+    return (
+      <Page
+        HeaderMainSection={HeaderMainSection}
+        avatar="/static/images/avatar.jpg"
+        logo="/static/images/triangle.png"
+      >
+        {content}
+      </Page>
+    );
   } else {
     return content;
   }
