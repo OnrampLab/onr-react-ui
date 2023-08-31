@@ -1,5 +1,5 @@
 import { coreActions, CoreStore, useAuth } from '@onr/core';
-import { Avatar, Layout, Menu, MenuProps, Popconfirm } from 'antd';
+import { Avatar, Layout, Menu, MenuProps } from 'antd';
 import Link from 'next/link';
 import { ComponentType, FC, ReactNode } from 'react';
 import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
@@ -43,18 +43,7 @@ const UserMenu: FC<AvatarProps> = ({ avatar }) => {
         {
           label: (
             <>
-              {user && (
-                <Popconfirm
-                  placement="top"
-                  title="Are you sure you want to sign out?"
-                  // TODO: should use client side render to improve UX
-                  onConfirm={() => signOut()}
-                  okText="Yes"
-                  cancelText="Cancel"
-                >
-                  <a>Sign Out</a>
-                </Popconfirm>
-              )}
+              {user && <a onClick={signOut}>Sign Out</a>}
               {!user && <a onClick={() => signIn()}>Sign In</a>}
             </>
           ),
