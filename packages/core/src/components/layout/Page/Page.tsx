@@ -13,14 +13,14 @@ export const Page = (props: any) => {
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
   );
-  const isAdminLayout = currentRoute.layout === 'antd-admin';
+  const isLayoutOfHeaderBarLeftSideMenu = currentRoute.layout === 'header-bar-left-side-menu';
 
   // TODO: create a simple page component
   return (
     <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-      {isAdminLayout && <Header HeaderMainSection={HeaderMainSection} />}
+      {isLayoutOfHeaderBarLeftSideMenu && <Header HeaderMainSection={HeaderMainSection} />}
       <div className="workspace">
-        {isAdminLayout && (
+        {isLayoutOfHeaderBarLeftSideMenu && (
           <SidebarMenu
             currentUser={user}
             sidebarTheme={darkSidebar ? 'dark' : 'light'}
@@ -30,7 +30,11 @@ export const Page = (props: any) => {
 
         <div>
           <div>
-            {isAdminLayout ? <Inner style={{ ...innerStyle }}>{children}</Inner> : children}
+            {isLayoutOfHeaderBarLeftSideMenu ? (
+              <Inner style={{ ...innerStyle }}>{children}</Inner>
+            ) : (
+              children
+            )}
           </div>
         </div>
       </div>

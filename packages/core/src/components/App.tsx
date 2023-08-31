@@ -3,7 +3,6 @@ import { Client } from '@onr/ts-rest-client';
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { signOut } from 'next-auth/react';
 import { createContext, FC } from 'react';
-import { StyleContainer } from '../containers';
 import { AuthProvider, GlobalModalProvider, NextAuthProvider, RouteProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import {
@@ -116,11 +115,7 @@ export class App implements OnrApp {
 
   getPageContainer() {
     const Provider: FC = ({ children }) => {
-      return (
-        <StyleContainer>
-          <GlobalModalProvider>{children}</GlobalModalProvider>
-        </StyleContainer>
-      );
+      return <GlobalModalProvider>{children}</GlobalModalProvider>;
     };
 
     return Provider;

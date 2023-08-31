@@ -1,15 +1,15 @@
-import { AdminLayoutContainer } from '../containers';
+import { HeaderBarLeftSideMenuLayoutContainer } from '../containers';
 
 export function createLayoutContainer(options: any) {
-  const { GlobalStyles, themePromise } = options;
+  const { theme } = options;
 
   return function MyLayoutContainer(props: any) {
     const { children } = props;
 
     return (
-      <AdminLayoutContainer GlobalStyles={GlobalStyles} themePromise={themePromise}>
+      <HeaderBarLeftSideMenuLayoutContainer theme={theme}>
         {children}
-      </AdminLayoutContainer>
+      </HeaderBarLeftSideMenuLayoutContainer>
     );
   };
 }

@@ -1,12 +1,13 @@
+import { FC } from 'react';
 import { App } from '../components';
 import { LoadingPage } from '../pages';
-import { AppOptions } from '../types';
+import { AppComponents, AppOptions } from '../types';
 
 export function createApp(options?: AppOptions) {
   // TODO: should create a DefaultNotFoundPage
-  const DefaultNotFoundPage = () => <div>PAGE NOT FOUND</div>;
+  const DefaultNotFoundPage: FC = () => <div>PAGE NOT FOUND</div>;
 
-  const components = {
+  const components: AppComponents = {
     NotFoundErrorPage: DefaultNotFoundPage,
     LoadingPage,
     ...options?.components,
