@@ -1,11 +1,19 @@
-import { App, CoreStore, useAuth, useRoute } from '@onr/core';
+import { App, CoreStore, createLayoutContainer, useAuth, useRoute } from '@onr/core';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
+import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
+import { theme } from '../configs/theme';
+import { antdTheme } from './antdTheme';
 
 const AntdPage = dynamic(() => import('@onr/plugin-antd').then(mod => mod.Page));
+
+const GlobalStyles = dynamic(() =>
+  import('../components/GlobalStyles').then(mod => mod.GlobalStyles),
+);
+
 const AccountSelector = dynamic(() =>
   import('@onr/plugin-account').then(mod => mod.AccountSelector),
 );
@@ -25,6 +33,11 @@ const DefaultLogo: FC = () => {
   );
 };
 
+const HeaderBarLeftSideMenuContainer = createLayoutContainer({
+  GlobalStyles,
+  theme,
+});
+
 const Container: React.FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
   // NOTE: hack for type checking
@@ -39,19 +52,20 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   const HeaderMainSection = user ? AccountSelector : Empty;
   const content = <AnyComponent {...pageProps} />;
 
-  if (['antd-full-page', 'antd-admin'].includes(currentRoute.layout)) {
-    return (
-      <Page
-        HeaderMainSection={HeaderMainSection}
-        avatar="/static/images/avatar.jpg"
-        logo={<DefaultLogo />}
-      >
-        {content}
-      </Page>
-    );
-  } else {
-    return content;
-  }
+  return (
+    <ConfigProvider theme={antdTheme}>
+      <HeaderBarLeftSideMenuContainer>
+        <Page
+          HeaderMainSection={HeaderMainSection}
+          avatar="/static/images/avatar.jpg"
+          logo={<DefaultLogo />}
+          innerStyle={{ padding: '1.5em' }}
+        >
+          {content}
+        </Page>
+      </HeaderBarLeftSideMenuContainer>
+    </ConfigProvider>
+  );
 };
 
 export const PageContainer: React.FC<AppProps> = (props: AppProps) => {
