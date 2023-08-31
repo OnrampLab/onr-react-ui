@@ -12,7 +12,7 @@ export const Page: FC<PageProps> = props => {
   const { HeaderMainSection, avatar, logo, children, innerStyle } = props;
   const { currentRoute } = useRoute();
   const { user } = useAuth();
-  const isAdminLayout = currentRoute.layout === 'antd-admin';
+  const isLayoutOfHeaderBarLeftSideMenu = currentRoute.layout === 'header-bar-left-side-menu';
 
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
     (store: CoreStore) => store.coreStore,
@@ -20,11 +20,11 @@ export const Page: FC<PageProps> = props => {
 
   return (
     <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-      {isAdminLayout && (
+      {isLayoutOfHeaderBarLeftSideMenu && (
         <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
       )}
       <Layout style={{ minHeight: '100vh' }}>
-        {isAdminLayout && (
+        {isLayoutOfHeaderBarLeftSideMenu && (
           <SidebarMenu
             currentUser={user}
             sidebarTheme={darkSidebar ? 'dark' : 'light'}
@@ -34,7 +34,11 @@ export const Page: FC<PageProps> = props => {
 
         <Layout>
           <Content>
-            {isAdminLayout ? <Inner style={{ ...innerStyle }}>{children}</Inner> : children}
+            {isLayoutOfHeaderBarLeftSideMenu ? (
+              <Inner style={{ ...innerStyle }}>{children}</Inner>
+            ) : (
+              children
+            )}
           </Content>
         </Layout>
       </Layout>
