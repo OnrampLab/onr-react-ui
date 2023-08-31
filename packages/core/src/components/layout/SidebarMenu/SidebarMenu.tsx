@@ -1,5 +1,4 @@
 import { FC, useContext, useState } from 'react';
-import { AnyAction } from 'redux';
 import { AuthUser } from '../../../types';
 import { AppContext } from '../../App';
 
@@ -8,7 +7,6 @@ interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
-  logout: () => AnyAction;
 }
 
 export const SidebarMenu: FC<Props> = () => {

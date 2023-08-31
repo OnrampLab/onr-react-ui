@@ -1,5 +1,4 @@
-import { Component, ComponentType, ReactNode } from 'react';
-import { AnyAction } from 'redux';
+import { ComponentType, ReactNode } from 'react';
 import { AuthUser } from '../types';
 
 export type AppComponents = {
@@ -40,12 +39,14 @@ export type SidebarMenuProps = {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
-  logout: () => AnyAction;
 };
 
 export type PageProps = {
-  children: JSX.Element;
-  theme: any;
-  HeaderMainSection: Component;
-  logout: () => AnyAction;
+  children: ReactNode;
+  HeaderMainSection: ComponentType;
+  logo?: ReactNode;
+  avatar?: string;
+  innerStyle?: React.CSSProperties;
 };
+
+export type PageComponentType = ComponentType<PageProps>;

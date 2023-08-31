@@ -1,21 +1,13 @@
-import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
 import { Header, SidebarMenu } from '../';
 import { useAuth } from '../../../hooks';
 import { useRoute } from '../../../providers';
 import { CoreStore } from '../../../redux';
-import { Container } from './styles';
-
-interface Props {
-  children: JSX.Element;
-  HeaderMainSection: FC;
-  logout: () => AnyAction;
-}
+import { Container, Inner } from './styles';
 
 /* eslint-disable complexity */
-export const Page = (props: Props) => {
-  const { HeaderMainSection, logout, children } = props;
+export const Page = (props: any) => {
+  const { HeaderMainSection, children, innerStyle } = props;
   const { currentRoute } = useRoute();
   const { user } = useAuth();
   const { boxed, darkSidebar, sidebarPopup, weakColor } = useSelector(
@@ -30,7 +22,6 @@ export const Page = (props: Props) => {
       <div className="workspace">
         {isAdminLayout && (
           <SidebarMenu
-            logout={logout}
             currentUser={user}
             sidebarTheme={darkSidebar ? 'dark' : 'light'}
             sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
@@ -38,7 +29,9 @@ export const Page = (props: Props) => {
         )}
 
         <div>
-          <div>{isAdminLayout ? <div>{children}</div> : children}</div>
+          <div>
+            {isAdminLayout ? <Inner style={{ ...innerStyle }}>{children}</Inner> : children}
+          </div>
         </div>
       </div>
     </Container>
