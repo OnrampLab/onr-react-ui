@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.16.0
+
+### Minor Changes
+
+- Improve layout and theme
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.24.0
+  - @onr/plugin-antd@0.17.0
+  - @onr/plugin-custom-admin-dashboard@0.5.25
+  - @onr/plugin-custom-home@0.8.4
+  - @onr/plugin-account@0.9.3
+  - @onr/plugin-auth@0.8.24
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.7
+  - @onr/plugin-user@0.7.3
+
 ## 0.15.0
 
 ### Minor Changes

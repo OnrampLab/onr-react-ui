@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.24.0
+
+### Minor Changes
+
+- Improve layout and theme
+
 ## 0.23.1
 
 ### Patch Changes

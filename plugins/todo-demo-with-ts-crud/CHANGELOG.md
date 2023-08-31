@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.7
+
+### Patch Changes
+
+- Improve layout and theme
+- Updated dependencies
+  - @onr/core@0.24.0
+
 ## 0.8.6
 
 ### Patch Changes

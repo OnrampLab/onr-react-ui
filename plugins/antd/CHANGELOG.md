@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- Improve layout and theme
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.24.0
+
 ## 0.16.0
 
 ### Minor Changes

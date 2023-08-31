@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.3
+
+### Patch Changes
+
+- Improve layout and theme
+- Updated dependencies
+  - @onr/core@0.24.0
+  - @onr/plugin-account@0.9.3
+  - @onr/plugin-auth@0.8.24
+
 ## 0.7.2
 
 ### Patch Changes

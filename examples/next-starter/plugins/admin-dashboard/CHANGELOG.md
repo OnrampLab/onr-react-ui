@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.25
+
+### Patch Changes
+
+- Improve layout and theme
+- Updated dependencies
+  - @onr/core@0.24.0
+  - @onr/plugin-antd@0.17.0
+
 ## 0.5.24
 
 ### Patch Changes
