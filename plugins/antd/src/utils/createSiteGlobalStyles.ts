@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { Theme } from '../definitions';
 
-export function createSiteGlobalStylesAndTheme(theme: Theme) {
+export function createSiteGlobalStyles(theme: Theme) {
   const GlobalStyles = createGlobalStyle`
   #nprogress .bar {
     background: ${theme.primaryColor};
@@ -17,6 +17,5 @@ export function createSiteGlobalStylesAndTheme(theme: Theme) {
 
   return {
     GlobalStyles,
-    theme,
   };
 }

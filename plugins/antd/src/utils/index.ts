@@ -1,1 +1,1 @@
-export * from './createSiteGlobalStylesAndTheme';
+export * from './createSiteGlobalStyles';
