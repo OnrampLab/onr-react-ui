@@ -1,22 +1,15 @@
-import { Container, CoreStore, Inner, useAuth, useRoute } from '@onr/core';
+import { Container, CoreStore, Inner, PageProps, useAuth, useRoute } from '@onr/core';
 import { Layout } from 'antd';
-import { ComponentType, FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from './Header';
 import { SidebarMenu } from './SidebarMenu';
 
-interface Props {
-  children: ReactNode;
-  HeaderMainSection: ComponentType;
-  logo?: ReactNode;
-  avatar?: string;
-}
-
 const { Content } = Layout;
 
 /* eslint-disable complexity */
-export const Page: FC<Props> = (props: Props) => {
-  const { HeaderMainSection, avatar, logo, children } = props;
+export const Page: FC<PageProps> = props => {
+  const { HeaderMainSection, avatar, logo, children, innerStyle } = props;
   const { currentRoute } = useRoute();
   const { user } = useAuth();
   const isAdminLayout = currentRoute.layout === 'antd-admin';
@@ -40,7 +33,9 @@ export const Page: FC<Props> = (props: Props) => {
         )}
 
         <Layout>
-          <Content>{isAdminLayout ? <Inner>{children}</Inner> : children}</Content>
+          <Content>
+            {isAdminLayout ? <Inner style={{ ...innerStyle }}>{children}</Inner> : children}
+          </Content>
         </Layout>
       </Layout>
     </Container>
