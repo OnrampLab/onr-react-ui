@@ -1,4 +1,4 @@
-import { HeaderBarLeftSideMenuLayoutContainer } from '../containers';
+import { StyleLayoutContainer } from '../containers';
 
 export function createLayoutContainer(options: any) {
   const { theme } = options;
@@ -6,10 +6,6 @@ export function createLayoutContainer(options: any) {
   return function MyLayoutContainer(props: any) {
     const { children } = props;
 
-    return (
-      <HeaderBarLeftSideMenuLayoutContainer theme={theme}>
-        {children}
-      </HeaderBarLeftSideMenuLayoutContainer>
-    );
+    return <StyleLayoutContainer theme={theme}>{children}</StyleLayoutContainer>;
   };
 }

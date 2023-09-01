@@ -1,4 +1,4 @@
-import { App, CoreStore, createLayoutContainer, useAuth, useRoute } from '@onr/core';
+import { App, CoreStore, createLayoutContainer, useAuth } from '@onr/core';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
@@ -43,7 +43,6 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   // NOTE: hack for type checking
   const AnyComponent = Component as any;
   const Page = AntdPage as any;
-  const { currentRoute } = useRoute();
   const { user } = useAuth();
 
   useNewTodos();

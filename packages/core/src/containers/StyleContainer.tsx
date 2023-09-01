@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components';
 
-export const HeaderBarLeftSideMenuLayoutContainer = (props: any) => {
+export const StyleLayoutContainer = (props: any) => {
   const { children, GlobalStyles, theme } = props;
 
   return (
