@@ -1,5 +1,6 @@
 import { createApp, OnrApp } from '@onr/core';
 import { AccountService } from '@onr/plugin-account';
+import { FullPageLayout, HeaderBarLeftSideMenuLayout } from '@onr/plugin-antd';
 import { AuthService } from '@onr/plugin-auth';
 import { UserService } from '@onr/plugin-user';
 import { appConfig } from '../configs/appConfig';
@@ -29,5 +30,10 @@ const userService = UserService.fromAxiosInstanceAndName(app.apis.adminAxiosInst
 app.addService('authService', authService);
 app.addService('accountService', accountService);
 app.addService('userService', userService);
+
+app.setLayouts({
+  'full-page': FullPageLayout,
+  'header-bar-left-side-menu': HeaderBarLeftSideMenuLayout,
+});
 
 export { app };

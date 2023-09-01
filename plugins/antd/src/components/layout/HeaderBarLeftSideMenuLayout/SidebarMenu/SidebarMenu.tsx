@@ -85,7 +85,7 @@ export const SidebarMenu = ({
 
   const addOpenKeyRef = useRef(addOpenKey);
 
-  React.useEffect(() => {
+  useEffect(() => {
     appRoutes.forEach((route: any, index: number) => {
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);

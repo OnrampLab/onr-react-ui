@@ -2,7 +2,7 @@ import { coreActions, CoreStore, useAuth } from '@onr/core';
 import { Avatar, Layout, Menu, MenuProps } from 'antd';
 import Link from 'next/link';
 import { ComponentType, FC, ReactNode } from 'react';
-import { FiBarChart, FiSettings, FiTriangle } from 'react-icons/fi';
+import { FiBarChart, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
 
@@ -29,9 +29,9 @@ const UserMenu: FC<AvatarProps> = ({ avatar }) => {
       icon: <Avatar src={avatar ?? '/static/images/avatar.jpg'} />,
       children: [
         {
-          key: 'setting',
+          key: 'settings',
+          label: 'Settings',
           onClick: () => dispatch(coreActions.setOptionDrawer()),
-          icon: <FiSettings size={20} strokeWidth={1} />,
         },
         {
           label: 'Profile',

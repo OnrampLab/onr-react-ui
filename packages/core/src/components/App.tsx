@@ -9,6 +9,7 @@ import {
   AppComponents,
   AppConfig,
   FullAppOptions,
+  LayoutsType,
   LogConfig,
   MenuItem,
   OnrApp,
@@ -25,6 +26,7 @@ export class App implements OnrApp {
   private readonly logConfig: LogConfig;
   private readonly menuItems: MenuItem[];
   private readonly routes: RouteType[];
+  private readonly layouts: LayoutsType = {};
   private readonly services: any;
   public apis: Record<string, AxiosInstance>;
   public logger: any;
@@ -65,6 +67,12 @@ export class App implements OnrApp {
     this.services[serviceName] = service;
 
     return this;
+  }
+
+  setLayouts(layouts: LayoutsType) {
+    Object.keys(layouts).forEach(layoutName => {
+      this.layouts[layoutName] = layouts[layoutName];
+    });
   }
 
   getService(serviceName: string): Client {
@@ -131,6 +139,10 @@ export class App implements OnrApp {
 
   getRoutes() {
     return this.routes;
+  }
+
+  getLayouts() {
+    return this.layouts;
   }
 
   private initApis() {

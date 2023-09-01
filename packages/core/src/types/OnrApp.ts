@@ -2,7 +2,7 @@ import { LogLevel } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
 import { AxiosInstance } from 'axios';
 import { ComponentType, FC, ReactNode } from 'react';
-import { AppComponents } from './AppComponents';
+import { AppComponents, PageProps } from './AppComponents';
 import { AppConfig } from './AppOptions';
 
 export type OnrApp = {
@@ -17,8 +17,10 @@ export type OnrApp = {
   getAppConfig(): any;
   getMenuItems(): any;
   getRoutes(): any;
-  addService<T extends Client>(serviceName: string, service: T): OnrApp;
+  getLayouts(): LayoutsType;
   getService(serviceName: string): Client;
+  addService<T extends Client>(serviceName: string, service: T): OnrApp;
+  setLayouts(layouts: LayoutsType): void;
 };
 
 export interface ProviderProps {
@@ -41,6 +43,8 @@ export interface RouteType {
   authRequired: boolean;
   LayoutContainer: ComponentType;
 }
+
+export type LayoutsType = Record<string, ComponentType<PageProps>>;
 
 export type LogConfig = {
   default: string;

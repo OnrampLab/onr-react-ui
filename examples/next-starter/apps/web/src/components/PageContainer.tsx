@@ -1,4 +1,4 @@
-import { App, CoreStore, createLayoutContainer, useAuth } from '@onr/core';
+import { App, CoreStore, Page, createLayoutContainer, useAuth } from '@onr/core';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
@@ -7,8 +7,6 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { theme } from '../configs/theme';
 import { antdTheme } from './antdTheme';
-
-const AntdPage = dynamic(() => import('@onr/plugin-antd').then(mod => mod.Page));
 
 const GlobalStyles = dynamic(() =>
   import('../components/GlobalStyles').then(mod => mod.GlobalStyles),
@@ -33,7 +31,7 @@ const DefaultLogo: FC = () => {
   );
 };
 
-const HeaderBarLeftSideMenuContainer = createLayoutContainer({
+const StyleContainer = createLayoutContainer({
   GlobalStyles,
   theme,
 });
@@ -42,7 +40,6 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
   // NOTE: hack for type checking
   const AnyComponent = Component as any;
-  const Page = AntdPage as any;
   const { user } = useAuth();
 
   useNewTodos();
@@ -53,7 +50,7 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
 
   return (
     <ConfigProvider theme={antdTheme}>
-      <HeaderBarLeftSideMenuContainer>
+      <StyleContainer>
         <Page
           HeaderMainSection={HeaderMainSection}
           avatar="/static/images/avatar.jpg"
@@ -62,7 +59,7 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
         >
           {content}
         </Page>
-      </HeaderBarLeftSideMenuContainer>
+      </StyleContainer>
     </ConfigProvider>
   );
 };
