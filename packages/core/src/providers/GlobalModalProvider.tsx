@@ -95,9 +95,8 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
         style={{ top: modalProps?.top }}
         bodyStyle={{ height: modalProps?.height }}
         okText={modalProps?.okText || 'Close'}
-        cancelText={modalProps?.cancelText}
-        centered={modalProps?.centered}
         destroyOnClose
+        {...modalProps}
       >
         {store.show && modalProps?.content}
       </Modal>
