@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.5.26
+
+### Patch Changes
+
+- Support registering layouts
+- Updated dependencies
+  - @onr/core@0.25.0
+  - @onr/plugin-antd@0.18.0
+
 ## 0.5.25
 
 ### Patch Changes

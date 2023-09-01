@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.18.0
+
+### Minor Changes
+
+- Support registering layouts
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.25.0
+
 ## 0.17.0
 
 ### Minor Changes

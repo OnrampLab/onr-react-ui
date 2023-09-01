@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.17.0
+
+### Minor Changes
+
+- Support registering layouts
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.25.0
+  - @onr/plugin-antd@0.18.0
+  - @onr/plugin-custom-admin-dashboard@0.5.26
+  - @onr/plugin-custom-home@0.8.5
+  - @onr/plugin-account@0.9.4
+  - @onr/plugin-auth@0.8.25
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.8.8
+  - @onr/plugin-user@0.7.4
+
 ## 0.16.0
 
 ### Minor Changes

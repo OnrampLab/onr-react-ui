@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- Support registering layouts
+- Updated dependencies
+  - @onr/core@0.25.0
+  - @onr/plugin-account@0.9.4
+  - @onr/plugin-auth@0.8.25
+
 ## 0.7.3
 
 ### Patch Changes

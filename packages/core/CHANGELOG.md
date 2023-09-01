@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.25.0
+
+### Minor Changes
+
+- Support registering layouts
+
 ## 0.24.0
 
 ### Minor Changes
