@@ -13,7 +13,6 @@ export type OnrApp = {
   getComponents(): AppComponents;
   getProvider(): FC<ProviderProps>;
   getAppContainer(): FC<ProviderProps>;
-  getPageContainer(): FC<ProviderProps>;
   getAppConfig(): any;
   getMenuItems(): any;
   getRoutes(): any;

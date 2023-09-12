@@ -1,4 +1,5 @@
-import { App, Pagination, useGlobalModal } from '@onr/core';
+import { App, Pagination } from '@onr/core';
+import { useGlobalModal } from '@onr/plugin-antd';
 import { Button, Card, Popconfirm, Table, TablePaginationConfig, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React from 'react';

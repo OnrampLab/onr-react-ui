@@ -1,4 +1,5 @@
-import { App, CoreStore, Page, createLayoutContainer, useAuth } from '@onr/core';
+import { CoreStore, Page, createLayoutContainer, useAuth } from '@onr/core';
+import { GlobalModalProvider } from '@onr/plugin-antd';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
@@ -49,27 +50,25 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   const content = <AnyComponent {...pageProps} />;
 
   return (
-    <ConfigProvider theme={antdTheme}>
-      <StyleContainer>
-        <Page
-          HeaderMainSection={HeaderMainSection}
-          avatar="/static/images/avatar.jpg"
-          logo={<DefaultLogo />}
-          innerStyle={{ padding: '1.5em' }}
-        >
-          {content}
-        </Page>
-      </StyleContainer>
-    </ConfigProvider>
+    <Page
+      HeaderMainSection={HeaderMainSection}
+      avatar="/static/images/avatar.jpg"
+      logo={<DefaultLogo />}
+      innerStyle={{ padding: '1.5em' }}
+    >
+      {content}
+    </Page>
   );
 };
 
 export const PageContainer: React.FC<AppProps> = (props: AppProps) => {
-  const CorePageContainer = App.getInstance().getPageContainer();
-
   return (
-    <CorePageContainer>
-      <Container {...props} />
-    </CorePageContainer>
+    <ConfigProvider theme={antdTheme}>
+      <StyleContainer>
+        <GlobalModalProvider>
+          <Container {...props} />
+        </GlobalModalProvider>
+      </StyleContainer>
+    </ConfigProvider>
   );
 };

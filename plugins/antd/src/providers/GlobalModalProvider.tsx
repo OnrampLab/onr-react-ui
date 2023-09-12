@@ -16,8 +16,6 @@ type Props = {
 
 interface OnrModalProps extends ModalProps {
   content: JSX.Element;
-  top?: number;
-  height?: number;
 }
 
 type GlobalModalContextContract = {
@@ -92,8 +90,6 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
         onOk={onOkClick}
         onCancel={onCancelClick}
         width={modalProps?.width ?? 1200}
-        style={{ top: modalProps?.top }}
-        bodyStyle={{ height: modalProps?.height }}
         okText={modalProps?.okText || 'Close'}
         destroyOnClose
         {...modalProps}

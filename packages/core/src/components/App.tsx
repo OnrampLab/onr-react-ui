@@ -3,7 +3,7 @@ import { Client } from '@onr/ts-rest-client';
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { signOut } from 'next-auth/react';
 import { createContext, FC } from 'react';
-import { AuthProvider, GlobalModalProvider, NextAuthProvider, RouteProvider } from '../providers';
+import { AuthProvider, NextAuthProvider, RouteProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import {
   AppComponents,
@@ -87,13 +87,8 @@ export class App implements OnrApp {
   getProvider() {
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
       const AppContainer = this.getAppContainer();
-      const PageContainer = this.getPageContainer();
 
-      return (
-        <AppContainer session={session}>
-          <PageContainer>{children}</PageContainer>
-        </AppContainer>
-      );
+      return <AppContainer session={session}>{children}</AppContainer>;
     };
 
     return Provider;
@@ -116,14 +111,6 @@ export class App implements OnrApp {
           </AppContext.Provider>
         </NextAuthProvider>
       );
-    };
-
-    return Provider;
-  }
-
-  getPageContainer() {
-    const Provider: FC = ({ children }) => {
-      return <GlobalModalProvider>{children}</GlobalModalProvider>;
     };
 
     return Provider;

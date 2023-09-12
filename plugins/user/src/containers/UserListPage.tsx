@@ -1,5 +1,6 @@
-import { App, useGlobalModal } from '@onr/core';
+import { App } from '@onr/core';
 import { IAccount, getAccountModule } from '@onr/plugin-account';
+import { useGlobalModal } from '@onr/plugin-antd';
 import { Button, Card, Popconfirm, Table, TablePaginationConfig, message } from 'antd';
 import { ColumnProps } from 'antd/lib/table';
 import React from 'react';

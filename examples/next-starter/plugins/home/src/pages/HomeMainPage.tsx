@@ -1,4 +1,5 @@
-import { useGlobalModal, useLogger } from '@onr/core';
+import { useLogger } from '@onr/core';
+import { useGlobalModal } from '@onr/plugin-antd';
 import { Button } from 'antd';
 import Link from 'next/link';
 import React from 'react';
