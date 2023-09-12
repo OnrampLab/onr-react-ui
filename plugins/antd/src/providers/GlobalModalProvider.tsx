@@ -16,6 +16,8 @@ type Props = {
 
 interface OnrModalProps extends ModalProps {
   content: JSX.Element;
+  onOkClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  onCancelClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 type GlobalModalContextContract = {
@@ -73,12 +75,12 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
   };
 
   const onOkClick = (e: MouseEvent<HTMLButtonElement>) => {
-    modalProps?.onOk?.(e);
+    modalProps?.onOkClick?.(e);
     hideModal();
   };
 
   const onCancelClick = (e: MouseEvent<HTMLButtonElement>) => {
-    modalProps?.onCancel?.(e);
+    modalProps?.onCancelClick?.(e);
     hideModal();
   };
 

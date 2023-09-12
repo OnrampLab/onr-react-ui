@@ -11,6 +11,12 @@ export const HomeMainPage: React.FC = () => {
   const openModal = () => {
     showModal({
       content: <div>This is a modal</div>,
+      onOkClick() {
+        console.log('Ok');
+      },
+      onCancelClick() {
+        console.log('Cancel');
+      },
     });
   };
 
