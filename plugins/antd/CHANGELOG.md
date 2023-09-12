@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.19.2
+
+### Patch Changes
+
+- Remove Page component
+
 ## 0.19.1
 
 ### Patch Changes
