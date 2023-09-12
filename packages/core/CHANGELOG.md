@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.26.0
+
+### Minor Changes
+
+- Add onOkClick and onCancelClick to GlobalModalProvider
+
 ## 0.25.0
 
 ### Minor Changes

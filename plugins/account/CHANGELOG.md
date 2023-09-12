@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- Add onOkClick and onCancelClick to GlobalModalProvider
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.26.0
+  - @onr/plugin-antd@0.19.0
+
 ## 0.9.4
 
 ### Patch Changes

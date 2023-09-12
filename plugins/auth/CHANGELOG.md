@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- Add onOkClick and onCancelClick to GlobalModalProvider
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.26.0
+
 ## 0.8.25
 
 ### Patch Changes

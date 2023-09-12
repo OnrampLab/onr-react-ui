@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.18.0
+
+### Minor Changes
+
+- Add onOkClick and onCancelClick to GlobalModalProvider
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.6.0
+  - @onr/plugin-custom-home@0.9.0
+  - @onr/core@0.26.0
+  - @onr/plugin-account@0.10.0
+  - @onr/plugin-antd@0.19.0
+  - @onr/plugin-auth@0.9.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.9.0
+  - @onr/plugin-user@0.8.0
+
 ## 0.17.0
 
 ### Minor Changes
