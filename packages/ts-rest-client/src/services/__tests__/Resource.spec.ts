@@ -6,9 +6,21 @@ import { Resource } from '../Resource';
 describe('Resource', () => {
   let client: BasicClient;
   let resource: Resource;
-  const usersData = [
-    { id: 1, name: 'A' },
-    { id: 2, name: 'B' },
+  const commentsData = [
+    {
+      id: 1,
+      postId: 1,
+      name: 'eos est animi quis',
+      email: 'Preston_Hudson@blaise.tv',
+      body: 'comment 1',
+    },
+    {
+      id: 2,
+      postId: 2,
+      name: 'eos est animi quis',
+      email: 'Preston_Hudson@blaise.tv',
+      body: 'comment 2',
+    },
   ];
 
   beforeAll(() => {
@@ -22,57 +34,59 @@ describe('Resource', () => {
 
   describe('list', () => {
     it('should return lists of resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/comments?postId=1').reply(200, usersData);
+      nock('https://jsonplaceholder.typicode.com')
+        .get('/comments?postId=1')
+        .reply(200, commentsData);
 
-      const { data: users } = await resource.list({ postId: 1 });
+      const { data: comments } = await resource.list({ postId: 1 });
 
-      expect(users.length).toEqual(2);
+      expect(comments.length).toEqual(2);
     });
   });
 
   describe('get', () => {
     it('should return a resource', async () => {
-      nock('https://jsonplaceholder.typicode.com').get('/comments/1').reply(200, usersData[0]);
+      nock('https://jsonplaceholder.typicode.com').get('/comments/1').reply(200, commentsData[0]);
 
-      const { data: user } = await resource.find(1);
+      const { data: comment } = await resource.find(1);
 
-      expect(user).toBeDefined();
-      expect(user.id).toBeDefined();
-      expect(user.name).toBeDefined();
+      expect(comment).toBeDefined();
+      expect(comment.id).toBeDefined();
+      expect(comment.name).toBeDefined();
     });
   });
 
   describe('create', () => {
     it('should return a resource', async () => {
-      const userData = {
+      const commentData = {
         id: 3,
         name: 'C',
       };
-      nock('https://jsonplaceholder.typicode.com').post('/comments').reply(201, userData);
+      nock('https://jsonplaceholder.typicode.com').post('/comments').reply(201, commentData);
 
-      const { data: user } = await resource.create(userData);
+      const { data: comment } = await resource.create(commentData);
 
-      expect(user).toBeDefined();
-      expect(user.id).toEqual(userData.id);
-      expect(user.name).toEqual(userData.name);
+      expect(comment).toBeDefined();
+      expect(comment.id).toEqual(commentData.id);
+      expect(comment.name).toEqual(commentData.name);
     });
   });
 
   describe('update', () => {
     it('should return a resource', async () => {
-      const userData = {
+      const commentData = {
         id: 4,
         name: 'C',
       };
       nock('https://jsonplaceholder.typicode.com')
-        .patch(`/comments/${userData.id}`)
-        .reply(200, userData);
+        .patch(`/comments/${commentData.id}`)
+        .reply(200, commentData);
 
-      const { data: user } = await resource.update(userData.id, userData);
+      const { data: comment } = await resource.update(commentData.id, commentData);
 
-      expect(user).toBeDefined();
-      expect(user.id).toEqual(userData.id);
-      expect(user.name).toEqual(userData.name);
+      expect(comment).toBeDefined();
+      expect(comment.id).toEqual(commentData.id);
+      expect(comment.name).toEqual(commentData.name);
     });
   });
 
