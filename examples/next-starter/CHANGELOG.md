@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.34.1
+
+### Patch Changes
+
+- Upgrade styled-component
+
 ## 0.34.0
 
 ### Minor Changes

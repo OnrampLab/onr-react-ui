@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- Upgrade styled-component
+- Updated dependencies
+  - @onr/core@0.26.1
+  - @onr/plugin-account@0.10.1
+  - @onr/plugin-antd@0.19.3
+  - @onr/plugin-auth@0.9.1
+
 ## 0.8.0
 
 ### Minor Changes

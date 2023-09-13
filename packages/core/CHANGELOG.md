@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.26.1
+
+### Patch Changes
+
+- Upgrade styled-component
+
 ## 0.26.0
 
 ### Minor Changes

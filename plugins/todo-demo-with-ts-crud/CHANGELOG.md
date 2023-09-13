@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- Upgrade styled-component
+- Updated dependencies
+  - @onr/core@0.26.1
+
 ## 0.9.0
 
 ### Minor Changes

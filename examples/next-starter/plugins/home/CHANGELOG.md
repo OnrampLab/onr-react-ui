@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- Upgrade styled-component
+- Updated dependencies
+  - @onr/core@0.26.1
+  - @onr/plugin-antd@0.19.3
+
 ## 0.9.0
 
 ### Minor Changes

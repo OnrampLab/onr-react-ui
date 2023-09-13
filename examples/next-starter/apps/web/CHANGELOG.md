@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.18.1
+
+### Patch Changes
+
+- Upgrade styled-component
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.6.1
+  - @onr/plugin-custom-home@0.9.1
+  - @onr/core@0.26.1
+  - @onr/plugin-account@0.10.1
+  - @onr/plugin-antd@0.19.3
+  - @onr/plugin-auth@0.9.1
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.9.1
+  - @onr/plugin-user@0.8.1
+
 ## 0.18.0
 
 ### Minor Changes
