@@ -5,6 +5,7 @@ export type AppOptions = {
    * Supply components to the app to override the default ones.
    */
   components?: Partial<AppComponents>;
+  configs?: any;
   appConfig?: AppConfig;
   logConfig?: any;
   menuItems?: any;

@@ -15,11 +15,11 @@ export function createApp(options?: AppOptions) {
 
   const app = App.create({
     components,
-    appConfig: options?.appConfig,
-    logConfig: options?.logConfig,
-    menuItems: options?.menuItems,
-    routes: options?.routes,
-    apis: options?.apis,
+    appConfig: options?.configs?.appConfig ?? options?.appConfig,
+    logConfig: options?.configs?.logConfig ?? options?.logConfig,
+    menuItems: options?.configs?.menuItems ?? options?.menuItems,
+    routes: options?.configs?.routes ?? options?.routes,
+    apis: options?.configs?.apis ?? options?.apis,
   });
 
   app.initialize();
