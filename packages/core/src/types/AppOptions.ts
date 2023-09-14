@@ -4,21 +4,29 @@ export type AppOptions = {
   /**
    * Supply components to the app to override the default ones.
    */
+  configs?: Configs;
   components?: Partial<AppComponents>;
-  configs?: any;
   appConfig?: AppConfig;
+  authConfig?: AuthConfig;
   logConfig?: any;
   menuItems?: any;
   routes?: any;
   apis?: any;
 };
 
+export type Configs = {
+  appConfig: AppConfig;
+  authConfig: AuthConfig;
+  logConfig: any;
+  menuItems: any;
+  routes?: any;
+};
+
 export type AuthConfig = {
-  enabled: boolean;
+  model: any;
 };
 
 export type AppConfig = {
   apiBaseUrl: string;
   apiKey: string;
-  auth: AuthConfig;
 };

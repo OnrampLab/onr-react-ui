@@ -7,25 +7,20 @@ import { AuthProvider, NextAuthProvider, RouteProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import {
   AppComponents,
-  AppConfig,
+  Configs,
   FullAppOptions,
   LayoutsType,
-  LogConfig,
-  MenuItem,
   OnrApp,
   ProviderProps,
-  RouteType,
 } from '../types';
+
 export const AppContext = createContext<App | null>(null);
 
 export class App implements OnrApp {
   private static instance: App;
 
   private readonly components: AppComponents;
-  private readonly appConfig?: AppConfig;
-  private readonly logConfig: LogConfig;
-  private readonly menuItems: MenuItem[];
-  private readonly routes: RouteType[];
+  private readonly configs: Configs;
   private readonly layouts: LayoutsType = {};
   private readonly services: any;
   public apis: Record<string, AxiosInstance>;
@@ -33,10 +28,7 @@ export class App implements OnrApp {
 
   constructor(options: FullAppOptions) {
     this.components = options.components;
-    this.appConfig = options.appConfig;
-    this.logConfig = options.logConfig;
-    this.menuItems = options.menuItems;
-    this.routes = options.routes;
+    this.configs = options.configs;
     this.apis = options.apis;
     this.services = {};
   }
@@ -61,6 +53,10 @@ export class App implements OnrApp {
     this.initApis();
 
     this.initLogger();
+  }
+
+  getAuthUserModel() {
+    return this.configs.authConfig.model;
   }
 
   addService<T extends Client>(serviceName: string, service: T) {
@@ -96,7 +92,7 @@ export class App implements OnrApp {
 
   getAppContainer() {
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
-      const menuItemsContext = useInitializeMenuItems(this.menuItems);
+      const menuItemsContext = useInitializeMenuItems(this.configs.menuItems);
 
       return (
         <NextAuthProvider session={session}>
@@ -117,15 +113,15 @@ export class App implements OnrApp {
   }
 
   getAppConfig() {
-    return this.appConfig;
+    return this.configs.appConfig;
   }
 
   getMenuItems() {
-    return this.menuItems;
+    return this.configs.menuItems;
   }
 
   getRoutes() {
-    return this.routes;
+    return this.configs.routes;
   }
 
   getLayouts() {
@@ -133,23 +129,23 @@ export class App implements OnrApp {
   }
 
   private initApis() {
-    if (!this.appConfig) {
+    if (!this.configs.appConfig) {
       return;
     }
 
     this.apis = {
       ...this.apis,
       adminAxiosInstance: axios.create({
-        baseURL: this.appConfig.apiBaseUrl,
+        baseURL: this.configs.appConfig.apiBaseUrl,
         headers: {
           'content-type': 'application/json',
         },
       }),
       frontAxiosInstance: axios.create({
-        baseURL: this.appConfig.apiBaseUrl,
+        baseURL: this.configs.appConfig.apiBaseUrl,
         headers: {
           'content-type': 'application/json',
-          authorization: `Bearer ${this.appConfig.apiKey}`,
+          authorization: `Bearer ${this.configs.appConfig.apiKey}`,
         },
       }),
     };
@@ -173,13 +169,13 @@ export class App implements OnrApp {
   }
 
   private initLogger() {
-    const defaultChannelName = this.logConfig.default;
-    const channel = this.logConfig.channels[defaultChannelName];
+    const defaultChannelName = this.configs.logConfig.default;
+    const channel = this.configs.logConfig.channels[defaultChannelName];
     const handlers: Handler[] = [];
 
     if (channel.driver === 'stack') {
       channel.channels.forEach((channelName: string) => {
-        const subChannel = this.logConfig.channels[channelName];
+        const subChannel = this.configs.logConfig.channels[channelName];
         const handler = this.createMonologHandler(subChannel);
         handlers.push(handler);
       });
