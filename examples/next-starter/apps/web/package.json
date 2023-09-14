@@ -36,6 +36,7 @@
     "@onr/plugin-auth": "^0.9.1",
     "@onr/plugin-custom-admin-dashboard": "^0.6.1",
     "@onr/plugin-custom-home": "^0.9.1",
+    "@onr/plugin-custom-auth": "^0.0.1",
     "@onr/plugin-todo-demo-with-ts-rest-client": "^0.9.1",
     "@onr/plugin-user": "^0.8.1",
     "antd": "^5.5.0",
