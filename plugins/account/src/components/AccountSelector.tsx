@@ -30,6 +30,10 @@ export const AccountSelector: React.FC = () => {
     }
   }, [currentUser?.accounts, accountId, accounts, changeAccount]);
 
+  if (accounts.length === 0) {
+    return <></>;
+  }
+
   return (
     <>
       <Select
