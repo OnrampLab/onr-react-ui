@@ -16,4 +16,8 @@ export class DefaultAuthUser implements AuthUser {
     this.password = params.password;
     this.roles = params.roles || [];
   }
+
+  isRole(roleName: string): boolean {
+    return !!this.roles?.find(role => role.name === roleName);
+  }
 }
