@@ -40,7 +40,6 @@ export interface RouteType {
   path: string;
   layout: string;
   authRequired: boolean;
-  LayoutContainer: ComponentType;
 }
 
 export type LayoutsType = Record<string, ComponentType<PageProps>>;

@@ -1,4 +1,6 @@
-export const routes = [
+import { RouteType } from '@onr/core';
+
+export const routes: RouteType[] = [
   {
     path: '/admin',
     layout: 'header-bar-left-side-menu',
