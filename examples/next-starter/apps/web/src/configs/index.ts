@@ -1,4 +1,4 @@
-import { appConfig } from './appConfig';
+import { appConfig } from './app';
 import { logConfig } from './logging';
 import { menuItems } from './menuItems';
 import { routes } from './routes';
