@@ -1,5 +1,6 @@
-import { CoreStore, Page, createLayoutContainer, useAuth } from '@onr/core';
+import { CoreStore, Page, createLayoutContainer } from '@onr/core';
 import { GlobalModalProvider } from '@onr/plugin-antd';
+import { useAppUser } from '@onr/plugin-custom-auth';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
@@ -41,7 +42,7 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
   // NOTE: hack for type checking
   const AnyComponent = Component as any;
-  const { user } = useAuth();
+  const user = useAppUser();
 
   useNewTodos();
   useRecentTodos();
