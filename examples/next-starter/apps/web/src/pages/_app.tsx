@@ -4,7 +4,9 @@ if (process.env.NODE_ENV === 'development' && process.env.NEXT_PUBLIC_ENABLE_MIR
 
   makeServer({ environment: 'development', mocks });
 }
+import { application } from '../app/application';
 import '../assets/styles.css';
-import { MyApp } from '../components';
 
-export default MyApp;
+const AppComponent = application.getAppComponent();
+
+export default AppComponent;

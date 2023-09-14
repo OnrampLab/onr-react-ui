@@ -1,3 +1,4 @@
+import { OnrApp } from '@onr/core';
 import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -5,14 +6,11 @@ import Router from 'next/router';
 import { done, start } from 'nprogress';
 import React, { useEffect } from 'react';
 import { afterComponentDidMount, store } from '../redux';
-import { app } from './app';
 import { PageContainer } from './PageContainer';
 
 const makeStore: MakeStore<any> = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
-
-const AppContainer = app.getAppContainer();
 
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
@@ -24,8 +22,14 @@ Router.events.on(
     (document.querySelector('.workspace > .ant-layout')!.scrollTop = 0),
 );
 
-export function AppComponent(props: AppProps) {
-  const { pageProps } = props;
+interface CustomAppProps extends AppProps {
+  app: OnrApp;
+}
+
+export function AppComponent(props: CustomAppProps) {
+  const { pageProps, app } = props;
+
+  const AppContainer = app.getAppContainer();
 
   useEffect(() => {
     afterComponentDidMount();

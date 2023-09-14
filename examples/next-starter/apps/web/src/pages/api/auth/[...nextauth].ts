@@ -1,8 +1,8 @@
 import { createNextAuthApi } from '@onr/core/api';
 import { AuthService } from '@onr/plugin-auth';
-import { app } from '../../../components/app';
+import { application } from '../../../app/application';
 
-const authService = app.getService('authService') as AuthService;
+const authService = application.getService<AuthService>('authService');
 
 // For more information on each option (and a full list of options) go to
 // https://next-auth.js.org/configuration/options
