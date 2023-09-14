@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- Add auth config
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.27.0
+  - @onr/plugin-antd@0.20.0
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.1
+
+### Patch Changes
+
+- Add auth config
+
 ## 1.1.0
 
 ### Minor Changes

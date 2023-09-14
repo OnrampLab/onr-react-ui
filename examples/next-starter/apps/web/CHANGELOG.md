@@ -1,5 +1,26 @@
 # Change Log
 
+## 0.19.0
+
+### Minor Changes
+
+- Add auth config
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.0
+  - @onr/plugin-custom-auth@0.1.0
+  - @onr/plugin-custom-home@0.10.0
+  - @onr/core@0.27.0
+  - @onr/plugin-account@0.11.0
+  - @onr/plugin-antd@0.20.0
+  - @onr/plugin-auth@0.10.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.0
+  - @onr/plugin-user@0.9.0
+  - @onr/logging@0.4.3
+  - @onr/mock@3.0.2
+
 ## 0.18.1
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.27.0
+
+### Minor Changes
+
+- Add auth config
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/common@0.8.2
+  - @onr/logging@0.4.3
+  - @onr/ts-rest-client@2.0.2
+
 ## 0.26.1
 
 ### Patch Changes

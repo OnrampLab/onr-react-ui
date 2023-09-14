@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- Add auth config
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.27.0
+  - @onr/plugin-account@0.11.0
+  - @onr/plugin-antd@0.20.0
+  - @onr/plugin-auth@0.10.0
+  - @onr/common@0.8.2
+  - @onr/mock@3.0.2
+
 ## 0.8.1
 
 ### Patch Changes

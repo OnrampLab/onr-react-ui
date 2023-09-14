@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- Add auth config
+- Updated dependencies
+  - @onr/common@0.8.2
+
 ## 3.0.1
 
 ### Patch Changes
