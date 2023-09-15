@@ -1,7 +1,7 @@
 // TODO: should only do this on admin page
 import { createSiteGlobalStyles } from '@onr/plugin-antd';
-import { theme } from '../configs/theme';
+import { themeConfig } from '../configs/theme';
 
-const { GlobalStyles } = createSiteGlobalStyles(theme);
+const { GlobalStyles } = createSiteGlobalStyles(themeConfig);
 
 export { GlobalStyles };

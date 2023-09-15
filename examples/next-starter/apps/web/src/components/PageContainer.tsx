@@ -7,7 +7,7 @@ import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { theme } from '../configs/theme';
+import { themeConfig } from '../configs/theme';
 import { antdTheme } from './antdTheme';
 
 const GlobalStyles = dynamic(() =>
@@ -35,7 +35,7 @@ const DefaultLogo: FC = () => {
 
 const StyleContainer = createLayoutContainer({
   GlobalStyles,
-  theme,
+  theme: themeConfig,
 });
 
 const Container: React.FC<AppProps> = (props: AppProps) => {
