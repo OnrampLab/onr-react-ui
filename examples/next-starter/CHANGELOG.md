@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.1
+
+### Patch Changes
+
+- Core package support theme and auth role config
+
 ## 0.35.0
 
 ### Minor Changes

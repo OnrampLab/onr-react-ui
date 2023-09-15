@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-account",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "core module",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -34,8 +34,8 @@
   },
   "dependencies": {
     "@onr/common": "^0.8.2",
-    "@onr/core": "^0.27.0",
-    "@onr/plugin-antd": "^0.20.0",
+    "@onr/core": "^0.28.0",
+    "@onr/plugin-antd": "^0.20.1",
     "@onr/mock": "^3.0.2",
     "@onr/ts-rest-client": "^2.0.2",
     "antd": "^5.5.0",

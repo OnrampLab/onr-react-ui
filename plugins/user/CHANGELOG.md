@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- Core package support theme and auth role config
+- Updated dependencies
+  - @onr/core@0.28.0
+  - @onr/plugin-account@0.11.1
+  - @onr/plugin-antd@0.20.1
+  - @onr/plugin-auth@0.10.1
+
 ## 0.9.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.28.0
+
+### Minor Changes
+
+- Core package support theme and auth role config
+
 ## 0.27.0
 
 ### Minor Changes
