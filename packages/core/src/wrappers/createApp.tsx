@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { App } from '../components';
-import { DefaultAuthUser } from '../entities';
 import { LoadingPage } from '../pages';
-import { AppComponents, AppConfig, AppOptions, AuthConfig } from '../types';
+import { AppComponents, AppOptions, Configs } from '../types';
+import { defaultConfigs } from './defaultConfigs';
 
 export function createApp(options: AppOptions) {
   // TODO: should create a DefaultNotFoundPage
@@ -11,26 +11,16 @@ export function createApp(options: AppOptions) {
   const components: AppComponents = {
     NotFoundErrorPage: DefaultNotFoundPage,
     LoadingPage,
-    ...options?.components,
+    ...options.components,
   };
 
-  const defaultAppConfig: AppConfig = {
-    apiBaseUrl: '',
-    apiKey: '',
-  };
-
-  const defaultAuthConfig: AuthConfig = {
-    model: DefaultAuthUser,
+  const configs: Configs = {
+    ...defaultConfigs,
+    ...options.configs,
   };
 
   const app = App.create({
-    configs: {
-      appConfig: options.configs?.appConfig ?? options?.appConfig ?? defaultAppConfig,
-      authConfig: options.configs?.authConfig ?? options?.authConfig ?? defaultAuthConfig,
-      logConfig: options.configs?.logConfig ?? options?.logConfig,
-      menuItems: options.configs?.menuItems ?? options?.menuItems,
-      routes: options.configs?.routes ?? options?.routes,
-    },
+    configs,
     components,
     apis: options?.apis,
   });
