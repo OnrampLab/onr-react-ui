@@ -1,7 +1,7 @@
 import { MenuItem } from '@onr/core';
 import React from 'react';
 import { FiHome, FiServer } from 'react-icons/fi';
-import { UserRoleName } from './roles';
+import { roles } from '../constants/roles';
 
 export const menuItems: MenuItem[] = [
   {
@@ -30,7 +30,7 @@ export const menuItems: MenuItem[] = [
     name: 'Admin',
     icon: <FiServer strokeWidth={1} size={16} />,
     login: true,
-    roles: [UserRoleName.SystemAdmin],
+    roles: [roles.SystemAdmin],
     children: [
       {
         path: '/admin/accounts',

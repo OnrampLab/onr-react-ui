@@ -8,6 +8,11 @@ export const defaultConfigs: DefaultConfigs = {
   },
   authConfig: {
     model: DefaultAuthUser,
+    roles: {
+      SystemAdmin: 'system-admin',
+      AccountAdmin: 'account-admin',
+      AccountAnalyst: 'account-analyst',
+    },
   },
   themeConfig: {
     primaryColor: '#1677ff',

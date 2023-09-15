@@ -1,12 +1,11 @@
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { CoreStore } from '@onr/core';
+import { App, CoreStore } from '@onr/core';
 import { IAccount, accountActions } from '@onr/plugin-account';
 import { Button, Form, Input, Select, Spin, Transfer } from 'antd';
 import { FormProps } from 'antd/lib/form';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AccountUser } from '../entities/interfaces/AccountUser';
-import { UserRoleName } from '../entities/interfaces/IUser';
 import { UserRequestPayload } from '../services/interfaces';
 
 interface IUserFormProps extends FormProps {
@@ -38,6 +37,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
   currentUser,
   handleSubmit,
 }: IUserFormProps) => {
+  const roles = App.getInstance().getRoles();
   const dispatch = useDispatch();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
@@ -123,9 +123,9 @@ export const UserForm: React.FC<IUserFormProps> = ({
           rules={[{ required: false, type: 'array' }]}
         >
           <Select mode="multiple" style={{ width: 300 }}>
-            {Object.keys(UserRoleName).map((key, i) => {
+            {Object.keys(roles).map((key, i) => {
               // @ts-ignore
-              const roleName = UserRoleName[key];
+              const roleName = roles[key];
               return (
                 <Select.Option key={i.toString()} value={roleName}>
                   {roleName.replace('-', ' ')}

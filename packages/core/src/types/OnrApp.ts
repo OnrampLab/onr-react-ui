@@ -3,7 +3,7 @@ import { Client } from '@onr/ts-rest-client';
 import { AxiosInstance } from 'axios';
 import { ComponentType, FC, ReactNode } from 'react';
 import { AppComponents, PageProps } from './AppComponents';
-import { Configs } from './AppOptions';
+import { Configs, RolesType } from './AppOptions';
 
 export type OnrApp = {
   apis: Record<string, AxiosInstance>;
@@ -18,6 +18,7 @@ export type OnrApp = {
   getRoutes(): any;
   getLayouts(): LayoutsType;
   getAuthUserModel(): any;
+  getRoles(): RolesType;
   getService(serviceName: string): Client;
   addService<T extends Client>(serviceName: string, service: T): OnrApp;
   setLayouts(layouts: LayoutsType): void;

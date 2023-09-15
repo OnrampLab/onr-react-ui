@@ -30,8 +30,11 @@ type OptionalConfigs = Partial<{
 
 export type Configs = OptionalConfigs & DefaultConfigs;
 
+export type RolesType = Record<string, string>;
+
 export type AuthConfig = {
   model: any;
+  roles: RolesType;
 };
 
 export type AppConfig = {

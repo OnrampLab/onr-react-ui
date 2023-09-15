@@ -12,6 +12,7 @@ import {
   LayoutsType,
   OnrApp,
   ProviderProps,
+  RolesType,
 } from '../types';
 
 export const AppContext = createContext<App | null>(null);
@@ -77,6 +78,10 @@ export class App implements OnrApp {
 
   getComponents(): AppComponents {
     return this.components;
+  }
+
+  getRoles(): RolesType {
+    return this.configs.authConfig.roles;
   }
 
   /** @deprecated */
