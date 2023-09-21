@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.20.2
+
+### Patch Changes
+
+- chore(ts-rest-client): Remove keys with empty value for list()
+
 ## 0.20.1
 
 ### Patch Changes
