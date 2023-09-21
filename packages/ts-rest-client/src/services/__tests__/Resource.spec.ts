@@ -42,6 +42,12 @@ describe('Resource', () => {
 
       expect(comments.length).toEqual(2);
     });
+
+    it('should return lists of when parameters contains null value', async () => {
+      nock('https://jsonplaceholder.typicode.com').get('/comments').reply(200, commentsData);
+      const { data: comments } = await resource.list({ postId: undefined });
+      expect(comments.length).toEqual(2);
+    });
   });
 
   describe('get', () => {

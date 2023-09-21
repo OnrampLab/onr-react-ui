@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import stringify from 'qs-stringify';
 import { BasicClient } from './BasicClient';
+import { removeEmptyKeys } from './removeEmptyKeys';
 
 export class Resource {
   protected endpoint: string = '';
@@ -40,6 +41,7 @@ export class Resource {
   }
 
   async list(params?: any): Promise<AxiosResponse> {
+    params = removeEmptyKeys(params);
     const paramsString = stringify(params);
     const url =
       params && Object.keys(params).length ? `${this.endpoint}?${paramsString}` : this.endpoint;
