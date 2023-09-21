@@ -1,6 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { Resourceable } from '../definitions';
 import handleApiError from './handleApiError';
+import { removeEmptyKeys } from './removeEmptyKeys';
 
 export class ResourceClient implements Resourceable {
   protected resourceName: string;
@@ -43,6 +44,8 @@ export class ResourceClient implements Resourceable {
 
   @handleApiError
   async list(params?: any) {
+    params = removeEmptyKeys(params);
+
     const response = await this.axiosInstance.request({
       url: `/${this.resourceName}`,
       params,

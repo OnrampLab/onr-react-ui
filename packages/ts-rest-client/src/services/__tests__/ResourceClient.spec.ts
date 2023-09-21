@@ -30,6 +30,16 @@ describe('ResourceClient', () => {
 
       expect(users.length).toEqual(2);
     });
+
+    it('should return lists of resource when parameters contains null value', async () => {
+      nock('https://jsonplaceholder.typicode.com').get('/todos').reply(200, todosData);
+
+      const { data: users } = await resource.list({
+        name: undefined,
+      });
+
+      expect(users.length).toEqual(2);
+    });
   });
 
   describe('get', () => {
