@@ -1,8 +1,5 @@
-export type Theme = {
-  primaryColor: string;
-  successColor: string;
-  infoColor: string;
-  warningColor: string;
-  errorColor: string;
+import { ThemeConfig } from '@onr/core';
+
+export type Theme = ThemeConfig & {
   layoutHeaderHeight: string;
 };
