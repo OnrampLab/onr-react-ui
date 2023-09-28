@@ -154,6 +154,7 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ onSearch, fieldDefinit
 
                         {fields.length > 1 && index !== 0 ? (
                           <MinusCircleOutlined
+                            rev={true}
                             style={{
                               position: 'relative',
                               top: 4,
@@ -175,7 +176,11 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ onSearch, fieldDefinit
                     <Form.Item style={{ minWidth: 200 }}>
                       {!areAllFieldsUsed && (
                         <>
-                          <Button type="dashed" onClick={() => add()} icon={<PlusOutlined />}>
+                          <Button
+                            type="dashed"
+                            onClick={() => add()}
+                            icon={<PlusOutlined rev={true} />}
+                          >
                             Add Filter
                           </Button>
                           <Form.ErrorList errors={errors} />
