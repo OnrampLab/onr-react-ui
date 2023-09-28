@@ -33,6 +33,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@onr/common": "^0.8.2",
     "@onr/core": "^0.28.0",
     "antd": "^5.5.0",
