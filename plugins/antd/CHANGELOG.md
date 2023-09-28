@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.21.2
+
+### Patch Changes
+
+- antd: export SearchPanel
+
 ## 0.21.1
 
 ### Patch Changes
