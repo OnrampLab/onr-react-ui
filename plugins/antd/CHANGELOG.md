@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.21.1
+
+### Patch Changes
+
+- chore: fix ts error by adding rev attribute for antd icons
+
 ## 0.21.0
 
 ### Minor Changes

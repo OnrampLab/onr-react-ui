@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.9.3
+
+### Patch Changes
+
+- chore: fix ts error by adding rev attribute for antd icons
+- Updated dependencies
+  - @onr/plugin-antd@0.21.1
+
 ## 0.9.2
 
 ### Patch Changes
