@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.7.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-antd@0.21.0
+
 ## 0.7.1
 
 ### Patch Changes

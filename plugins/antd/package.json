@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-antd",
-  "version": "0.20.2",
+  "version": "0.21.0",
   "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",

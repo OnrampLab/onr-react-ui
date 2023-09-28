@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.19.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-antd@0.21.0
+  - @onr/plugin-custom-admin-dashboard@0.7.2
+  - @onr/plugin-custom-auth@0.1.2
+  - @onr/plugin-custom-home@0.10.2
+  - @onr/plugin-account@0.11.2
+  - @onr/plugin-user@0.9.2
+
 ## 0.19.1
 
 ### Patch Changes
