@@ -3,10 +3,15 @@ import { Button, Form, Input, Select } from 'antd';
 
 type SearchPanelProps = {
   fieldDefinitions: any;
+  initialFieldName: string;
   onSearch(filter: any): void;
 };
 
-export const SearchPanel: React.FC<SearchPanelProps> = ({ onSearch, fieldDefinitions }) => {
+export const SearchPanel: React.FC<SearchPanelProps> = ({
+  onSearch,
+  fieldDefinitions,
+  initialFieldName,
+}) => {
   const [form] = Form.useForm();
   const formItemLayout = {
     labelCol: {
@@ -70,7 +75,7 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({ onSearch, fieldDefinit
     <Form
       style={{ marginBottom: 5, width: 800 }}
       form={form}
-      initialValues={{ fields: [{ name: 'persona' }] }}
+      initialValues={{ fields: [{ name: initialFieldName }] }}
       onFinish={onFinish}
     >
       <Form.List name="fields">
