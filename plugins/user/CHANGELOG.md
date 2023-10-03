@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.9.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-antd@0.22.0
+  - @onr/plugin-account@0.11.3
+
 ## 0.9.3
 
 ### Patch Changes

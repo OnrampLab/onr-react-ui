@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.22.0
+
+### Minor Changes
+
+- chore(antd/component): [SearchPanel] add new prop initialFieldName
+
 ## 0.21.2
 
 ### Patch Changes
