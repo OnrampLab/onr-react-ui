@@ -30,13 +30,13 @@
   "dependencies": {
     "@onr/core": "^0.28.0",
     "@onr/ts-rest-client": "^2.0.2",
-    "antd": "^5.5.0",
+    "antd": "^5.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.0.7"
   },
   "peerDependencies": {
-    "antd": "^5.5.0",
+    "antd": "^5.10.0",
     "next": "^13.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

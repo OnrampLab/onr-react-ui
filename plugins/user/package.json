@@ -39,13 +39,13 @@
     "@onr/plugin-account": "^0.11.3",
     "@onr/plugin-auth": "^0.10.1",
     "@onr/plugin-antd": "^0.22.0",
-    "antd": "^5.5.0",
+    "antd": "^5.10.0",
     "redux-dynamic-modules": "^5.2.3",
     "redux-dynamic-modules-react": "^5.2.3",
     "redux-dynamic-modules-thunk": "^5.2.3"
   },
   "peerDependencies": {
-    "antd": "^5.5.0",
+    "antd": "^5.10.0",
     "lodash-es": "^4.17.21",
     "next": "^13.4.2",
     "react": "^18.2.0",
