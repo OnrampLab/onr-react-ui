@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.19.4
+
+### Patch Changes
+
+- upgrade antd to v5.10.0
+- Updated dependencies
+  - @onr/core@0.28.1
+  - @onr/plugin-account@0.11.4
+  - @onr/plugin-antd@0.22.1
+  - @onr/plugin-auth@0.10.2
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.2
+  - @onr/plugin-user@0.9.5
+
 ## 0.19.3
 
 ### Patch Changes

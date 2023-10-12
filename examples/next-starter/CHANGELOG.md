@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.2
+
+### Patch Changes
+
+- upgrade antd to v5.10.0
+
 ## 0.35.1
 
 ### Patch Changes

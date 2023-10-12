@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.1
+
+### Patch Changes
+
+- upgrade antd to v5.10.0
+- Updated dependencies
+  - @onr/core@0.28.1
+
 ## 0.22.0
 
 ### Minor Changes
