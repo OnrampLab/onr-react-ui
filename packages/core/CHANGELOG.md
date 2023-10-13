@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.1
+
+### Patch Changes
+
+- Use sync way to bootstrap plugin
+
 ## 0.29.0
 
 ### Minor Changes

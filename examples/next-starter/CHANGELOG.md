@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.4
+
+### Patch Changes
+
+- Use sync way to bootstrap plugin
+
 ## 0.35.3
 
 ### Patch Changes

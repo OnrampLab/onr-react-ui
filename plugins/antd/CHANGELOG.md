@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.3
+
+### Patch Changes
+
+- Use sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/core@0.29.1
+
 ## 0.22.2
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.6
+
+### Patch Changes
+
+- Use sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.5
+  - @onr/plugin-custom-auth@0.1.5
+  - @onr/plugin-custom-home@0.10.5
+  - @onr/core@0.29.1
+  - @onr/plugin-account@0.12.1
+  - @onr/plugin-antd@0.22.3
+  - @onr/plugin-auth@0.11.1
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.4
+  - @onr/plugin-user@0.10.1
+
 ## 0.19.5
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.1
+
+### Patch Changes
+
+- Use sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/core@0.29.1
+  - @onr/plugin-account@0.12.1
+  - @onr/plugin-antd@0.22.3
+  - @onr/plugin-auth@0.11.1
+
 ## 0.10.0
 
 ### Minor Changes
