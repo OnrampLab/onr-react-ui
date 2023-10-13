@@ -1,4 +1,4 @@
-import { createApp, OnrApp } from '@onr/core';
+import { createApp, OnrApp, withApp } from '@onr/core';
 import { AccountPlugin } from '@onr/plugin-account';
 import { FullPageLayout, HeaderBarLeftSideMenuLayout } from '@onr/plugin-antd';
 import { AuthPlugin } from '@onr/plugin-auth';
@@ -6,7 +6,6 @@ import { UserPlugin } from '@onr/plugin-user';
 import { LoadingPage } from '../components/LoadingPage';
 import { MyApp } from '../components/MyApp';
 import { configs } from '../configs';
-import { withApp } from './withApp';
 
 export class Application {
   private app: OnrApp;

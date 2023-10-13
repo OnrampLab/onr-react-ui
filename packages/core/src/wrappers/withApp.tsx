@@ -1,5 +1,5 @@
-import { OnrApp } from '@onr/core';
-import React, { ComponentType, FC } from 'react';
+import { ComponentType, FC } from 'react';
+import { OnrApp } from '../types';
 
 export const withApp = (AppComponent: ComponentType, app: OnrApp) => {
   const WrappedComponent: FC = (props: any) => {
