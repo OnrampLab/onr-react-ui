@@ -11,7 +11,7 @@ export type OnrApp = {
   logger: any;
 
   initialize(): void;
-  bootstrap(): void;
+  bootstrap(): Promise<void>;
   getComponents(): AppComponents;
   getProvider(): FC<ProviderProps>;
   getAppContainer(): FC<ProviderProps>;
@@ -23,7 +23,7 @@ export type OnrApp = {
   getRoles(): RolesType;
   getService(serviceName: string): Client;
   registerPlugin(plugin: Plugin): void;
-  bootstrapPlugins(): void;
+  bootstrapPlugins(): Promise<void>;
   addService<T extends Client>(serviceName: string, service: T): OnrApp;
   setLayouts(layouts: LayoutsType): void;
 };

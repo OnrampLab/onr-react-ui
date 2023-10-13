@@ -4,7 +4,7 @@ import { UserService } from './services';
 export class UserPlugin implements Plugin {
   public name = 'UserPlugin';
 
-  bootstrap(app: App) {
+  async bootstrap(app: App): Promise<void> {
     this.registerServices(app);
   }
 
