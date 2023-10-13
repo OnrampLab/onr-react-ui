@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.19.7
+
+### Patch Changes
+
+- Revert sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/core@0.29.2
+  - @onr/plugin-account@0.12.2
+  - @onr/plugin-antd@0.22.4
+  - @onr/plugin-auth@0.11.2
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.5
+  - @onr/plugin-user@0.10.2
+
 ## 0.19.6
 
 ### Patch Changes

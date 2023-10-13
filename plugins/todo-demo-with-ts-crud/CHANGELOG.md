@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.5
+
+### Patch Changes
+
+- Revert sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/core@0.29.2
+
 ## 0.10.4
 
 ### Patch Changes

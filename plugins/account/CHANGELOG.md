@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.12.2
+
+### Patch Changes
+
+- Revert sync way to bootstrap plugin
+- Updated dependencies
+  - @onr/core@0.29.2
+  - @onr/plugin-antd@0.22.4
+
 ## 0.12.1
 
 ### Patch Changes

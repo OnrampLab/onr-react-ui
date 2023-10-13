@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-user",
-  "version": "0.10.1",
+  "version": "0.10.2",
   "description": "core module",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -34,11 +34,11 @@
   },
   "dependencies": {
     "@onr/common": "^0.8.2",
-    "@onr/core": "^0.29.1",
+    "@onr/core": "^0.29.2",
     "@onr/mock": "^3.0.2",
-    "@onr/plugin-account": "^0.12.1",
-    "@onr/plugin-auth": "^0.11.1",
-    "@onr/plugin-antd": "^0.22.3",
+    "@onr/plugin-account": "^0.12.2",
+    "@onr/plugin-auth": "^0.11.2",
+    "@onr/plugin-antd": "^0.22.4",
     "antd": "^5.10.0",
     "redux-dynamic-modules": "^5.2.3",
     "redux-dynamic-modules-react": "^5.2.3",

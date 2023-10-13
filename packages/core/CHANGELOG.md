@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.2
+
+### Patch Changes
+
+- Revert sync way to bootstrap plugin
+
 ## 0.29.1
 
 ### Patch Changes
