@@ -26,7 +26,7 @@ export const HomeMainPage: React.FC = () => {
 
   return (
     <>
-      <h1>Welcome to next-starter</h1>
+      <h1 className="text-blue-600">Welcome to next-starter</h1>
       <p>
         You can check out <Link href="/todos">Todos</Link>.
       </p>
