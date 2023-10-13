@@ -5,6 +5,7 @@ export * from './entities';
 export * from './helpers';
 export * from './hooks';
 export * from './pages';
+export * from './plugin';
 export * from './providers';
 export * from './redux';
 export * from './types';

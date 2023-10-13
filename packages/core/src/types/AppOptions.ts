@@ -1,4 +1,6 @@
+import { Plugin } from '../plugin';
 import { AppComponents } from './AppComponents';
+import { LayoutsType } from './OnrApp';
 import { ANY } from './utilities';
 
 export type AppOptions = {
@@ -11,9 +13,11 @@ export type AppOptions = {
   authConfig?: AuthConfig;
   themeConfig?: ThemeConfig;
   logConfig?: any;
+  plugins?: Plugin[];
   menuItems?: any;
   routes?: any;
   apis?: any;
+  layouts?: LayoutsType;
 };
 
 export type DefaultConfigs = {

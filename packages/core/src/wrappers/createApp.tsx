@@ -23,6 +23,8 @@ export function createApp(options: AppOptions) {
     configs,
     components,
     apis: options?.apis,
+    layouts: options?.layouts || {},
+    plugins: options?.plugins || [],
   });
 
   app.initialize();

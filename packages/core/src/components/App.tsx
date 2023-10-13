@@ -3,6 +3,7 @@ import { Client } from '@onr/ts-rest-client';
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { signOut } from 'next-auth/react';
 import { createContext, FC } from 'react';
+import { Plugin } from '../plugin';
 import { AuthProvider, NextAuthProvider, RouteProvider } from '../providers';
 import { MenuItemsContextProvider, useInitializeMenuItems } from '../providers/MenuItemsProvider';
 import {
@@ -23,6 +24,7 @@ export class App implements OnrApp {
   private readonly components: AppComponents;
   private readonly configs: Configs;
   private readonly layouts: LayoutsType = {};
+  private readonly plugins: Plugin[] = [];
   private readonly services: any;
   public apis: Record<string, AxiosInstance>;
   public logger: any;
@@ -31,7 +33,10 @@ export class App implements OnrApp {
     this.components = options.components;
     this.configs = options.configs;
     this.apis = options.apis;
+    this.layouts = options.layouts;
     this.services = {};
+
+    options.plugins.forEach(plugin => this.registerPlugin(plugin));
   }
 
   public static create(options: FullAppOptions): App {
@@ -56,8 +61,29 @@ export class App implements OnrApp {
     this.initLogger();
   }
 
+  async bootstrap() {
+    await this.bootstrapPlugins();
+  }
+
   getAuthUserModel() {
     return this.configs.authConfig.model;
+  }
+
+  registerPlugin(plugin: Plugin): void {
+    const existed = !!this.plugins.find(p => p.name === plugin.name);
+    if (existed) {
+      throw new Error(`Plugin (${plugin.name}) already be registered`);
+    }
+
+    this.plugins.push(plugin);
+  }
+
+  async bootstrapPlugins() {
+    await Promise.all(
+      this.plugins.map(async plugin => {
+        await plugin.bootstrap(this);
+      }),
+    );
   }
 
   addService<T extends Client>(serviceName: string, service: T) {

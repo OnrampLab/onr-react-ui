@@ -2,6 +2,7 @@ import { LogLevel } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
 import { AxiosInstance } from 'axios';
 import { ComponentType, FC, ReactNode } from 'react';
+import { Plugin } from '../plugin';
 import { AppComponents, PageProps } from './AppComponents';
 import { Configs, RolesType } from './AppOptions';
 
@@ -10,6 +11,7 @@ export type OnrApp = {
   logger: any;
 
   initialize(): void;
+  bootstrap(): Promise<void>;
   getComponents(): AppComponents;
   getProvider(): FC<ProviderProps>;
   getAppContainer(): FC<ProviderProps>;
@@ -20,6 +22,8 @@ export type OnrApp = {
   getAuthUserModel(): any;
   getRoles(): RolesType;
   getService(serviceName: string): Client;
+  registerPlugin(plugin: Plugin): void;
+  bootstrapPlugins(): Promise<void>;
   addService<T extends Client>(serviceName: string, service: T): OnrApp;
   setLayouts(layouts: LayoutsType): void;
 };
@@ -33,6 +37,8 @@ export type FullAppOptions = {
   configs: Configs;
   components: AppComponents;
   apis: any;
+  layouts: LayoutsType;
+  plugins: Plugin[];
 };
 
 export interface RouteType {
