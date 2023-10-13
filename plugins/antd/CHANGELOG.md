@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.2
+
+### Patch Changes
+
+- Support plugin architecture
+- Updated dependencies
+  - @onr/core@0.29.0
+
 ## 0.22.1
 
 ### Patch Changes

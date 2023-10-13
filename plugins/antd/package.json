@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-antd",
-  "version": "0.22.1",
+  "version": "0.22.2",
   "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@onr/common": "^0.8.2",
-    "@onr/core": "^0.28.1",
+    "@onr/core": "^0.29.0",
     "antd": "^5.10.0",
     "http-status": "^1.5.0",
     "react-icons": "^4.2.0"

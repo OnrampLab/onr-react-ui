@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.0
+
+### Minor Changes
+
+- Support plugin architecture
+
 ## 0.28.1
 
 ### Patch Changes

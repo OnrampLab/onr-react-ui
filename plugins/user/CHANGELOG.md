@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- Support plugin architecture
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.29.0
+  - @onr/plugin-account@0.12.0
+  - @onr/plugin-auth@0.11.0
+  - @onr/plugin-antd@0.22.2
+
 ## 0.9.5
 
 ### Patch Changes

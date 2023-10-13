@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.12.0
+
+### Minor Changes
+
+- Support plugin architecture
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.29.0
+  - @onr/plugin-antd@0.22.2
+
 ## 0.11.4
 
 ### Patch Changes

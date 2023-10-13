@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.5
+
+### Patch Changes
+
+- Support plugin architecture
+- Updated dependencies
+  - @onr/core@0.29.0
+  - @onr/plugin-account@0.12.0
+  - @onr/plugin-auth@0.11.0
+  - @onr/plugin-user@0.10.0
+  - @onr/plugin-custom-admin-dashboard@0.7.4
+  - @onr/plugin-custom-auth@0.1.4
+  - @onr/plugin-custom-home@0.10.4
+  - @onr/plugin-antd@0.22.2
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.3
+
 ## 0.19.4
 
 ### Patch Changes
