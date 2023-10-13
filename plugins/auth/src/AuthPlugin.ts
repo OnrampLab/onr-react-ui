@@ -4,7 +4,7 @@ import { AuthService } from './services';
 export class AuthPlugin implements Plugin {
   public name = 'AuthPlugin';
 
-  async bootstrap(app: App): Promise<void> {
+  bootstrap(app: App) {
     this.registerServices(app);
   }
 

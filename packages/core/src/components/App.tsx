@@ -61,8 +61,8 @@ export class App implements OnrApp {
     this.initLogger();
   }
 
-  async bootstrap() {
-    await this.bootstrapPlugins();
+  bootstrap() {
+    this.bootstrapPlugins();
   }
 
   getAuthUserModel() {
@@ -78,12 +78,10 @@ export class App implements OnrApp {
     this.plugins.push(plugin);
   }
 
-  async bootstrapPlugins() {
-    await Promise.all(
-      this.plugins.map(async plugin => {
-        await plugin.bootstrap(this);
-      }),
-    );
+  bootstrapPlugins() {
+    this.plugins.forEach(plugin => {
+      plugin.bootstrap(this);
+    });
   }
 
   addService<T extends Client>(serviceName: string, service: T) {
