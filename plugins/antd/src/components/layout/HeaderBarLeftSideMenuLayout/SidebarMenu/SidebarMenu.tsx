@@ -1,9 +1,10 @@
 import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
-import { Divider, Drawer, Layout, List, Menu, Switch } from 'antd';
+import { Divider, Drawer, Layout, Menu } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { PreferenceSetting } from './PreferenceSetting';
 
 /* eslint-disable complexity  */
 interface Props {
@@ -38,24 +39,11 @@ export const SidebarMenu = ({
     mobile,
     mobileDrawer,
     optionDrawer,
-    boxed,
-    darkSidebar,
     sidebarTheme = propSideBarTheme,
-    sidebarPopup,
     collapsed,
     sidebarIcons,
-    weakColor,
   } = useSelector((store: CoreStore) => store.coreStore);
-  const {
-    setOptionDrawer,
-    setMobileDrawer,
-    setBoxed,
-    setSidebarTheme,
-    setSidebarPopup,
-    setSidebarIcons,
-    setCollapse,
-    setWeak,
-  } = coreActions;
+  const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
   const { asPath: pathname = '' } = router || {};
 
   useEffect(() => {
@@ -250,76 +238,7 @@ export const SidebarMenu = ({
         onClose={() => dispatch(setOptionDrawer())}
         visible={optionDrawer}
       >
-        <List.Item
-          actions={[
-            <Switch key={1} size="small" checked={!!boxed} onChange={() => dispatch(setBoxed())} />,
-          ]}
-        >
-          <span>Boxed view</span>
-        </List.Item>
-        <List.Item
-          actions={[
-            <Switch
-              key={1}
-              size="small"
-              checked={!!darkSidebar}
-              disabled={weakColor}
-              onChange={() => dispatch(setSidebarTheme())}
-            />,
-          ]}
-        >
-          <span>Dark sidebar menu</span>
-        </List.Item>
-        <List.Item
-          actions={[
-            <Switch
-              size="small"
-              checked={!!sidebarPopup}
-              disabled={collapsed}
-              onChange={() => dispatch(setSidebarPopup())}
-              key={1}
-            />,
-          ]}
-        >
-          <span>Popup sub menus</span>
-        </List.Item>
-        <List.Item
-          actions={[
-            <Switch
-              key={1}
-              size="small"
-              checked={!!sidebarIcons}
-              disabled={collapsed}
-              onChange={() => dispatch(setSidebarIcons())}
-            />,
-          ]}
-        >
-          <span>Sidebar menu icons</span>
-        </List.Item>
-        <List.Item
-          actions={[
-            <Switch
-              key={1}
-              size="small"
-              checked={!!collapsed}
-              onChange={() => dispatch(setCollapse())}
-            />,
-          ]}
-        >
-          <span>Collapsed sidebar menu</span>
-        </List.Item>
-        <List.Item
-          actions={[
-            <Switch
-              key={1}
-              size="small"
-              checked={!!weakColor}
-              onChange={() => dispatch(setWeak())}
-            />,
-          ]}
-        >
-          <span>Weak colors</span>
-        </List.Item>
+        <PreferenceSetting />
       </Drawer>
     </>
   );
