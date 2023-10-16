@@ -1,23 +1,22 @@
-import { coreActions, CoreStore, useAuth } from '@onr/core';
+import { useAuth } from '@onr/core';
 import { message, Select } from 'antd';
 import Router from 'next/router';
 import React, { useCallback, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { IAccount } from '../entities';
+import { useCurrentAccount } from '../hooks/useCurrentAccount';
 
 export const AccountSelector: React.FC = () => {
-  const dispatch = useDispatch();
   const [accounts, setAccounts] = React.useState<IAccount[]>([]);
-  const accountId = useSelector((store: CoreStore) => store.coreStore.accountId);
+  const { accountId, setCurrentAccountId } = useCurrentAccount();
 
   const { user: currentUser } = useAuth();
   const changeAccount = useCallback(
     (accountId: number) => {
-      dispatch(coreActions.setAccountId(accountId));
+      setCurrentAccountId(accountId);
       Router.push('/admin');
       message.info('Account has been changed');
     },
-    [dispatch],
+    [setCurrentAccountId],
   );
 
   useEffect(() => {
