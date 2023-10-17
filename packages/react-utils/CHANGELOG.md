@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.3
+
+### Patch Changes
+
+- Remove @onr/core and @onr/common dependencies
+
 ## 0.1.2
 
 ### Patch Changes
