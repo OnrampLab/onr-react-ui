@@ -1,4 +1,4 @@
-import { set } from 'lodash-es';
+import { set } from 'lodash';
 import { ActionConsts } from '../actions/ActionConsts';
 
 import { CoreStore, IAction, IStateProps } from '../interfaces';
