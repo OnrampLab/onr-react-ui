@@ -21,6 +21,7 @@ export interface IStateProps {
   mobileDrawer: boolean;
   fullscreen: boolean;
   accountId?: number;
+  plugins?: any;
 }
 
 export interface IDispatchProps {
@@ -35,4 +36,5 @@ export interface IDispatchProps {
   setWeak(payload?: boolean): AnyAction;
   setup(payload?: any): AnyAction;
   setAccountId(payload?: number): AnyAction;
+  setPluginValue(key: string, value: any): AnyAction;
 }

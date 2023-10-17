@@ -1,3 +1,4 @@
+import { set } from 'lodash-es';
 import { ActionConsts } from '../actions/ActionConsts';
 
 import { CoreStore, IAction, IStateProps } from '../interfaces';
@@ -16,6 +17,7 @@ const INITIAL_STATE: IStateProps = {
   optionDrawer: false,
   mobileDrawer: false,
   fullscreen: false,
+  plugins: {},
 };
 
 /* eslint-disable complexity */
@@ -96,6 +98,15 @@ export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
       return {
         ...state,
         accountId: action.payload,
+      };
+
+    case ActionConsts.Core.SetPluginValue:
+      const { key, value } = action.payload;
+
+      set(state, `plugins.${key}`, value);
+
+      return {
+        ...state,
       };
 
     default:

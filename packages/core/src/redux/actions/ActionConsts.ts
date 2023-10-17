@@ -10,6 +10,7 @@ export const ActionConsts = {
     SetCollapse: 'Core_SetCollapse',
     SetWeak: 'Core_SetWeak',
     Setup: 'Core_Setup',
+    SetPluginValue: 'Core_SetModuleValue',
     SetAccountId: 'Core_SetAccountId',
   },
 };

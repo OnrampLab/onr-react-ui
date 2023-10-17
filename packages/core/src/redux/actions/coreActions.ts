@@ -53,6 +53,14 @@ export const coreActions: IDispatchProps = {
     payload,
   }),
 
+  setPluginValue: (key: string, value: any) => ({
+    type: ActionConsts.Core.SetPluginValue,
+    payload: {
+      key,
+      value,
+    },
+  }),
+
   setAccountId: (payload?: number) => ({
     type: ActionConsts.Core.SetAccountId,
     payload,
