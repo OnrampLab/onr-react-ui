@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.1.8
+
+### Patch Changes
+
+- coreReducer use lodash
+- Updated dependencies
+  - @onr/core@0.30.2
+  - @onr/plugin-antd@0.22.7
+  - @onr/plugin-user@0.10.5
+
 ## 0.1.7
 
 ### Patch Changes

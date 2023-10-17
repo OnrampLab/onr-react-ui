@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.10
+
+### Patch Changes
+
+- coreReducer use lodash
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.8
+  - @onr/plugin-custom-auth@0.1.8
+  - @onr/plugin-custom-home@0.10.8
+  - @onr/core@0.30.2
+  - @onr/plugin-account@0.12.5
+  - @onr/plugin-antd@0.22.7
+  - @onr/plugin-auth@0.11.5
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.8
+  - @onr/plugin-user@0.10.5
+
 ## 0.19.9
 
 ### Patch Changes

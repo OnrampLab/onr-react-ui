@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.30.2
+
+### Patch Changes
+
+- coreReducer use lodash
+
 ## 0.30.1
 
 ### Patch Changes

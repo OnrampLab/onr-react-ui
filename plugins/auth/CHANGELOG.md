@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.11.5
+
+### Patch Changes
+
+- coreReducer use lodash
+- Updated dependencies
+  - @onr/core@0.30.2
+
 ## 0.11.4
 
 ### Patch Changes
