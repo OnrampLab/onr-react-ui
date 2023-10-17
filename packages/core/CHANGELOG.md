@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.30.0
+
+### Minor Changes
+
+- chore(core): support plugin store
+
 ## 0.29.2
 
 ### Patch Changes

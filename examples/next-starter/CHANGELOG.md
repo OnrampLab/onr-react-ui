@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.6
+
+### Patch Changes
+
+- chore(core): support plugin store
+
 ## 0.35.5
 
 ### Patch Changes

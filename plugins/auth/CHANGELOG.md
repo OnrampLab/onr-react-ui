@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.11.3
+
+### Patch Changes
+
+- chore(core): support plugin store
+- Updated dependencies
+  - @onr/core@0.30.0
+
 ## 0.11.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.3
+
+### Patch Changes
+
+- chore(core): support plugin store
+- Updated dependencies
+  - @onr/core@0.30.0
+  - @onr/plugin-account@0.12.3
+  - @onr/plugin-antd@0.22.5
+  - @onr/plugin-auth@0.11.3
+
 ## 0.10.2
 
 ### Patch Changes

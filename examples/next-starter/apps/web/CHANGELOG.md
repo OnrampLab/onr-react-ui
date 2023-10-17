@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.8
+
+### Patch Changes
+
+- chore(core): support plugin store
+- Updated dependencies
+  - @onr/core@0.30.0
+  - @onr/plugin-custom-admin-dashboard@0.7.6
+  - @onr/plugin-custom-auth@0.1.6
+  - @onr/plugin-custom-home@0.10.6
+  - @onr/plugin-account@0.12.3
+  - @onr/plugin-antd@0.22.5
+  - @onr/plugin-auth@0.11.3
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.6
+  - @onr/plugin-user@0.10.3
+
 ## 0.19.7
 
 ### Patch Changes
