@@ -20,7 +20,6 @@ export interface IStateProps {
   optionDrawer: boolean;
   mobileDrawer: boolean;
   fullscreen: boolean;
-  accountId?: number;
   plugins?: any;
 }
 
@@ -35,6 +34,5 @@ export interface IDispatchProps {
   setCollapse(payload?: boolean): AnyAction;
   setWeak(payload?: boolean): AnyAction;
   setup(payload?: any): AnyAction;
-  setAccountId(payload?: number): AnyAction;
   setPluginValue(key: string, value: any): AnyAction;
 }

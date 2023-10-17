@@ -60,9 +60,4 @@ export const coreActions: IDispatchProps = {
       value,
     },
   }),
-
-  setAccountId: (payload?: number) => ({
-    type: ActionConsts.Core.SetAccountId,
-    payload,
-  }),
 };

@@ -94,12 +94,6 @@ export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
       }
       return { ...state, ...coreStore, ...action.payload };
 
-    case ActionConsts.Core.SetAccountId:
-      return {
-        ...state,
-        accountId: action.payload,
-      };
-
     case ActionConsts.Core.SetPluginValue:
       const { key, value } = action.payload;
 
