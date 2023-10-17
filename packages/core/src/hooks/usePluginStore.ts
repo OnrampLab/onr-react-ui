@@ -2,7 +2,7 @@ import { get } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { CoreStore, coreActions } from '../redux';
 
-export function usePluginStore<T>(key: string) {
+export function usePluginStore<T>(key: string, defaultValue?: T) {
   const dispatch = useDispatch();
   const plugins = useSelector((store: CoreStore) => store.coreStore.plugins);
 
@@ -13,7 +13,7 @@ export function usePluginStore<T>(key: string) {
   };
 
   return {
-    value,
+    value: value ?? defaultValue,
     setValue,
   };
 }
