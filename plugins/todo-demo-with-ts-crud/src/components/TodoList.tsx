@@ -1,3 +1,4 @@
+import { useCorePreference } from '@onr/core';
 import { Card, Space, Table } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import Link from 'next/link';
@@ -10,6 +11,7 @@ interface Props {
 
 export const TodoList: React.FC<Props> = props => {
   const { todos } = props;
+  const { paginationPreference, setPaginationPreference } = useCorePreference();
 
   const columns: ColumnsType<Todo> = [
     {
@@ -50,7 +52,19 @@ export const TodoList: React.FC<Props> = props => {
   return (
     <>
       <Card title="Todo List">
-        <Table dataSource={todos} columns={columns} pagination={} />
+        <Table
+          dataSource={todos}
+          columns={columns}
+          pagination={{
+            pageSize: paginationPreference?.pageSize,
+            onShowSizeChange(_, pageSize) {
+              setPaginationPreference({
+                ...paginationPreference,
+                pageSize,
+              });
+            },
+          }}
+        />
       </Card>
     </>
   );
