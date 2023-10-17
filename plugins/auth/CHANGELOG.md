@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.11.6
+
+### Patch Changes
+
+- - chore(core/hook): [useCorePreference] new
+  - chore(core/hook): [usePluginStore] support default value
+- Updated dependencies
+  - @onr/core@0.31.0
+
 ## 0.11.5
 
 ### Patch Changes

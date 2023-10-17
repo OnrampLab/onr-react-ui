@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.31.0
+
+### Minor Changes
+
+- - chore(core/hook): [useCorePreference] new
+  - chore(core/hook): [usePluginStore] support default value
+
 ## 0.30.2
 
 ### Patch Changes

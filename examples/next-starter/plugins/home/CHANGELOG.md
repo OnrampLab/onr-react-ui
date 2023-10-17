@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.10.9
+
+### Patch Changes
+
+- - chore(core/hook): [useCorePreference] new
+  - chore(core/hook): [usePluginStore] support default value
+- Updated dependencies
+  - @onr/core@0.31.0
+  - @onr/plugin-antd@0.22.8
+
 ## 0.10.8
 
 ### Patch Changes
