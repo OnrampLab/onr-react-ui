@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.7.7
+
+### Patch Changes
+
+- Use lodash
+- Updated dependencies
+  - @onr/core@0.30.1
+  - @onr/plugin-antd@0.22.6
+
 ## 0.7.6
 
 ### Patch Changes

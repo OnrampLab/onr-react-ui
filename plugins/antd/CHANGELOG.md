@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.6
+
+### Patch Changes
+
+- Use lodash
+- Updated dependencies
+  - @onr/core@0.30.1
+
 ## 0.22.5
 
 ### Patch Changes

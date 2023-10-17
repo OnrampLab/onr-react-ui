@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.30.1
+
+### Patch Changes
+
+- Use lodash
+
 ## 0.30.0
 
 ### Minor Changes

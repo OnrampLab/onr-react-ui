@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.9
+
+### Patch Changes
+
+- Use lodash
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.7
+  - @onr/plugin-custom-auth@0.1.7
+  - @onr/plugin-custom-home@0.10.7
+  - @onr/core@0.30.1
+  - @onr/plugin-account@0.12.4
+  - @onr/plugin-antd@0.22.6
+  - @onr/plugin-auth@0.11.4
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.10.7
+  - @onr/plugin-user@0.10.4
+
 ## 0.19.8
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.4
+
+### Patch Changes
+
+- Use lodash
+- Updated dependencies
+  - @onr/core@0.30.1
+  - @onr/plugin-account@0.12.4
+  - @onr/plugin-antd@0.22.6
+  - @onr/plugin-auth@0.11.4
+
 ## 0.10.3
 
 ### Patch Changes
