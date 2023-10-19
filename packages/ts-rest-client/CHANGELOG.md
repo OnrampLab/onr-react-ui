@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- Will remove empty string value for list
+
 ## 2.1.0
 
 ### Minor Changes
