@@ -1,0 +1,54 @@
+{
+  "name": "@onr/package-starter",
+  "private": true,
+  "version": "0.0.1",
+  "description": "package starter",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "types": "types/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "types",
+    "src"
+  ],
+  "scripts": {
+    "dev": "tsc --watch --preserveWatchOutput",
+    "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
+    "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
+    "build": "tsc --build tsconfig.json",
+    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "yarn test --watch",
+    "prepublishOnly": "yarn build"
+  },
+  "bugs": {
+    "url": "https://github.com/OnrampLab/onr-react-ui/issues"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.7"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.0.7"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.22.5",
+    "@onr/eslint-config": "^0.6.2",
+    "@onr/prettier-config": "^1.4.2",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "eslint": "^8.40.0",
+    "typescript": "^5.1.3"
+  },
+  "prettier": "@onr/prettier-config",
+  "publishConfig": {
+    "access": "public"
+  }
+}
