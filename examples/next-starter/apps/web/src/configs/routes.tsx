@@ -20,6 +20,9 @@ export const routes: RouteType[] = [
     path: '/todos',
     layout: 'header-bar-left-side-menu',
     authRequired: false,
+    breadcrumbsConfig: {
+      label: 'Todo',
+    },
   },
   {
     path: '/todos/**',

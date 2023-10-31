@@ -45,6 +45,9 @@ export interface RouteType {
   path: string;
   layout: string;
   authRequired: boolean;
+  breadcrumbsConfig?: {
+    label: string;
+  };
 }
 
 export type LayoutsType = Record<string, ComponentType<PageProps>>;
