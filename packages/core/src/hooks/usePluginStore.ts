@@ -1,4 +1,5 @@
 import { get } from 'lodash';
+import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CoreStore, coreActions } from '../redux';
 
@@ -8,13 +9,16 @@ export function usePluginStore<T>(key: string, defaultValue?: T) {
 
   const value = get(plugins, key) as T;
 
-  const getValue = () => {
+  const getValue = useCallback(() => {
     return get(plugins, key) as T;
-  };
+  }, [key, plugins]);
 
-  const setValue = (value: T) => {
-    dispatch(coreActions.setPluginValue(key, value));
-  };
+  const setValue = useCallback(
+    (value: T) => {
+      dispatch(coreActions.setPluginValue(key, value));
+    },
+    [dispatch, key],
+  );
 
   return {
     value: value ?? defaultValue,
