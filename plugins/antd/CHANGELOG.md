@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.9
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add getValue()
+- Updated dependencies
+  - @onr/core@0.32.0
+
 ## 0.22.8
 
 ### Patch Changes

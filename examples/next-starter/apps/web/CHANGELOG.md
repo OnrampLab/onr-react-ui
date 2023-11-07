@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.12
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add getValue()
+- Updated dependencies
+  - @onr/core@0.32.0
+  - @onr/plugin-custom-admin-dashboard@0.7.10
+  - @onr/plugin-custom-auth@0.1.10
+  - @onr/plugin-custom-home@0.10.10
+  - @onr/plugin-account@0.12.7
+  - @onr/plugin-antd@0.22.9
+  - @onr/plugin-auth@0.11.7
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.11.1
+  - @onr/plugin-user@0.10.7
+
 ## 0.19.11
 
 ### Patch Changes

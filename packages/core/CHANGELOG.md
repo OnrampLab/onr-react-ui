@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.32.0
+
+### Minor Changes
+
+- chore(core): [usePluginStore] add getValue()
+
 ## 0.31.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.12.7
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add getValue()
+- Updated dependencies
+  - @onr/core@0.32.0
+  - @onr/plugin-antd@0.22.9
+
 ## 0.12.6
 
 ### Patch Changes

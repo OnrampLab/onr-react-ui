@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.7
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add getValue()
+- Updated dependencies
+  - @onr/core@0.32.0
+  - @onr/plugin-account@0.12.7
+  - @onr/plugin-antd@0.22.9
+  - @onr/plugin-auth@0.11.7
+
 ## 0.10.6
 
 ### Patch Changes

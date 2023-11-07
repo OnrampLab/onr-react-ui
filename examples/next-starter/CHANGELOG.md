@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.10
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add getValue()
+
 ## 0.35.9
 
 ### Patch Changes
