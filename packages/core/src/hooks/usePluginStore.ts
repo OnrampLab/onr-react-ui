@@ -8,12 +8,17 @@ export function usePluginStore<T>(key: string, defaultValue?: T) {
 
   const value = get(plugins, key) as T;
 
+  const getValue = () => {
+    return get(plugins, key) as T;
+  };
+
   const setValue = (value: T) => {
     dispatch(coreActions.setPluginValue(key, value));
   };
 
   return {
     value: value ?? defaultValue,
+    getValue,
     setValue,
   };
 }
