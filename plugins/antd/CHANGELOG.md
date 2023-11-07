@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.22.10
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add useCallback for functions
+- Updated dependencies
+  - @onr/core@0.32.1
+
 ## 0.22.9
 
 ### Patch Changes

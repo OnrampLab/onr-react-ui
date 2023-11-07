@@ -1,5 +1,21 @@
 # Change Log
 
+## 0.19.13
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add useCallback for functions
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.11
+  - @onr/plugin-custom-auth@0.1.11
+  - @onr/plugin-custom-home@0.10.11
+  - @onr/core@0.32.1
+  - @onr/plugin-account@0.12.8
+  - @onr/plugin-antd@0.22.10
+  - @onr/plugin-auth@0.11.8
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.11.2
+  - @onr/plugin-user@0.10.8
+
 ## 0.19.12
 
 ### Patch Changes

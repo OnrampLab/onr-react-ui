@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.11
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add useCallback for functions
+
 ## 0.35.10
 
 ### Patch Changes

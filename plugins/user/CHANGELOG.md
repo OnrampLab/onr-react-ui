@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.8
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add useCallback for functions
+- Updated dependencies
+  - @onr/core@0.32.1
+  - @onr/plugin-account@0.12.8
+  - @onr/plugin-antd@0.22.10
+  - @onr/plugin-auth@0.11.8
+
 ## 0.10.7
 
 ### Patch Changes

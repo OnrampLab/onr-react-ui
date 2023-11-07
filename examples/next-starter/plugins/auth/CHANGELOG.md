@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.1.11
+
+### Patch Changes
+
+- chore(core): [usePluginStore] add useCallback for functions
+- Updated dependencies
+  - @onr/core@0.32.1
+  - @onr/plugin-antd@0.22.10
+  - @onr/plugin-user@0.10.8
+
 ## 0.1.10
 
 ### Patch Changes
