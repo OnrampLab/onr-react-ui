@@ -5,6 +5,8 @@ packages/*/lib
 packages/*/types
 plugins/*/lib
 plugins/*/types
+examples/*/lib
+examples/*/types
 .next
 .env
 .env.local
