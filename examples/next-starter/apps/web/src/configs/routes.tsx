@@ -1,44 +1,45 @@
 import { RouteType } from '@onr/core';
+import { LayoutEnum } from '@onr/plugin-antd';
 
 export const routes: RouteType[] = [
   {
     path: '/admin',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: true,
   },
   {
     path: '/admin/**',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: true,
   },
   {
     path: '/auth/*',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/todos',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
   },
   {
     path: '/todos/**',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
   },
   {
     path: '/_error',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/**',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
 ];
