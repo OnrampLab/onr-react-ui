@@ -1,5 +1,6 @@
 import { RouteType } from '@onr/core';
 import { LayoutEnum } from '@onr/plugin-antd';
+import { TodoMenuProvider } from '../providers';
 
 export const routes: RouteType[] = [
   {
@@ -31,11 +32,13 @@ export const routes: RouteType[] = [
     path: '/todos-custom-menu',
     layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
+    CustomMenuProvider: TodoMenuProvider,
   },
   {
     path: '/todos-custom-menu/**',
     layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
+    CustomMenuProvider: TodoMenuProvider,
   },
   {
     path: '/_error',
