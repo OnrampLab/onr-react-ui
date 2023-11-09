@@ -7,7 +7,7 @@ export const DashHeader = styled.div`
     flex-wrap: nowrap;
     display: flex;
     align-items: center;
-    min-height: 4.286rem;
+    height: ${props => `${props.theme.layoutHeaderHeight}`};
     z-index: 11;
     padding: 0 1rem;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.02), 0 1px 0 rgba(0, 0, 0, 0.02);
