@@ -3,11 +3,16 @@ import { Todo } from '../definitions';
 import { todoService } from '../services/TodoService';
 
 export const useTodos = (params?: any) => {
+  const [loading, setLoading] = useState(false);
   const [todos, setTodos] = useState<Todo[]>([]);
 
   useEffect(() => {
-    todoService.listTodos(params).then(setTodos);
+    (async () => {
+      setLoading(true);
+      await todoService.listTodos(params).then(setTodos);
+      setLoading(false);
+    })();
   }, [params]);
 
-  return { todos };
+  return { loading, todos };
 };
