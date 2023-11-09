@@ -28,6 +28,16 @@ export const routes: RouteType[] = [
     authRequired: false,
   },
   {
+    path: '/todos-custom-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
+    authRequired: false,
+  },
+  {
+    path: '/todos-custom-menu/**',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
+    authRequired: false,
+  },
+  {
     path: '/_error',
     layout: LayoutEnum.FullPage,
     authRequired: false,

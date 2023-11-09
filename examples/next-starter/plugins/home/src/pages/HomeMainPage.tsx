@@ -28,7 +28,11 @@ export const HomeMainPage: React.FC = () => {
     <>
       <h1 className="text-blue-600">Welcome to next-starter</h1>
       <p>
-        You can check out <Link href="/todos">Todos</Link>.
+        You can check out
+        <br />
+        <Link href="/todos">Todos (normal layout)</Link>
+        <br />
+        <Link href="/todos-custom-menu">Todos (custom menu layout)</Link>.
       </p>
       <p>
         Or go to <Link href="/admin">Admin page</Link>.
