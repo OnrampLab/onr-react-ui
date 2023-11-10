@@ -1,4 +1,4 @@
-import { CoreStore, Page, createLayoutContainer } from '@onr/core';
+import { CoreStore, Page, createLayoutContainer, CustomMenuProvider } from '@onr/core';
 import { GlobalModalProvider } from '@onr/plugin-antd';
 import { useAppUser } from '@onr/plugin-custom-auth';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
@@ -38,7 +38,7 @@ const StyleContainer = createLayoutContainer({
   theme: themeConfig,
 });
 
-const Container: React.FC<AppProps> = (props: AppProps) => {
+const Container: FC<AppProps> = (props: AppProps) => {
   const { Component, pageProps } = props;
   // NOTE: hack for type checking
   const AnyComponent = Component as any;
@@ -62,12 +62,14 @@ const Container: React.FC<AppProps> = (props: AppProps) => {
   );
 };
 
-export const PageContainer: React.FC<AppProps> = (props: AppProps) => {
+export const PageContainer: FC<AppProps> = (props: AppProps) => {
   return (
     <ConfigProvider theme={antdTheme}>
       <StyleContainer>
         <GlobalModalProvider>
-          <Container {...props} />
+          <CustomMenuProvider>
+            <Container {...props} />
+          </CustomMenuProvider>
         </GlobalModalProvider>
       </StyleContainer>
     </ConfigProvider>
