@@ -1,3 +1,4 @@
+import type { ItemType } from 'antd/es/menu/hooks/useItems';
 import { ReactElement } from 'react';
 
 export interface MenuItem {
@@ -7,4 +8,5 @@ export interface MenuItem {
   children?: MenuItem[];
   login: boolean;
   roles?: any[];
+  props?: Partial<ItemType>;
 }
