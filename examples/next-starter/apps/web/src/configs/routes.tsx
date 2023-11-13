@@ -1,44 +1,58 @@
 import { RouteType } from '@onr/core';
+import { LayoutEnum } from '@onr/plugin-antd';
+import { TodoMenuProvider } from '../providers';
 
 export const routes: RouteType[] = [
   {
     path: '/admin',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: true,
   },
   {
     path: '/admin/**',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: true,
   },
   {
     path: '/auth/*',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/todos',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
   },
   {
     path: '/todos/**',
-    layout: 'header-bar-left-side-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
   },
   {
+    path: '/todos-custom-menu',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
+    authRequired: false,
+    CustomMenuProvider: TodoMenuProvider,
+  },
+  {
+    path: '/todos-custom-menu/**',
+    layout: LayoutEnum.HeaderBarLeftSideMenu,
+    authRequired: false,
+    CustomMenuProvider: TodoMenuProvider,
+  },
+  {
     path: '/_error',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
   {
     path: '/**',
-    layout: 'full-page',
+    layout: LayoutEnum.FullPage,
     authRequired: false,
   },
 ];

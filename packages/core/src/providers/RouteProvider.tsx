@@ -7,6 +7,7 @@ import { RouteType } from '../types';
 export interface IPageContext {
   currentPath: string;
   currentRoute: RouteType;
+  currentLayout: string;
 }
 
 export const RouteContext = createContext<IPageContext | null>(null);
@@ -21,13 +22,20 @@ export const useRoute = () => {
 
 export const RouteProvider = (props: any) => {
   const router = useRouter();
-  const routes = useApp()?.getRoutes();
+  const routes: RouteType[] = useApp()?.getRoutes();
 
   const currentRoute = routes?.find((route: any) => {
     return minimatch(router.pathname, route.path);
   });
 
   return (
-    <RouteContext.Provider value={{ currentPath: router.pathname, currentRoute }} {...props} />
+    <RouteContext.Provider
+      value={{
+        currentPath: router.pathname,
+        currentRoute,
+        currentLayout: currentRoute?.layout,
+      }}
+      {...props}
+    />
   );
 };

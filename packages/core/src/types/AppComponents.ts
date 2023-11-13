@@ -43,7 +43,7 @@ export type SidebarMenuProps = {
 
 export type PageProps = {
   children: ReactNode;
-  HeaderMainSection: ComponentType;
+  HeaderMainSection?: ComponentType;
   logo?: ReactNode;
   avatar?: string;
   innerStyle?: React.CSSProperties;

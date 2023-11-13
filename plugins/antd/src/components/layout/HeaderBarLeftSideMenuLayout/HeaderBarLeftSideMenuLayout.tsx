@@ -19,7 +19,7 @@ export const HeaderBarLeftSideMenuLayout: FC<PageProps> = props => {
   return (
     <>
       <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout>
         <SidebarMenu
           currentUser={user}
           sidebarTheme={darkSidebar ? 'dark' : 'light'}

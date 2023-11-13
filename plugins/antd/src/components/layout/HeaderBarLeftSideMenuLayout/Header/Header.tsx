@@ -6,18 +6,17 @@ import { FiBarChart, FiTriangle } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
 
-type AvatarProps = {
+interface AvatarProps {
   avatar?: string;
-};
+}
 
-type LogoProps = {
+interface LogoProps {
   logo?: ReactNode;
-};
+}
 
-type Props = {
-  HeaderMainSection: ComponentType;
-} & AvatarProps &
-  LogoProps;
+interface Props extends AvatarProps, LogoProps {
+  HeaderMainSection?: ComponentType;
+}
 
 const UserMenu: FC<AvatarProps> = ({ avatar }) => {
   const dispatch = useDispatch();
@@ -66,7 +65,8 @@ const DefaultLogo: FC = () => {
   );
 };
 
-export const Header: FC<Props> = ({ HeaderMainSection, avatar, logo = <DefaultLogo /> }: Props) => {
+export const Header: FC<Props> = props => {
+  const { HeaderMainSection, avatar, logo = <DefaultLogo /> } = props;
   const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -82,7 +82,7 @@ export const Header: FC<Props> = ({ HeaderMainSection, avatar, logo = <DefaultLo
           {logo}
         </Link>
 
-        <HeaderMainSection />
+        {HeaderMainSection && <HeaderMainSection />}
 
         <span className="mr-auto" />
         <UserMenu avatar={avatar} />

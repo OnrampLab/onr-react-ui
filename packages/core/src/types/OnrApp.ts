@@ -45,6 +45,7 @@ export interface RouteType {
   path: string;
   layout: string;
   authRequired: boolean;
+  CustomMenuProvider?: FC<any>;
 }
 
 export type LayoutsType = Record<string, ComponentType<PageProps>>;
