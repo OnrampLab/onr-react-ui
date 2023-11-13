@@ -1,5 +1,7 @@
-import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
-import { Divider, Drawer, Layout, Menu } from 'antd';
+import { AuthUser, coreActions, CoreStore, MenuItem, useMenuItems } from '@onr/core';
+import { Drawer, Layout, Menu, MenuProps } from 'antd';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
+import { isEmpty } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useRef } from 'react';
@@ -13,14 +15,12 @@ interface Props {
   currentUser: AuthUser;
 }
 
-const { SubMenu } = Menu;
 const { Sider } = Layout;
 
 const rootSubMenuKeys: string[] = [];
 
 const getKey = (name: string, index: number) => {
-  const string = `${name}-${index}`;
-  const key = string.replace(' ', '-');
+  const key = `${name.replace(/ /g, '-')}-${index}`;
 
   return key.charAt(0).toLowerCase() + key.slice(1);
 };
@@ -41,10 +41,17 @@ export const SidebarMenu = ({
     optionDrawer,
     sidebarTheme = propSideBarTheme,
     collapsed,
-    sidebarIcons,
   } = useSelector((store: CoreStore) => store.coreStore);
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
   const { asPath: pathname = '' } = router || {};
+  const getMenuItemFromRoute = (route: MenuItem, index: number): ItemType => ({
+    label: route.path ? <Link href={route.path}>{route.name}</Link> : route.name,
+    key: getKey(route.name, index),
+    icon: route.icon ?? null,
+    ...route.props,
+    children: route.children?.map((route, index) => getMenuItemFromRoute(route, index)),
+  });
+  const items = appRoutes.map((route, index) => getMenuItemFromRoute(route, index));
 
   useEffect(() => {
     const roles = currentUser?.roles || [];
@@ -74,7 +81,7 @@ export const SidebarMenu = ({
   const addOpenKeyRef = useRef(addOpenKey);
 
   useEffect(() => {
-    appRoutes.forEach((route: any, index: number) => {
+    appRoutes.forEach((route, index) => {
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
     });
@@ -119,89 +126,30 @@ export const SidebarMenu = ({
 
     return key;
   };
-
   const getInitialOpenKeyRef = useRef(getInitialOpenKey);
+
+  const handleMenuClick: MenuProps['onClick'] = e => {
+    const index = appRoutes.findIndex((route, index) => e.key === getKey(route.name, index));
+    const route = appRoutes[index];
+    if (!isEmpty(route?.children)) {
+      setOpenKeys([getKey(route.name, index)]);
+    }
+
+    if (mobile) {
+      dispatch(setMobileDrawer());
+    }
+  };
 
   const MyMenu = () => {
     return (
-      <>
-        <Menu
-          theme={sidebarTheme}
-          mode={sidebarMode}
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-        >
-          {appRoutes.map((route: any, index: number) => {
-            const hasChildren = route.children ? true : false;
-            if (!hasChildren) {
-              return (
-                <Menu.Item
-                  key={getKey(route.name, index)}
-                  className={isSamePath(pathname, route.path) ? 'ant-menu-item-selected' : ''}
-                  onClick={() => {
-                    setOpenKeys([getKey(route.name, index)]);
-                    if (mobile) dispatch(setMobileDrawer());
-                  }}
-                >
-                  {route.path && (
-                    <Link href={route.path}>
-                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                      <span className="mr-auto">{route.name}</span>
-                    </Link>
-                  )}
-
-                  {!route.path && (
-                    <>
-                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                      <span className="mr-auto">{route.name}</span>
-                    </>
-                  )}
-                </Menu.Item>
-              );
-            }
-
-            if (hasChildren) {
-              return (
-                <SubMenu
-                  key={getKey(route.name, index)}
-                  title={
-                    <span>
-                      {sidebarIcons && <span className="anticon">{route.icon}</span>}
-                      <span>{route.name}</span>
-                    </span>
-                  }
-                >
-                  {route.children &&
-                    route.children.map((subitem: any, index: number) => {
-                      return (
-                        <Menu.Item
-                          key={getKey(subitem.name, index)}
-                          className={
-                            isSamePath(pathname, subitem.path) ? 'ant-menu-item-selected' : ''
-                          }
-                          onClick={() => {
-                            if (mobile) dispatch(setMobileDrawer());
-                          }}
-                        >
-                          <Link href={`${subitem.path ? subitem.path : ''}`}>
-                            <span className="mr-auto">{subitem.name}</span>
-                          </Link>
-                        </Menu.Item>
-                      );
-                    })}
-                </SubMenu>
-              );
-            }
-          })}
-        </Menu>
-
-        <Divider
-          className={`m-0`}
-          style={{
-            display: `${sidebarTheme === 'dark' ? 'none' : ''}`,
-          }}
-        />
-      </>
+      <Menu
+        theme={sidebarTheme}
+        mode={sidebarMode}
+        openKeys={openKeys}
+        onOpenChange={onOpenChange}
+        onClick={handleMenuClick}
+        items={items}
+      />
     );
   };
 
