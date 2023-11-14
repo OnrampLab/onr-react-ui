@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import { PreferenceSetting } from './PreferenceSetting';
 
 interface Props {
@@ -15,8 +16,13 @@ interface Props {
 }
 
 const { Sider } = Layout;
-
 const rootSubMenuKeys: string[] = [];
+
+const MobileDrawer = styled(Drawer)`
+  .ant-drawer-body {
+    padding: 0;
+  }
+`;
 
 const getKey = (name: string, index: number, parentName?: string) => {
   const key = `${(parentName ?? '').replace(/ /g, '-')}${name.replace(/ /g, '-')}-${index}`;
@@ -162,16 +168,15 @@ export const SidebarMenu = ({
         </Sider>
       )}
 
-      <Drawer
+      <MobileDrawer
         closable={false}
         width={240}
         placement="left"
         onClose={() => dispatch(setMobileDrawer())}
         open={mobileDrawer}
-        className="chat-drawer"
       >
         <MyMenu />
-      </Drawer>
+      </MobileDrawer>
 
       <Drawer
         title="Settings"
