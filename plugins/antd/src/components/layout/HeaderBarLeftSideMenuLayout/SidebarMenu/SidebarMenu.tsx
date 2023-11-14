@@ -18,8 +18,8 @@ const { Sider } = Layout;
 
 const rootSubMenuKeys: string[] = [];
 
-const getKey = (name: string, index: number) => {
-  const key = `${name.replace(/ /g, '-')}-${index}`;
+const getKey = (name: string, index: number, parentName?: string) => {
+  const key = `${(parentName ?? '').replace(/ /g, '-')}${name.replace(/ /g, '-')}-${index}`;
 
   return key.toLowerCase();
 };
@@ -43,12 +43,16 @@ export const SidebarMenu = ({
   } = useSelector((store: CoreStore) => store.coreStore);
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
   const { pathname } = router || {};
-  const getMenuItemFromRoute = (route: MenuItem, index: number): ItemType => ({
+  const getMenuItemFromRoute = (
+    route: MenuItem,
+    index: number,
+    parentRoute?: MenuItem,
+  ): ItemType => ({
     label: route.path ? <Link href={route.path}>{route.name}</Link> : route.name,
-    key: getKey(route.name, index),
+    key: getKey(route.name, index, parentRoute?.name),
     icon: route.icon ?? null,
     ...route.props,
-    children: route.children?.map((route, index) => getMenuItemFromRoute(route, index)),
+    children: route.children?.map((child, index) => getMenuItemFromRoute(child, index, route)),
   });
   const items = appRoutes.map((route, index) => getMenuItemFromRoute(route, index));
 
@@ -75,14 +79,9 @@ export const SidebarMenu = ({
     menuItems.find((menuItem: any, index: number) => {
       if (menuItem.children) {
         return menuItem.children.find((subMenuItem: any) => {
-          if (subMenuItem.children) {
-            console.warn('Not exist in our case. We only support 2 layers');
-          } else {
-            if (isSamePath(subMenuItem.path, pathname)) {
-              key = getKey(menuItem.name, index);
-
-              return true;
-            }
+          if (!subMenuItem.children && isSamePath(subMenuItem.path, pathname)) {
+            key = getKey(menuItem.name, index);
+            return true;
           }
         });
       }
