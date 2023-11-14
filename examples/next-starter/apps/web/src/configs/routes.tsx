@@ -1,6 +1,6 @@
 import { RouteType } from '@onr/core';
 import { LayoutEnum } from '@onr/plugin-antd';
-import { TodoMenuProvider } from '../providers';
+import { TodoMenuProvider } from '@onr/plugin-todo-demo-with-ts-rest-client';
 
 export const routes: RouteType[] = [
   {

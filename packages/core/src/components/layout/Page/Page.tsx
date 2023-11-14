@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { useRoute } from '../../../providers';
+import { CustomMenuProvider, useRoute } from '../../../providers';
 import { CoreStore } from '../../../redux';
 import { PageProps } from '../../../types';
 import { App } from '../../App';
@@ -15,8 +15,10 @@ export const Page: FC<PageProps> = props => {
   const { boxed, weakColor } = useSelector((store: CoreStore) => store.coreStore);
 
   return (
-    <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
-      <LayoutComponent {...props} />
-    </Container>
+    <CustomMenuProvider>
+      <Container className={`${weakColor ? 'weakColor' : ''} ${boxed ? 'boxed shadow-sm' : ''}`}>
+        <LayoutComponent {...props} />
+      </Container>
+    </CustomMenuProvider>
   );
 };

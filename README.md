@@ -31,7 +31,7 @@ npm login
 Use [lerna version](https://github.com/lerna/lerna/tree/main/commands/version#usage) command
 
 ```sh
-yarn lerna version # by default it will increse the minor version
+yarn lerna version # by default it will increase the minor version
 ```
 
 or
