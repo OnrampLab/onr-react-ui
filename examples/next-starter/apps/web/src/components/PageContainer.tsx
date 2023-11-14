@@ -56,6 +56,7 @@ const Container: FC<AppProps> = (props: AppProps) => {
       avatar="/static/images/avatar.jpg"
       logo={<DefaultLogo />}
       innerStyle={{ padding: '1.5em' }}
+      showMenuToggle={true}
     >
       {content}
     </Page>

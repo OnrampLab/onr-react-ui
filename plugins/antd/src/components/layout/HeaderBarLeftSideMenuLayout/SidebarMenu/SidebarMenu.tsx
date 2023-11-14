@@ -13,6 +13,7 @@ interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
+  showToggle?: boolean;
 }
 
 const { Sider } = Layout;
@@ -34,6 +35,7 @@ export const SidebarMenu = ({
   currentUser,
   sidebarMode,
   sidebarTheme: propSideBarTheme,
+  showToggle = true,
 }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -160,7 +162,7 @@ export const SidebarMenu = ({
         <Sider
           width={240}
           theme={sidebarTheme}
-          collapsible
+          collapsible={showToggle}
           collapsed={collapsed}
           onCollapse={() => dispatch(setCollapse())}
         >
