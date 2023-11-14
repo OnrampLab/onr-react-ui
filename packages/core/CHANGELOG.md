@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.33.0
+
+### Minor Changes
+
+- Support custom menu item
+
 ## 0.32.1
 
 ### Patch Changes

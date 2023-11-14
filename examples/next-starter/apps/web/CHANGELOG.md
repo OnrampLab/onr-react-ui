@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.20.0
+
+### Minor Changes
+
+- Support custom menu item
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.33.0
+  - @onr/plugin-antd@0.23.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.12.0
+  - @onr/plugin-custom-admin-dashboard@0.7.12
+  - @onr/plugin-custom-auth@0.1.12
+  - @onr/plugin-custom-home@0.10.12
+  - @onr/plugin-account@0.12.9
+  - @onr/plugin-auth@0.11.9
+  - @onr/plugin-user@0.10.9
+
 ## 0.19.13
 
 ### Patch Changes

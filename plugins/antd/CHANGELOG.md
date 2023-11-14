@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.23.0
+
+### Minor Changes
+
+- Support custom menu item
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.33.0
+
 ## 0.22.10
 
 ### Patch Changes

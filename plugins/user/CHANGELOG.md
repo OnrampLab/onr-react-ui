@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.10.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.33.0
+  - @onr/plugin-antd@0.23.0
+  - @onr/plugin-account@0.12.9
+  - @onr/plugin-auth@0.11.9
+
 ## 0.10.8
 
 ### Patch Changes

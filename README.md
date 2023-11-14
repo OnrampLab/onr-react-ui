@@ -14,9 +14,36 @@
 - [@onr/tailwind-palette](packages/tailwind-palette/README.md)
 - [@onr/tsconfig](packages/tsconfig/README.md)
 
+## Release
+
+[Using Changeset](https://github.com/changesets/changesets)
+
+Add changeset, use space to choose target items, if not select any, click enter to jump to next question
+
+```
+yarn changeset add
+```
+
+Bump version
+
+```
+yarn changeset version
+git add --all
+git commit -m "chore: bump version"
+yarn changeset tag
+```
+
+Push tags
+
+```
+git push --follow-tags
+```
+
+Circle CI may failed to deploy when push multiple tags, if so, please push web@*.*.* tag separately
+
 ## Publish
 
-### login to npm
+### Login to npm
 
 When you want to use lerna to publish packages, you will need to login to npm.
 
