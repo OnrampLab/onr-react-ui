@@ -1,14 +1,13 @@
 import { AuthUser, coreActions, CoreStore, MenuItem, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
 import { ItemType } from 'antd/es/menu/hooks/useItems';
-import { isEmpty } from 'lodash';
+import { isEmpty, last } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { PreferenceSetting } from './PreferenceSetting';
 
-/* eslint-disable complexity  */
 interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
@@ -22,7 +21,7 @@ const rootSubMenuKeys: string[] = [];
 const getKey = (name: string, index: number) => {
   const key = `${name.replace(/ /g, '-')}-${index}`;
 
-  return key.charAt(0).toLowerCase() + key.slice(1);
+  return key.toLowerCase();
 };
 
 export const SidebarMenu = ({
@@ -33,8 +32,8 @@ export const SidebarMenu = ({
   const dispatch = useDispatch();
   const router = useRouter();
   const { menuItems } = useMenuItems();
-  const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-  const [appRoutes, setAppRoutes] = React.useState(menuItems);
+  const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const [appRoutes, setAppRoutes] = useState(menuItems);
   const {
     mobile,
     mobileDrawer,
@@ -43,7 +42,7 @@ export const SidebarMenu = ({
     collapsed,
   } = useSelector((store: CoreStore) => store.coreStore);
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
-  const { asPath: pathname = '' } = router || {};
+  const { pathname } = router || {};
   const getMenuItemFromRoute = (route: MenuItem, index: number): ItemType => ({
     label: route.path ? <Link href={route.path}>{route.name}</Link> : route.name,
     key: getKey(route.name, index),
@@ -52,6 +51,57 @@ export const SidebarMenu = ({
     children: route.children?.map((route, index) => getMenuItemFromRoute(route, index)),
   });
   const items = appRoutes.map((route, index) => getMenuItemFromRoute(route, index));
+
+  const addOpenKey = useCallback((key: string) => {
+    setOpenKeys(openKeys => [...openKeys, key]);
+  }, []);
+
+  const onOpenChange = (openKeys: string[]) => {
+    const latestOpenKey = last(openKeys);
+    if (latestOpenKey && rootSubMenuKeys.includes(latestOpenKey)) {
+      setOpenKeys([latestOpenKey]);
+    } else {
+      setOpenKeys(openKeys);
+    }
+  };
+
+  const isSamePath = (path1: string, path2: string) => {
+    return new URLSearchParams(path1).toString() === new URLSearchParams(path2).toString();
+  };
+
+  const getInitialOpenKey = useCallback(() => {
+    let key = null;
+
+    menuItems.find((menuItem: any, index: number) => {
+      if (menuItem.children) {
+        return menuItem.children.find((subMenuItem: any) => {
+          if (subMenuItem.children) {
+            console.warn('Not exist in our case. We only support 2 layers');
+          } else {
+            if (isSamePath(subMenuItem.path, pathname)) {
+              key = getKey(menuItem.name, index);
+
+              return true;
+            }
+          }
+        });
+      }
+    });
+
+    return key;
+  }, [menuItems, pathname]);
+
+  const handleMenuClick: MenuProps['onClick'] = e => {
+    const index = appRoutes.findIndex((route, index) => e.key === getKey(route.name, index));
+    const route = appRoutes[index];
+    if (!isEmpty(route?.children)) {
+      setOpenKeys([getKey(route.name, index)]);
+    }
+
+    if (mobile) {
+      dispatch(setMobileDrawer());
+    }
+  };
 
   useEffect(() => {
     const roles = currentUser?.roles || [];
@@ -74,71 +124,17 @@ export const SidebarMenu = ({
     );
   }, [currentUser, menuItems]);
 
-  const addOpenKey = (key: string) => {
-    setOpenKeys([...openKeys, key]);
-  };
-
-  const addOpenKeyRef = useRef(addOpenKey);
-
   useEffect(() => {
     appRoutes.forEach((route, index) => {
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
     });
 
-    const initialOpenKey = getInitialOpenKeyRef.current();
+    const initialOpenKey = getInitialOpenKey();
     if (initialOpenKey) {
-      addOpenKeyRef.current(initialOpenKey);
+      addOpenKey(initialOpenKey);
     }
-  }, [appRoutes, pathname]);
-
-  const onOpenChange = (openKeys: string[]) => {
-    const latestOpenKey = openKeys.slice(-1);
-    if (rootSubMenuKeys.includes(latestOpenKey[0])) {
-      setOpenKeys([...latestOpenKey]);
-    } else {
-      setOpenKeys(latestOpenKey ? [...latestOpenKey] : []);
-    }
-  };
-
-  const isSamePath = (path1: string, path2: string) => {
-    return new URLSearchParams(path1).toString() === new URLSearchParams(path2).toString();
-  };
-
-  const getInitialOpenKey = () => {
-    let key = null;
-
-    menuItems.find((menuItem: any, index: number) => {
-      if (menuItem.children) {
-        return menuItem.children.find((subMenuItem: any) => {
-          if (subMenuItem.children) {
-            console.warn('Not exist in our case. We only support 2 layers');
-          } else {
-            if (isSamePath(subMenuItem.path, pathname)) {
-              key = getKey(menuItem.name, index);
-
-              return true;
-            }
-          }
-        });
-      }
-    });
-
-    return key;
-  };
-  const getInitialOpenKeyRef = useRef(getInitialOpenKey);
-
-  const handleMenuClick: MenuProps['onClick'] = e => {
-    const index = appRoutes.findIndex((route, index) => e.key === getKey(route.name, index));
-    const route = appRoutes[index];
-    if (!isEmpty(route?.children)) {
-      setOpenKeys([getKey(route.name, index)]);
-    }
-
-    if (mobile) {
-      dispatch(setMobileDrawer());
-    }
-  };
+  }, [appRoutes, pathname, addOpenKey, getInitialOpenKey]);
 
   const MyMenu = () => {
     return (
@@ -172,7 +168,7 @@ export const SidebarMenu = ({
         width={240}
         placement="left"
         onClose={() => dispatch(setMobileDrawer())}
-        visible={mobileDrawer}
+        open={mobileDrawer}
         className="chat-drawer"
       >
         <MyMenu />
@@ -184,7 +180,7 @@ export const SidebarMenu = ({
         closable={true}
         width={300}
         onClose={() => dispatch(setOptionDrawer())}
-        visible={optionDrawer}
+        open={optionDrawer}
       >
         <PreferenceSetting />
       </Drawer>
