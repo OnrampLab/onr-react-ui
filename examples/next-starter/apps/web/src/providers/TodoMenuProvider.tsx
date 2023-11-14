@@ -21,7 +21,52 @@ export const TodoMenuProvider: React.FC<any> = ({ children }) => {
         name: 'Todo Items',
         login: false,
         icon: <FiHome strokeWidth={1} size={16} />,
+        props: {
+          type: 'group',
+        },
         children,
+      },
+      {
+        name: 'Demo Menu',
+        login: false,
+        icon: <FiHome strokeWidth={1} size={16} />,
+        children: [
+          {
+            name: 'Sub Menu',
+            login: false,
+            children: [
+              {
+                name: 'Sub Sub Menu',
+                login: false,
+              },
+            ],
+          },
+          {
+            name: 'Sub Menu2',
+            login: false,
+            children: [
+              {
+                name: 'Sub Sub Menu',
+                login: false,
+              },
+              {
+                name: 'Sub Sub Menu2',
+                login: false,
+              },
+            ],
+          },
+        ],
+      },
+      {
+        name: 'Demo Menu2',
+        login: false,
+        icon: <FiHome strokeWidth={1} size={16} />,
+        children: [
+          {
+            name: 'Sub Menu',
+            login: false,
+          },
+        ],
       },
     ];
 
