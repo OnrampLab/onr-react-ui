@@ -12,7 +12,7 @@ const SidebarMenu = dynamic(() => import('./SidebarMenu').then(mod => mod.Sideba
 const { Content } = Layout;
 
 export const HeaderBarLeftSideMenuLayout: FC<PageProps> = props => {
-  const { HeaderMainSection, avatar, logo, children, innerStyle } = props;
+  const { HeaderMainSection, avatar, logo, children, innerStyle, showMenuToggle } = props;
   const { user } = useAuth();
   const { darkSidebar, sidebarPopup } = useSelector((store: CoreStore) => store.coreStore);
 
@@ -21,6 +21,7 @@ export const HeaderBarLeftSideMenuLayout: FC<PageProps> = props => {
       <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
       <Layout>
         <SidebarMenu
+          showToggle={showMenuToggle}
           currentUser={user}
           sidebarTheme={darkSidebar ? 'dark' : 'light'}
           sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
