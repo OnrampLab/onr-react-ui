@@ -1,8 +1,8 @@
 import { MenuItem, MenuItemsContextProvider, useInitializeMenuItems } from '@onr/core';
-import { useTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { Spin } from 'antd';
 import React, { useEffect } from 'react';
 import { FiHome } from 'react-icons/fi';
+import { useTodos } from '../hooks';
 
 export const TodoMenuProvider: React.FC<any> = ({ children }) => {
   const menuItemsContext = useInitializeMenuItems([]);
