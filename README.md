@@ -14,6 +14,40 @@
 - [@onr/tailwind-palette](packages/tailwind-palette/README.md)
 - [@onr/tsconfig](packages/tsconfig/README.md)
 
+## Package Management
+
+[Using syncpack](https://jamiemason.github.io/syncpack/)
+
+List all packages
+
+```
+yarn syncpack list
+```
+
+Fix mis-matched packages
+
+```
+yarn syncpack fix-mismatches
+```
+
+Update @onr packages to newest version
+
+```
+yarn syncpack update -f @onr
+```
+
+Update all packages.json to newest version
+
+```
+yarn syncpack update -f
+```
+
+Yarn install new version of packages
+
+```
+yarn upgrade
+```
+
 ## Release
 
 [Using Changeset](https://github.com/changesets/changesets)
