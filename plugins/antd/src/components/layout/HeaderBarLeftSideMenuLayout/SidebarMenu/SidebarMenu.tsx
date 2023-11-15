@@ -17,19 +17,12 @@ interface Props {
 }
 
 const { Sider } = Layout;
-const rootSubMenuKeys: string[] = [];
 
 const MobileDrawer = styled(Drawer)`
   .ant-drawer-body {
     padding: 0;
   }
 `;
-
-const getKey = (name: string, index: number, parentName?: string) => {
-  const key = `${(parentName ?? '').replace(/ /g, '-')}${name.replace(/ /g, '-')}-${index}`;
-
-  return key.toLowerCase();
-};
 
 export const SidebarMenu = ({
   currentUser,
@@ -71,6 +64,13 @@ export const SidebarMenu = ({
       return false;
     });
   }, [currentUser, menuItems]);
+
+  const getKey = (name: string, index: number, parentName?: string) => {
+    const key = `${parentName ?? 'root'}_${name}_${index}`;
+
+    return key.toLowerCase();
+  };
+
   const getMenuItemFromRoute = (
     route: MenuItem,
     index: number,
@@ -83,6 +83,7 @@ export const SidebarMenu = ({
     children: route.children?.map((child, index) => getMenuItemFromRoute(child, index, route)),
   });
   const items = availableMenuItems.map((route, index) => getMenuItemFromRoute(route, index));
+  const rootSubMenuKeys = availableMenuItems.map((route, index) => getKey(route.name, index));
 
   const addOpenKey = useCallback((key: string) => {
     setOpenKeys(openKeys => [...openKeys, key]);
