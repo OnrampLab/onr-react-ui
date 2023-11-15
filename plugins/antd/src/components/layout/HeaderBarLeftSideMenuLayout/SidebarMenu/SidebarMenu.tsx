@@ -1,11 +1,12 @@
-import { AuthUser, coreActions, CoreStore, MenuItem, useMenuItems } from '@onr/core';
+import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
+  findCurrentMenuKeys,
   getAvailableMenuItems,
   getMenuItemKey as getKey,
   getMenuItemConfig,
@@ -76,52 +77,16 @@ export const SidebarMenu = ({
     }
   };
 
-  const findCurrentKeys = useCallback(
-    (
-      menuItems: MenuItem[],
-      openKeys: string[],
-      parentMenu?: MenuItem,
-    ): {
-      openKeys: string[];
-      selectedKeys: string[];
-    } => {
-      // first layer search
-      for (var i = 0; i < menuItems.length; i++) {
-        if (menuItems[i].path === pathname) {
-          const key = getKey(menuItems[i].name, i, parentMenu?.name);
-          openKeys.push(key);
-
-          return {
-            selectedKeys: [key],
-            openKeys,
-          };
-        }
-      }
-
-      // nested layer search
-      for (var i = 0; i < menuItems.length; i++) {
-        const subMenuItems = menuItems[i].children;
-        if (subMenuItems) {
-          const key = getKey(menuItems[i].name, i, parentMenu?.name);
-          openKeys.push(key);
-          return findCurrentKeys(subMenuItems, openKeys, menuItems[i]);
-        }
-      }
-
-      return {
-        selectedKeys: [],
-        openKeys: [],
-      };
-    },
-    [pathname],
-  );
-
   useEffect(() => {
-    const { openKeys, selectedKeys } = findCurrentKeys(availableMenuItems, []);
+    const { openKeys, selectedKeys } = findCurrentMenuKeys({
+      pathname,
+      menuItems: availableMenuItems,
+      openKeys: [],
+    });
 
     setOpenKeys(openKeys);
     setSelectedKeys(selectedKeys);
-  }, [availableMenuItems, pathname, findCurrentKeys]);
+  }, [availableMenuItems, pathname]);
 
   const MyMenu = () => {
     return (
