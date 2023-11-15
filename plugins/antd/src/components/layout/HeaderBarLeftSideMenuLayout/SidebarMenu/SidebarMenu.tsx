@@ -4,7 +4,7 @@ import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { isEmpty, last } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { PreferenceSetting } from './PreferenceSetting';
@@ -41,7 +41,6 @@ export const SidebarMenu = ({
   const router = useRouter();
   const { menuItems } = useMenuItems();
   const [openKeys, setOpenKeys] = useState<string[]>([]);
-  const [appRoutes, setAppRoutes] = useState(menuItems);
   const {
     mobile,
     mobileDrawer,
@@ -51,6 +50,27 @@ export const SidebarMenu = ({
   } = useSelector((store: CoreStore) => store.coreStore);
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
   const { pathname } = router || {};
+  const availableMenuItems = useMemo(() => {
+    const roles = currentUser?.roles || [];
+
+    return menuItems.filter((route: any) => {
+      if (route.login && !currentUser) {
+        return false;
+      }
+
+      if (!route.roles) {
+        return true;
+      }
+
+      for (const role of route.roles) {
+        if (roles.map(x => x.name).indexOf(role) !== -1) {
+          return true;
+        }
+      }
+
+      return false;
+    });
+  }, [currentUser, menuItems]);
   const getMenuItemFromRoute = (
     route: MenuItem,
     index: number,
@@ -62,7 +82,7 @@ export const SidebarMenu = ({
     ...route.props,
     children: route.children?.map((child, index) => getMenuItemFromRoute(child, index, route)),
   });
-  const items = appRoutes.map((route, index) => getMenuItemFromRoute(route, index));
+  const items = availableMenuItems.map((route, index) => getMenuItemFromRoute(route, index));
 
   const addOpenKey = useCallback((key: string) => {
     setOpenKeys(openKeys => [...openKeys, key]);
@@ -99,8 +119,10 @@ export const SidebarMenu = ({
   }, [menuItems, pathname]);
 
   const handleMenuClick: MenuProps['onClick'] = e => {
-    const index = appRoutes.findIndex((route, index) => e.key === getKey(route.name, index));
-    const route = appRoutes[index];
+    const index = availableMenuItems.findIndex(
+      (route, index) => e.key === getKey(route.name, index),
+    );
+    const route = availableMenuItems[index];
     if (!isEmpty(route?.children)) {
       setOpenKeys([getKey(route.name, index)]);
     }
@@ -111,28 +133,7 @@ export const SidebarMenu = ({
   };
 
   useEffect(() => {
-    const roles = currentUser?.roles || [];
-    setAppRoutes(
-      menuItems.filter((route: any) => {
-        if (route.login && !currentUser) {
-          return false;
-        }
-
-        if (!route.roles) {
-          return true;
-        }
-        for (const role of route.roles) {
-          if (roles.map(x => x.name).indexOf(role) !== -1) {
-            return true;
-          }
-        }
-        return false;
-      }),
-    );
-  }, [currentUser, menuItems]);
-
-  useEffect(() => {
-    appRoutes.forEach((route, index) => {
+    availableMenuItems.forEach((route, index) => {
       const key = getKey(route.name, index);
       rootSubMenuKeys.push(key);
     });
@@ -141,7 +142,7 @@ export const SidebarMenu = ({
     if (initialOpenKey) {
       addOpenKey(initialOpenKey);
     }
-  }, [appRoutes, pathname, addOpenKey, getInitialOpenKey]);
+  }, [availableMenuItems, pathname, addOpenKey, getInitialOpenKey]);
 
   const MyMenu = () => {
     return (
