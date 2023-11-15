@@ -1,13 +1,15 @@
 import { AuthUser, coreActions, CoreStore, MenuItem, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { isEmpty, last } from 'lodash';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { getAvailableMenuItems } from '../../../../utils';
+import {
+  getAvailableMenuItems,
+  getMenuItemKey as getKey,
+  getMenuItemConfig,
+} from '../../../../utils';
 import { PreferenceSetting } from './PreferenceSetting';
 
 interface Props {
@@ -48,26 +50,8 @@ export const SidebarMenu = ({
   const availableMenuItems = useMemo(() => {
     return getAvailableMenuItems(menuItems, currentUser);
   }, [currentUser, menuItems]);
-
-  const getKey = (name: string, index: number, parentName?: string) => {
-    const key = `${parentName ?? 'root'}_${name}_${index}`;
-
-    return key.toLowerCase();
-  };
-
-  const getMenuItemFromRoute = (
-    route: MenuItem,
-    index: number,
-    parentRoute?: MenuItem,
-  ): ItemType => ({
-    label: route.path ? <Link href={route.path}>{route.name}</Link> : route.name,
-    key: getKey(route.name, index, parentRoute?.name),
-    icon: route.icon ?? null,
-    ...route.props,
-    children: route.children?.map((child, index) => getMenuItemFromRoute(child, index, route)),
-  });
-  const items = availableMenuItems.map((route, index) => getMenuItemFromRoute(route, index));
-  const rootSubMenuKeys = availableMenuItems.map((route, index) => getKey(route.name, index));
+  const items = availableMenuItems.map((item, index) => getMenuItemConfig(item, index));
+  const rootSubMenuKeys = availableMenuItems.map((item, index) => getKey(item.name, index));
 
   const onOpenChange = (openKeys: string[]) => {
     const latestOpenKey = last(openKeys);
