@@ -34,6 +34,7 @@ export const SidebarMenu = ({
   const router = useRouter();
   const { menuItems } = useMenuItems();
   const [openKeys, setOpenKeys] = useState<string[]>([]);
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const {
     mobile,
     mobileDrawer,
@@ -42,7 +43,7 @@ export const SidebarMenu = ({
     collapsed,
   } = useSelector((store: CoreStore) => store.coreStore);
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
-  const { pathname } = router || {};
+  const { asPath: pathname } = router || {};
   const availableMenuItems = useMemo(() => {
     const roles = currentUser?.roles || [];
 
@@ -85,10 +86,6 @@ export const SidebarMenu = ({
   const items = availableMenuItems.map((route, index) => getMenuItemFromRoute(route, index));
   const rootSubMenuKeys = availableMenuItems.map((route, index) => getKey(route.name, index));
 
-  const addOpenKey = useCallback((key: string) => {
-    setOpenKeys(openKeys => [...openKeys, key]);
-  }, []);
-
   const onOpenChange = (openKeys: string[]) => {
     const latestOpenKey = last(openKeys);
     if (latestOpenKey && rootSubMenuKeys.includes(latestOpenKey)) {
@@ -97,27 +94,6 @@ export const SidebarMenu = ({
       setOpenKeys(openKeys);
     }
   };
-
-  const isSamePath = (path1: string, path2: string) => {
-    return new URLSearchParams(path1).toString() === new URLSearchParams(path2).toString();
-  };
-
-  const getInitialOpenKey = useCallback(() => {
-    let key = null;
-
-    menuItems.find((menuItem: any, index: number) => {
-      if (menuItem.children) {
-        return menuItem.children.find((subMenuItem: any) => {
-          if (!subMenuItem.children && isSamePath(subMenuItem.path, pathname)) {
-            key = getKey(menuItem.name, index);
-            return true;
-          }
-        });
-      }
-    });
-
-    return key;
-  }, [menuItems, pathname]);
 
   const handleMenuClick: MenuProps['onClick'] = e => {
     const index = availableMenuItems.findIndex(
@@ -133,17 +109,52 @@ export const SidebarMenu = ({
     }
   };
 
-  useEffect(() => {
-    availableMenuItems.forEach((route, index) => {
-      const key = getKey(route.name, index);
-      rootSubMenuKeys.push(key);
-    });
+  const findCurrentKeys = useCallback(
+    (
+      menuItems: MenuItem[],
+      openKeys: string[],
+      parentMenu?: MenuItem,
+    ): {
+      openKeys: string[];
+      selectedKeys: string[];
+    } => {
+      // first layer search
+      for (var i = 0; i < menuItems.length; i++) {
+        if (menuItems[i].path === pathname) {
+          const key = getKey(menuItems[i].name, i, parentMenu?.name);
+          openKeys.push(key);
 
-    const initialOpenKey = getInitialOpenKey();
-    if (initialOpenKey) {
-      addOpenKey(initialOpenKey);
-    }
-  }, [availableMenuItems, pathname, addOpenKey, getInitialOpenKey]);
+          return {
+            selectedKeys: [key],
+            openKeys,
+          };
+        }
+      }
+
+      // nested layer search
+      for (var i = 0; i < menuItems.length; i++) {
+        const subMenuItems = menuItems[i].children;
+        if (subMenuItems) {
+          const key = getKey(menuItems[i].name, i, parentMenu?.name);
+          openKeys.push(key);
+          return findCurrentKeys(subMenuItems, openKeys, menuItems[i]);
+        }
+      }
+
+      return {
+        selectedKeys: [],
+        openKeys: [],
+      };
+    },
+    [pathname],
+  );
+
+  useEffect(() => {
+    const { openKeys, selectedKeys } = findCurrentKeys(availableMenuItems, []);
+
+    setOpenKeys(openKeys);
+    setSelectedKeys(selectedKeys);
+  }, [availableMenuItems, pathname, findCurrentKeys]);
 
   const MyMenu = () => {
     return (
@@ -152,6 +163,7 @@ export const SidebarMenu = ({
         mode={sidebarMode}
         openKeys={openKeys}
         onOpenChange={onOpenChange}
+        selectedKeys={selectedKeys}
         onClick={handleMenuClick}
         items={items}
       />
