@@ -1,4 +1,4 @@
-import { AuthUser, coreActions, CoreStore, useMenuItems } from '@onr/core';
+import { AuthUser, coreActions, CoreStore, Sidebar, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
 import { useRouter } from 'next/router';
@@ -103,7 +103,7 @@ export const SidebarMenu = ({
   };
 
   return (
-    <>
+    <Sidebar>
       {!mobile && (
         <Sider
           width={240}
@@ -136,6 +136,6 @@ export const SidebarMenu = ({
       >
         <PreferenceSetting />
       </Drawer>
-    </>
+    </Sidebar>
   );
 };

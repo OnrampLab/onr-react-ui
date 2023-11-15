@@ -1,8 +1,8 @@
-import { coreActions, CoreStore, useAuth } from '@onr/core';
+import { coreActions, CoreStore, Logo, useAuth } from '@onr/core';
 import { Avatar, Layout, Menu, MenuProps } from 'antd';
 import Link from 'next/link';
 import { ComponentType, FC, ReactNode } from 'react';
-import { FiBarChart, FiTriangle } from 'react-icons/fi';
+import { FiBarChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { DashHeader } from './styles';
 
@@ -55,18 +55,8 @@ const UserMenu: FC<AvatarProps> = ({ avatar }) => {
   return <Menu mode="horizontal" items={items} />;
 };
 
-const DefaultLogo: FC = () => {
-  const { name } = useSelector((store: CoreStore) => store.coreStore);
-  return (
-    <>
-      <FiTriangle size={24} strokeWidth={1} />
-      <strong className="mx-1 text-black">{name}</strong>
-    </>
-  );
-};
-
 export const Header: FC<Props> = props => {
-  const { HeaderMainSection, avatar, logo = <DefaultLogo /> } = props;
+  const { HeaderMainSection, avatar, logo } = props;
   const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -74,18 +64,26 @@ export const Header: FC<Props> = props => {
     <DashHeader>
       <Layout.Header className="header">
         {mobile && (
-          <a onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
-            <FiBarChart size={20} strokeWidth={1} />
-          </a>
+          <div className="flex-none">
+            <div onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
+              <FiBarChart size={20} strokeWidth={1} />
+            </div>
+          </div>
         )}
-        <Link href="/" className="brand">
-          {logo}
-        </Link>
 
-        {HeaderMainSection && <HeaderMainSection />}
+        {logo && (
+          <div className="flex-none">
+            <Logo mobile={mobile}>
+              <Link href="/">{logo}</Link>
+            </Logo>
+          </div>
+        )}
 
-        <span className="mr-auto" />
-        <UserMenu avatar={avatar} />
+        <div className="flex-grow">{HeaderMainSection && <HeaderMainSection />}</div>
+
+        <div className="flex-none">
+          <UserMenu avatar={avatar} />
+        </div>
       </Layout.Header>
     </DashHeader>
   );
