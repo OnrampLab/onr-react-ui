@@ -30,9 +30,11 @@ export const HomeMainPage: React.FC = () => {
       <p>
         You can check out
         <br />
-        <Link href="/todos">Todos (normal layout)</Link>
+        <Link href="/todos">Todos (header-bar-left-side-menu layout)</Link>
         <br />
-        <Link href="/todos-custom-menu">Todos (custom menu layout)</Link>.
+        <Link href="/todos-left-side-menu">Todos (left-side-menu-top-header layout)</Link>
+        <br />
+        <Link href="/todos-custom-menu">Todos (custom menu)</Link>.
       </p>
       <p>
         Or go to <Link href="/admin">Admin page</Link>.
