@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { getAvailableMenuItems } from '../../../../utils';
 import { PreferenceSetting } from './PreferenceSetting';
 
 interface Props {
@@ -45,25 +46,7 @@ export const SidebarMenu = ({
   const { setOptionDrawer, setMobileDrawer, setCollapse } = coreActions;
   const { asPath: pathname } = router || {};
   const availableMenuItems = useMemo(() => {
-    const roles = currentUser?.roles || [];
-
-    return menuItems.filter((route: any) => {
-      if (route.login && !currentUser) {
-        return false;
-      }
-
-      if (!route.roles) {
-        return true;
-      }
-
-      for (const role of route.roles) {
-        if (roles.map(x => x.name).indexOf(role) !== -1) {
-          return true;
-        }
-      }
-
-      return false;
-    });
+    return getAvailableMenuItems(menuItems, currentUser);
   }, [currentUser, menuItems]);
 
   const getKey = (name: string, index: number, parentName?: string) => {
