@@ -3,7 +3,7 @@ import { Context, createWrapper, MakeStore } from 'next-redux-wrapper';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Router from 'next/router';
-import { done, start } from 'nprogress';
+import NProgress, { done, start } from 'nprogress';
 import React, { useEffect } from 'react';
 import { afterComponentDidMount, store } from '../redux';
 import { PageContainer } from './PageContainer';
@@ -12,6 +12,7 @@ const makeStore: MakeStore<any> = (context: Context) => store();
 
 const wrapper = createWrapper(makeStore, { debug: false });
 
+NProgress.configure({ showSpinner: false });
 Router.events.on('routeChangeStart', () => start());
 Router.events.on('routeChangeComplete', () => done());
 Router.events.on('routeChangeError', () => done());
