@@ -1,6 +1,6 @@
-import { Theme } from '@onr/plugin-antd';
+import { ThemeConfig } from '@onr/core';
 
-export const themeConfig: Theme = {
+export const themeConfig: ThemeConfig = {
   primaryColor: '#1677ff',
   infoColor: '#1677ff',
   successColor: '#52c41a',
