@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ComponentType, FC, ReactNode } from 'react';
 import { FiBarChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { DashHeader } from './styles';
+import { DashHeader } from '../../HeaderBarLeftSideMenuLayout/Header';
 
 interface AvatarProps {
   avatar?: string;
@@ -71,7 +71,7 @@ export const Header: FC<Props> = props => {
           </div>
         )}
 
-        {logo && (
+        {mobile && (
           <div className="flex-none">
             <Logo mobile={mobile}>
               <Link href="/">{logo}</Link>

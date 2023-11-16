@@ -4,3 +4,16 @@
 body {
   margin: 0;
 }
+
+/* NProgress */
+
+#nprogress .bar {
+  background: var(--brand-primaryColor);
+}
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--brand-primaryColor), 0 0 5px var(--brand-primaryColor);
+}
+#nprogress .spinner-icon {
+  border-top-color: var(--brand-primaryColor);
+  border-left-color: var(--brand-primaryColor);
+}

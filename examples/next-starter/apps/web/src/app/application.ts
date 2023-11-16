@@ -1,6 +1,11 @@
 import { createApp, OnrApp, withApp } from '@onr/core';
 import { AccountPlugin } from '@onr/plugin-account';
-import { FullPageLayout, HeaderBarLeftSideMenuLayout, LayoutEnum } from '@onr/plugin-antd';
+import {
+  FullPageLayout,
+  HeaderBarLeftSideMenuLayout,
+  LayoutEnum,
+  LeftSideMenuTopHeaderLayout,
+} from '@onr/plugin-antd';
 import { AuthPlugin } from '@onr/plugin-auth';
 import { UserPlugin } from '@onr/plugin-user';
 import { LoadingPage } from '../components/LoadingPage';
@@ -20,6 +25,7 @@ export class Application {
       layouts: {
         [LayoutEnum.FullPage]: FullPageLayout,
         [LayoutEnum.HeaderBarLeftSideMenu]: HeaderBarLeftSideMenuLayout,
+        [LayoutEnum.LeftSideMenuTopHeader]: LeftSideMenuTopHeaderLayout,
       },
     });
 

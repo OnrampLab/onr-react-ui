@@ -1,7 +1,6 @@
 import { Plugin } from '../plugin';
 import { AppComponents } from './AppComponents';
 import { LayoutsType } from './OnrApp';
-import { ANY } from './utilities';
 
 export type AppOptions = {
   /**
@@ -52,4 +51,5 @@ export type ThemeConfig = {
   infoColor: string;
   warningColor: string;
   errorColor: string;
-} & ANY;
+  layoutHeaderHeight?: string;
+} & { [key: string]: string };

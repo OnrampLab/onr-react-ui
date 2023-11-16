@@ -1,11 +1,22 @@
-import { StyleLayoutContainer } from '../containers';
+import { ComponentType } from 'react';
+import { ThemeProvider } from 'styled-components';
 
-export function createLayoutContainer(options: any) {
-  const { theme } = options;
-
-  return function MyLayoutContainer(props: any) {
-    const { children } = props;
-
-    return <StyleLayoutContainer theme={theme}>{children}</StyleLayoutContainer>;
-  };
+interface Props {
+  theme?: { [key: string]: any };
+  GlobalStyles: ComponentType<any>;
 }
+
+export const createLayoutContainer = (params: Props) => {
+  const { GlobalStyles, theme } = params;
+
+  const MyLayoutContainer: React.FC<Props> = ({ children }) => {
+    return (
+      <>
+        {GlobalStyles && <GlobalStyles />}
+        {theme && <ThemeProvider theme={theme}>{children}</ThemeProvider>}
+      </>
+    );
+  };
+
+  return MyLayoutContainer;
+};

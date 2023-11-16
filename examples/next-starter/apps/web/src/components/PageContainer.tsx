@@ -2,13 +2,12 @@ import { CoreStore, Page, createLayoutContainer } from '@onr/core';
 import { GlobalModalProvider } from '@onr/plugin-antd';
 import { useAppUser } from '@onr/plugin-custom-auth';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
-import { ConfigProvider } from 'antd';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { themeConfig } from '../configs/theme';
-import { antdTheme } from './antdTheme';
+import { AntdThemeProvider } from '../hooks';
 
 const GlobalStyles = dynamic(() =>
   import('../components/GlobalStyles').then(mod => mod.GlobalStyles),
@@ -65,12 +64,12 @@ const Container: FC<AppProps> = (props: AppProps) => {
 
 export const PageContainer: FC<AppProps> = (props: AppProps) => {
   return (
-    <ConfigProvider theme={antdTheme}>
-      <StyleContainer>
+    <StyleContainer>
+      <AntdThemeProvider>
         <GlobalModalProvider>
           <Container {...props} />
         </GlobalModalProvider>
-      </StyleContainer>
-    </ConfigProvider>
+      </AntdThemeProvider>
+    </StyleContainer>
   );
 };

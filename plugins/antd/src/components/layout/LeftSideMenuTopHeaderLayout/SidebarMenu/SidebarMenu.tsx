@@ -1,6 +1,7 @@
-import { AuthUser, coreActions, CoreStore, Sidebar, useMenuItems } from '@onr/core';
+import { AuthUser, coreActions, CoreStore, Logo, Sidebar, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,13 +12,14 @@ import {
   getMenuItemKey as getKey,
   getMenuItemConfig,
 } from '../../../../utils';
-import { PreferenceSetting } from './PreferenceSetting';
+import { PreferenceSetting } from '../../HeaderBarLeftSideMenuLayout/SidebarMenu/PreferenceSetting';
 
 interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
   showToggle?: boolean;
+  logo?: React.ReactNode;
 }
 
 const { Sider } = Layout;
@@ -28,12 +30,14 @@ const MobileDrawer = styled(Drawer)`
   }
 `;
 
-export const SidebarMenu = ({
-  currentUser,
-  sidebarMode,
-  sidebarTheme: propSideBarTheme,
-  showToggle = true,
-}: Props) => {
+export const SidebarMenu: React.FC<Props> = props => {
+  const {
+    logo,
+    currentUser,
+    sidebarMode,
+    sidebarTheme: propSideBarTheme,
+    showToggle = true,
+  } = props;
   const dispatch = useDispatch();
   const router = useRouter();
   const { menuItems } = useMenuItems();
@@ -112,6 +116,11 @@ export const SidebarMenu = ({
           collapsed={collapsed}
           onCollapse={() => dispatch(setCollapse())}
         >
+          {logo && (
+            <Logo>
+              <Link href="/">{logo}</Link>
+            </Logo>
+          )}
           <MyMenu />
         </Sider>
       )}

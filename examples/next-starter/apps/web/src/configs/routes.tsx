@@ -29,6 +29,11 @@ export const routes: RouteType[] = [
     authRequired: false,
   },
   {
+    path: '/todos-left-side-menu',
+    layout: LayoutEnum.LeftSideMenuTopHeader,
+    authRequired: false,
+  },
+  {
     path: '/todos-custom-menu',
     layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
