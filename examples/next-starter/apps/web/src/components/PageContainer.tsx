@@ -64,12 +64,12 @@ const Container: FC<AppProps> = (props: AppProps) => {
 
 export const PageContainer: FC<AppProps> = (props: AppProps) => {
   return (
-    <AntdThemeProvider>
-      <StyleContainer>
+    <StyleContainer>
+      <AntdThemeProvider>
         <GlobalModalProvider>
           <Container {...props} />
         </GlobalModalProvider>
-      </StyleContainer>
-    </AntdThemeProvider>
+      </AntdThemeProvider>
+    </StyleContainer>
   );
 };
