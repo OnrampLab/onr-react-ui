@@ -1,7 +1,7 @@
+import { ThemeConfig } from '@onr/core';
 import { createGlobalStyle } from 'styled-components';
-import { Theme } from '../definitions';
 
-export function createSiteGlobalStyles(theme: Theme) {
+export function createSiteGlobalStyles(theme: ThemeConfig) {
   const GlobalStyles = createGlobalStyle`
   #nprogress .bar {
     background: ${theme.primaryColor};

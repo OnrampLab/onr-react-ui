@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { themeConfig } from '../configs/theme';
-import { CustomThemeProvider } from '../hooks';
+import { AntdThemeProvider } from '../hooks';
 
 const GlobalStyles = dynamic(() =>
   import('../components/GlobalStyles').then(mod => mod.GlobalStyles),
@@ -64,12 +64,12 @@ const Container: FC<AppProps> = (props: AppProps) => {
 
 export const PageContainer: FC<AppProps> = (props: AppProps) => {
   return (
-    <CustomThemeProvider>
+    <AntdThemeProvider>
       <StyleContainer>
         <GlobalModalProvider>
           <Container {...props} />
         </GlobalModalProvider>
       </StyleContainer>
-    </CustomThemeProvider>
+    </AntdThemeProvider>
   );
 };

@@ -1,1 +1,1 @@
-export * from './CustomThemeProvider';
+export * from './AntdThemeProvider';

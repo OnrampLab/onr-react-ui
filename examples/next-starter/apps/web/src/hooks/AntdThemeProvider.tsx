@@ -8,7 +8,7 @@ interface Props {
   children: JSX.Element;
 }
 
-export const CustomThemeProvider: React.FC<Props> = ({ children }) => {
+export const AntdThemeProvider: React.FC<Props> = ({ children }) => {
   const theme = defaultTheme;
   const themeConfig = getAntdThemeConfig({ theme });
   const colors = generate(theme.primaryColor);
