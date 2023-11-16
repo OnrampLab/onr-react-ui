@@ -46,10 +46,10 @@ export type AppConfig = {
 };
 
 export type ThemeConfig = {
-  primaryColor?: string;
-  successColor?: string;
-  infoColor?: string;
-  warningColor?: string;
-  errorColor?: string;
+  primaryColor: string;
+  successColor: string;
+  infoColor: string;
+  warningColor: string;
+  errorColor: string;
   layoutHeaderHeight?: string;
 } & { [key: string]: string };
