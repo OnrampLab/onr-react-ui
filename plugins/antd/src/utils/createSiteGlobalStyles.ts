@@ -4,13 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const createSiteGlobalStyles = (theme: ThemeConfig) => {
   const colors = generate(theme.primaryColor);
-  const styleString = Object.keys(theme).reduce((prev, curr) => {
-    return (
-      prev +
-      `
---brand-${curr}: ${theme[curr]};`
-    );
-  }, '');
+  const settings = Object.keys(theme).map(key => `--brand-${key}: ${theme[key]};`);
   const GlobalStyles = createGlobalStyle`
 :root {
   --brand-100: ${colors[0]};
@@ -22,7 +16,7 @@ export const createSiteGlobalStyles = (theme: ThemeConfig) => {
   --brand-700: ${colors[6]};
   --brand-800: ${colors[7]};
   --brand-900: ${colors[8]};
-  ${styleString}
+  ${settings.join('')}
 }
 `;
 
