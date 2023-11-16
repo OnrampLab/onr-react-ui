@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.21.0
+
+### Minor Changes
+
+- Fix menu item not open problem and add new layout LeftSideMenuTopHeaderLayout
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-home@0.11.0
+  - @onr/core@0.34.0
+  - @onr/plugin-antd@0.24.0
+  - @onr/plugin-custom-admin-dashboard@0.7.13
+  - @onr/plugin-custom-auth@0.1.13
+  - @onr/plugin-account@0.12.10
+  - @onr/plugin-auth@0.11.10
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.12.1
+  - @onr/plugin-user@0.10.10
+
 ## 0.20.0
 
 ### Minor Changes

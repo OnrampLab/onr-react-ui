@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.34.0
+
+### Minor Changes
+
+- Fix menu item not open problem and add new layout LeftSideMenuTopHeaderLayout
+
 ## 0.33.0
 
 ### Minor Changes

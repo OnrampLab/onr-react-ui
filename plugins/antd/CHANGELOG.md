@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.24.0
+
+### Minor Changes
+
+- Fix menu item not open problem and add new layout LeftSideMenuTopHeaderLayout
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.34.0
+
 ## 0.23.0
 
 ### Minor Changes
