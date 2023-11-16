@@ -16,7 +16,8 @@ export const findCurrentMenuKeys = (
 } => {
   const { pathname, menuItems, openKeys, parentMenu } = props;
   // first layer search
-  for (var i = 0; i < menuItems.length; i++) {
+  for (const key in menuItems) {
+    const i = parseInt(key);
     if (menuItems[i].path === pathname) {
       const key = getMenuItemKey(menuItems[i].name, i, parentMenu?.name);
       openKeys.push(key);
@@ -29,7 +30,8 @@ export const findCurrentMenuKeys = (
   }
 
   // nested layer search
-  for (var i = 0; i < menuItems.length; i++) {
+  for (const key in menuItems) {
+    const i = parseInt(key);
     const subMenuItems = menuItems[i].children;
     if (subMenuItems) {
       const key = getMenuItemKey(menuItems[i].name, i, parentMenu?.name);
