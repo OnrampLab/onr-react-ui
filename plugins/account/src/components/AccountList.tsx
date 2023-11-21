@@ -77,15 +77,16 @@ export const AccountList: React.FC<IAccountListProps> = ({
       title: 'Operations',
       render: (_text, account) => {
         return (
-          <span className="operations">
+          <div className="flex gap-2">
             <a onClick={() => showAccountModal(account)}>Edit</a>{' '}
             <Popconfirm
+              className="text-red-600"
               title="Confirm delete account"
               onConfirm={async () => deleteAccount(account)}
             >
               <a>Delete</a>
             </Popconfirm>
-          </span>
+          </div>
         );
       },
     },

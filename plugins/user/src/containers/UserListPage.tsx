@@ -63,14 +63,16 @@ const UserListContainer: React.FC = () => {
       title: 'Operations',
       render: (_text, user) => {
         return (
-          <>
-            <span className="operations">
-              <a onClick={() => openEditDialog(user)}>Edit</a>{' '}
-              <Popconfirm title="Confirm delete user" onConfirm={() => deleteUser(user)}>
-                <a>Delete</a>
-              </Popconfirm>
-            </span>
-          </>
+          <div className="flex gap-2">
+            <a onClick={() => openEditDialog(user)}>Edit</a>{' '}
+            <Popconfirm
+              className="text-red-600"
+              title="Confirm delete user"
+              onConfirm={() => deleteUser(user)}
+            >
+              <a>Delete</a>
+            </Popconfirm>
+          </div>
         );
       },
     },

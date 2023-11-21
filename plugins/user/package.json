@@ -37,12 +37,13 @@
     "@onr/core": "^0.34.0",
     "@onr/mock": "^3.0.2",
     "@onr/plugin-account": "^0.12.10",
-    "@onr/plugin-auth": "^0.11.10",
     "@onr/plugin-antd": "^0.24.0",
+    "@onr/plugin-auth": "^0.11.10",
     "antd": "^5.10.0",
     "redux-dynamic-modules": "^5.2.3",
     "redux-dynamic-modules-react": "^5.2.3",
-    "redux-dynamic-modules-thunk": "^5.2.3"
+    "redux-dynamic-modules-thunk": "^5.2.3",
+    "tailwindcss": "^3.3.5"
   },
   "peerDependencies": {
     "antd": "^5.10.0",

@@ -9,4 +9,5 @@ export const Inner = styled.div`
   background-color: #f0f0f0;
   height: ${props => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
   overflow-y: auto;
+  overflow-x: hidden;
 `;

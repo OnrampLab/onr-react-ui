@@ -45,7 +45,7 @@ yarn syncpack update -f
 Yarn install new version of packages
 
 ```
-yarn upgrade
+yarn
 ```
 
 ## Release
@@ -79,10 +79,16 @@ Circle CI may failed to deploy when push multiple tags, if so, please push web@*
 
 ### Login to npm
 
-When you want to use lerna to publish packages, you will need to login to npm.
+When you want to use yarn to publish packages, you will need to login to npm, and have write permission under `onr` team to be able to publish packages.
 
 ```sh
 npm login
+```
+
+Publish packages
+
+```sh
+yarn changeset publish
 ```
 
 ### Publish by using lerna command

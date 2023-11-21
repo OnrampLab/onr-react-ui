@@ -3,13 +3,13 @@ import { ThemeProvider } from 'styled-components';
 
 interface Props {
   theme?: { [key: string]: any };
-  GlobalStyles: ComponentType<any>;
+  GlobalStyles?: ComponentType<any>;
 }
 
 export const createLayoutContainer = (params: Props) => {
   const { GlobalStyles, theme } = params;
 
-  const MyLayoutContainer: React.FC<Props> = ({ children }) => {
+  const MyLayoutContainer: React.FC<any> = ({ children }) => {
     return (
       <>
         {GlobalStyles && <GlobalStyles />}
