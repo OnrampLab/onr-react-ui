@@ -6,6 +6,7 @@ export const DashHeader = styled.div`
     display: flex;
     align-items: center;
     height: ${props => props.theme.layoutHeaderHeight};
+    line-height: ${props => props.theme.layoutHeaderHeight};
     padding: 0;
     background-color: #fff;
     border-bottom: 1px solid #ebe7e4;

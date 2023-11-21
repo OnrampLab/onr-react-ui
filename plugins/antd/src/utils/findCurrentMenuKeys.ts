@@ -15,34 +15,28 @@ export const findCurrentMenuKeys = (
   selectedKeys: string[];
 } => {
   const { pathname, menuItems, openKeys, parentMenu } = props;
-  // first layer search
-  for (const key in menuItems) {
-    const i = parseInt(key);
-    if (menuItems[i].path === pathname) {
-      const key = getMenuItemKey(menuItems[i].name, i, parentMenu?.name);
-      openKeys.push(key);
 
+  for (const indexString in menuItems) {
+    const i = parseInt(indexString);
+    const key = getMenuItemKey(menuItems[i].name, i, parentMenu?.name);
+
+    if (menuItems[i].path === pathname) {
       return {
         selectedKeys: [key],
-        openKeys,
+        openKeys: [...openKeys, key],
       };
     }
-  }
 
-  // nested layer search
-  for (const key in menuItems) {
-    const i = parseInt(key);
     const subMenuItems = menuItems[i].children;
-    if (subMenuItems) {
-      const key = getMenuItemKey(menuItems[i].name, i, parentMenu?.name);
-      openKeys.push(key);
+    const result = findCurrentMenuKeys({
+      pathname,
+      openKeys: [...openKeys, key],
+      menuItems: subMenuItems ?? [],
+      parentMenu: menuItems[i],
+    });
 
-      return findCurrentMenuKeys({
-        pathname,
-        openKeys,
-        menuItems: subMenuItems,
-        parentMenu: menuItems[i],
-      });
+    if (result.selectedKeys.length > 0) {
+      return result;
     }
   }
 
