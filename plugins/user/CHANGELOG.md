@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.11.0
+
+### Minor Changes
+
+- Fix menu item not open
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.35.0
+  - @onr/plugin-account@0.13.0
+  - @onr/plugin-antd@0.25.0
+  - @onr/plugin-auth@0.11.11
+
 ## 0.10.10
 
 ### Patch Changes

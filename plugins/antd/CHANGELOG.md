@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.25.0
+
+### Minor Changes
+
+- Fix menu item not open
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.35.0
+
 ## 0.24.0
 
 ### Minor Changes

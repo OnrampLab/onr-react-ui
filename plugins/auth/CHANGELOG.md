@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.11.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.35.0
+
 ## 0.11.10
 
 ### Patch Changes

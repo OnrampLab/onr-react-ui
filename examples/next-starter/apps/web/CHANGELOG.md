@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.22.0
+
+### Minor Changes
+
+- Fix menu item not open
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.35.0
+  - @onr/plugin-account@0.13.0
+  - @onr/plugin-antd@0.25.0
+  - @onr/plugin-user@0.11.0
+  - @onr/plugin-custom-admin-dashboard@0.7.14
+  - @onr/plugin-custom-auth@0.1.14
+  - @onr/plugin-custom-home@0.11.1
+  - @onr/plugin-auth@0.11.11
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.12.2
+
 ## 0.21.0
 
 ### Minor Changes

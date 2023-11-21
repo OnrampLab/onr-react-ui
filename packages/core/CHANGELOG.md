@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.35.0
+
+### Minor Changes
+
+- Fix menu item not open
+
 ## 0.34.0
 
 ### Minor Changes
