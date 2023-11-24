@@ -2,7 +2,6 @@ import { FC, useContext, useState } from 'react';
 import { AuthUser } from '../../../types';
 import { AppContext } from '../../App';
 
-/* eslint-disable complexity  */
 interface Props {
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';

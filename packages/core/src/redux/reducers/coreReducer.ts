@@ -20,7 +20,6 @@ const INITIAL_STATE: IStateProps = {
   plugins: {},
 };
 
-/* eslint-disable complexity */
 export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   let coreStore = {};
 
@@ -111,4 +110,3 @@ export const coreReducer = (state = INITIAL_STATE, action: IAction<any>) => {
       return { ...state, ...coreStore };
   }
 };
-/* eslint-enable complexity */
