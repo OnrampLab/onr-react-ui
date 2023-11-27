@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import Link from 'next/link';
 import { FiBarChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { UserMenu } from '../../components';
+import { UserMenu } from '..';
 import { DashHeader } from './styles';
 
 interface Props extends PageProps {
