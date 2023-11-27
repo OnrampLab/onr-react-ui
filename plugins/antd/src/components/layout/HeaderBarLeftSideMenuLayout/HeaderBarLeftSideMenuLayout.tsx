@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { Header } from '../components';
 
-const SidebarMenu = dynamic(() => import('./SidebarMenu').then(mod => mod.SidebarMenu), {
+const SidebarMenu = dynamic(() => import('../components').then(mod => mod.SidebarMenu), {
   ssr: false,
 });
 

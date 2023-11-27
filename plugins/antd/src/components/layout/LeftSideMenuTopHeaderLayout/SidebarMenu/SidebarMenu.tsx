@@ -11,8 +11,8 @@ import {
   getAvailableMenuItems,
   getMenuItemKey as getKey,
   getMenuItemConfig,
-} from '../../../../utils';
-import { PreferenceSetting } from '../../HeaderBarLeftSideMenuLayout/SidebarMenu/PreferenceSetting';
+} from '../../../utils';
+import { PreferenceSetting } from '../components';
 
 interface Props {
   sidebarTheme: 'dark' | 'light';

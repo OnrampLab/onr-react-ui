@@ -1,8 +1,9 @@
-import { AuthUser, coreActions, CoreStore, Sidebar, useMenuItems } from '@onr/core';
+import { AuthUser, coreActions, CoreStore, Logo, Sidebar, useMenuItems } from '@onr/core';
 import { Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useState } from 'react';
+import { ReactNode, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
@@ -18,6 +19,7 @@ interface Props {
   sidebarMode: 'vertical' | 'inline';
   currentUser: AuthUser;
   showToggle?: boolean;
+  logo?: ReactNode;
 }
 
 const { Sider } = Layout;
@@ -33,6 +35,7 @@ export const SidebarMenu = ({
   sidebarMode,
   sidebarTheme: propSideBarTheme,
   showToggle = true,
+  logo,
 }: Props) => {
   const dispatch = useDispatch();
   const router = useRouter();
@@ -112,6 +115,11 @@ export const SidebarMenu = ({
           collapsed={collapsed}
           onCollapse={() => dispatch(setCollapse())}
         >
+          {logo && (
+            <Logo>
+              <Link href="/">{logo}</Link>
+            </Logo>
+          )}
           <MyMenu />
         </Sider>
       )}
