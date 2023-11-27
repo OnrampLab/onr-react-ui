@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { Header } from './Header';
+import { Header } from '../HeaderBarLeftSideMenuLayout/Header';
 
 const SidebarMenu = dynamic(() => import('./SidebarMenu').then(mod => mod.SidebarMenu), {
   ssr: false,
@@ -12,7 +12,7 @@ const SidebarMenu = dynamic(() => import('./SidebarMenu').then(mod => mod.Sideba
 const { Content } = Layout;
 
 export const LeftSideMenuTopHeaderLayout: FC<PageProps> = props => {
-  const { HeaderMainSection, avatar, logo, children, innerStyle, showMenuToggle } = props;
+  const { logo, children, innerStyle, showMenuToggle } = props;
   const { user } = useAuth();
   const { darkSidebar, sidebarPopup } = useSelector((store: CoreStore) => store.coreStore);
 
@@ -28,7 +28,8 @@ export const LeftSideMenuTopHeaderLayout: FC<PageProps> = props => {
         />
 
         <Layout>
-          <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
+          <Header {...props} showLogoForDsk={false} />
+
           <Content>
             <Inner style={{ ...innerStyle }}>{children}</Inner>
           </Content>
