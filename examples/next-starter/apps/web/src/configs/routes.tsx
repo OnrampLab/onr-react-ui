@@ -1,6 +1,6 @@
 import { RouteType } from '@onr/core';
 import { LayoutEnum } from '@onr/plugin-antd';
-import { TodoMenuProvider } from '@onr/plugin-todo-demo-with-ts-rest-client';
+import { todoLogo, TodoMenuProvider } from '@onr/plugin-todo-demo-with-ts-rest-client';
 
 export const routes: RouteType[] = [
   {
@@ -37,13 +37,21 @@ export const routes: RouteType[] = [
     path: '/todos-custom-menu',
     layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
-    CustomMenuProvider: TodoMenuProvider,
+    pageProps: {
+      showMenuToggle: false,
+      logo: todoLogo,
+    },
+    providers: [TodoMenuProvider],
   },
   {
     path: '/todos-custom-menu/**',
     layout: LayoutEnum.HeaderBarLeftSideMenu,
     authRequired: false,
-    CustomMenuProvider: TodoMenuProvider,
+    pageProps: {
+      showMenuToggle: false,
+      logo: todoLogo,
+    },
+    providers: [TodoMenuProvider],
   },
   {
     path: '/_error',
