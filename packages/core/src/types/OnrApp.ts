@@ -1,7 +1,7 @@
 import { LogLevel } from '@onr/logging';
 import { Client } from '@onr/ts-rest-client';
 import { AxiosInstance } from 'axios';
-import { ComponentType, FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { Plugin } from '../plugin';
 import { AppComponents, PageProps } from './AppComponents';
 import { Configs, RolesType } from './AppOptions';
@@ -45,10 +45,11 @@ export interface RouteType {
   path: string;
   layout: string;
   authRequired: boolean;
-  CustomMenuProvider?: FC<any>;
+  pageProps?: PageProps;
+  providers?: FC<PageProps>[];
 }
 
-export type LayoutsType = Record<string, ComponentType<PageProps>>;
+export type LayoutsType = Record<string, FC<PageProps>>;
 
 export type LogConfig = {
   default: string;
