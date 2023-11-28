@@ -14,7 +14,7 @@ export const PreferenceSetting: FC = () => {
   );
 
   return (
-    <>
+    <List>
       <List.Item
         actions={[
           <Switch key={1} size="small" checked={!!boxed} onChange={() => dispatch(setBoxed())} />,
@@ -85,6 +85,6 @@ export const PreferenceSetting: FC = () => {
       >
         <span>Weak colors</span>
       </List.Item>
-    </>
+    </List>
   );
 };

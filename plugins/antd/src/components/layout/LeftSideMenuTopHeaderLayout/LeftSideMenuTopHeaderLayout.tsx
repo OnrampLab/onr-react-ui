@@ -24,6 +24,7 @@ export const LeftSideMenuTopHeaderLayout: FC<PageProps> = props => {
           currentUser={user}
           sidebarTheme={darkSidebar ? 'dark' : 'light'}
           sidebarMode={sidebarPopup ? 'vertical' : 'inline'}
+          showLogoForDsk={true}
         />
 
         <Layout>
