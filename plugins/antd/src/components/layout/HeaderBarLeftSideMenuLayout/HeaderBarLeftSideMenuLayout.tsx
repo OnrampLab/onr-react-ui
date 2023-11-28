@@ -3,25 +3,25 @@ import { Layout } from 'antd';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { Header } from './Header';
+import { Header } from '../components';
 
-const SidebarMenu = dynamic(() => import('./SidebarMenu').then(mod => mod.SidebarMenu), {
+const SidebarMenu = dynamic(() => import('../components').then(mod => mod.SidebarMenu), {
   ssr: false,
 });
 
 const { Content } = Layout;
 
 export const HeaderBarLeftSideMenuLayout: FC<PageProps> = props => {
-  const { HeaderMainSection, avatar, logo, children, innerStyle, showMenuToggle } = props;
+  const { children, innerStyle } = props;
   const { user } = useAuth();
   const { darkSidebar, sidebarPopup } = useSelector((store: CoreStore) => store.coreStore);
 
   return (
     <>
-      <Header HeaderMainSection={HeaderMainSection} logo={logo} avatar={avatar} />
+      <Header {...props} />
       <Layout>
         <SidebarMenu
-          showToggle={showMenuToggle}
+          {...props}
           currentUser={user}
           sidebarTheme={darkSidebar ? 'dark' : 'light'}
           sidebarMode={sidebarPopup ? 'vertical' : 'inline'}

@@ -42,9 +42,9 @@ export type SidebarMenuProps = {
 };
 
 export type PageProps = {
-  children: ReactNode;
   HeaderMainSection?: ComponentType;
   logo?: ReactNode;
+  mobileMenuToggle?: ReactNode;
   avatar?: string;
   innerStyle?: React.CSSProperties;
   showMenuToggle?: boolean;

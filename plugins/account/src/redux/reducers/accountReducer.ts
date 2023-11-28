@@ -20,7 +20,6 @@ const INITIAL_STATE = {
 /**
  * REDUCER
  */
-/* eslint-disable complexity */
 export const accountReducer = (state = INITIAL_STATE, action: IAction<any>) => {
   switch (action.type) {
     case actionConsts.account.setAccounts:
@@ -33,4 +32,3 @@ export const accountReducer = (state = INITIAL_STATE, action: IAction<any>) => {
       return state;
   }
 };
-/* eslint-enable complexity */

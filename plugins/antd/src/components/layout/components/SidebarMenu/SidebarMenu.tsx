@@ -1,5 +1,14 @@
-import { AuthUser, coreActions, CoreStore, Logo, Sidebar, useMenuItems } from '@onr/core';
-import { Drawer, Layout, Menu, MenuProps } from 'antd';
+import {
+  AuthUser,
+  coreActions,
+  CoreStore,
+  Logo,
+  PageProps,
+  Sidebar,
+  useAuth,
+  useMenuItems,
+} from '@onr/core';
+import { Button, Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -12,14 +21,13 @@ import {
   getMenuItemKey as getKey,
   getMenuItemConfig,
 } from '../../../../utils';
-import { PreferenceSetting } from '../../HeaderBarLeftSideMenuLayout/SidebarMenu/PreferenceSetting';
+import { PreferenceSetting } from './PreferenceSetting';
 
-interface Props {
+interface Props extends PageProps {
+  currentUser: AuthUser;
   sidebarTheme: 'dark' | 'light';
   sidebarMode: 'vertical' | 'inline';
-  currentUser: AuthUser;
-  showToggle?: boolean;
-  logo?: React.ReactNode;
+  showLogoForDsk?: boolean;
 }
 
 const { Sider } = Layout;
@@ -27,16 +35,18 @@ const { Sider } = Layout;
 const MobileDrawer = styled(Drawer)`
   .ant-drawer-body {
     padding: 0;
+    padding-top: 2em;
   }
 `;
 
 export const SidebarMenu: React.FC<Props> = props => {
   const {
-    logo,
     currentUser,
     sidebarMode,
     sidebarTheme: propSideBarTheme,
-    showToggle = true,
+    showMenuToggle = true,
+    logo,
+    showLogoForDsk = false,
   } = props;
   const dispatch = useDispatch();
   const router = useRouter();
@@ -55,6 +65,7 @@ export const SidebarMenu: React.FC<Props> = props => {
   const availableMenuItems = useMemo(() => {
     return getAvailableMenuItems(menuItems, currentUser);
   }, [currentUser, menuItems]);
+  const { user, signOut, signIn } = useAuth();
   const items = availableMenuItems.map((item, index) => getMenuItemConfig(item, index));
   const rootSubMenuKeys = availableMenuItems.map((item, index) => getKey(item.name, index));
 
@@ -102,6 +113,7 @@ export const SidebarMenu: React.FC<Props> = props => {
         selectedKeys={selectedKeys}
         onClick={handleMenuClick}
         items={items}
+        style={{ minHeight: 'calc(100dvh - 110px)' }}
       />
     );
   };
@@ -112,11 +124,11 @@ export const SidebarMenu: React.FC<Props> = props => {
         <Sider
           width={240}
           theme={sidebarTheme}
-          collapsible={showToggle}
+          collapsible={showMenuToggle}
           collapsed={collapsed}
           onCollapse={() => dispatch(setCollapse())}
         >
-          {logo && (
+          {logo && showLogoForDsk && (
             <Logo>
               <Link href="/">{logo}</Link>
             </Logo>
@@ -125,15 +137,30 @@ export const SidebarMenu: React.FC<Props> = props => {
         </Sider>
       )}
 
-      <MobileDrawer
-        closable={false}
-        width={240}
-        placement="left"
-        onClose={() => dispatch(setMobileDrawer())}
-        open={mobileDrawer}
-      >
-        <MyMenu />
-      </MobileDrawer>
+      {mobile && (
+        <MobileDrawer
+          className="relative"
+          closable={false}
+          width={240}
+          placement="left"
+          onClose={() => dispatch(setMobileDrawer())}
+          open={mobileDrawer}
+        >
+          <MyMenu />
+
+          <div className="mx-2 my-6">
+            {user ? (
+              <Button onClick={signOut} block className="border-zinc-800">
+                Sign Out
+              </Button>
+            ) : (
+              <Button onClick={signIn} block className="border-zinc-800">
+                Sign In
+              </Button>
+            )}
+          </div>
+        </MobileDrawer>
+      )}
 
       <Drawer
         title="Settings"
