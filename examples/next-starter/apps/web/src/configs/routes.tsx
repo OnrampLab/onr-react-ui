@@ -1,6 +1,10 @@
 import { RouteType } from '@onr/core';
 import { LayoutEnum } from '@onr/plugin-antd';
-import { todoLogo, TodoMenuProvider } from '@onr/plugin-todo-demo-with-ts-rest-client';
+import {
+  todoLogo,
+  TodoMenuProvider,
+  todoMenuToggle,
+} from '@onr/plugin-todo-demo-with-ts-rest-client';
 
 export const routes: RouteType[] = [
   {
@@ -40,6 +44,7 @@ export const routes: RouteType[] = [
     pageProps: {
       showMenuToggle: false,
       logo: todoLogo,
+      mobileMenuToggle: todoMenuToggle,
     },
     providers: [TodoMenuProvider],
   },
@@ -50,6 +55,7 @@ export const routes: RouteType[] = [
     pageProps: {
       showMenuToggle: false,
       logo: todoLogo,
+      mobileMenuToggle: todoMenuToggle,
     },
     providers: [TodoMenuProvider],
   },
