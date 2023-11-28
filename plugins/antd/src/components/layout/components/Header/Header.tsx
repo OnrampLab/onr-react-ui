@@ -1,7 +1,7 @@
+import { MenuOutlined } from '@ant-design/icons';
 import { coreActions, CoreStore, Logo, PageProps } from '@onr/core';
 import { Layout } from 'antd';
 import Link from 'next/link';
-import { FiBarChart } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserMenu } from '..';
 import { DashHeader } from './styles';
@@ -11,7 +11,7 @@ interface Props extends PageProps {
 }
 
 export const Header: React.FC<Props> = props => {
-  const { HeaderMainSection, avatar, logo, showLogoForDsk = true } = props;
+  const { HeaderMainSection, avatar, logo, showLogoForDsk = true, mobileMenuToggle } = props;
   const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -26,8 +26,13 @@ export const Header: React.FC<Props> = props => {
               </Logo>
             )}
             <div className="absolute top-0 left-0 flex items-center h-full">
-              <div onClick={() => dispatch(coreActions.setMobileDrawer())} className="trigger">
-                <FiBarChart size={20} strokeWidth={1} />
+              <div onClick={() => dispatch(coreActions.setMobileDrawer())}>
+                {mobileMenuToggle ?? (
+                  <MenuOutlined
+                    rev={true}
+                    style={{ padding: '10px', color: 'var(--brand-primaryColor)' }}
+                  />
+                )}
               </div>
             </div>
           </div>

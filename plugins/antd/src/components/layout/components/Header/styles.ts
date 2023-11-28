@@ -20,15 +20,6 @@ export const DashHeader = styled.div`
     flex-grow: 1;
   }
 
-  .trigger {
-    transform: rotate(90deg);
-    margin-right: 1rem;
-
-    svg {
-      color: ${props => props.theme.primaryColor};
-    }
-  }
-
   .ant-menu-root,
   .ant-menu-submenu-title {
     height: ${props => props.theme.layoutHeaderHeight};
