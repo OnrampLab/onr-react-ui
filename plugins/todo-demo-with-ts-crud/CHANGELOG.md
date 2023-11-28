@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- Support customise page props by route
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.36.0
+  - @onr/plugin-antd@0.26.0
+
 ## 0.12.2
 
 ### Patch Changes

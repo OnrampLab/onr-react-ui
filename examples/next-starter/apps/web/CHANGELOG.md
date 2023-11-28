@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.23.0
+
+### Minor Changes
+
+- Support customise page props by route
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.36.0
+  - @onr/plugin-antd@0.26.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.13.0
+  - @onr/plugin-custom-admin-dashboard@0.7.15
+  - @onr/plugin-custom-auth@0.1.15
+  - @onr/plugin-custom-home@0.11.2
+  - @onr/plugin-account@0.13.1
+  - @onr/plugin-auth@0.11.12
+  - @onr/plugin-user@0.11.1
+
 ## 0.22.0
 
 ### Minor Changes
