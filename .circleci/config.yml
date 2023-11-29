@@ -14,8 +14,11 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn test:ci
+          name: Linting
+          command: yarn lint
+      - run:
           name: Run YARN tests
+          command: yarn test:ci
       - run:
           name: Test build
           command: yarn build
