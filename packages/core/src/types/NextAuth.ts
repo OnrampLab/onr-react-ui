@@ -2,7 +2,7 @@ import { JWT } from 'next-auth/jwt';
 import { LaravelJWT } from './LaravelJWT';
 
 export interface NextAuthUser {
-  token: any;
+  jwt: LaravelJWT;
 }
 
 export interface NextAuthToken extends JWT {

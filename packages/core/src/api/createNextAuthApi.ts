@@ -31,16 +31,10 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
           // You can also use the `req` object to obtain additional parameters
           // (i.e., the request IP address)
           try {
-            const token = await login(credentials);
+            const jwt = await login(credentials);
+            const user = await getUser(jwt.access_token);
 
-            console.log('Login token', {
-              email: credentials?.email,
-              token,
-            });
-
-            const user = await getUser(token.access_token);
-
-            user.token = token;
+            user.jwt = jwt;
             return user;
           } catch (error) {
             console.log('Failed to login', { error });
@@ -122,13 +116,15 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
       },
       async jwt({ token, user }) {
         // @ts-ignore
-        if (user?.token) {
+        if (user?.jwt) {
+          // After login, we can get user right away. But the user will be empty in the future.
+
           // @ts-ignore
-          const nextAuthToken = user.token as LaravelJWT;
+          const nextAuthToken = user.jwt as LaravelJWT;
           const transformedToken = transformToken(nextAuthToken);
 
           // @ts-ignore
-          delete user.token;
+          delete user.jwt;
 
           return {
             ...transformedToken,

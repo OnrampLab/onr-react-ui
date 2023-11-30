@@ -4,6 +4,7 @@ import handleApiError from './handleApiError';
 
 export class BasicClient implements Client {
   protected axiosInstance: AxiosInstance;
+  protected requestInterceptors: any[] = [];
 
   constructor(options?: AxiosRequestConfig) {
     this.axiosInstance = axios.create(options);
@@ -19,13 +20,29 @@ export class BasicClient implements Client {
   }
 
   setToken(token: string) {
-    this.axiosInstance.interceptors.request.use(function (config) {
-      config.headers.Authorization = `Bearer ${token}`;
+    this.ejectInterceptors();
 
-      console.log('Sending header: Authorization', config.headers.Authorization);
+    this.requestInterceptors.push(
+      this.axiosInstance.interceptors.request.use(function (config) {
+        config.headers.Authorization = `Bearer ${token}`;
 
-      return config;
+        return config;
+      }),
+    );
+  }
+
+  ejectInterceptors() {
+    if (!this.requestInterceptors.length) {
+      return;
+    }
+
+    console.log('Ejecting axios interceptors');
+
+    this.requestInterceptors.forEach((requestInterceptor: any) => {
+      this.axiosInstance.interceptors.request.eject(requestInterceptor);
     });
+
+    this.requestInterceptors = [];
   }
 
   initialize() {}

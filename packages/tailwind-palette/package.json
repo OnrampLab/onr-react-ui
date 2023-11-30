@@ -36,7 +36,7 @@
     "color-namer": "^1.4.0"
   },
   "devDependencies": {
-    "eslint": "^8.40.0",
+    "eslint": "^8.54.0",
     "prettier": "^1.18.2",
     "typescript": "^5.1.3"
   },

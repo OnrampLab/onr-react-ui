@@ -8,7 +8,6 @@
     "url": "git+https://github.com/onramplab/onr-react-ui.git"
   },
   "main": "index.js",
-  "scripts": {},
   "devDependencies": {
     "prettier": "^2.3.1"
   },
