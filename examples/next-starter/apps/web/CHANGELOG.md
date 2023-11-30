@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.23.1
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@0.7.16
+  - @onr/plugin-custom-auth@0.1.16
+  - @onr/plugin-custom-home@0.11.3
+  - @onr/core@0.36.1
+  - @onr/logging@0.4.4
+  - @onr/mock@3.0.3
+  - @onr/plugin-account@0.13.2
+  - @onr/plugin-antd@0.26.1
+  - @onr/plugin-auth@0.11.13
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.13.1
+  - @onr/plugin-user@0.11.2
+
 ## 0.23.0
 
 ### Minor Changes

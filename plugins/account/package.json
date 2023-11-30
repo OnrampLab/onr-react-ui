@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-account",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "description": "core module",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -33,11 +33,11 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.8.2",
-    "@onr/core": "^0.36.0",
-    "@onr/mock": "^3.0.2",
-    "@onr/plugin-antd": "^0.26.0",
-    "@onr/ts-rest-client": "^2.0.2",
+    "@onr/common": "^0.8.3",
+    "@onr/core": "^0.36.1",
+    "@onr/mock": "^3.0.3",
+    "@onr/plugin-antd": "^0.26.1",
+    "@onr/ts-rest-client": "^2.1.2",
     "antd": "^5.10.0",
     "redux-dynamic-modules": "^5.2.3",
     "redux-dynamic-modules-react": "^5.2.3",
@@ -58,8 +58,8 @@
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",
-    "@onr/eslint-config": "^0.6.2",
-    "@onr/prettier-config": "^1.4.2",
+    "@onr/eslint-config": "^0.6.3",
+    "@onr/prettier-config": "^1.4.3",
     "@types/antd": "^1.0.0",
     "@types/faker": "^5.5.7",
     "@types/lodash-es": "^4.17.5",

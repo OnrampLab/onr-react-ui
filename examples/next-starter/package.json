@@ -1,7 +1,7 @@
 {
   "name": "next-starter",
   "private": true,
-  "version": "0.35.11",
+  "version": "0.35.12",
   "description": "",
   "main": "src/server/index.js",
   "workspaces": [
@@ -31,9 +31,9 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
-    "@onr/commitlint-config": "^1.4.2",
-    "@onr/eslint-config": "^0.6.2",
-    "@onr/prettier-config": "^1.4.2",
+    "@onr/commitlint-config": "^1.4.3",
+    "@onr/eslint-config": "^0.6.3",
+    "@onr/prettier-config": "^1.4.3",
     "husky": "^5.0.0",
     "lint-staged": "^10.2.11",
     "turbo": "^1.9.6"

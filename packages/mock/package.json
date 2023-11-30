@@ -1,6 +1,6 @@
 {
   "name": "@onr/mock",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "mock module",
   "author": "",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -34,12 +34,12 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "peerDependencies": {
-    "@onr/common": "^0.8.2",
+    "@onr/common": "^0.8.3",
     "miragejs": "^0.1.41"
   },
   "devDependencies": {
-    "@onr/eslint-config": "^0.6.2",
-    "@onr/prettier-config": "^1.4.2",
+    "@onr/eslint-config": "^0.6.3",
+    "@onr/prettier-config": "^1.4.3",
     "@types/node": "^14.14.21",
     "eslint": "^8.54.0",
     "prettier": "^1.18.2",
@@ -50,7 +50,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@onr/common": "^0.8.2",
+    "@onr/common": "^0.8.3",
     "faker": "^5.5.3",
     "miragejs": "^0.1.41"
   }

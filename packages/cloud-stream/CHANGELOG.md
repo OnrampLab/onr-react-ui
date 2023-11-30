@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.2
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+
 ## 1.1.1
 
 ### Patch Changes

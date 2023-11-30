@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.36.1
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+- Updated dependencies
+  - @onr/common@0.8.3
+  - @onr/logging@0.4.4
+  - @onr/ts-rest-client@2.1.2
+
 ## 0.36.0
 
 ### Minor Changes

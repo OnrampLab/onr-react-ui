@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.11.13
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+- Updated dependencies
+  - @onr/common@0.8.3
+  - @onr/core@0.36.1
+
 ## 0.11.12
 
 ### Patch Changes

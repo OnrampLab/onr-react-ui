@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.13.2
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+- Updated dependencies
+  - @onr/common@0.8.3
+  - @onr/core@0.36.1
+  - @onr/mock@3.0.3
+  - @onr/ts-rest-client@2.1.2
+  - @onr/plugin-antd@0.26.1
+
 ## 0.13.1
 
 ### Patch Changes

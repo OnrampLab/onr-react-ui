@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.1.16
+
+### Patch Changes
+
+- Fix: useAuth will get wrong user
+- Updated dependencies
+  - @onr/core@0.36.1
+  - @onr/plugin-antd@0.26.1
+  - @onr/plugin-user@0.11.2
+
 ## 0.1.15
 
 ### Patch Changes
