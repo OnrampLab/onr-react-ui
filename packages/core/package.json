@@ -46,7 +46,7 @@
     "axios": "^1.5.0",
     "lodash": "^4.17.21",
     "minimatch": "^3.0.4",
-    "next-auth": "^4.22.1",
+    "next-auth": "^4.24.5",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "swr": "^0.5.6"
