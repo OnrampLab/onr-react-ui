@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.13.3
+
+### Patch Changes
+
+- Fix missing export useCurrentAccount
+
 ## 0.13.2
 
 ### Patch Changes

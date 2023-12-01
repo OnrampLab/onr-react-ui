@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.23.2
+
+### Patch Changes
+
+- Fix missing export useCurrentAccount
+- Updated dependencies
+  - @onr/plugin-account@0.13.3
+
 ## 0.23.1
 
 ### Patch Changes
