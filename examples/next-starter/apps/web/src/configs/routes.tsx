@@ -4,6 +4,7 @@ import {
   todoLogo,
   TodoMenuProvider,
   todoMenuToggle,
+  TodoThemeProvider,
 } from '@onr/plugin-todo-demo-with-ts-rest-client';
 
 export const routes: RouteType[] = [
@@ -46,7 +47,7 @@ export const routes: RouteType[] = [
       logo: todoLogo,
       mobileMenuToggle: todoMenuToggle,
     },
-    providers: [TodoMenuProvider],
+    providers: [TodoThemeProvider, TodoMenuProvider],
   },
   {
     path: '/todos-custom-menu/**',
@@ -57,7 +58,7 @@ export const routes: RouteType[] = [
       logo: todoLogo,
       mobileMenuToggle: todoMenuToggle,
     },
-    providers: [TodoMenuProvider],
+    providers: [TodoThemeProvider, TodoMenuProvider],
   },
   {
     path: '/_error',
