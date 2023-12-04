@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.0
+
+### Minor Changes
+
+- Fix dynamic injected providers logic and remove logo link
+
 ## 0.36.1
 
 ### Patch Changes

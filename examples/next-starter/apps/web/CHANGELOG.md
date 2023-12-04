@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.24.0
+
+### Minor Changes
+
+- Fix dynamic injected providers logic and remove logo link
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.37.0
+  - @onr/plugin-account@0.14.0
+  - @onr/plugin-antd@0.27.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.14.0
+  - @onr/plugin-user@0.12.0
+  - @onr/plugin-custom-admin-dashboard@0.7.17
+  - @onr/plugin-custom-auth@0.1.17
+  - @onr/plugin-custom-home@0.11.4
+  - @onr/plugin-auth@0.11.14
+
 ## 0.23.2
 
 ### Patch Changes

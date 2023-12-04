@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.14.0
+
+### Minor Changes
+
+- Fix dynamic injected providers logic and remove logo link
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.37.0
+  - @onr/plugin-antd@0.27.0
+
 ## 0.13.3
 
 ### Patch Changes

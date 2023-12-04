@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.27.0
+
+### Minor Changes
+
+- Fix dynamic injected providers logic and remove logo link
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.37.0
+
 ## 0.26.1
 
 ### Patch Changes
