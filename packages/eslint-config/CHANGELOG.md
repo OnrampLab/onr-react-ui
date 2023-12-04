@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- Downgrade @typescript-eslint/eslint-plugin to prevent nextjs error
+
 ## 0.6.3
 
 ### Patch Changes
