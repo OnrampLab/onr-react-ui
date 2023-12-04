@@ -10,7 +10,6 @@ import {
 } from '@onr/core';
 import { Button, Drawer, Layout, Menu, MenuProps } from 'antd';
 import { isEmpty, last } from 'lodash';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -128,11 +127,7 @@ export const SidebarMenu: React.FC<Props> = props => {
           collapsed={collapsed}
           onCollapse={() => dispatch(setCollapse())}
         >
-          {logo && showLogoForDsk && (
-            <Logo>
-              <Link href="/">{logo}</Link>
-            </Logo>
-          )}
+          {logo && showLogoForDsk && <Logo>{logo}</Logo>}
           <MyMenu />
         </Sider>
       )}

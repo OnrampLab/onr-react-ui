@@ -92,7 +92,7 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
         onOk={onOkClick}
         onCancel={onCancelClick}
         width={modalProps?.width ?? 1200}
-        okText={modalProps?.okText || 'Close'}
+        okText={modalProps?.okText || 'Submit'}
         destroyOnClose
         {...modalProps}
       >

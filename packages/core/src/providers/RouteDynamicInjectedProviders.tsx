@@ -2,6 +2,7 @@ import React from 'react';
 import { PageProps, RouteType } from '../types';
 
 interface Props {
+  children?: React.ReactNode;
   currentRoute: RouteType;
   defaultPageProps?: PageProps;
 }
@@ -17,7 +18,7 @@ export const RouteDynamicInjectedProviders: React.FC<Props> = props => {
 
   return (
     <>
-      {providers.reverse().reduce((prev, Curr) => {
+      {[...providers].reverse().reduce((prev, Curr) => {
         return <Curr {...pageProps}>{prev}</Curr>;
       }, children)}
     </>

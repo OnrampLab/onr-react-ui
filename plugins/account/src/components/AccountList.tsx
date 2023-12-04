@@ -27,11 +27,13 @@ export const AccountList: React.FC<IAccountListProps> = ({
         content: (
           <UpdateAccountForm currentAccount={currentAccount} onSubmit={() => onAccountsChanged()} />
         ),
+        footer: null,
       });
     } else {
       showModal({
         title: 'Create Account',
         content: <CreateAccountForm onSubmit={() => onAccountsChanged()} />,
+        footer: null,
       });
     }
   };

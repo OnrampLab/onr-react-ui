@@ -1,9 +1,8 @@
-import { ComponentType } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { StyleLayoutContainer } from '../containers';
 
 interface Props {
   theme?: { [key: string]: any };
-  GlobalStyles?: ComponentType<any>;
+  GlobalStyles?: React.FC<any>;
 }
 
 export const createLayoutContainer = (params: Props) => {
@@ -11,10 +10,9 @@ export const createLayoutContainer = (params: Props) => {
 
   const MyLayoutContainer: React.FC<any> = ({ children }) => {
     return (
-      <>
-        {GlobalStyles && <GlobalStyles />}
-        {theme && <ThemeProvider theme={theme}>{children}</ThemeProvider>}
-      </>
+      <StyleLayoutContainer GlobalStyles={GlobalStyles} theme={theme}>
+        {children}
+      </StyleLayoutContainer>
     );
   };
 

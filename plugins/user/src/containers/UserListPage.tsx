@@ -83,11 +83,13 @@ const UserListContainer: React.FC = () => {
       showModal({
         title: 'Update User',
         content: <UpdateUserForm currentUser={currentUser} onSubmit={() => fetch()} />,
+        footer: null,
       });
     } else {
       showModal({
         title: 'Create User',
         content: <CreateUserForm onSubmit={() => fetch()} />,
+        footer: null,
       });
     }
   };

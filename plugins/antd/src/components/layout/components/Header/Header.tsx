@@ -1,7 +1,6 @@
 import { MenuOutlined } from '@ant-design/icons';
 import { coreActions, CoreStore, Logo, PageProps } from '@onr/core';
 import { Layout } from 'antd';
-import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { UserMenu } from '..';
 import { DashHeader } from './styles';
@@ -20,11 +19,7 @@ export const Header: React.FC<Props> = props => {
       <Layout.Header className="header">
         {mobile && (
           <div className="relative flex-grow">
-            {logo && (
-              <Logo mobile={mobile}>
-                <Link href="/">{logo}</Link>
-              </Logo>
-            )}
+            {logo && <Logo mobile={mobile}>{logo}</Logo>}
             <div className="absolute top-0 left-0 flex items-center h-full">
               <div onClick={() => dispatch(coreActions.setMobileDrawer())}>
                 {mobileMenuToggle ?? (
@@ -41,11 +36,7 @@ export const Header: React.FC<Props> = props => {
         {!mobile && (
           <>
             <div className="flex-none">
-              {logo && showLogoForDsk && (
-                <Logo mobile={mobile}>
-                  <Link href="/">{logo}</Link>
-                </Logo>
-              )}
+              {logo && showLogoForDsk && <Logo mobile={mobile}>{logo}</Logo>}
             </div>
             <div className="flex-grow">{HeaderMainSection && <HeaderMainSection />}</div>
             <div className="flex-none">
