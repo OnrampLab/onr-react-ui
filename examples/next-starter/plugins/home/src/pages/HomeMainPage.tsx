@@ -1,5 +1,5 @@
 import { useLogger } from '@onr/core';
-import { useGlobalModal } from '@onr/plugin-antd';
+import { OnrModalProps, useGlobalModal } from '@onr/plugin-antd';
 import { Button } from 'antd';
 import Link from 'next/link';
 import React from 'react';
@@ -8,7 +8,7 @@ export const HomeMainPage: React.FC = () => {
   const { showModal } = useGlobalModal();
   const logger = useLogger();
 
-  const openModal = () => {
+  const openModal = (props?: Partial<OnrModalProps>) => {
     showModal({
       content: <div>This is a modal</div>,
       onOkClick() {
@@ -17,6 +17,7 @@ export const HomeMainPage: React.FC = () => {
       onCancelClick() {
         console.log('Cancel');
       },
+      ...props,
     });
   };
 
@@ -40,9 +41,10 @@ export const HomeMainPage: React.FC = () => {
         Or go to <Link href="/admin">Admin page</Link>.
       </p>
       <p>
-        Or test a{' '}
-        <Button onClick={openModal} type="primary">
-          global modal
+        Or test a <Button onClick={() => openModal()}>global modal</Button>
+        <br />
+        <Button onClick={() => openModal({ showFooter: true, width: 400 })}>
+          custom modal with footer
         </Button>
         .
       </p>
