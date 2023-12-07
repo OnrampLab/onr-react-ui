@@ -16,6 +16,7 @@ export const RouteDynamicInjectedProviders: React.FC<Props> = props => {
     return <>{children}</>;
   }
 
+  // use [...providers] destruction to prevent providers props to be changed and will cause infinite loop
   return (
     <>
       {[...providers].reverse().reduce((prev, Curr) => {
