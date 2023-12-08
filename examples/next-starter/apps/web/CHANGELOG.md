@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.25.0
+
+### Minor Changes
+
+- Fix modal width
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.38.0
+  - @onr/plugin-antd@0.28.0
+  - @onr/plugin-custom-admin-dashboard@0.7.18
+  - @onr/plugin-custom-auth@0.1.18
+  - @onr/plugin-custom-home@0.11.5
+  - @onr/plugin-account@0.14.1
+  - @onr/plugin-auth@0.11.15
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.14.1
+  - @onr/plugin-user@0.12.1
+
 ## 0.24.0
 
 ### Minor Changes

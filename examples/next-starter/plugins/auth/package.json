@@ -1,7 +1,7 @@
 {
   "name": "@onr/plugin-custom-auth",
   "private": true,
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "custom auth plugin",
   "license": "ISC",
   "main": "lib/index.js",
@@ -29,9 +29,9 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/core": "^0.37.0",
-    "@onr/plugin-antd": "^0.27.0",
-    "@onr/plugin-user": "^0.12.0",
+    "@onr/core": "^0.38.0",
+    "@onr/plugin-antd": "^0.28.0",
+    "@onr/plugin-user": "^0.12.1",
     "antd": "^5.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

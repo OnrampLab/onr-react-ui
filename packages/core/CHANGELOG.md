@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.38.0
+
+### Minor Changes
+
+- Fix modal width
+
 ## 0.37.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.28.0
+
+### Minor Changes
+
+- Fix modal width
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.38.0
+
 ## 0.27.0
 
 ### Minor Changes
