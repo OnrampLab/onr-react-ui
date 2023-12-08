@@ -14,14 +14,15 @@ type Props = {
   children: ReactNode;
 };
 
-interface OnrModalProps extends ModalProps {
+export interface OnrModalProps extends ModalProps {
   content: JSX.Element;
   onOkClick?: (e: MouseEvent<HTMLButtonElement>) => void;
   onCancelClick?: (e: MouseEvent<HTMLButtonElement>) => void;
+  showFooter?: boolean;
 }
 
 type GlobalModalContextContract = {
-  showModal: (modalProps?: OnrModalProps) => void;
+  showModal: (modalProps: OnrModalProps) => void;
   hideModal: () => void;
   store: Store;
 };
@@ -60,18 +61,24 @@ export const GlobalModalProvider: React.FC<Props> = ({ children }) => {
     };
   }, [router]);
 
-  const showModal = (modalProps?: OnrModalProps) => {
+  const showModal = (props: OnrModalProps) => {
+    const modalProps: OnrModalProps = { ...props };
+    if (!modalProps?.showFooter) {
+      modalProps.footer = null;
+    }
+
     setStore({
-      ...store,
+      ...initialState.store,
       modalProps,
       show: true,
     });
   };
 
   const hideModal = () => {
-    setStore({
-      ...initialState.store,
-    });
+    setStore(store => ({
+      ...store,
+      show: false,
+    }));
   };
 
   const onOkClick = (e: MouseEvent<HTMLButtonElement>) => {
