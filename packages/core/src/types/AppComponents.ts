@@ -49,6 +49,7 @@ export type PageProps = {
   avatar?: string;
   innerStyle?: React.CSSProperties;
   showMenuToggle?: boolean;
+  loadingLogo?: ReactNode;
 };
 
 export type PageComponentType = ComponentType<PageProps>;

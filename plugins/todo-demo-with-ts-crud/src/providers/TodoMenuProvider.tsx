@@ -1,13 +1,15 @@
-import { MenuItem, MenuItemsContextProvider, useInitializeMenuItems } from '@onr/core';
+import { MenuItem, MenuItemsContextProvider, PageProps, useInitializeMenuItems } from '@onr/core';
 import { Spin } from 'antd';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiHome } from 'react-icons/fi';
 import { useTodos } from '../hooks';
 
-export const TodoMenuProvider: React.FC<any> = ({ children }) => {
+export const TodoMenuProvider: React.FC<PageProps> = props => {
+  const { children, loadingLogo } = props;
   const menuItemsContext = useInitializeMenuItems([]);
+  const [loading, setLoading] = useState(true);
   const { updateMenuItems } = menuItemsContext;
-  const { loading, todos } = useTodos();
+  const { todos } = useTodos();
 
   useEffect(() => {
     const children: MenuItem[] = todos.slice(0, 10).map(todo => ({
@@ -71,10 +73,13 @@ export const TodoMenuProvider: React.FC<any> = ({ children }) => {
     ];
 
     updateMenuItems(menuItems);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
   }, [todos, updateMenuItems]);
 
   if (loading) {
-    return <Spin spinning />;
+    return <>{loadingLogo}</> ?? <Spin spinning />;
   }
 
   return <MenuItemsContextProvider value={menuItemsContext}>{children}</MenuItemsContextProvider>;
