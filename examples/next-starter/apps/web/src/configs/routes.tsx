@@ -1,6 +1,7 @@
 import { RouteType } from '@onr/core';
 import { LayoutEnum } from '@onr/plugin-antd';
 import {
+  todoLoadingLogo,
   todoLogo,
   TodoMenuProvider,
   todoMenuToggle,
@@ -46,6 +47,7 @@ export const routes: RouteType[] = [
       showMenuToggle: false,
       logo: todoLogo,
       mobileMenuToggle: todoMenuToggle,
+      loadingLogo: todoLoadingLogo,
     },
     providers: [TodoThemeProvider, TodoMenuProvider],
   },
@@ -57,6 +59,7 @@ export const routes: RouteType[] = [
       showMenuToggle: false,
       logo: todoLogo,
       mobileMenuToggle: todoMenuToggle,
+      loadingLogo: todoLoadingLogo,
     },
     providers: [TodoThemeProvider, TodoMenuProvider],
   },
