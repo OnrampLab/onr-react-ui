@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.15.0
+
+### Minor Changes
+
+- Add loadingLogo to pageProps
+
 ## 0.14.1
 
 ### Patch Changes

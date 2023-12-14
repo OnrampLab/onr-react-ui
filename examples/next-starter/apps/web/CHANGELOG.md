@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.26.0
+
+### Minor Changes
+
+- Add loadingLogo to pageProps
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.15.0
+
 ## 0.25.0
 
 ### Minor Changes

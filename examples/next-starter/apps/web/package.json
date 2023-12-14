@@ -1,7 +1,7 @@
 {
   "name": "web",
   "private": true,
-  "version": "0.25.0",
+  "version": "0.26.0",
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "@onr/plugin-custom-admin-dashboard": "^0.7.18",
     "@onr/plugin-custom-home": "^0.11.5",
     "@onr/plugin-custom-auth": "^0.1.18",
-    "@onr/plugin-todo-demo-with-ts-rest-client": "^0.14.1",
+    "@onr/plugin-todo-demo-with-ts-rest-client": "^0.15.0",
     "@onr/plugin-user": "^0.12.1",
     "antd": "^5.10.0",
     "lodash-es": "^4.17.21",
