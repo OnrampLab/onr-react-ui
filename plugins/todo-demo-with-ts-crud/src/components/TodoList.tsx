@@ -4,6 +4,7 @@ import { ColumnsType } from 'antd/es/table';
 import Link from 'next/link';
 import React from 'react';
 import { Todo } from '../definitions';
+import { getTodoConfig } from '../utils/getTodoConfig';
 
 interface Props {
   todos: Todo[];
@@ -11,6 +12,7 @@ interface Props {
 
 export const TodoList: React.FC<Props> = props => {
   const { todos } = props;
+  const todoConfig = getTodoConfig();
   const { paginationPreference, setPaginationPreference } = useCorePreference();
 
   const columns: ColumnsType<Todo> = [
@@ -26,7 +28,12 @@ export const TodoList: React.FC<Props> = props => {
       key: 'title',
       sorter: true,
       render(_, todo: Todo) {
-        return <Link href={`/todos/${todo.id}`}>{todo.title}</Link>;
+        let { title } = todo;
+
+        if (todoConfig.todoList.showIdOnTitle) {
+          title = `${title} (ID: ${todo.id})`;
+        }
+        return <Link href={`/todos/${todo.id}`}>{title}</Link>;
       },
     },
     {
