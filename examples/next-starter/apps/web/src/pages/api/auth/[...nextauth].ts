@@ -1,6 +1,6 @@
 import { createNextAuthApi } from '@onr/core/api';
 import { AuthService } from '@onr/plugin-auth';
-import { application } from '../../../app/application';
+import { application } from '../../../application/application';
 
 const authService = application.getService<AuthService>('authService');
 
