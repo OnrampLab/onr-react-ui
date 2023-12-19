@@ -6,7 +6,7 @@ import { UserService } from '../services';
 interface Parameters {}
 
 export const useUsers = (params?: Parameters) => {
-  const userService = App.getInstance().getService('userService') as UserService;
+  const userService = App.getInstance().getService<UserService>('userService');
   const [users, setUsers] = useState<AccountUser[]>();
   const [pagination, setPagination] = useState<Pagination>();
 

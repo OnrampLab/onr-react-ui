@@ -1,8 +1,8 @@
 import { App } from '@onr/core';
 import React from 'react';
 import { AccountUser } from '../entities/interfaces/AccountUser';
-import { UserRequestPayload } from '../services/interfaces';
 import { UserService } from '../services/UserService';
+import { UserRequestPayload } from '../services/interfaces';
 import { UserForm } from './UserForm';
 
 interface UpdateUserFormProps {
@@ -21,7 +21,7 @@ export const UpdateUserForm: React.FC<UpdateUserFormProps> = ({
       return;
     }
 
-    const userService = App.getInstance().getService('userService') as UserService;
+    const userService = App.getInstance().getService<UserService>('userService');
 
     await userService.updateUser({ userId: currentUser.id, ...user });
 
