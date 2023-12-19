@@ -43,7 +43,7 @@ export const AccountList: React.FC<IAccountListProps> = ({
       if (!account.id) {
         throw new Error('No account id');
       }
-      const accountService = App.getInstance().getService('accountService') as AccountService;
+      const accountService = App.getInstance().getService<AccountService>('accountService');
       await accountService.deleteAccount({ accountId: account.id });
       message.success(`Account ${account.name} deleted`);
       onAccountsChanged();
