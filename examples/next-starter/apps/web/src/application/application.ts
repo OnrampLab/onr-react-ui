@@ -37,7 +37,7 @@ export class Application {
   }
 
   getService<T>(serviceName: string) {
-    return this.app.getService(serviceName) as T;
+    return this.app.getService<T>(serviceName);
   }
 }
 
