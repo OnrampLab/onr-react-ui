@@ -10,13 +10,13 @@ export class BasicClient implements Client {
     this.axiosInstance = axios.create(options);
   }
 
-  static fromAxiosInstance(axiosInstance: AxiosInstance) {
+  static fromAxiosInstance<T extends BasicClient>(axiosInstance: AxiosInstance) {
     const basicClient = new this();
     basicClient.axiosInstance = axiosInstance;
 
     basicClient.initialize();
 
-    return basicClient;
+    return basicClient as T;
   }
 
   setToken(token: string) {

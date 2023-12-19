@@ -13,11 +13,14 @@ export class ResourceClient implements Resourceable {
     this.resourceName = resourceName;
   }
 
-  static fromAxiosInstanceAndName(axiosInstance: AxiosInstance, resourceName: string) {
+  static fromAxiosInstanceAndName<T extends ResourceClient>(
+    axiosInstance: AxiosInstance,
+    resourceName: string,
+  ) {
     const resourceClient = new this(resourceName);
     resourceClient.axiosInstance = axiosInstance;
 
-    return resourceClient;
+    return resourceClient as T;
   }
 
   @handleApiError

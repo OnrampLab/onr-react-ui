@@ -20,9 +20,9 @@ export class UserPlugin implements Plugin {
   private registerServices(app: App) {
     const adminAxiosInstance = app.apis.adminAxiosInstance;
 
-    const userService = UserService.fromAxiosInstanceAndName(adminAxiosInstance, 'users');
+    const userService = UserService.fromAxiosInstanceAndName<UserService>(adminAxiosInstance, 'users');
 
-    app.addService('userService', userService);
+    app.addService<UserService>('userService', userService);
   }
 }
 ```
