@@ -1,5 +1,4 @@
 import { LogLevel } from '@onr/logging';
-import { Client } from '@onr/ts-rest-client';
 import { AxiosInstance } from 'axios';
 import { FC, ReactNode } from 'react';
 import { Plugin } from '../plugin';
@@ -21,10 +20,10 @@ export type OnrApp = {
   getLayouts(): LayoutsType;
   getAuthUserModel(): any;
   getRoles(): RolesType;
-  getService(serviceName: string): Client;
+  getService<T>(serviceName: string): T;
   registerPlugin(plugin: Plugin): void;
   bootstrapPlugins(): Promise<void>;
-  addService<T extends Client>(serviceName: string, service: T): OnrApp;
+  addService<T>(serviceName: string, service: T): OnrApp;
   setLayouts(layouts: LayoutsType): void;
 };
 
