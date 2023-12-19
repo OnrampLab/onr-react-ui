@@ -110,6 +110,10 @@ export class App implements OnrApp {
     return this.configs.authConfig.roles;
   }
 
+  getConfig<T = any>(key: string): T | null {
+    return this.configs[key] as T;
+  }
+
   /** @deprecated */
   getProvider() {
     const Provider: FC<ProviderProps> = ({ children, session }: ProviderProps) => {
