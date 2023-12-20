@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.28.2
+
+### Patch Changes
+
+- - @onr/core can register custom config and service
+- Updated dependencies
+  - @onr/core@0.40.0
+
 ## 0.28.1
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.40.0
+
+### Minor Changes
+
+- - @onr/core can register custom config and service
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/ts-rest-client@2.2.0
+
 ## 0.39.0
 
 ### Minor Changes

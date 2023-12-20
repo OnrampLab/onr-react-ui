@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- - @onr/core can register custom config and service
+
 ## 2.1.2
 
 ### Patch Changes

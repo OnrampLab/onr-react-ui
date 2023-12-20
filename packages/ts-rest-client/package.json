@@ -1,6 +1,6 @@
 {
   "name": "@onr/ts-rest-client",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "shared utils module",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",

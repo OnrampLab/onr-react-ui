@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.12.3
+
+### Patch Changes
+
+- - @onr/core can register custom config and service
+- Updated dependencies
+  - @onr/core@0.40.0
+  - @onr/plugin-account@0.14.3
+  - @onr/plugin-antd@0.28.2
+  - @onr/plugin-auth@0.11.17
+
 ## 0.12.2
 
 ### Patch Changes

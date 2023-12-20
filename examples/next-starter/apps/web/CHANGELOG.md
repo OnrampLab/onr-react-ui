@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.27.0
+
+### Minor Changes
+
+- - @onr/core can register custom config and service
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.40.0
+  - @onr/plugin-custom-admin-dashboard@0.7.20
+  - @onr/plugin-custom-auth@0.1.20
+  - @onr/plugin-custom-home@0.11.7
+  - @onr/plugin-account@0.14.3
+  - @onr/plugin-antd@0.28.2
+  - @onr/plugin-auth@0.11.17
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.15.2
+  - @onr/plugin-user@0.12.3
+
 ## 0.26.1
 
 ### Patch Changes
