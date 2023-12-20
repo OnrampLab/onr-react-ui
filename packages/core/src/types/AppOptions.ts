@@ -31,7 +31,7 @@ type OptionalConfigs = Partial<{
   routes?: any;
 }>;
 
-export type Configs = OptionalConfigs & DefaultConfigs;
+export type Configs = OptionalConfigs & DefaultConfigs & { [key: string]: any };
 
 export type RolesType = Record<string, string>;
 

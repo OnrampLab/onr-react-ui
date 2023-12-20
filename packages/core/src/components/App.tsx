@@ -1,5 +1,4 @@
 import { createLogger, Handler } from '@onr/logging';
-import { Client } from '@onr/ts-rest-client';
 import axios, { AxiosError, AxiosInstance } from 'axios';
 import { signOut } from 'next-auth/react';
 import { createContext, FC } from 'react';
@@ -86,7 +85,7 @@ export class App implements OnrApp {
     );
   }
 
-  addService<T extends Client>(serviceName: string, service: T) {
+  addService<T = any>(serviceName: string, service: T) {
     this.services[serviceName] = service;
 
     return this;
@@ -98,7 +97,7 @@ export class App implements OnrApp {
     });
   }
 
-  getService(serviceName: string): Client {
+  getService<T = any>(serviceName: string): T {
     return this.services[serviceName];
   }
 
@@ -108,6 +107,10 @@ export class App implements OnrApp {
 
   getRoles(): RolesType {
     return this.configs.authConfig.roles;
+  }
+
+  getConfig<T = any>(key: string): T | null {
+    return this.configs[key] as T;
   }
 
   /** @deprecated */

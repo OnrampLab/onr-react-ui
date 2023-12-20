@@ -10,7 +10,7 @@ export const accountActions = {
   }),
 
   getAccounts: (payload: any) => async (dispatch: Dispatch) => {
-    const accountService = App.getInstance().getService('accountService') as AccountService;
+    const accountService = App.getInstance().getService<AccountService>('accountService');
     const accountsCollection = await accountService.getAccounts({
       params: payload.params,
     });

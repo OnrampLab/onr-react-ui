@@ -14,7 +14,7 @@ export const CreateAccountForm: React.FC<CreateAccountFormProps> = ({
   const currentAccount: Partial<IAccount> = {};
 
   async function handleSubmit(Account: IAccount) {
-    const accountService = App.getInstance().getService('accountService') as AccountService;
+    const accountService = App.getInstance().getService<AccountService>('accountService');
     await accountService.createAccount({
       data: Account,
     });

@@ -11,8 +11,11 @@ export class AccountPlugin implements Plugin {
   private registerServices(app: App) {
     const adminAxiosInstance = app.apis.adminAxiosInstance;
 
-    const accountService = AccountService.fromAxiosInstanceAndName(adminAxiosInstance, 'accounts');
+    const accountService = AccountService.fromAxiosInstanceAndName<AccountService>(
+      adminAxiosInstance,
+      'accounts',
+    );
 
-    app.addService('accountService', accountService);
+    app.addService<AccountService>('accountService', accountService);
   }
 }

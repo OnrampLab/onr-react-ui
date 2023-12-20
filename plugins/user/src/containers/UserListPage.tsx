@@ -14,7 +14,7 @@ import { UserService } from '../services/UserService';
 
 const UserListContainer: React.FC = () => {
   const { showModal } = useGlobalModal();
-  const userService = App.getInstance().getService('userService') as UserService;
+  const userService = App.getInstance().getService<UserService>('userService');
 
   const { users, pagination, fetch } = useUsers();
 

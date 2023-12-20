@@ -14,7 +14,7 @@ export const UpdateAccountForm: React.FC<UpdateAccountFormProps> = ({
   currentAccount,
 }: UpdateAccountFormProps) => {
   async function handleSubmit(account: IAccount) {
-    const accountService = App.getInstance().getService('accountService') as AccountService;
+    const accountService = App.getInstance().getService<AccountService>('accountService');
     await accountService.updateAccount({
       accountId: currentAccount.id!,
       data: account,

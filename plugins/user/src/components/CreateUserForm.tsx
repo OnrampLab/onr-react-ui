@@ -14,7 +14,7 @@ export const CreateUserForm: React.FC<CreateUserFormProps> = ({
   return <UserForm handleSubmit={handleSubmit} />;
 
   async function handleSubmit(user: UserRequestPayload) {
-    const userService = App.getInstance().getService('userService') as UserService;
+    const userService = App.getInstance().getService<UserService>('userService');
     await userService.createUser(user);
 
     if (onSubmit) {
