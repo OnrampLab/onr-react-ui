@@ -10,7 +10,14 @@ interface Props extends PageProps {
 }
 
 export const Header: React.FC<Props> = props => {
-  const { HeaderMainSection, avatar, logo, showLogoForDsk = true, mobileMenuToggle } = props;
+  const {
+    HeaderMainSection,
+    headerMainSection,
+    avatar,
+    logo,
+    showLogoForDsk = true,
+    mobileMenuToggle,
+  } = props;
   const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -38,7 +45,10 @@ export const Header: React.FC<Props> = props => {
             <div className="flex-none">
               {logo && showLogoForDsk && <Logo mobile={mobile}>{logo}</Logo>}
             </div>
-            <div className="flex-grow">{HeaderMainSection && <HeaderMainSection />}</div>
+            <div className="flex-grow">
+              {headerMainSection}
+              {HeaderMainSection && <HeaderMainSection />}
+            </div>
             <div className="flex-none">
               <UserMenu avatar={avatar} />
             </div>
