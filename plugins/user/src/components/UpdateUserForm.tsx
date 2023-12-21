@@ -1,4 +1,5 @@
 import { App } from '@onr/core';
+import { message } from 'antd';
 import React from 'react';
 import { AccountUser } from '../entities/interfaces/AccountUser';
 import { UserService } from '../services/UserService';
@@ -24,6 +25,8 @@ export const UpdateUserForm: React.FC<UpdateUserFormProps> = ({
     const userService = App.getInstance().getService<UserService>('userService');
 
     await userService.updateUser({ userId: currentUser.id, ...user });
+
+    message.success(`User ${currentUser.name} Updated`);
 
     if (onSubmit) {
       onSubmit();
