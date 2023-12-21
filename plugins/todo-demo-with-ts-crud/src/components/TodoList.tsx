@@ -60,6 +60,7 @@ export const TodoList: React.FC<Props> = props => {
     <>
       <Card title="Todo List">
         <Table
+          rowKey="id"
           dataSource={todos}
           columns={columns}
           pagination={{
