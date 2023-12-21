@@ -9,7 +9,7 @@ export const Inner = styled.div`
   margin: 0 auto;
   position: relative;
   background-color: white;
-  height: 100vh;
+  height: 100dvh;
   overflow-y: auto;
   overflow-x: hidden;
 `;

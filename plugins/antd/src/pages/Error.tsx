@@ -18,7 +18,7 @@ export const Error = ({ code, error }: Props) => {
       align="middle"
       justify="center"
       className="bg-white text-center"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: '100dvh' }}
     >
       <div className="max-w-7xl min-w-5xl z-10">
         <h1 className={`${code === 404 ? 'text-warning' : 'text-error'} text-9xl font-black`}>

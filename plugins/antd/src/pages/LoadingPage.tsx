@@ -5,8 +5,8 @@ export const LoadingPage = () => {
     <Row
       align="middle"
       justify="center"
-      className="bg-white text-center"
-      style={{ minHeight: '100vh' }}
+      className="text-center bg-white"
+      style={{ minHeight: '100dvh' }}
     >
       <Spin tip="Loading..." size="large" />
     </Row>

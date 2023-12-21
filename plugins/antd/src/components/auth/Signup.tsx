@@ -17,7 +17,7 @@ const Signup = () => (
     align="middle"
     justify="center"
     className="px-3 bg-white flex"
-    style={{ minHeight: '100vh' }}
+    style={{ minHeight: '100dvh' }}
   >
     <Content>
       <div className="text-center mb-5">
