@@ -31,7 +31,7 @@ export const Header: React.FC<Props> = props => {
               <div onClick={() => dispatch(coreActions.setMobileDrawer())}>
                 {mobileMenuToggle ?? (
                   <MenuOutlined
-                    rev={true}
+                    rev=""
                     style={{ padding: '10px', color: 'var(--brand-primaryColor)' }}
                   />
                 )}

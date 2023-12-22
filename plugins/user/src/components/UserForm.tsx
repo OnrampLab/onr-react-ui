@@ -112,7 +112,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
           <Input.Password
             style={{ width: 300 }}
             iconRender={(visible: boolean) =>
-              visible ? <EyeTwoTone rev={true} /> : <EyeInvisibleOutlined rev={true} />
+              visible ? <EyeTwoTone rev="" /> : <EyeInvisibleOutlined rev="" />
             }
           />
         </Form.Item>
