@@ -19,7 +19,6 @@ export const AccountForm: React.FC<IAccountFormProps> = ({
   };
   const onSubmit = (values: { account: IAccount }) => {
     handleSubmit(values.account);
-    console.log('Received values of form: ', values);
 
     form?.resetFields();
   };

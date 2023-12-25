@@ -76,7 +76,7 @@ export const Signin: React.FC<Props> = ({ csrfToken }) => {
       align="middle"
       justify="center"
       className="flex px-3 bg-white mh-page"
-      style={{ minHeight: '100vh' }}
+      style={{ minHeight: '100dvh' }}
     >
       <Content>
         <div className="mb-5 text-center">

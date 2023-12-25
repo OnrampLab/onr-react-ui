@@ -43,7 +43,9 @@ export type SidebarMenuProps = {
 
 export type PageProps = {
   children?: ReactNode;
+  /** @deprecated Should use headerMainSection to bring instance instead of component */
   HeaderMainSection?: React.FC<any>;
+  headerMainSection?: ReactNode;
   logo?: ReactNode;
   mobileMenuToggle?: ReactNode;
   avatar?: string;

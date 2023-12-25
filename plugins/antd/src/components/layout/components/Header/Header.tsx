@@ -10,7 +10,14 @@ interface Props extends PageProps {
 }
 
 export const Header: React.FC<Props> = props => {
-  const { HeaderMainSection, avatar, logo, showLogoForDsk = true, mobileMenuToggle } = props;
+  const {
+    HeaderMainSection,
+    headerMainSection,
+    avatar,
+    logo,
+    showLogoForDsk = true,
+    mobileMenuToggle,
+  } = props;
   const { mobile } = useSelector((store: CoreStore) => store.coreStore);
   const dispatch = useDispatch();
 
@@ -19,12 +26,12 @@ export const Header: React.FC<Props> = props => {
       <Layout.Header className="header">
         {mobile && (
           <div className="relative flex-grow">
-            {logo && <Logo mobile={mobile}>{logo}</Logo>}
+            {logo && <Logo mobile={mobile ? 1 : 0}>{logo}</Logo>}
             <div className="absolute top-0 left-0 flex items-center h-full">
               <div onClick={() => dispatch(coreActions.setMobileDrawer())}>
                 {mobileMenuToggle ?? (
                   <MenuOutlined
-                    rev={true}
+                    rev=""
                     style={{ padding: '10px', color: 'var(--brand-primaryColor)' }}
                   />
                 )}
@@ -36,9 +43,12 @@ export const Header: React.FC<Props> = props => {
         {!mobile && (
           <>
             <div className="flex-none">
-              {logo && showLogoForDsk && <Logo mobile={mobile}>{logo}</Logo>}
+              {logo && showLogoForDsk && <Logo mobile={mobile ? 1 : 0}>{logo}</Logo>}
             </div>
-            <div className="flex-grow">{HeaderMainSection && <HeaderMainSection />}</div>
+            <div className="flex-grow">
+              {headerMainSection}
+              {HeaderMainSection && <HeaderMainSection />}
+            </div>
             <div className="flex-none">
               <UserMenu avatar={avatar} />
             </div>

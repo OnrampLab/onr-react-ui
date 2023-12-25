@@ -1,5 +1,6 @@
 import { CoreStore, Page, createLayoutContainer } from '@onr/core';
-import { GlobalModalProvider } from '@onr/plugin-antd';
+import { AccountSelector } from '@onr/plugin-account';
+import { Empty, GlobalModalProvider } from '@onr/plugin-antd';
 import { useAppUser } from '@onr/plugin-custom-auth';
 import { useNewTodos, useRecentTodos } from '@onr/plugin-todo-demo-with-ts-rest-client';
 import { AppProps } from 'next/app';
@@ -13,14 +14,6 @@ import { AntdThemeProvider } from '../hooks';
 const GlobalStyles = dynamic(() =>
   import('../components/GlobalStyles').then(mod => mod.GlobalStyles),
 );
-
-const AccountSelector = dynamic(() =>
-  import('@onr/plugin-account').then(mod => mod.AccountSelector),
-);
-
-const Empty: FC = () => {
-  return <></>;
-};
 
 const DefaultLogo: FC = () => {
   const { name } = useSelector((store: CoreStore) => store.coreStore);
@@ -47,12 +40,12 @@ const Container: FC<AppProps> = (props: AppProps) => {
   useNewTodos();
   useRecentTodos();
 
-  const HeaderMainSection = user ? AccountSelector : Empty;
+  const headerMainSection = user ? <AccountSelector /> : <Empty />;
   const content = <AnyComponent {...pageProps} />;
 
   return (
     <Page
-      HeaderMainSection={HeaderMainSection}
+      headerMainSection={headerMainSection}
       avatar="/static/images/avatar.jpg"
       logo={<DefaultLogo />}
       innerStyle={{ padding: '1.5em' }}

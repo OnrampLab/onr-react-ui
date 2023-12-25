@@ -59,7 +59,6 @@ export const UserForm: React.FC<IUserFormProps> = ({
   }, [form, fetchData, currentUser]);
 
   const onFinish = async (values: UserRequestPayload['data']) => {
-    console.log('Received values of form: ', values);
     setLoading(true);
     const formData = values;
     Object.keys(formData).forEach(key => {
@@ -113,7 +112,7 @@ export const UserForm: React.FC<IUserFormProps> = ({
           <Input.Password
             style={{ width: 300 }}
             iconRender={(visible: boolean) =>
-              visible ? <EyeTwoTone rev={true} /> : <EyeInvisibleOutlined rev={true} />
+              visible ? <EyeTwoTone rev="" /> : <EyeInvisibleOutlined rev="" />
             }
           />
         </Form.Item>

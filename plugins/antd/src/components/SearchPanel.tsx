@@ -164,7 +164,7 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({
 
                           {fields.length > 1 && index !== 0 ? (
                             <MinusCircleOutlined
-                              rev={true}
+                              rev=""
                               style={{
                                 position: 'relative',
                                 top: 4,
@@ -193,7 +193,7 @@ export const SearchPanel: React.FC<SearchPanelProps> = ({
                             <Button
                               type="dashed"
                               onClick={() => add()}
-                              icon={<PlusOutlined rev={true} />}
+                              icon={<PlusOutlined rev="" />}
                             >
                               Add Filter
                             </Button>

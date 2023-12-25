@@ -7,7 +7,7 @@ export const Inner = styled.div`
   padding: 1.5rem;
   position: relative;
   background-color: #f0f0f0;
-  height: ${props => `calc(100vh - ${props.theme.layoutHeaderHeight})`};
+  height: ${props => `calc(100dvh - ${props.theme.layoutHeaderHeight})`};
   overflow-y: auto;
   overflow-x: hidden;
 `;

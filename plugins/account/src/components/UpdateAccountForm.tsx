@@ -20,7 +20,7 @@ export const UpdateAccountForm: React.FC<UpdateAccountFormProps> = ({
       data: account,
     });
 
-    message.info(`Account ${account.name} updated`);
+    message.success(`Account ${account.name} Updated`);
 
     if (onSubmit) {
       onSubmit();
