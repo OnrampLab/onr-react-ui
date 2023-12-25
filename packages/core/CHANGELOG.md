@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.41.0
+
+### Minor Changes
+
+- Fix some warning message and show notification when update user, account
+
 ## 0.40.0
 
 ### Minor Changes

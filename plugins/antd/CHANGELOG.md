@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.29.0
+
+### Minor Changes
+
+- Fix some warning message and show notification when update user, account
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.41.0
+
 ## 0.28.2
 
 ### Patch Changes

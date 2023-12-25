@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.28.0
+
+### Minor Changes
+
+- Fix some warning message and show notification when update user, account
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.41.0
+  - @onr/plugin-account@0.15.0
+  - @onr/plugin-antd@0.29.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@0.16.0
+  - @onr/plugin-user@0.13.0
+  - @onr/plugin-custom-admin-dashboard@0.7.21
+  - @onr/plugin-custom-auth@0.1.21
+  - @onr/plugin-custom-home@0.11.8
+  - @onr/plugin-auth@0.11.18
+
 ## 0.27.0
 
 ### Minor Changes

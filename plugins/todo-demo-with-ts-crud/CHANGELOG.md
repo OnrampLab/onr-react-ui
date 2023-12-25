@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.16.0
+
+### Minor Changes
+
+- Fix some warning message and show notification when update user, account
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@0.41.0
+  - @onr/plugin-antd@0.29.0
+
 ## 0.15.2
 
 ### Patch Changes
