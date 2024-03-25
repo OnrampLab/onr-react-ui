@@ -109,7 +109,7 @@ export class App implements OnrApp {
     return this.configs.authConfig.roles;
   }
 
-  getConfig<T = any>(key: string): T | null {
+  getConfig<T = any>(key: string): T | undefined {
     return this.configs[key] as T;
   }
 

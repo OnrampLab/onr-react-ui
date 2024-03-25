@@ -11,7 +11,7 @@ export type OnrApp = {
 
   initialize(): void;
   bootstrap(): Promise<void>;
-  getConfig<T = any>(key: string): T | null;
+  getConfig<T = any>(key: string): T | undefined;
   getComponents(): AppComponents;
   getProvider(): FC<ProviderProps>;
   getAppContainer(): FC<ProviderProps>;
