@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.41.1
+
+### Patch Changes
+
+- Add missing interface getConfig to OnrApp
+
 ## 0.41.0
 
 ### Minor Changes
