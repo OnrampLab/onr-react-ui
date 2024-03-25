@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.41.2
+
+### Patch Changes
+
+- Fix getConfig interface null to be undefined
+
 ## 0.41.1
 
 ### Patch Changes
