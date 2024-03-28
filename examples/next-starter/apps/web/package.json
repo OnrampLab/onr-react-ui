@@ -28,7 +28,7 @@
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
     "@next/bundle-analyzer": "^13.4.2",
-    "@onr/core": "^0.41.0",
+    "@onr/core": "^0.41.2",
     "@onr/logging": "^0.4.4",
     "@onr/mock": "^3.0.3",
     "@onr/plugin-account": "^0.15.0",

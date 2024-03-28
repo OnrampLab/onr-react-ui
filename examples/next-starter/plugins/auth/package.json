@@ -29,7 +29,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/core": "^0.41.0",
+    "@onr/core": "^0.41.2",
     "@onr/plugin-antd": "^0.29.0",
     "@onr/plugin-user": "^0.13.0",
     "antd": "^5.10.0",
