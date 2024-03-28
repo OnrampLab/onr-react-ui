@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@onr/plugin-antd": "^0.29.0",
-    "@onr/core": "^0.41.0",
+    "@onr/core": "^0.41.2",
     "@onr/ts-rest-client": "^2.2.0",
     "antd": "^5.10.0",
     "react": "^18.2.0",
