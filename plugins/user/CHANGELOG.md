@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.13.1
+
+### Patch Changes
+
+- Upgrade @onr/core from 0.41.0 to 0.41.2
+- Updated dependencies
+  - @onr/plugin-account@0.15.1
+  - @onr/plugin-antd@0.29.1
+  - @onr/plugin-auth@0.11.19
+
 ## 0.13.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.11.19
+
+### Patch Changes
+
+- Upgrade @onr/core from 0.41.0 to 0.41.2
+
 ## 0.11.18
 
 ### Patch Changes

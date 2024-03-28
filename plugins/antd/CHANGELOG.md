@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.29.1
+
+### Patch Changes
+
+- Upgrade @onr/core from 0.41.0 to 0.41.2
+
 ## 0.29.0
 
 ### Minor Changes
