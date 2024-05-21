@@ -1,16 +1,24 @@
+import { Session } from 'next-auth';
+import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import useSWR, { SWRConfiguration } from 'swr';
 
-interface UseSessionOptions {
+export interface UseSessionOptions {
   required?: boolean;
   redirect?: () => void;
   swrConfig?: SWRConfiguration;
   getUser?: (token: string) => Promise<any>;
 }
 
+export interface CustomSession extends Session {
+  accessToken?: string;
+}
+
 export async function fetchSession() {
-  const res = await fetch('/api/auth/session');
-  const session = await res.json();
+  const session: CustomSession | null = await getSession();
+  if (!session) {
+    return null;
+  }
   if (Object.keys(session).length) {
     return session;
   }
