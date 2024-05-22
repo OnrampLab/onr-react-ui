@@ -28,17 +28,18 @@ export function useSession({
   const redirectPage = redirect || defaultRouter;
 
   const fetchSessionWithNewUser = async () => {
-    const session = await fetchSession();
-    let user = session?.user;
+    try {
+      const session = await fetchSession();
+      if (!session) return null;
 
-    if (getUser && session?.accessToken) {
-      try {
-        const newUser = await getUser(session.accessToken);
-        user = newUser;
-      } catch (e) {}
+      const { user: cachedUser, accessToken } = session;
+      const user =
+        accessToken && getUser ? await getUser(accessToken).catch(() => cachedUser) : cachedUser;
+
+      return { ...session, user, cachedUser };
+    } catch {
+      return null;
     }
-
-    return session ? { ...session, user } : null;
   };
 
   const { data } = useSWR(['session'], fetchSessionWithNewUser, {
