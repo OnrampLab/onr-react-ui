@@ -31,6 +31,7 @@
   "dependencies": {
     "@onr/core": "^0.41.2",
     "@onr/plugin-antd": "^0.29.1",
+    "next-auth": "^4.24.5",
     "antd": "^5.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
