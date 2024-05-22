@@ -5,6 +5,7 @@ interface UseSessionOptions {
   required?: boolean;
   redirect?: () => void;
   swrConfig?: SWRConfiguration;
+  getUser?: (token: string) => Promise<any>;
 }
 
 export async function fetchSession() {
@@ -16,12 +17,32 @@ export async function fetchSession() {
   return null;
 }
 
-export function useSession({ required = false, redirect, swrConfig = {} }: UseSessionOptions = {}) {
+export function useSession({
+  required = false,
+  redirect,
+  swrConfig = {},
+  getUser,
+}: UseSessionOptions = {}) {
   const router = useRouter();
   const defaultRouter = () => router.push('/api/auth/signin?error=SessionExpired');
   const redirectPage = redirect || defaultRouter;
 
-  const { data } = useSWR(['session'], fetchSession, {
+  const fetchSessionWithNewUser = async () => {
+    try {
+      const session = await fetchSession();
+      if (!session) return null;
+
+      const { user: cachedUser, accessToken } = session;
+      const user =
+        accessToken && getUser ? await getUser(accessToken).catch(() => cachedUser) : cachedUser;
+
+      return { ...session, user, cachedUser };
+    } catch {
+      return null;
+    }
+  };
+
+  const { data } = useSWR(['session'], fetchSessionWithNewUser, {
     ...swrConfig,
     onSuccess(data, key, config) {
       if (swrConfig.onSuccess) swrConfig.onSuccess(data, key, config);

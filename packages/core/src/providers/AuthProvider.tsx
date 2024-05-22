@@ -7,12 +7,14 @@ import { useRoute } from './RouteProvider';
 
 export type AuthContextType = {
   user: null | any;
+  cachedUser: null | any;
   signIn: () => void;
   signOut: () => void;
 };
 
 export const AuthContext = createContext<AuthContextType>({
   user: null,
+  cachedUser: null,
   signIn: () => {},
   signOut: () => {},
 });
@@ -21,7 +23,8 @@ export const AuthProvider = (props: any) => {
   const router = useRouter();
   const { currentRoute } = useRoute();
   const app = useApp();
-
+  const authService = app?.getService('authService');
+  const components = app?.getComponents();
   const [session, loading] = useSession({
     required: currentRoute.authRequired,
     redirect: () => signIn('credentials', { callbackUrl: router.asPath }),
@@ -29,12 +32,13 @@ export const AuthProvider = (props: any) => {
       // NOTE: should consider to make the refresh interval less than token expiry time
       refreshInterval: 60 * 60 * 1000, // 1 hour
     },
+    getUser: authService?.getCurrentUser.bind(authService),
   });
-  const components = app?.getComponents();
 
   const user = session?.user;
+  const cachedUser = session?.cachedUser;
   const isUser = !!session?.user;
-  const value = useMemo(() => ({ user, signIn, signOut }), [user]);
+  const value = useMemo(() => ({ user, cachedUser, signIn, signOut }), [user]);
 
   if (typeof window !== 'undefined' && session?.accessToken) {
     // NOTE: update client side token
