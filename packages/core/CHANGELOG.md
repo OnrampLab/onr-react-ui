@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.42.0
+
+### Minor Changes
+
+- Support get user data API from next auth session
+
 ## 0.41.2
 
 ### Patch Changes
