@@ -5,6 +5,7 @@ import { AxiosHelper } from '../helpers';
 import { useApp, useSession } from '../hooks';
 import { useRoute } from './RouteProvider';
 
+// FIXME: should do null check for user and cachedUser
 export type AuthContextType = {
   user: null | any;
   cachedUser: null | any;
@@ -38,7 +39,7 @@ export const AuthProvider = (props: any) => {
   const user = session?.user;
   const cachedUser = session?.cachedUser;
   const isUser = !!session?.user;
-  const value = useMemo(() => ({ user, cachedUser, signIn, signOut }), [user]);
+  const value = useMemo(() => ({ user, cachedUser, signIn, signOut }), [user, cachedUser]);
 
   if (typeof window !== 'undefined' && session?.accessToken) {
     // NOTE: update client side token

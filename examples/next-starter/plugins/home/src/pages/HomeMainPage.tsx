@@ -1,12 +1,15 @@
-import { useLogger } from '@onr/core';
+import { useAuth, useLogger } from '@onr/core';
 import { OnrModalProps, useGlobalModal } from '@onr/plugin-antd';
 import { Button } from 'antd';
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export const HomeMainPage: React.FC = () => {
   const { showModal } = useGlobalModal();
   const logger = useLogger();
+  const { user, cachedUser } = useAuth();
+  const { update: updateSession } = useSession();
 
   const openModal = (props?: Partial<OnrModalProps>) => {
     showModal({
@@ -25,9 +28,16 @@ export const HomeMainPage: React.FC = () => {
     name: 'HomeMainPage',
   });
 
+  useEffect(() => {
+    if (user && cachedUser && user.updated_at !== cachedUser.updated_at) {
+      openModal({ content: <>Your Session Is Updated</> });
+      updateSession({ user });
+    }
+  }, [user, cachedUser]);
+
   return (
     <>
-      <h1 className="text-blue-600">Welcome to next-starter</h1>
+      <h1 className="text-blue-600">{user?.name ?? 'Guest'}, Welcome to next-starter</h1>
       <p>
         You can check out
         <br />

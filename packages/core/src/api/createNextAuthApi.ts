@@ -114,21 +114,21 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
 
         return session;
       },
-      async jwt({ token, user }) {
+      async jwt({ token, user, trigger, session }) {
         // @ts-ignore
+        // TODO: should implement refreshAccessToken after supported
         if (user?.jwt) {
           // After login, we can get user right away. But the user will be empty in the future.
-
           // @ts-ignore
           const nextAuthToken = user.jwt as LaravelJWT;
           const transformedToken = transformToken(nextAuthToken);
-
           // @ts-ignore
           delete user.jwt;
+          const newUser = trigger === 'update' && session?.user ? session.user : user;
 
           return {
             ...transformedToken,
-            user,
+            user: newUser,
           };
         }
 
@@ -159,6 +159,10 @@ export function createNextAuthApi(options: NextAuthAPIOptions) {
         if (tokenWillExpire(nextAuthToken)) {
           // Access token has expired, try to update it
           return refreshAccessToken(nextAuthToken);
+        }
+
+        if (trigger === 'update' && session?.user) {
+          token.user = session.user;
         }
 
         return token;
