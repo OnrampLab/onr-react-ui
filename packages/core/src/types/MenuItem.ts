@@ -1,4 +1,4 @@
-import type { ItemType } from 'antd/es/menu/hooks/useItems';
+import { ItemType } from 'antd/es/menu/hooks/useItems';
 import { ReactElement } from 'react';
 
 export interface MenuItem {

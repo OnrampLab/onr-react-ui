@@ -6,7 +6,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { FiEye, FiMail, FiTriangle } from 'react-icons/fi';
 import styled from 'styled-components';
-
 const FormItem = Form.Item;
 
 const Content = styled.div`
@@ -94,7 +93,7 @@ export const Signin: React.FC<Props> = ({ csrfToken }) => {
           layout="vertical"
           onFinish={onFinish}
           onFinishFailed={err => {
-            message.error(err);
+            message.error(err.errorFields[0].errors);
           }}
           initialValues={INIT_VALUES}
           method="post"
