@@ -20,9 +20,6 @@ const withTm = require('next-transpile-modules')([...files, '@onr/plugin-antd', 
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const nextConfig = {
-  // optional https://github.com/webpack-contrib/css-loader#object
-  cssLoaderOptions: {},
-
   publicRuntimeConfig: {
     // Will be available on both server and client
     processEnv: process.env,
@@ -42,6 +39,19 @@ const nextConfig = {
     esmExternals: 'loose',
   },
   webpack(config) {
+    if (!config.watchOptions) {
+      config.watchOptions = {
+        aggregateTimeout: 5,
+        ignored: [
+          '!**/node_modules/@onr/**',
+          '**/node_modules/**',
+          '**/.git/**',
+          '**/.next/**',
+          '**/lib',
+        ],
+      };
+    }
+
     return config;
   },
 };
