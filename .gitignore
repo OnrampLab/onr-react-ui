@@ -1,5 +1,7 @@
 node_modules
 lerna-debug.log
+.yarn/
+.pnp*
 yarn-debug.log
 packages/*/lib
 packages/*/types
