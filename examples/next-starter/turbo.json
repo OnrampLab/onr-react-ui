@@ -1,9 +1,16 @@
 {
-  "extends": ["//"],
-  "pipeline": {
+  "extends": [
+    "//"
+  ],
+  "tasks": {
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
     "lint": {
       "outputs": []
@@ -15,7 +22,9 @@
       "cache": false
     },
     "build:storybook": {
-      "outputs": ["storybook-static/**"]
+      "outputs": [
+        "storybook-static/**"
+      ]
     },
     "build:ui": {
       "cache": false

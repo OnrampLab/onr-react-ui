@@ -39,7 +39,7 @@
     "styled-components": "^6.0.7",
     "syncpack": "^11.2.1",
     "tslib": "^2.6.3",
-    "turbo": "^1.9.6"
+    "turbo": "^2.0.14"
   },
   "resolutions": {
     "minimist": "^1.2.5"
