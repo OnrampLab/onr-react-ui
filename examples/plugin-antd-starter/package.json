@@ -4,23 +4,23 @@
   "version": "0.1.2",
   "description": "custom antd starter plugin",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib",
+    "dist",
     "types",
     "src"
   ],
   "scripts": {
-    "dev": "tsc --watch --preserveWatchOutput",
+    "dev": "tsup --watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc --build tsconfig.json",
+    "build": "tsup",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"

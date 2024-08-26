@@ -4,27 +4,27 @@
   "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib",
+    "dist",
     "types",
     "src"
   ],
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "tsc --watch --preserveWatchOutput",
+    "dev": "tsup --watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc --build tsconfig.json",
+    "build": "tsup",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -40,8 +40,9 @@
     "@onr/common": "^0.8.3",
     "@onr/core": "^0.42.0",
     "antd": "^5.10.0",
-    "lodash-es": "^4.17.21",
+    "lodash": "^4.17.21",
     "next": "^13.5.6",
+    "next-auth": "^4.24.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -59,7 +60,7 @@
     "@onr/prettier-config": "^1.4.3",
     "@onr/tsconfig": "^0.5.1",
     "@types/antd": "^1.0.0",
-    "@types/lodash-es": "^4.17.5",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^14.14.21",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
@@ -68,6 +69,7 @@
     "eslint": "^8.54.0",
     "react-redux": "^7.2.2",
     "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
     "typescript": "^5.1.3"
   },
   "prettier": "@onr/prettier-config",

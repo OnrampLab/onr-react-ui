@@ -3,8 +3,10 @@ lerna-debug.log
 .yarn/
 .pnp*
 yarn-debug.log
+packages/*/dist
 packages/*/lib
 packages/*/types
+plugins/*/dist
 plugins/*/lib
 plugins/*/types
 .next

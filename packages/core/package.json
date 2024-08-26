@@ -5,33 +5,37 @@
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
   "exports": {
-    ".": "./lib/index.js",
-    "./api": "./lib/api/index.js"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./api": {
+      "import": "./dist/api/index.js",
+      "require": "./dist/api/index.js"
+    }
   },
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib",
+    "dist",
     "types",
-    "src",
-    "api",
-    "api.js"
+    "src"
   ],
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "yarn build && tsc --watch --preserveWatchOutput",
+    "dev": "tsup --watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc && node ./config/build.js",
+    "build": "tsup",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -83,6 +87,7 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^6.0.7",
     "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
     "typescript": "^5.1.3"
   },
   "prettier": "@onr/prettier-config",
