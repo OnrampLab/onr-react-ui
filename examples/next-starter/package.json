@@ -32,7 +32,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@onr/commitlint-config": "^1.4.3",
-    "@onr/eslint-config": "^0.6.3",
+    "@onr/eslint-config": "^0.6.5",
     "@onr/prettier-config": "^1.4.3",
     "@onr/tsconfig": "^0.5.1",
     "next": "^13.5.6",
