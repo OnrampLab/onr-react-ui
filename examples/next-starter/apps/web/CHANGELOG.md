@@ -1,5 +1,26 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@1.0.0
+  - @onr/plugin-custom-auth@1.0.0
+  - @onr/plugin-custom-home@1.0.0
+  - @onr/plugin-todo-demo-with-ts-rest-client@1.0.0
+  - @onr/logging@1.0.0
+  - @onr/plugin-account@1.0.0
+  - @onr/core@1.0.0
+  - @onr/mock@4.0.0
+  - @onr/plugin-antd@1.0.0
+  - @onr/plugin-auth@1.0.0
+  - @onr/plugin-user@1.0.0
+
 ## 0.28.2
 
 ### Patch Changes

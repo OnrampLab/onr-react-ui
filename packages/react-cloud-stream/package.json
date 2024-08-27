@@ -1,6 +1,6 @@
 {
   "name": "@onr/react-cloud-stream",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "React cloud stream",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -34,7 +34,7 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/cloud-stream": "^1.1.2"
+    "@onr/cloud-stream": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^18.2.0"
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",
     "@onr/eslint-config": "^0.6.5",
-    "@onr/prettier-config": "^1.4.3",
+    "@onr/prettier-config": "^2.0.0",
     "@types/debug": "^4.1.5",
     "@types/react": "^18.2.6",
     "debug": "^4.3.1",

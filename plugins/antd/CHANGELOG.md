@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/common@1.0.0
+  - @onr/core@1.0.0
+
 ## 0.29.2
 
 ### Patch Changes

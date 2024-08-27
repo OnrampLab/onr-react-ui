@@ -1,5 +1,18 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/ts-rest-client@3.0.0
+  - @onr/logging@1.0.0
+  - @onr/common@1.0.0
+
 ## 0.42.0
 
 ### Minor Changes

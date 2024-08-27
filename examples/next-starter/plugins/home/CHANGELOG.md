@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/core@1.0.0
+  - @onr/plugin-antd@1.0.0
+
 ## 0.11.10
 
 ### Patch Changes
