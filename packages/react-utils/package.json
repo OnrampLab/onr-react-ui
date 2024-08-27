@@ -15,16 +15,20 @@
     "types",
     "src"
   ],
-  "types": "dist/index.d.ts",
+  "types": "types/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "tsup --watch",
+    "dev": "concurrently npm:bundle:watch npm:type:gen:watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsup",
+    "build": "yarn type:gen ; yarn bundle",
+    "bundle": "tsup",
+    "bundle:watch": "tsup --watch",
+    "type:gen": "tsc --emitDeclarationOnly",
+    "type:gen:watch": "tsc --emitDeclarationOnly --watch --preserveWatchOutput",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -48,10 +52,12 @@
     "@types/node": "^14.14.21",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
+    "concurrently": "^8.2.2",
     "eslint": "^8.54.0",
+    "prettier": "^2.8.8",
     "tslib": "^2.6.3",
     "tsup": "^8.2.4",
-    "typescript": "^5.1.3"
+    "typescript": "^5.5.4"
   },
   "prettier": "@onr/prettier-config",
   "publishConfig": {

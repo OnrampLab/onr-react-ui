@@ -5,7 +5,6 @@ export default defineConfig({
   noExternal: [],
   format: ['cjs'],
   sourcemap: true,
-  dts: true,
   clean: false,
   cjsInterop: true,
 });
