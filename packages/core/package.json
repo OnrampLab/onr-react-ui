@@ -8,14 +8,8 @@
   "main": "dist/index.js",
   "source": "src/index.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    },
-    "./api": {
-      "import": "./dist/api/index.js",
-      "require": "./dist/api/index.js"
-    }
+    ".": "./dist/index.js",
+    "./api": "./dist/api/index.js"
   },
   "directories": {
     "dist": "dist",
@@ -48,47 +42,49 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^1.0.0",
+    "axios": "^1.5.0",
     "minimatch": "^3.0.4",
-    "swr": "^0.5.6"
+    "next": "^13.5.6",
+    "next-auth": "^4.24.5",
+    "swr": "^2.2.5"
   },
   "peerDependencies": {
     "@onr/logging": "^1.0.0",
     "@onr/ts-rest-client": "^3.0.0",
-    "antd": "^5.10.0",
-    "lodash": "^4.17.21",
+    "antd": "^5.20.3",
+    "lodash-es": "^4.17.21",
     "next": "^13.5.6",
     "next-auth": "^4.24.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-redux": "^7.2.2",
     "redux": "^4.2.1",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.1.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.22.5",
     "@onr/eslint-config": "^0.6.5",
     "@onr/logging": "^1.0.0",
     "@onr/prettier-config": "^2.0.0",
     "@onr/ts-rest-client": "^3.0.0",
-    "@types/lodash": "^4.17.7",
+    "@types/lodash-es": "^4.17.7",
     "@types/minimatch": "^5.1.2",
     "@types/node": "^14.14.21",
-    "@types/react": "^18.2.6",
-    "@types/react-dom": "^18.2.4",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
     "@types/react-redux": "^7.1.12",
-    "antd": "^5.10.0",
+    "antd": "^5.20.3",
+    "axios": "^1.5.0",
     "concurrently": "^8.2.2",
-    "eslint": "^8.54.0",
-    "lodash": "^4.17.21",
-    "next": "^13.5.6",
-    "next-auth": "^4.24.5",
-    "react": "^18.2.0",
+    "eslint": "^8.57.0",
+    "lodash-es": "^4.17.21",
+    "prettier": "^2.8.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-redux": "^7.2.2",
     "redux": "^4.2.1",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.1.2",
     "tslib": "^2.6.3",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4"

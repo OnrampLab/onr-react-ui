@@ -11,6 +11,11 @@ jobs:
       tag: 'lts'
     steps:
       - checkout
+      - run:
+          name: Install Yarn v4
+          command: |
+            sudo corepack enable
+            sudo corepack prepare yarn@4.4.0
       - node/install-packages:
           pkg-manager: yarn
       - run:
@@ -43,6 +48,12 @@ jobs:
           - https://circleci.com/docs/2.0/gh-bb-integration/#creating-a-github-user-key
     steps:
       - checkout
+      - run:
+          name: Install Yarn v4
+          command: |
+            sudo corepack enable
+            sudo corepack prepare yarn@4.4.0
+
       - node/install-packages:
           pkg-manager: yarn
       - add_ssh_keys:

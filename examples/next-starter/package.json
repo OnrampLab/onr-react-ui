@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.37.0",
   "description": "",
-  "main": "src/server/index.js",
+  "main": "src/index.js",
   "workspaces": [
     "apps/*",
     "packages/*",
@@ -36,7 +36,7 @@
     "@onr/prettier-config": "^2.0.0",
     "@onr/tsconfig": "^1.0.0",
     "next": "^13.5.6",
-    "styled-components": "^6.0.7",
+    "styled-components": "^6.1.2",
     "syncpack": "^11.2.1",
     "tslib": "^2.6.3",
     "tsup": "^8.2.4",
@@ -54,5 +54,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "^yarn@1.22.19"
+  "packageManager": "yarn@4.4.0"
 }
