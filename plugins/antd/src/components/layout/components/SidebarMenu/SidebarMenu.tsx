@@ -9,8 +9,8 @@ import {
   useMenuItems,
 } from '@onr/core';
 import { Button, Drawer, Layout, Menu, MenuProps } from 'antd';
-import { isEmpty, last } from 'lodash-es';
 import { useRouter } from 'next/router';
+import { isEmpty, last } from 'radash';
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';

@@ -11,9 +11,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev --parallel",
-    "dev:old": "turbo run dev:old",
     "build": "turbo run build",
-    "start:old": "turbo run start:old",
     "start": "turbo run start --parallel",
     "heroku-prebuild": "npm i --dev && NODE_ENV=production next build",
     "export": "turbo run export",

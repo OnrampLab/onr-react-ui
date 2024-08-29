@@ -1,4 +1,4 @@
-import { get } from 'lodash-es';
+import { get } from 'radash';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CoreStore, coreActions } from '../redux';

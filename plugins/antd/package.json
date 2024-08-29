@@ -37,13 +37,13 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.4.0",
-    "http-status": "^1.5.0"
+    "http-status": "^1.5.0",
+    "radash": "^12.1.0"
   },
   "peerDependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@onr/core": "^1.0.0",
     "antd": "^5.20.3",
-    "lodash-es": "^4.17.21",
     "next": "^13.5.6",
     "next-auth": "^4.24.5",
     "react": "^18.3.1",
@@ -55,6 +55,7 @@
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
+    "@ant-design/icons": "^5.4.0",
     "@onr/core": "^1.0.0",
     "@onr/eslint-config": "^0.6.5",
     "@onr/prettier-config": "^2.0.0",
@@ -66,7 +67,6 @@
     "change-case": "^4.1.2",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
-    "lodash-es": "^4.17.21",
     "next": "^13.5.6",
     "next-auth": "^4.24.5",
     "prettier": "^2.8.8",
