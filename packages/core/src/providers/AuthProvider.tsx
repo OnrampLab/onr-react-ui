@@ -36,15 +36,16 @@ export const AuthProvider = (props: any) => {
     getUser: authService?.getCurrentUser.bind(authService),
   });
 
-  const user = session?.user;
-  const cachedUser = session?.cachedUser;
-  const isUser = !!session?.user;
+  const user = session && typeof session !== 'boolean' ? session.user : null;
+  const cachedUser = session && typeof session !== 'boolean' ? session.cachedUser : null;
+  const accessToken = session && typeof session !== 'boolean' ? session.accessToken : null;
+  const isUser = !!user;
   const value = useMemo(() => ({ user, cachedUser, signIn, signOut }), [user, cachedUser]);
 
-  if (typeof window !== 'undefined' && session?.accessToken) {
+  if (typeof window !== 'undefined' && accessToken) {
     // NOTE: update client side token
-    if (session?.accessToken && app) {
-      AxiosHelper.setToken(app.apis.adminAxiosInstance, session?.accessToken);
+    if (accessToken && app) {
+      AxiosHelper.setToken(app.apis.adminAxiosInstance, accessToken);
     }
   }
 

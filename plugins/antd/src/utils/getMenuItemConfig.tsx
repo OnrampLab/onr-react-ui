@@ -1,5 +1,5 @@
 import { MenuItem } from '@onr/core';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
+import { ItemType } from 'antd/es/menu/interface';
 import Link from 'next/link';
 import { getMenuItemKey } from './getMenuItemKey';
 
