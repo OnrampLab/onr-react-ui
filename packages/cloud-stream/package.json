@@ -1,6 +1,6 @@
 {
   "name": "@onr/cloud-stream",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A module to receive push notifications",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
@@ -41,8 +41,8 @@
     "pusher-js": "^8.2.0"
   },
   "devDependencies": {
-    "@onr/eslint-config": "^0.6.5",
-    "@onr/prettier-config": "^2.0.0",
+    "@onr/eslint-config": "^0.6.6",
+    "@onr/prettier-config": "^2.0.1",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "prettier": "^2.8.8",

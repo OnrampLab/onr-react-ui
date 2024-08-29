@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "auth plugin",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -36,16 +36,16 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "peerDependencies": {
-    "@onr/core": "^1.0.0",
-    "@onr/ts-rest-client": "^3.0.0"
+    "@onr/core": "^1.0.1",
+    "@onr/ts-rest-client": "^3.0.1"
   },
   "devDependencies": {
-    "@onr/core": "^1.0.0",
-    "@onr/eslint-config": "^0.6.5",
-    "@onr/mock": "^4.0.0",
-    "@onr/prettier-config": "^2.0.0",
-    "@onr/ts-rest-client": "^3.0.0",
-    "@onr/tsconfig": "^1.0.0",
+    "@onr/core": "^1.0.1",
+    "@onr/eslint-config": "^0.6.6",
+    "@onr/mock": "^4.0.1",
+    "@onr/prettier-config": "^2.0.1",
+    "@onr/ts-rest-client": "^3.0.1",
+    "@onr/tsconfig": "^1.0.1",
     "@types/node": "^14.14.21",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",

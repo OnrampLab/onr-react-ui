@@ -30,9 +30,9 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@onr/commitlint-config": "^1.4.3",
-    "@onr/eslint-config": "^0.6.5",
-    "@onr/prettier-config": "^2.0.0",
-    "@onr/tsconfig": "^1.0.0",
+    "@onr/eslint-config": "^0.6.6",
+    "@onr/prettier-config": "^2.0.1",
+    "@onr/tsconfig": "^1.0.1",
     "next": "^13.5.6",
     "styled-components": "^6.1.2",
     "syncpack": "^11.2.1",

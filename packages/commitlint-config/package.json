@@ -1,6 +1,6 @@
 {
   "name": "@onr/commitlint-config",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "license": "Apache-2.0",
   "description": "Shareable commitlint config enforcing conventional commits",
   "files": [

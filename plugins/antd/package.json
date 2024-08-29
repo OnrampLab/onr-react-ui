@@ -1,6 +1,6 @@
 {
   "name": "@onr/plugin-antd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
@@ -42,7 +42,7 @@
   },
   "peerDependencies": {
     "@ant-design/icons": "^5.4.0",
-    "@onr/core": "^1.0.0",
+    "@onr/core": "^1.0.1",
     "antd": "^5.20.3",
     "next": "^13.5.6",
     "next-auth": "^4.24.5",
@@ -56,10 +56,10 @@
   },
   "devDependencies": {
     "@ant-design/icons": "^5.4.0",
-    "@onr/core": "^1.0.0",
-    "@onr/eslint-config": "^0.6.5",
-    "@onr/prettier-config": "^2.0.0",
-    "@onr/tsconfig": "^1.0.0",
+    "@onr/core": "^1.0.1",
+    "@onr/eslint-config": "^0.6.6",
+    "@onr/prettier-config": "^2.0.1",
+    "@onr/tsconfig": "^1.0.1",
     "@types/node": "^14.14.21",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",

@@ -2,6 +2,7 @@
   "name": "onr-react-ui",
   "private": true,
   "workspaces": [
+    "examples/*",
     "examples/**/apps/*",
     "examples/**/plugins/*",
     "packages/*",
@@ -26,7 +27,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
     "@onr/commitlint-config": "^1.4.3",
-    "@onr/prettier-config": "^2.0.0",
+    "@onr/prettier-config": "^2.0.1",
     "@onr/tsconfig": "^1.0.0",
     "@types/jest": "^29.5.12",
     "antd": "^5.20.3",

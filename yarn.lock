@@ -1818,6 +1818,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/cli@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/cli@npm:11.0.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.11.2"
+    "@commitlint/format": "npm:^11.0.0"
+    "@commitlint/lint": "npm:^11.0.0"
+    "@commitlint/load": "npm:^11.0.0"
+    "@commitlint/read": "npm:^11.0.0"
+    chalk: "npm:4.1.0"
+    core-js: "npm:^3.6.1"
+    get-stdin: "npm:8.0.0"
+    lodash: "npm:^4.17.19"
+    resolve-from: "npm:5.0.0"
+    resolve-global: "npm:1.0.0"
+    yargs: "npm:^15.1.0"
+  bin:
+    commitlint: cli.js
+  checksum: 10c0/d255dff88a12a656df8078b32704fba6cc6685d9c1ca386d5c60e4398323df19aade7494231587a61c2999702c8c5e02216bf41293620c6e318becc2ba046318
+  languageName: node
+  linkType: hard
+
 "@commitlint/cli@npm:^19.4.1":
   version: 19.4.1
   resolution: "@commitlint/cli@npm:19.4.1"
@@ -1842,6 +1864,16 @@ __metadata:
     "@commitlint/types": "npm:^19.0.3"
     ajv: "npm:^8.11.0"
   checksum: 10c0/7a0d55837fb88b1f05892fed67a9582669331a452de96e4caec0c9a397cd6083701265b066e6e32a259b43737187cd31b15ab02b0459c817ea9e7b75602db3c7
+  languageName: node
+  linkType: hard
+
+"@commitlint/ensure@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/ensure@npm:11.0.0"
+  dependencies:
+    "@commitlint/types": "npm:^11.0.0"
+    lodash: "npm:^4.17.19"
+  checksum: 10c0/f0e808736950a064ab631cd499522de03ea13f8b607e3a56e2b969cf4acc1c3130e6ff43f801a1dabe4d4d38bf363705eb9d8194ba5459643903ab6832451628
   languageName: node
   linkType: hard
 
@@ -1873,10 +1905,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/execute-rule@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/execute-rule@npm:11.0.0"
+  checksum: 10c0/e5d625b0220a6c3d21c33544186c6f355530e6af6049f33fb97e61a1226726adeabfdb55d4022bbe625b9749edd444575e68439b2d915ea3d0ad8b093636e3b9
+  languageName: node
+  linkType: hard
+
 "@commitlint/execute-rule@npm:^19.0.0":
   version: 19.0.0
   resolution: "@commitlint/execute-rule@npm:19.0.0"
   checksum: 10c0/70d37f25a9af0a6adcd9ae7cadd4a917e8d219d316798469e2957608288d7cab8a3b03f7b132f1229a5ee545bbba139dc801d0006a7df3b756354b3890b9c1bb
+  languageName: node
+  linkType: hard
+
+"@commitlint/format@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/format@npm:11.0.0"
+  dependencies:
+    "@commitlint/types": "npm:^11.0.0"
+    chalk: "npm:^4.0.0"
+  checksum: 10c0/0ceefb8db837286611c1eda7b0bcd8442d955c3b8eff6b15b11c4f5eee1d0a2d89ddddb00b55e6075d66f0557e14e9b260fa8c49405380622fe5a5aa9f3fdd77
   languageName: node
   linkType: hard
 
@@ -1887,6 +1936,16 @@ __metadata:
     "@commitlint/types": "npm:^19.0.3"
     chalk: "npm:^5.3.0"
   checksum: 10c0/857a1784481edad9013514cbcc9ec93af33acc8bd491f5d23625c53fb93841566ce110e3004ecaab7f4f89c9331940fe63b83922a4a81f419e67b70e0dc90e41
+  languageName: node
+  linkType: hard
+
+"@commitlint/is-ignored@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/is-ignored@npm:11.0.0"
+  dependencies:
+    "@commitlint/types": "npm:^11.0.0"
+    semver: "npm:7.3.2"
+  checksum: 10c0/d9984765456f0a879b6c9256df46aec305cb6af94a4f47cea464791a32d55a2797312ccedfb3ae826454d5a02fed26a246edfd3a2ddc4c829d6eb72417558cfa
   languageName: node
   linkType: hard
 
@@ -1907,6 +1966,18 @@ __metadata:
     "@commitlint/types": "npm:^19.0.3"
     semver: "npm:^7.6.0"
   checksum: 10c0/8e416edbf24ec386f6211d4879c002cf82fdebfd1f69556ae2ad62f6ae9b705aa20ea3108529fd44e7d246526c6133851905ee826a83efc81b2f11443a7d03c3
+  languageName: node
+  linkType: hard
+
+"@commitlint/lint@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/lint@npm:11.0.0"
+  dependencies:
+    "@commitlint/is-ignored": "npm:^11.0.0"
+    "@commitlint/parse": "npm:^11.0.0"
+    "@commitlint/rules": "npm:^11.0.0"
+    "@commitlint/types": "npm:^11.0.0"
+  checksum: 10c0/59216091b8c29019f1563781d2c4002333a9ceaae16ea6cee026241432e3e115ca5470948eb3002bf75dc8f824a7d0c29b0c514418d0ce0d022a720438d4fd54
   languageName: node
   linkType: hard
 
@@ -1934,6 +2005,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/load@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/load@npm:11.0.0"
+  dependencies:
+    "@commitlint/execute-rule": "npm:^11.0.0"
+    "@commitlint/resolve-extends": "npm:^11.0.0"
+    "@commitlint/types": "npm:^11.0.0"
+    chalk: "npm:4.1.0"
+    cosmiconfig: "npm:^7.0.0"
+    lodash: "npm:^4.17.19"
+    resolve-from: "npm:^5.0.0"
+  checksum: 10c0/952e2610404a816f01e0c2665f034eff23b5cfc184fa4d39d8fdd4ce86728c4d357a659963ee3bf2ae8b5c33cd23c29130e35bb6c48b248f703bfae7fd19bad9
+  languageName: node
+  linkType: hard
+
 "@commitlint/load@npm:^19.4.0":
   version: 19.4.0
   resolution: "@commitlint/load@npm:19.4.0"
@@ -1952,6 +2038,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/message@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/message@npm:11.0.0"
+  checksum: 10c0/6991894880707b7840224e513660979a27190c1a30607d0341df39f07752990882c9dbee7fe53fd20b763d2abcfb06224c81116687c30b422a8237413cf63559
+  languageName: node
+  linkType: hard
+
 "@commitlint/message@npm:^17.8.1":
   version: 17.8.1
   resolution: "@commitlint/message@npm:17.8.1"
@@ -1963,6 +2056,16 @@ __metadata:
   version: 19.0.0
   resolution: "@commitlint/message@npm:19.0.0"
   checksum: 10c0/753bf18838ebde4464e8f4b346d04d3367fbb90b542db6a54da08aa241497b4050a6ecd09dba4f37f6348855fa86e6625350d596fe5dea7a8dd4faee49ab76a7
+  languageName: node
+  linkType: hard
+
+"@commitlint/parse@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/parse@npm:11.0.0"
+  dependencies:
+    conventional-changelog-angular: "npm:^5.0.0"
+    conventional-commits-parser: "npm:^3.0.0"
+  checksum: 10c0/c2574a8c5bdccc9ae5d267a7e629bc93b505615f5d3e0245465c9ad9b6156c7bb7ce1b3685f1e254a4eb2f0466cd1cd7087f529f63f3e7f5b6534b64d6e8a76c
   languageName: node
   linkType: hard
 
@@ -1988,6 +2091,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/read@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/read@npm:11.0.0"
+  dependencies:
+    "@commitlint/top-level": "npm:^11.0.0"
+    fs-extra: "npm:^9.0.0"
+    git-raw-commits: "npm:^2.0.0"
+  checksum: 10c0/ac9eba2df01d820cf0fb47abc9588677297213161c8360bfb71eabb9bbe3a0c39057e3cecca57ecdc7507522772c8b0dd485dc67acca6a69e9701e2b99fe4d5f
+  languageName: node
+  linkType: hard
+
 "@commitlint/read@npm:^19.4.0":
   version: 19.4.0
   resolution: "@commitlint/read@npm:19.4.0"
@@ -1998,6 +2112,18 @@ __metadata:
     git-raw-commits: "npm:^4.0.0"
     minimist: "npm:^1.2.8"
   checksum: 10c0/b0243feeb903fe4bb15bc352b10116451ac280fffbf2220a684e0f01ce4583e558b944ff8a6901f8a70faa0ec6020fa720da70328fb110747dbd4a7162695125
+  languageName: node
+  linkType: hard
+
+"@commitlint/resolve-extends@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/resolve-extends@npm:11.0.0"
+  dependencies:
+    import-fresh: "npm:^3.0.0"
+    lodash: "npm:^4.17.19"
+    resolve-from: "npm:^5.0.0"
+    resolve-global: "npm:^1.0.0"
+  checksum: 10c0/2db97053d6cbeddf26b15fa4c30c246eee63a280a63879a25ff13c137b0fedd40c2416197b0a405d55c4827b75ed7cb36337804ea48e84d23008c9ec5e72d617
   languageName: node
   linkType: hard
 
@@ -2012,6 +2138,18 @@ __metadata:
     lodash.mergewith: "npm:^4.6.2"
     resolve-from: "npm:^5.0.0"
   checksum: 10c0/5b4c69694ddf63f15499a940f99a39bdf0ae1943eb4731c7ea10572e416e44d6d57280faa8011801f4dc64aa70e55eb3b510c86c8e2b76820dcfe88b421afd4a
+  languageName: node
+  linkType: hard
+
+"@commitlint/rules@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/rules@npm:11.0.0"
+  dependencies:
+    "@commitlint/ensure": "npm:^11.0.0"
+    "@commitlint/message": "npm:^11.0.0"
+    "@commitlint/to-lines": "npm:^11.0.0"
+    "@commitlint/types": "npm:^11.0.0"
+  checksum: 10c0/63f69e948c1a52439145fb16848ccd980f922386cb1180c753048afa7f0a05e846fa745a1e4f8d9b4b82b5629725678039d694d937e764905461fac2cbdecbd2
   languageName: node
   linkType: hard
 
@@ -2041,6 +2179,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/to-lines@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/to-lines@npm:11.0.0"
+  checksum: 10c0/1f18b8e484ef3f7d4674ce2c880f4184f699b359c54b4bec916810556273e446a80748eeb110e77ddcc56652c0ff870389e404eeeacd48af470d25f3f21ec72b
+  languageName: node
+  linkType: hard
+
 "@commitlint/to-lines@npm:^17.8.1":
   version: 17.8.1
   resolution: "@commitlint/to-lines@npm:17.8.1"
@@ -2055,12 +2200,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@commitlint/top-level@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/top-level@npm:11.0.0"
+  dependencies:
+    find-up: "npm:^5.0.0"
+  checksum: 10c0/7848ab6425ba8e96c899b0913218cd87100463b4d6ccad131c1283cca82faa2d840c8e7367617ba760645742b8dbe6a08780da431dcda98e916b22f174223b0f
+  languageName: node
+  linkType: hard
+
 "@commitlint/top-level@npm:^19.0.0":
   version: 19.0.0
   resolution: "@commitlint/top-level@npm:19.0.0"
   dependencies:
     find-up: "npm:^7.0.0"
   checksum: 10c0/27ee2797f8d3d75aec3e9bf151b48fdbe4c362effbc2e7a11e6326342af06a29983fea5ad8756587e285c035b5ec45d4c4bc28cd698b62db31ca326db46efb64
+  languageName: node
+  linkType: hard
+
+"@commitlint/types@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "@commitlint/types@npm:11.0.0"
+  checksum: 10c0/37a65bbe0a6eb03dd9bb18e202cb7a7e20df63d38cf2c8add8d9fc5f7f080a1ac4274131bd0e722ea5a01875bd1270e2546b311a77e2ab2761299621d395e489
   languageName: node
   linkType: hard
 
@@ -3317,8 +3478,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/cli@workspace:packages/cli"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/figlet": "npm:^1.5.4"
     "@types/inquirer": "npm:^6.5.0"
     "@types/inquirer-fuzzy-path": "npm:^2.3.1"
@@ -3347,12 +3508,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/cloud-stream@npm:^2.0.0, @onr/cloud-stream@workspace:packages/cloud-stream":
+"@onr/cloud-stream@npm:^2.0.1, @onr/cloud-stream@workspace:packages/cloud-stream":
   version: 0.0.0-use.local
   resolution: "@onr/cloud-stream@workspace:packages/cloud-stream"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
     prettier: "npm:^2.8.8"
@@ -3372,13 +3533,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/common@npm:^1.0.0, @onr/common@workspace:packages/common":
+"@onr/common@npm:^1.0.1, @onr/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@onr/common@workspace:packages/common"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/debug": "npm:^4.1.5"
     "@types/jest": "npm:^29.5.12"
     "@types/nock": "npm:^11.1.0"
@@ -3400,14 +3561,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/core@npm:^1.0.0, @onr/core@workspace:packages/core":
+"@onr/core@npm:^1.0.1, @onr/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@onr/core@workspace:packages/core"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/logging": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/logging": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
     "@types/minimatch": "npm:^5.1.2"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
@@ -3433,8 +3594,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/logging": ^1.0.0
-    "@onr/ts-rest-client": ^3.0.0
+    "@onr/logging": ^1.0.1
+    "@onr/ts-rest-client": ^3.0.1
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3447,7 +3608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/eslint-config@npm:^0.6.5, @onr/eslint-config@workspace:packages/eslint-config":
+"@onr/eslint-config@npm:^0.6.5, @onr/eslint-config@npm:^0.6.6, @onr/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@onr/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -3479,7 +3640,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/logging@npm:^1.0.0, @onr/logging@workspace:packages/logging":
+"@onr/logging@npm:^1.0.1, @onr/logging@workspace:packages/logging":
   version: 0.0.0-use.local
   resolution: "@onr/logging@workspace:packages/logging"
   dependencies:
@@ -3488,8 +3649,8 @@ __metadata:
     "@livy/http-handler": "npm:^1.0.3"
     "@livy/logger": "npm:^1.0.5"
     "@livy/util": "npm:^1.0.5"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/debug": "npm:^4.1.5"
     axios: "npm:^1.5.0"
     concurrently: "npm:^8.2.2"
@@ -3504,13 +3665,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/mock@npm:^4.0.0, @onr/mock@workspace:packages/mock":
+"@onr/mock@npm:^4.0.1, @onr/mock@workspace:packages/mock":
   version: 0.0.0-use.local
   resolution: "@onr/mock@workspace:packages/mock"
   dependencies:
-    "@onr/common": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/common": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/node": "npm:^14.14.21"
     axios: "npm:^1.5.0"
     concurrently: "npm:^8.2.2"
@@ -3524,18 +3685,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-account@npm:^1.0.0, @onr/plugin-account@workspace:plugins/account":
+"@onr/plugin-account@npm:^1.0.1, @onr/plugin-account@workspace:plugins/account":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-account@workspace:plugins/account"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/mock": "npm:^4.0.0"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/mock": "npm:^4.0.1"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/faker": "npm:^5.5.7"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
@@ -3560,10 +3721,10 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/mock": ^4.0.0
-    "@onr/plugin-antd": ^1.0.0
-    "@onr/ts-rest-client": ^3.0.0
+    "@onr/core": ^1.0.1
+    "@onr/mock": ^4.0.1
+    "@onr/plugin-antd": ^1.0.1
+    "@onr/ts-rest-client": ^3.0.1
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3580,15 +3741,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-antd@npm:^1.0.0, @onr/plugin-antd@workspace:plugins/antd":
+"@onr/plugin-antd@npm:^1.0.1, @onr/plugin-antd@workspace:plugins/antd":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-antd@workspace:plugins/antd"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3612,7 +3773,7 @@ __metadata:
     typescript: "npm:^5.5.4"
   peerDependencies:
     "@ant-design/icons": ^5.4.0
-    "@onr/core": ^1.0.0
+    "@onr/core": ^1.0.1
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3626,16 +3787,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-auth@npm:^1.0.0, @onr/plugin-auth@workspace:plugins/auth":
+"@onr/plugin-auth@npm:^1.0.1, @onr/plugin-auth@workspace:plugins/auth":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-auth@workspace:plugins/auth"
   dependencies:
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/mock": "npm:^4.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/mock": "npm:^4.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
@@ -3645,20 +3806,20 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/ts-rest-client": ^3.0.0
+    "@onr/core": ^1.0.1
+    "@onr/ts-rest-client": ^3.0.1
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-admin-dashboard@npm:^1.0.0, @onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard":
+"@onr/plugin-custom-admin-dashboard@npm:^1.0.1, @onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard"
   dependencies:
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3675,8 +3836,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/plugin-antd": ^1.0.0
+    "@onr/core": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3685,16 +3846,46 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-auth@npm:^1.0.0, @onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth":
+"@onr/plugin-custom-antd-starter@workspace:examples/plugin-antd-starter":
+  version: 0.0.0-use.local
+  resolution: "@onr/plugin-custom-antd-starter@workspace:examples/plugin-antd-starter"
+  dependencies:
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.5"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@types/node": "npm:^14.14.21"
+    "@types/react": "npm:^18.3.4"
+    "@types/react-dom": "npm:^18.3.0"
+    antd: "npm:^5.20.3"
+    concurrently: "npm:^8.2.2"
+    eslint: "npm:^8.57.0"
+    next: "npm:^13.5.6"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
+    styled-components: "npm:^6.1.2"
+    tslib: "npm:^2.6.3"
+    typescript: "npm:^5.5.4"
+  peerDependencies:
+    "@onr/core": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
+    next: ^13.5.6
+    react: ^18.3.1
+    react-dom: ^18.3.1
+    styled-components: ^6.1.2
+  languageName: unknown
+  linkType: soft
+
+"@onr/plugin-custom-auth@npm:^1.0.1, @onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth"
   dependencies:
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/plugin-user": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/plugin-user": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3719,9 +3910,9 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/plugin-antd": ^1.0.0
-    "@onr/plugin-user": ^1.0.0
+    "@onr/core": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
+    "@onr/plugin-user": ^1.0.1
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3738,15 +3929,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-home@npm:^1.0.0, @onr/plugin-custom-home@workspace:examples/next-starter/plugins/home":
+"@onr/plugin-custom-home@npm:^1.0.1, @onr/plugin-custom-home@workspace:examples/next-starter/plugins/home":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-home@workspace:examples/next-starter/plugins/home"
   dependencies:
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3762,8 +3953,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/plugin-antd": ^1.0.0
+    "@onr/core": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3773,16 +3964,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-todo-demo-with-ts-rest-client@npm:^1.0.0, @onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud":
+"@onr/plugin-todo-demo-with-ts-rest-client@npm:^1.0.1, @onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud"
   dependencies:
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3798,9 +3989,9 @@ __metadata:
     typescript: "npm:^5.5.4"
   peerDependencies:
     "@ant-design/icons": ^5.4.0
-    "@onr/core": ^1.0.0
-    "@onr/plugin-antd": ^1.0.0
-    "@onr/ts-rest-client": ^3.0.0
+    "@onr/core": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
+    "@onr/ts-rest-client": ^3.0.1
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3809,20 +4000,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-user@npm:^1.0.0, @onr/plugin-user@workspace:plugins/user":
+"@onr/plugin-user@npm:^1.0.1, @onr/plugin-user@workspace:plugins/user":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-user@workspace:plugins/user"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/mock": "npm:^4.0.0"
-    "@onr/plugin-account": "npm:^1.0.0"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/plugin-auth": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/mock": "npm:^4.0.1"
+    "@onr/plugin-account": "npm:^1.0.1"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/plugin-auth": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3847,11 +4038,11 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.0
-    "@onr/plugin-account": ^1.0.0
-    "@onr/plugin-antd": ^1.0.0
-    "@onr/plugin-auth": ^1.0.0
-    "@onr/ts-rest-client": ^3.0.0
+    "@onr/core": ^1.0.1
+    "@onr/plugin-account": ^1.0.1
+    "@onr/plugin-antd": ^1.0.1
+    "@onr/plugin-auth": ^1.0.1
+    "@onr/ts-rest-client": ^3.0.1
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3867,7 +4058,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/prettier-config@npm:^2.0.0, @onr/prettier-config@workspace:packages/prettier-config":
+"@onr/prettier-config@npm:^2.0.1, @onr/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@onr/prettier-config@workspace:packages/prettier-config"
   dependencies:
@@ -3881,9 +4072,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/react-cloud-stream@workspace:packages/react-cloud-stream"
   dependencies:
-    "@onr/cloud-stream": "npm:^2.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/cloud-stream": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/debug": "npm:^4.1.5"
     "@types/react": "npm:^18.3.4"
     concurrently: "npm:^8.2.2"
@@ -3903,8 +4094,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/react-utils@workspace:packages/react-utils"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/node": "npm:^14.14.21"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3922,7 +4113,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/tailwind-palette@npm:^1.0.0, @onr/tailwind-palette@workspace:packages/tailwind-palette":
+"@onr/tailwind-palette@npm:^1.0.1, @onr/tailwind-palette@workspace:packages/tailwind-palette":
   version: 0.0.0-use.local
   resolution: "@onr/tailwind-palette@workspace:packages/tailwind-palette"
   dependencies:
@@ -3936,12 +4127,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/ts-rest-client@npm:^3.0.0, @onr/ts-rest-client@workspace:packages/ts-rest-client":
+"@onr/ts-rest-client@npm:^3.0.1, @onr/ts-rest-client@workspace:packages/ts-rest-client":
   version: 0.0.0-use.local
   resolution: "@onr/ts-rest-client@workspace:packages/ts-rest-client"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@types/debug": "npm:^4.1.5"
     "@types/jest": "npm:^29.5.12"
     "@types/nock": "npm:^11.1.0"
@@ -3959,7 +4150,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@workspace:packages/tsconfig":
+"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@npm:^1.0.1, @onr/tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "@onr/tsconfig@workspace:packages/tsconfig"
   dependencies:
@@ -5949,7 +6140,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"JSONStream@npm:^1.3.5":
+"JSONStream@npm:^1.0.4, JSONStream@npm:^1.3.5":
   version: 1.3.5
   resolution: "JSONStream@npm:1.3.5"
   dependencies:
@@ -6500,6 +6691,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"at-least-node@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "at-least-node@npm:1.0.0"
+  checksum: 10c0/4c058baf6df1bc5a1697cf182e2029c58cd99975288a13f9e70068ef5d6f4e1f1fd7c4d2c3c4912eae44797d1725be9700995736deca441b39f3e66d8dee97ef
+  languageName: node
+  linkType: hard
+
 "autoprefixer@npm:^9.6.0":
   version: 9.8.8
   resolution: "autoprefixer@npm:9.8.8"
@@ -7019,6 +7217,16 @@ __metadata:
     tslib: "npm:^2.0.3"
     upper-case-first: "npm:^2.0.2"
   checksum: 10c0/6a034af73401f6e55d91ea35c190bbf8bda21714d4ea8bb8f1799311d123410a80f0875db4e3236dc3f97d74231ff4bf1c8783f2be13d7733c7d990c57387281
+  languageName: node
+  linkType: hard
+
+"chalk@npm:4.1.0":
+  version: 4.1.0
+  resolution: "chalk@npm:4.1.0"
+  dependencies:
+    ansi-styles: "npm:^4.1.0"
+    supports-color: "npm:^7.1.0"
+  checksum: 10c0/3787bd65ecd98ab3a1acc3b4f71d006268a675875e49ee6ea75fb54ba73d268b97544368358c18c42445e408e076ae8ad5cec8fbad36942a2c7ac654883dc61e
   languageName: node
   linkType: hard
 
@@ -7543,6 +7751,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"conventional-changelog-angular@npm:^5.0.0":
+  version: 5.0.13
+  resolution: "conventional-changelog-angular@npm:5.0.13"
+  dependencies:
+    compare-func: "npm:^2.0.0"
+    q: "npm:^1.5.1"
+  checksum: 10c0/bca711b835fe01d75e3500b738f6525c91a12096218e917e9fd81bf9accf157f904fee16f88c523fd5462fb2a7cb1d060eb79e9bc9a3ccb04491f0c383b43231
+  languageName: node
+  linkType: hard
+
 "conventional-changelog-angular@npm:^6.0.0":
   version: 6.0.0
   resolution: "conventional-changelog-angular@npm:6.0.0"
@@ -7569,6 +7787,22 @@ __metadata:
     lodash: "npm:^4.17.15"
     q: "npm:^1.5.1"
   checksum: 10c0/02cc9313b44953332e9d45833615675cbc4d0f4129b27ea7218f8f4fc2f35124748725969c0cb3dc645713d19684540b87c5af25bd17ce3dccd7ef4e05e42442
+  languageName: node
+  linkType: hard
+
+"conventional-commits-parser@npm:^3.0.0":
+  version: 3.2.4
+  resolution: "conventional-commits-parser@npm:3.2.4"
+  dependencies:
+    JSONStream: "npm:^1.0.4"
+    is-text-path: "npm:^1.0.1"
+    lodash: "npm:^4.17.15"
+    meow: "npm:^8.0.0"
+    split2: "npm:^3.0.0"
+    through2: "npm:^4.0.0"
+  bin:
+    conventional-commits-parser: cli.js
+  checksum: 10c0/122d7d7f991a04c8e3f703c0e4e9a25b2ecb20906f497e4486cb5c2acd9c68f6d9af745f7e79cb407538f50e840b33399274ac427b20971b98b335d1b66d3d17
   languageName: node
   linkType: hard
 
@@ -7667,7 +7901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.29.0":
+"core-js@npm:^3.29.0, core-js@npm:^3.6.1":
   version: 3.38.1
   resolution: "core-js@npm:3.38.1"
   checksum: 10c0/7df063b6f13a54e46515817ac3e235c6c598a4d3de65cd188a061fc250642be313b895fb9fb2f36e1e31890a1bb4ef61d82666a340413f540b7ce3c65689739b
@@ -7859,6 +8093,13 @@ __metadata:
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
   checksum: 10c0/4c2647e0f42acaee7d068756c1d396e296c3556f9c8314bac1ac63ffb236217ef0e7e58602b18bb2173deec7ec8e0cac8e27cccf8f5526666b4ff11a13ad54a3
+  languageName: node
+  linkType: hard
+
+"dargs@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "dargs@npm:7.0.0"
+  checksum: 10c0/ec7f6a8315a8fa2f8b12d39207615bdf62b4d01f631b96fbe536c8ad5469ab9ed710d55811e564d0d5c1d548fc8cb6cc70bf0939f2415790159f5a75e0f96c92
   languageName: node
   linkType: hard
 
@@ -9868,6 +10109,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fs-extra@npm:^9.0.0":
+  version: 9.1.0
+  resolution: "fs-extra@npm:9.1.0"
+  dependencies:
+    at-least-node: "npm:^1.0.0"
+    graceful-fs: "npm:^4.2.0"
+    jsonfile: "npm:^6.0.1"
+    universalify: "npm:^2.0.0"
+  checksum: 10c0/9b808bd884beff5cb940773018179a6b94a966381d005479f00adda6b44e5e3d4abf765135773d849cc27efe68c349e4a7b86acd7d3306d5932c14f3a4b17a92
+  languageName: node
+  linkType: hard
+
 "fs-minipass@npm:^2.0.0":
   version: 2.1.0
   resolution: "fs-minipass@npm:2.1.0"
@@ -9993,6 +10246,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-stdin@npm:8.0.0":
+  version: 8.0.0
+  resolution: "get-stdin@npm:8.0.0"
+  checksum: 10c0/b71b72b83928221052f713b3b6247ebf1ceaeb4ef76937778557537fd51ad3f586c9e6a7476865022d9394b39b74eed1dc7514052fa74d80625276253571b76f
+  languageName: node
+  linkType: hard
+
 "get-stream@npm:^5.1.0":
   version: 5.2.0
   resolution: "get-stream@npm:5.2.0"
@@ -10051,6 +10311,21 @@ __metadata:
   bin:
     giget: dist/cli.mjs
   checksum: 10c0/0e82836783c704346fdda83e23d144e97f28a959320b1d8ee73c69a5af562362bcb727cf6ad99f90e45ed8a6abec140833534bb1fedcaa1c06fa026daaf3119c
+  languageName: node
+  linkType: hard
+
+"git-raw-commits@npm:^2.0.0":
+  version: 2.0.11
+  resolution: "git-raw-commits@npm:2.0.11"
+  dependencies:
+    dargs: "npm:^7.0.0"
+    lodash: "npm:^4.17.15"
+    meow: "npm:^8.0.0"
+    split2: "npm:^3.0.0"
+    through2: "npm:^4.0.0"
+  bin:
+    git-raw-commits: cli.js
+  checksum: 10c0/c9cee7ce11a6703098f028d7e47986d5d3e4147d66640086734d6ee2472296b8711f91b40ad458e95acac1bc33cf2898059f1dc890f91220ff89c5fcc609ab64
   languageName: node
   linkType: hard
 
@@ -10149,6 +10424,15 @@ __metadata:
   dependencies:
     ini: "npm:4.1.1"
   checksum: 10c0/f9cbeef41db4876f94dd0bac1c1b4282a7de9c16350ecaaf83e7b2dd777b32704cc25beeb1170b5a63c42a2c9abfade74d46357fe0133e933218bc89e613d4b2
+  languageName: node
+  linkType: hard
+
+"global-dirs@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "global-dirs@npm:0.1.1"
+  dependencies:
+    ini: "npm:^1.3.4"
+  checksum: 10c0/3608072e58962396c124ad5a1cfb3f99ee76c998654a3432d82977b3c3eeb09dc8a5a2a9849b2b8113906c8d0aad89ce362c22e97cec5fe34405bbf4f3cdbe7a
   languageName: node
   linkType: hard
 
@@ -10614,7 +10898,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0":
+"import-fresh@npm:^3.0.0, import-fresh@npm:^3.2.1, import-fresh@npm:^3.3.0":
   version: 3.3.0
   resolution: "import-fresh@npm:3.3.0"
   dependencies:
@@ -10685,6 +10969,13 @@ __metadata:
   version: 4.1.1
   resolution: "ini@npm:4.1.1"
   checksum: 10c0/7fddc8dfd3e63567d4fdd5d999d1bf8a8487f1479d0b34a1d01f28d391a9228d261e19abc38e1a6a1ceb3400c727204fce05725d5eb598dfcf2077a1e3afe211
+  languageName: node
+  linkType: hard
+
+"ini@npm:^1.3.4":
+  version: 1.3.8
+  resolution: "ini@npm:1.3.8"
+  checksum: 10c0/ec93838d2328b619532e4f1ff05df7909760b6f66d9c9e2ded11e5c1897d6f2f9980c54dd638f88654b00919ce31e827040631eab0a3969e4d1abefa0719516a
   languageName: node
   linkType: hard
 
@@ -12691,7 +12982,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meow@npm:^8.1.2":
+"meow@npm:^8.0.0, meow@npm:^8.1.2":
   version: 8.1.2
   resolution: "meow@npm:8.1.2"
   dependencies:
@@ -13196,6 +13487,24 @@ __metadata:
   checksum: 10c0/15e1dce4255b48bd92c9f0112c3d557cee2b3d149c246bac3a4ece15e6c83e843299f2fe2c10f10ee41abd7a4462cff6ac7f29377533dfbdb955f3bdad226d10
   languageName: node
   linkType: hard
+
+"next-starter@workspace:examples/next-starter":
+  version: 0.0.0-use.local
+  resolution: "next-starter@workspace:examples/next-starter"
+  dependencies:
+    "@commitlint/cli": "npm:^11.0.0"
+    "@onr/commitlint-config": "npm:^1.4.3"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
+    next: "npm:^13.5.6"
+    styled-components: "npm:^6.1.2"
+    syncpack: "npm:^11.2.1"
+    tslib: "npm:^2.6.3"
+    tsup: "npm:^8.2.4"
+    turbo: "npm:^2.0.14"
+  languageName: unknown
+  linkType: soft
 
 "next-tick@npm:^1.1.0":
   version: 1.1.0
@@ -13748,7 +14057,7 @@ __metadata:
   dependencies:
     "@changesets/cli": "npm:^2.26.1"
     "@onr/commitlint-config": "npm:^1.4.3"
-    "@onr/prettier-config": "npm:^2.0.0"
+    "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.0"
     "@types/jest": "npm:^29.5.12"
     antd: "npm:^5.20.3"
@@ -15530,6 +15839,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"readable-stream@npm:3, readable-stream@npm:^3.0.0, readable-stream@npm:^3.4.0":
+  version: 3.6.2
+  resolution: "readable-stream@npm:3.6.2"
+  dependencies:
+    inherits: "npm:^2.0.3"
+    string_decoder: "npm:^1.1.1"
+    util-deprecate: "npm:^1.0.1"
+  checksum: 10c0/e37be5c79c376fdd088a45fa31ea2e423e5d48854be7a22a58869b4e84d25047b193f6acb54f1012331e1bcd667ffb569c01b99d36b0bd59658fb33f513511b7
+  languageName: node
+  linkType: hard
+
 "readable-stream@npm:^2.0.1":
   version: 2.3.8
   resolution: "readable-stream@npm:2.3.8"
@@ -15542,17 +15862,6 @@ __metadata:
     string_decoder: "npm:~1.1.1"
     util-deprecate: "npm:~1.0.1"
   checksum: 10c0/7efdb01f3853bc35ac62ea25493567bf588773213f5f4a79f9c365e1ad13bab845ac0dae7bc946270dc40c3929483228415e92a3fc600cc7e4548992f41ee3fa
-  languageName: node
-  linkType: hard
-
-"readable-stream@npm:^3.0.0, readable-stream@npm:^3.4.0":
-  version: 3.6.2
-  resolution: "readable-stream@npm:3.6.2"
-  dependencies:
-    inherits: "npm:^2.0.3"
-    string_decoder: "npm:^1.1.1"
-    util-deprecate: "npm:^1.0.1"
-  checksum: 10c0/e37be5c79c376fdd088a45fa31ea2e423e5d48854be7a22a58869b4e84d25047b193f6acb54f1012331e1bcd667ffb569c01b99d36b0bd59658fb33f513511b7
   languageName: node
   linkType: hard
 
@@ -15851,6 +16160,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-from@npm:5.0.0, resolve-from@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "resolve-from@npm:5.0.0"
+  checksum: 10c0/b21cb7f1fb746de8107b9febab60095187781137fd803e6a59a76d421444b1531b641bba5857f5dc011974d8a5c635d61cec49e6bd3b7fc20e01f0fafc4efbf2
+  languageName: node
+  linkType: hard
+
 "resolve-from@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-from@npm:4.0.0"
@@ -15858,10 +16174,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve-from@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "resolve-from@npm:5.0.0"
-  checksum: 10c0/b21cb7f1fb746de8107b9febab60095187781137fd803e6a59a76d421444b1531b641bba5857f5dc011974d8a5c635d61cec49e6bd3b7fc20e01f0fafc4efbf2
+"resolve-global@npm:1.0.0, resolve-global@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-global@npm:1.0.0"
+  dependencies:
+    global-dirs: "npm:^0.1.1"
+  checksum: 10c0/fda6ba81a07a0124756ce956dd871ca83763973326d8617143dab38d9c9afc666926604bfe8f0bfd046a9a285347568f32ceb3d4c55a1cb9de5614cca001a21c
   languageName: node
   linkType: hard
 
@@ -16226,6 +16544,15 @@ __metadata:
   bin:
     semver: bin/semver
   checksum: 10c0/e4cf10f86f168db772ae95d86ba65b3fd6c5967c94d97c708ccb463b778c2ee53b914cd7167620950fc07faf5a564e6efe903836639e512a1aa15fbc9667fa25
+  languageName: node
+  linkType: hard
+
+"semver@npm:7.3.2":
+  version: 7.3.2
+  resolution: "semver@npm:7.3.2"
+  bin:
+    semver: bin/semver.js
+  checksum: 10c0/cea60e44127a4b586ba0ac4a3036f920b351f50c9578740621e837c9efd307f6f90081312ac97682ed74996983bc15f5652cd7be310453a0865aa70f9f5636f3
   languageName: node
   linkType: hard
 
@@ -16676,7 +17003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"split2@npm:^3.2.2":
+"split2@npm:^3.0.0, split2@npm:^3.2.2":
   version: 3.2.2
   resolution: "split2@npm:3.2.2"
   dependencies:
@@ -17394,6 +17721,15 @@ __metadata:
   version: 5.0.2
   resolution: "throttle-debounce@npm:5.0.2"
   checksum: 10c0/9a10ac51400b353562770721718486847adb5d7287c94a0c0d47df5326e8d47e5d92fcb74dac53d6734efb9344a2d46d68c7f996c2d0aedfd11446522e4bb356
+  languageName: node
+  linkType: hard
+
+"through2@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "through2@npm:4.0.2"
+  dependencies:
+    readable-stream: "npm:3"
+  checksum: 10c0/3741564ae99990a4a79097fe7a4152c22348adc4faf2df9199a07a66c81ed2011da39f631e479fdc56483996a9d34a037ad64e76d79f18c782ab178ea9b6778c
   languageName: node
   linkType: hard
 
@@ -18308,22 +18644,22 @@ __metadata:
     "@ant-design/icons": "npm:^5.4.0"
     "@cfaester/enzyme-adapter-react-18": "npm:^0.8.0"
     "@next/bundle-analyzer": "npm:^13.4.2"
-    "@onr/core": "npm:^1.0.0"
-    "@onr/eslint-config": "npm:^0.6.5"
-    "@onr/logging": "npm:^1.0.0"
-    "@onr/mock": "npm:^4.0.0"
-    "@onr/plugin-account": "npm:^1.0.0"
-    "@onr/plugin-antd": "npm:^1.0.0"
-    "@onr/plugin-auth": "npm:^1.0.0"
-    "@onr/plugin-custom-admin-dashboard": "npm:^1.0.0"
-    "@onr/plugin-custom-auth": "npm:^1.0.0"
-    "@onr/plugin-custom-home": "npm:^1.0.0"
-    "@onr/plugin-todo-demo-with-ts-rest-client": "npm:^1.0.0"
-    "@onr/plugin-user": "npm:^1.0.0"
-    "@onr/prettier-config": "npm:^2.0.0"
-    "@onr/tailwind-palette": "npm:^1.0.0"
-    "@onr/ts-rest-client": "npm:^3.0.0"
-    "@onr/tsconfig": "npm:^1.0.0"
+    "@onr/core": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.6"
+    "@onr/logging": "npm:^1.0.1"
+    "@onr/mock": "npm:^4.0.1"
+    "@onr/plugin-account": "npm:^1.0.1"
+    "@onr/plugin-antd": "npm:^1.0.1"
+    "@onr/plugin-auth": "npm:^1.0.1"
+    "@onr/plugin-custom-admin-dashboard": "npm:^1.0.1"
+    "@onr/plugin-custom-auth": "npm:^1.0.1"
+    "@onr/plugin-custom-home": "npm:^1.0.1"
+    "@onr/plugin-todo-demo-with-ts-rest-client": "npm:^1.0.1"
+    "@onr/plugin-user": "npm:^1.0.1"
+    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/tailwind-palette": "npm:^1.0.1"
+    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/tsconfig": "npm:^1.0.1"
     "@storybook/addon-actions": "npm:^8.2.9"
     "@storybook/addon-docs": "npm:^8.2.9"
     "@storybook/addon-essentials": "npm:^8.2.9"
@@ -18839,7 +19175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^15.0.2":
+"yargs@npm:^15.0.2, yargs@npm:^15.1.0":
   version: 15.4.1
   resolution: "yargs@npm:15.4.1"
   dependencies:

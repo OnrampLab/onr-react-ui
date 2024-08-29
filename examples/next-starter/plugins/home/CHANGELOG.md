@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Use yarn v4
+- Updated dependencies
+  - @onr/core@1.0.1
+  - @onr/plugin-antd@1.0.1
+
 ## 1.0.0
 
 ### Major Changes

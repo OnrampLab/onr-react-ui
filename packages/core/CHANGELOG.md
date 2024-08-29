@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Use yarn v4
+- Updated dependencies
+  - @onr/logging@1.0.1
+  - @onr/ts-rest-client@3.0.1
+
 ## 1.0.0
 
 ### Major Changes

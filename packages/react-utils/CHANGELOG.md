@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Use yarn v4
+
 ## 1.0.0
 
 ### Major Changes

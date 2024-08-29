@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.6
+
+### Patch Changes
+
+- Use yarn v4
+
 ## 0.6.5
 
 ### Patch Changes
