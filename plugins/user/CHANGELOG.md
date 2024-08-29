@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/ts-rest-client@3.0.0
+  - @onr/common@1.0.0
+  - @onr/plugin-account@1.0.0
+  - @onr/core@1.0.0
+  - @onr/plugin-antd@1.0.0
+  - @onr/plugin-auth@1.0.0
+
 ## 0.13.2
 
 ### Patch Changes

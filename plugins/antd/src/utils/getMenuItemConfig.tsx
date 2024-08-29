@@ -1,5 +1,5 @@
 import { MenuItem } from '@onr/core';
-import { ItemType } from 'antd/es/menu/hooks/useItems';
+import { ItemType } from 'antd/es/menu/interface';
 import Link from 'next/link';
 import { getMenuItemKey } from './getMenuItemKey';
 
@@ -9,8 +9,9 @@ export const getMenuItemConfig = (
   parentItem?: MenuItem,
 ): ItemType => ({
   label: item.path ? <Link href={item.path}>{item.name}</Link> : item.name,
+  // @ts-ignore
   key: getMenuItemKey(item.name, index, parentItem?.name),
   icon: item.icon ?? null,
   ...item.props,
-  children: item.children?.map((child, index) => getMenuItemConfig(child, index, item)),
+  children: item.children?.map((child, index) => getMenuItemConfig(child, index, item)) || [],
 });

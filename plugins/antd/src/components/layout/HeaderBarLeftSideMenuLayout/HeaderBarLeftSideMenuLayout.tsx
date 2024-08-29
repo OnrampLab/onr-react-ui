@@ -1,13 +1,8 @@
 import { CoreStore, Inner, PageProps, useAuth } from '@onr/core';
 import { Layout } from 'antd';
-import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { Header } from '../components';
-
-const SidebarMenu = dynamic(() => import('../components').then(mod => mod.SidebarMenu), {
-  ssr: false,
-});
+import { Header, SidebarMenu } from '../components';
 
 const { Content } = Layout;
 

@@ -23,6 +23,9 @@ WORKDIR /app
 COPY .gitignore .gitignore
 COPY --from=builder /app/out/json/ .
 COPY --from=builder /app/out/yarn.lock ./yarn.lock
+# install and use yarn 4.x
+RUN corepack enable
+RUN corepack prepare yarn@4.4.0
 RUN yarn install
 
 # Build the project

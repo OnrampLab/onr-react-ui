@@ -1,26 +1,24 @@
 {
   "name": "@onr/core",
-  "version": "0.42.0",
+  "version": "1.0.0",
   "description": "core module",
   "author": "Onramp Lab DEV <dev@onramplab.com>",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
   "exports": {
-    ".": "./lib/index.js",
-    "./api": "./lib/api/index.js"
+    ".": "./dist/index.js",
+    "./api": "./dist/api/index.js"
   },
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib",
+    "dist",
     "types",
-    "src",
-    "api",
-    "api.js"
+    "src"
   ],
   "types": "types/index.d.ts",
   "repository": {
@@ -28,10 +26,14 @@
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "yarn build && tsc --watch --preserveWatchOutput",
+    "dev": "concurrently npm:bundle:watch npm:type:gen:watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc && node ./config/build.js",
+    "build": "yarn type:gen ; yarn bundle",
+    "bundle": "tsup",
+    "bundle:watch": "tsup --watch",
+    "type:gen": "tsc --emitDeclarationOnly",
+    "type:gen:watch": "tsc --emitDeclarationOnly --watch --preserveWatchOutput",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -40,35 +42,50 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@onr/common": "^0.8.3",
-    "@onr/logging": "^0.4.4",
-    "@onr/ts-rest-client": "^2.2.0",
     "axios": "^1.5.0",
-    "lodash": "^4.17.21",
     "minimatch": "^3.0.4",
+    "next": "^13.5.6",
     "next-auth": "^4.24.5",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0",
-    "swr": "^0.5.6"
+    "radash": "^12.1.0",
+    "swr": "^2.2.5"
   },
   "peerDependencies": {
-    "next": "^13.4.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@onr/logging": "^1.0.0",
+    "@onr/ts-rest-client": "^3.0.0",
+    "antd": "^5.20.3",
+    "next": "^13.5.6",
+    "next-auth": "^4.24.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.1",
+    "redux": "^4.2.1",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.1.2"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.22.5",
-    "@onr/eslint-config": "^0.6.3",
-    "@onr/prettier-config": "^1.4.3",
+    "@onr/eslint-config": "^0.6.5",
+    "@onr/logging": "^1.0.0",
+    "@onr/prettier-config": "^2.0.0",
+    "@onr/ts-rest-client": "^3.0.0",
+    "@types/minimatch": "^5.1.2",
     "@types/node": "^14.14.21",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "eslint": "^8.54.0",
-    "typescript": "^5.1.3"
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-redux": "^7.1.12",
+    "antd": "^5.20.3",
+    "axios": "^1.5.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "prettier": "^2.8.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^6.1.2",
+    "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
   },
   "prettier": "@onr/prettier-config",
   "publishConfig": {

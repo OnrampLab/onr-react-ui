@@ -158,6 +158,7 @@ const UserListContainer: React.FC = () => {
 
 export const UserListPage: React.FC = () => {
   return (
+    // @ts-ignore
     <DynamicModuleLoader modules={[getAccountModule()]}>
       <UserListContainer />
     </DynamicModuleLoader>

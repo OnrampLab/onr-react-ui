@@ -12,6 +12,12 @@ commands:
     steps:
       - checkout
 
+      - run:
+          name: Install Yarn v4
+          command: |
+            sudo corepack enable
+            sudo corepack prepare yarn@4.4.0
+
       - node/install-packages:
           pkg-manager: yarn
 

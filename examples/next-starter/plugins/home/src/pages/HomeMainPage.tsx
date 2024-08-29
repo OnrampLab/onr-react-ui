@@ -3,7 +3,7 @@ import { OnrModalProps, useGlobalModal } from '@onr/plugin-antd';
 import { Button } from 'antd';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 
 export const HomeMainPage: React.FC = () => {
   const { showModal } = useGlobalModal();
@@ -11,18 +11,21 @@ export const HomeMainPage: React.FC = () => {
   const { user, cachedUser } = useAuth();
   const { update: updateSession } = useSession();
 
-  const openModal = (props?: Partial<OnrModalProps>) => {
-    showModal({
-      content: <div>This is a modal</div>,
-      onOkClick() {
-        console.log('Ok');
-      },
-      onCancelClick() {
-        console.log('Cancel');
-      },
-      ...props,
-    });
-  };
+  const openModal = useCallback(
+    (props?: Partial<OnrModalProps>) => {
+      showModal({
+        content: <div>This is a modal</div>,
+        onOkClick() {
+          console.log('Ok');
+        },
+        onCancelClick() {
+          console.log('Cancel');
+        },
+        ...props,
+      });
+    },
+    [showModal],
+  );
 
   logger.debug('Page loaded', {
     name: 'HomeMainPage',
@@ -33,7 +36,7 @@ export const HomeMainPage: React.FC = () => {
       openModal({ content: <>Your Session Is Updated</> });
       updateSession({ user });
     }
-  }, [user, cachedUser]);
+  }, [user, cachedUser, openModal, updateSession]);
 
   return (
     <>

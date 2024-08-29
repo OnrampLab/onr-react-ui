@@ -1,14 +1,14 @@
 {
   "name": "@onr/inversify-binding",
-  "version": "0.5.4",
+  "version": "1.0.0",
   "description": "inversify module library",
   "keywords": [],
   "author": "Paul Lee <e0991100238@gmail.com>",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "types": "lib",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
@@ -20,18 +20,27 @@
   },
   "scripts": {
     "test": "ts-jest ./__test__",
-    "build": "tsc --build ./tsconfig.json"
+    "build": "yarn type:gen ; yarn bundle",
+    "bundle": "tsup",
+    "bundle:watch": "tsup --watch",
+    "type:gen": "tsc --emitDeclarationOnly",
+    "type:gen:watch": "tsc --emitDeclarationOnly --watch --preserveWatchOutput"
   },
   "bugs": {
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "inversify": "^6.0.1",
-    "jest": "^29.6.1",
-    "ts-jest": "^29.1.1"
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
+    "inversify": "^6.0.1",
     "reflect-metadata": "^0.1.13"
   },
   "publishConfig": {

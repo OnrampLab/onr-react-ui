@@ -3,15 +3,12 @@ import HTTPStatus from 'http-status';
 import { NextPageContext } from 'next';
 
 interface Props {
-  code: number;
+  code: keyof typeof HTTPStatus;
   error: string;
 }
 
 export const Error = ({ code, error }: Props) => {
-  const title =
-    code === 404
-      ? 'This page could not be found'
-      : HTTPStatus[code] || 'An unexpected error has occurred';
+  const title = String(HTTPStatus[code]);
 
   return (
     <Row

@@ -4,7 +4,7 @@ module.exports = {
   apps: [
     {
       name: process.env.APPLICATION,
-      script: './src/server/index.js',
+      script: './src/index.js',
       cwd: `${process.env.DEPLOY_TO}/current`,
       error_file: './logs/pm2.app.log',
       out_file: './logs/pm2.app.log',

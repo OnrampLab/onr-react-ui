@@ -1,17 +1,17 @@
 {
   "name": "@onr/plugin-antd",
-  "version": "0.29.2",
+  "version": "1.0.0",
   "description": "core-antd package",
   "homepage": "https://github.com/OnrampLab/onr-react-ui#readme",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "source": "src/index.ts",
   "directories": {
-    "lib": "lib",
+    "dist": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib",
+    "dist",
     "types",
     "src"
   ],
@@ -21,10 +21,14 @@
     "url": "git+https://github.com/OnrampLab/onr-react-ui.git"
   },
   "scripts": {
-    "dev": "tsc --watch --preserveWatchOutput",
+    "dev": "concurrently npm:bundle:watch npm:type:gen:watch",
     "lint": "prettier -c 'src/**/*'; eslint src --ext .ts,.tsx",
     "format": "prettier --write 'src/**/*'; eslint src --fix --ext .ts,.tsx",
-    "build": "tsc --build tsconfig.json",
+    "build": "yarn type:gen ; yarn bundle",
+    "bundle": "tsup",
+    "bundle:watch": "tsup --watch",
+    "type:gen": "tsc --emitDeclarationOnly",
+    "type:gen:watch": "tsc --emitDeclarationOnly --watch --preserveWatchOutput",
     "test": "jest --coverage --passWithNoTests",
     "test:watch": "yarn test --watch",
     "prepublishOnly": "yarn build"
@@ -33,37 +37,48 @@
     "url": "https://github.com/OnrampLab/onr-react-ui/issues"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
-    "@onr/common": "^0.8.3",
-    "@onr/core": "^0.42.0",
-    "antd": "^5.10.0",
     "http-status": "^1.5.0",
-    "react-icons": "^4.2.0",
-    "tailwindcss": "^3.3.5"
+    "radash": "^12.1.0"
   },
   "peerDependencies": {
-    "antd": "^5.10.0",
-    "lodash-es": "^4.17.21",
-    "next": "^13.4.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@ant-design/icons": "^5.4.0",
+    "@onr/core": "^1.0.0",
+    "antd": "^5.20.3",
+    "next": "^13.5.6",
+    "next-auth": "^4.24.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.1",
+    "redux": "^4.2.1",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^6.0.7"
+    "styled-components": "^6.1.2",
+    "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.22.5",
-    "@onr/eslint-config": "^0.6.3",
-    "@onr/prettier-config": "^1.4.3",
-    "@types/antd": "^1.0.0",
-    "@types/lodash-es": "^4.17.5",
+    "@ant-design/icons": "^5.4.0",
+    "@onr/core": "^1.0.0",
+    "@onr/eslint-config": "^0.6.5",
+    "@onr/prettier-config": "^2.0.0",
+    "@onr/tsconfig": "^1.0.0",
     "@types/node": "^14.14.21",
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "antd": "^5.20.3",
     "change-case": "^4.1.2",
-    "eslint": "^8.54.0",
-    "typescript": "^5.1.3"
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "next": "^13.5.6",
+    "next-auth": "^4.24.5",
+    "prettier": "^2.8.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.2.1",
+    "redux-thunk": "^2.3.0",
+    "tailwindcss": "^3.3.5",
+    "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4"
   },
   "prettier": "@onr/prettier-config",
   "publishConfig": {

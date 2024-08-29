@@ -8,6 +8,7 @@ export const AccountListPage: React.FC = () => {
   const { accounts, pagination, fetch } = useAccounts();
 
   return (
+    // @ts-ignore
     <DynamicModuleLoader modules={[getAccountModule()]}>
       <AccountList accounts={accounts} pagination={pagination} onAccountsChanged={fetch} />
     </DynamicModuleLoader>

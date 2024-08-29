@@ -48,10 +48,13 @@ bundle/
 typings/
 
 # pacakges and plugin build files
+packages/*/dist
 packages/*/lib
 packages/*/types
+plugins/*/dist
 plugins/*/lib
 plugins/*/types
+
 
 # Optional npm cache directory
 .npm

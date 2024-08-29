@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.37.0",
   "description": "",
-  "main": "src/server/index.js",
+  "main": "src/index.js",
   "workspaces": [
     "apps/*",
     "packages/*",
@@ -11,9 +11,7 @@
   ],
   "scripts": {
     "dev": "turbo run dev --parallel",
-    "dev:old": "turbo run dev:old",
     "build": "turbo run build",
-    "start:old": "turbo run start:old",
     "start": "turbo run start --parallel",
     "heroku-prebuild": "npm i --dev && NODE_ENV=production next build",
     "export": "turbo run export",
@@ -32,11 +30,15 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@onr/commitlint-config": "^1.4.3",
-    "@onr/eslint-config": "^0.6.3",
-    "@onr/prettier-config": "^1.4.3",
-    "husky": "^5.0.0",
-    "lint-staged": "^10.2.11",
-    "turbo": "^1.9.6"
+    "@onr/eslint-config": "^0.6.5",
+    "@onr/prettier-config": "^2.0.0",
+    "@onr/tsconfig": "^1.0.0",
+    "next": "^13.5.6",
+    "styled-components": "^6.1.2",
+    "syncpack": "^11.2.1",
+    "tslib": "^2.6.3",
+    "tsup": "^8.2.4",
+    "turbo": "^2.0.14"
   },
   "resolutions": {
     "minimist": "^1.2.5"
@@ -50,5 +52,5 @@
       "prettier --write"
     ]
   },
-  "packageManager": "^yarn@1.22.19"
+  "packageManager": "yarn@4.4.0"
 }

@@ -4,6 +4,7 @@ module.exports = {
     './src/**/*.{ts,tsx}',
     '../../../../plugins/**/*.{ts,tsx}',
     '../../../../packages/**/*.{ts,tsx}',
+    '!../../../../node_modules/**/*',
   ],
   corePlugins: {
     preflight: false,

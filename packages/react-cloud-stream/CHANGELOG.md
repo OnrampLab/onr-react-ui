@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- Improve build speed
+
+### Patch Changes
+
+- Updated dependencies
+  - @onr/cloud-stream@2.0.0
+
 ## 0.1.2
 
 ### Patch Changes

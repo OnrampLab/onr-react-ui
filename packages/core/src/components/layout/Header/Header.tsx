@@ -1,9 +1,9 @@
-import React, { ElementType } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { CoreStore } from '../../../redux';
 
 type Props = {
-  HeaderMainSection: ElementType;
+  HeaderMainSection: React.FC<any>;
 };
 
 export const Header: React.FC<Props> = ({ HeaderMainSection }: Props) => {

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- Improve build speed
+
 ## 1.4.3
 
 ### Patch Changes
