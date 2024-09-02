@@ -46,7 +46,7 @@
     "@onr/prettier-config": "^2.0.1",
     "@onr/ts-rest-client": "^3.0.1",
     "@onr/tsconfig": "^1.0.1",
-    "@types/node": "^14.14.21",
+    "@types/node": "^18.19.47",
     "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "miragejs": "^0.1.41",

@@ -3485,7 +3485,7 @@ __metadata:
     "@types/inquirer-fuzzy-path": "npm:^2.3.1"
     "@types/jest": "npm:^29.5.12"
     "@types/mustache": "npm:^4.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     chalk: "npm:^3.0.0"
     commander: "npm:^5.0.0"
     eslint: "npm:^8.57.0"
@@ -3570,7 +3570,7 @@ __metadata:
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/ts-rest-client": "npm:^3.0.1"
     "@types/minimatch": "npm:^5.1.2"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     "@types/react-redux": "npm:^7.1.12"
@@ -3608,7 +3608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/eslint-config@npm:^0.6.5, @onr/eslint-config@npm:^0.6.6, @onr/eslint-config@workspace:packages/eslint-config":
+"@onr/eslint-config@npm:^0.6.6, @onr/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@onr/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -3622,6 +3622,8 @@ __metadata:
     eslint-plugin-react: "npm:^7.35.0"
     eslint-plugin-react-hooks: "npm:^4.6.2"
     typescript: "npm:^5.5.4"
+  peerDependencies:
+    typescript: ^5.5.4
   languageName: unknown
   linkType: soft
 
@@ -3672,7 +3674,7 @@ __metadata:
     "@onr/common": "npm:^1.0.1"
     "@onr/eslint-config": "npm:^0.6.6"
     "@onr/prettier-config": "npm:^2.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     axios: "npm:^1.5.0"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
@@ -3698,7 +3700,7 @@ __metadata:
     "@onr/ts-rest-client": "npm:^3.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
     "@types/faker": "npm:^5.5.7"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -3750,7 +3752,7 @@ __metadata:
     "@onr/eslint-config": "npm:^0.6.6"
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -3797,7 +3799,7 @@ __metadata:
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/ts-rest-client": "npm:^3.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
     miragejs: "npm:^0.1.41"
@@ -3820,7 +3822,7 @@ __metadata:
     "@onr/plugin-antd": "npm:^1.0.1"
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -3851,16 +3853,17 @@ __metadata:
   resolution: "@onr/plugin-custom-antd-starter@workspace:examples/plugin-antd-starter"
   dependencies:
     "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.5"
+    "@onr/eslint-config": "npm:^0.6.6"
     "@onr/plugin-antd": "npm:^1.0.1"
     "@onr/prettier-config": "npm:^2.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
     next: "npm:^13.5.6"
+    prettier: "npm:^2.8.8"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     styled-components: "npm:^6.1.2"
@@ -3886,7 +3889,7 @@ __metadata:
     "@onr/plugin-user": "npm:^1.0.1"
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -3938,7 +3941,7 @@ __metadata:
     "@onr/plugin-antd": "npm:^1.0.1"
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -3974,7 +3977,7 @@ __metadata:
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/ts-rest-client": "npm:^3.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -4014,7 +4017,7 @@ __metadata:
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/ts-rest-client": "npm:^3.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     antd: "npm:^5.20.3"
@@ -4096,7 +4099,7 @@ __metadata:
   dependencies:
     "@onr/eslint-config": "npm:^0.6.6"
     "@onr/prettier-config": "npm:^2.0.1"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
     concurrently: "npm:^8.2.2"
@@ -5517,19 +5520,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.21":
-  version: 14.18.63
-  resolution: "@types/node@npm:14.18.63"
-  checksum: 10c0/626a371419a6a0e11ca460b22bb4894abe5d75c303739588bc96267e380aa8b90ba5a87bc552400584f0ac2a84b5c458dadcbcf0dfd2396ebeb765f7a7f95893
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^18.0.0":
   version: 18.19.47
   resolution: "@types/node@npm:18.19.47"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/ad476b633f216db2138bfd37723ebd24622c687f9513c266d151619c64ccf38c7f397d1d4b2f1212259ec8de372123f8117fdc03f089e0d76c33c0c31f3a97f9
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.19.47":
+  version: 18.19.48
+  resolution: "@types/node@npm:18.19.48"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/f07fc6636629bf5121d33e532f824470ecd44b14831c486fe11b95aac6c8bf7c838651a4cae82031fbc99888192b84f77e939a2cf27edb20935ed4a6d01d0b5d
   languageName: node
   linkType: hard
 
@@ -13497,8 +13502,7 @@ __metadata:
     "@onr/eslint-config": "npm:^0.6.6"
     "@onr/prettier-config": "npm:^2.0.1"
     "@onr/tsconfig": "npm:^1.0.1"
-    next: "npm:^13.5.6"
-    styled-components: "npm:^6.1.2"
+    prettier: "npm:^2.8.8"
     syncpack: "npm:^11.2.1"
     tslib: "npm:^2.6.3"
     tsup: "npm:^8.2.4"
@@ -18677,7 +18681,7 @@ __metadata:
     "@types/enzyme": "npm:^3.10.5"
     "@types/jest": "npm:^29.5.12"
     "@types/next-redux-wrapper": "npm:^3.0.0"
-    "@types/node": "npm:^14.14.21"
+    "@types/node": "npm:^18.19.47"
     "@types/nprogress": "npm:^0.2.0"
     "@types/qs": "npm:^6.9.15"
     "@types/react": "npm:^18.3.4"
