@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.4.5
+
+### Patch Changes
+
+- Update node version
+
 ## 1.4.4
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- Update node version
+- Updated dependencies
+  - @onr/plugin-custom-admin-dashboard@1.0.2
+  - @onr/plugin-custom-auth@1.0.2
+  - @onr/plugin-custom-home@1.0.2
+  - @onr/core@1.0.2
+  - @onr/logging@1.0.2
+  - @onr/mock@4.0.2
+  - @onr/ts-rest-client@3.0.2
+  - @onr/plugin-account@1.0.2
+  - @onr/plugin-antd@1.0.2
+  - @onr/plugin-auth@1.0.2
+  - @onr/plugin-todo-demo-with-ts-rest-client@1.0.2
+  - @onr/plugin-user@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

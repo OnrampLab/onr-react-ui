@@ -1,6 +1,6 @@
 {
   "name": "@onr/cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "source": "src/index.ts",
@@ -27,8 +27,8 @@
     "mustache": "^4.0.1"
   },
   "devDependencies": {
-    "@onr/eslint-config": "^0.6.6",
-    "@onr/prettier-config": "^2.0.1",
+    "@onr/eslint-config": "^0.6.7",
+    "@onr/prettier-config": "^2.0.2",
     "@types/figlet": "^1.5.4",
     "@types/inquirer": "^6.5.0",
     "@types/inquirer-fuzzy-path": "^2.3.1",

@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- Update node version
+- Updated dependencies
+  - @onr/common@1.0.2
+
 ## 4.0.1
 
 ### Patch Changes

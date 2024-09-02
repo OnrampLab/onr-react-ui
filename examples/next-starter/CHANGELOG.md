@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.37.1
+
+### Patch Changes
+
+- Update node version
+
 ## 0.37.0
 
 ### Minor Changes

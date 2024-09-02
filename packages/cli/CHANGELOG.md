@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- Update node version
+
 ## 1.0.1
 
 ### Patch Changes

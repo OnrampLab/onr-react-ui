@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- Update node version
+- Updated dependencies
+  - @onr/core@1.0.2
+
 ## 1.0.1
 
 ### Patch Changes

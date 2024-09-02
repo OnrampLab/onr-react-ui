@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.7
+
+### Patch Changes
+
+- Update node version
+
 ## 0.6.6
 
 ### Patch Changes
