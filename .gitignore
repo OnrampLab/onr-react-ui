@@ -9,6 +9,8 @@ packages/*/types
 plugins/*/dist
 plugins/*/lib
 plugins/*/types
+examples/*/lib
+examples/*/types
 .next
 .env
 .env.local
