@@ -3478,8 +3478,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/cli@workspace:packages/cli"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/figlet": "npm:^1.5.4"
     "@types/inquirer": "npm:^6.5.0"
     "@types/inquirer-fuzzy-path": "npm:^2.3.1"
@@ -3508,12 +3508,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/cloud-stream@npm:^2.0.1, @onr/cloud-stream@workspace:packages/cloud-stream":
+"@onr/cloud-stream@npm:^2.0.2, @onr/cloud-stream@workspace:packages/cloud-stream":
   version: 0.0.0-use.local
   resolution: "@onr/cloud-stream@workspace:packages/cloud-stream"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
     prettier: "npm:^2.8.8"
@@ -3524,7 +3524,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/commitlint-config@npm:^1.4.3, @onr/commitlint-config@workspace:packages/commitlint-config":
+"@onr/commitlint-config@npm:^1.4.3, @onr/commitlint-config@npm:^1.4.5, @onr/commitlint-config@workspace:packages/commitlint-config":
   version: 0.0.0-use.local
   resolution: "@onr/commitlint-config@workspace:packages/commitlint-config"
   dependencies:
@@ -3533,13 +3533,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/common@npm:^1.0.1, @onr/common@workspace:packages/common":
+"@onr/common@npm:^1.0.2, @onr/common@workspace:packages/common":
   version: 0.0.0-use.local
   resolution: "@onr/common@workspace:packages/common"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/debug": "npm:^4.1.5"
     "@types/jest": "npm:^29.5.12"
     "@types/nock": "npm:^11.1.0"
@@ -3561,14 +3561,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/core@npm:^1.0.1, @onr/core@workspace:packages/core":
+"@onr/core@npm:^1.0.2, @onr/core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@onr/core@workspace:packages/core"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/logging": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/logging": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
     "@types/minimatch": "npm:^5.1.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
@@ -3594,8 +3594,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/logging": ^1.0.1
-    "@onr/ts-rest-client": ^3.0.1
+    "@onr/logging": ^1.0.2
+    "@onr/ts-rest-client": ^3.0.2
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3608,7 +3608,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/eslint-config@npm:^0.6.6, @onr/eslint-config@workspace:packages/eslint-config":
+"@onr/eslint-config@npm:^0.6.7, @onr/eslint-config@workspace:packages/eslint-config":
   version: 0.0.0-use.local
   resolution: "@onr/eslint-config@workspace:packages/eslint-config"
   dependencies:
@@ -3642,7 +3642,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/logging@npm:^1.0.1, @onr/logging@workspace:packages/logging":
+"@onr/logging@npm:^1.0.2, @onr/logging@workspace:packages/logging":
   version: 0.0.0-use.local
   resolution: "@onr/logging@workspace:packages/logging"
   dependencies:
@@ -3651,8 +3651,8 @@ __metadata:
     "@livy/http-handler": "npm:^1.0.3"
     "@livy/logger": "npm:^1.0.5"
     "@livy/util": "npm:^1.0.5"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/debug": "npm:^4.1.5"
     axios: "npm:^1.5.0"
     concurrently: "npm:^8.2.2"
@@ -3667,13 +3667,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/mock@npm:^4.0.1, @onr/mock@workspace:packages/mock":
+"@onr/mock@npm:^4.0.2, @onr/mock@workspace:packages/mock":
   version: 0.0.0-use.local
   resolution: "@onr/mock@workspace:packages/mock"
   dependencies:
-    "@onr/common": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/common": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/node": "npm:^18.19.47"
     axios: "npm:^1.5.0"
     concurrently: "npm:^8.2.2"
@@ -3687,18 +3687,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-account@npm:^1.0.1, @onr/plugin-account@workspace:plugins/account":
+"@onr/plugin-account@npm:^1.0.2, @onr/plugin-account@workspace:plugins/account":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-account@workspace:plugins/account"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/mock": "npm:^4.0.1"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/mock": "npm:^4.0.2"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/faker": "npm:^5.5.7"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
@@ -3723,10 +3723,10 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/mock": ^4.0.1
-    "@onr/plugin-antd": ^1.0.1
-    "@onr/ts-rest-client": ^3.0.1
+    "@onr/core": ^1.0.2
+    "@onr/mock": ^4.0.2
+    "@onr/plugin-antd": ^1.0.2
+    "@onr/ts-rest-client": ^3.0.2
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3743,15 +3743,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-antd@npm:^1.0.1, @onr/plugin-antd@workspace:plugins/antd":
+"@onr/plugin-antd@npm:^1.0.2, @onr/plugin-antd@workspace:plugins/antd":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-antd@workspace:plugins/antd"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3775,7 +3775,7 @@ __metadata:
     typescript: "npm:^5.5.4"
   peerDependencies:
     "@ant-design/icons": ^5.4.0
-    "@onr/core": ^1.0.1
+    "@onr/core": ^1.0.2
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3789,16 +3789,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-auth@npm:^1.0.1, @onr/plugin-auth@workspace:plugins/auth":
+"@onr/plugin-auth@npm:^1.0.2, @onr/plugin-auth@workspace:plugins/auth":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-auth@workspace:plugins/auth"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/mock": "npm:^4.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/mock": "npm:^4.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     concurrently: "npm:^8.2.2"
     eslint: "npm:^8.57.0"
@@ -3808,20 +3808,20 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/ts-rest-client": ^3.0.1
+    "@onr/core": ^1.0.2
+    "@onr/ts-rest-client": ^3.0.2
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-admin-dashboard@npm:^1.0.1, @onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard":
+"@onr/plugin-custom-admin-dashboard@npm:^1.0.2, @onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-admin-dashboard@workspace:examples/next-starter/plugins/admin-dashboard"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3838,8 +3838,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3852,10 +3852,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-antd-starter@workspace:examples/plugin-antd-starter"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3870,8 +3870,8 @@ __metadata:
     tslib: "npm:^2.6.3"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
     next: ^13.5.6
     react: ^18.3.1
     react-dom: ^18.3.1
@@ -3879,16 +3879,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-auth@npm:^1.0.1, @onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth":
+"@onr/plugin-custom-auth@npm:^1.0.2, @onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-auth@workspace:examples/next-starter/plugins/auth"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/plugin-user": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/plugin-user": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3913,9 +3913,9 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
-    "@onr/plugin-user": ^1.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
+    "@onr/plugin-user": ^1.0.2
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -3932,15 +3932,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-custom-home@npm:^1.0.1, @onr/plugin-custom-home@workspace:examples/next-starter/plugins/home":
+"@onr/plugin-custom-home@npm:^1.0.2, @onr/plugin-custom-home@workspace:examples/next-starter/plugins/home":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-custom-home@workspace:examples/next-starter/plugins/home"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3956,8 +3956,8 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
     antd: ^5.20.3
     next: ^13.5.6
     next-auth: ^4.24.5
@@ -3967,16 +3967,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-todo-demo-with-ts-rest-client@npm:^1.0.1, @onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud":
+"@onr/plugin-todo-demo-with-ts-rest-client@npm:^1.0.2, @onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-todo-demo-with-ts-rest-client@workspace:plugins/todo-demo-with-ts-crud"
   dependencies:
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -3992,9 +3992,9 @@ __metadata:
     typescript: "npm:^5.5.4"
   peerDependencies:
     "@ant-design/icons": ^5.4.0
-    "@onr/core": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
-    "@onr/ts-rest-client": ^3.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
+    "@onr/ts-rest-client": ^3.0.2
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -4003,20 +4003,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/plugin-user@npm:^1.0.1, @onr/plugin-user@workspace:plugins/user":
+"@onr/plugin-user@npm:^1.0.2, @onr/plugin-user@workspace:plugins/user":
   version: 0.0.0-use.local
   resolution: "@onr/plugin-user@workspace:plugins/user"
   dependencies:
     "@ant-design/icons": "npm:^5.4.0"
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/mock": "npm:^4.0.1"
-    "@onr/plugin-account": "npm:^1.0.1"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/plugin-auth": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/mock": "npm:^4.0.2"
+    "@onr/plugin-account": "npm:^1.0.2"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/plugin-auth": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -4041,11 +4041,11 @@ __metadata:
     tsup: "npm:^8.2.4"
     typescript: "npm:^5.5.4"
   peerDependencies:
-    "@onr/core": ^1.0.1
-    "@onr/plugin-account": ^1.0.1
-    "@onr/plugin-antd": ^1.0.1
-    "@onr/plugin-auth": ^1.0.1
-    "@onr/ts-rest-client": ^3.0.1
+    "@onr/core": ^1.0.2
+    "@onr/plugin-account": ^1.0.2
+    "@onr/plugin-antd": ^1.0.2
+    "@onr/plugin-auth": ^1.0.2
+    "@onr/ts-rest-client": ^3.0.2
     antd: ^5.20.3
     next: ^13.5.6
     react: ^18.3.1
@@ -4061,7 +4061,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/prettier-config@npm:^2.0.1, @onr/prettier-config@workspace:packages/prettier-config":
+"@onr/prettier-config@npm:^2.0.1, @onr/prettier-config@npm:^2.0.2, @onr/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@onr/prettier-config@workspace:packages/prettier-config"
   dependencies:
@@ -4075,9 +4075,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/react-cloud-stream@workspace:packages/react-cloud-stream"
   dependencies:
-    "@onr/cloud-stream": "npm:^2.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/cloud-stream": "npm:^2.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/debug": "npm:^4.1.5"
     "@types/react": "npm:^18.3.4"
     concurrently: "npm:^8.2.2"
@@ -4097,8 +4097,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@onr/react-utils@workspace:packages/react-utils"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/node": "npm:^18.19.47"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
@@ -4116,7 +4116,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/tailwind-palette@npm:^1.0.1, @onr/tailwind-palette@workspace:packages/tailwind-palette":
+"@onr/tailwind-palette@npm:^1.0.2, @onr/tailwind-palette@workspace:packages/tailwind-palette":
   version: 0.0.0-use.local
   resolution: "@onr/tailwind-palette@workspace:packages/tailwind-palette"
   dependencies:
@@ -4130,12 +4130,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/ts-rest-client@npm:^3.0.1, @onr/ts-rest-client@workspace:packages/ts-rest-client":
+"@onr/ts-rest-client@npm:^3.0.2, @onr/ts-rest-client@workspace:packages/ts-rest-client":
   version: 0.0.0-use.local
   resolution: "@onr/ts-rest-client@workspace:packages/ts-rest-client"
   dependencies:
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
     "@types/debug": "npm:^4.1.5"
     "@types/jest": "npm:^29.5.12"
     "@types/nock": "npm:^11.1.0"
@@ -4153,7 +4153,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@npm:^1.0.1, @onr/tsconfig@workspace:packages/tsconfig":
+"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@npm:^1.0.2, @onr/tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "@onr/tsconfig@workspace:packages/tsconfig"
   dependencies:
@@ -13498,10 +13498,10 @@ __metadata:
   resolution: "next-starter@workspace:examples/next-starter"
   dependencies:
     "@commitlint/cli": "npm:^11.0.0"
-    "@onr/commitlint-config": "npm:^1.4.3"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/commitlint-config": "npm:^1.4.5"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     prettier: "npm:^2.8.8"
     syncpack: "npm:^11.2.1"
     tslib: "npm:^2.6.3"
@@ -18648,22 +18648,22 @@ __metadata:
     "@ant-design/icons": "npm:^5.4.0"
     "@cfaester/enzyme-adapter-react-18": "npm:^0.8.0"
     "@next/bundle-analyzer": "npm:^13.4.2"
-    "@onr/core": "npm:^1.0.1"
-    "@onr/eslint-config": "npm:^0.6.6"
-    "@onr/logging": "npm:^1.0.1"
-    "@onr/mock": "npm:^4.0.1"
-    "@onr/plugin-account": "npm:^1.0.1"
-    "@onr/plugin-antd": "npm:^1.0.1"
-    "@onr/plugin-auth": "npm:^1.0.1"
-    "@onr/plugin-custom-admin-dashboard": "npm:^1.0.1"
-    "@onr/plugin-custom-auth": "npm:^1.0.1"
-    "@onr/plugin-custom-home": "npm:^1.0.1"
-    "@onr/plugin-todo-demo-with-ts-rest-client": "npm:^1.0.1"
-    "@onr/plugin-user": "npm:^1.0.1"
-    "@onr/prettier-config": "npm:^2.0.1"
-    "@onr/tailwind-palette": "npm:^1.0.1"
-    "@onr/ts-rest-client": "npm:^3.0.1"
-    "@onr/tsconfig": "npm:^1.0.1"
+    "@onr/core": "npm:^1.0.2"
+    "@onr/eslint-config": "npm:^0.6.7"
+    "@onr/logging": "npm:^1.0.2"
+    "@onr/mock": "npm:^4.0.2"
+    "@onr/plugin-account": "npm:^1.0.2"
+    "@onr/plugin-antd": "npm:^1.0.2"
+    "@onr/plugin-auth": "npm:^1.0.2"
+    "@onr/plugin-custom-admin-dashboard": "npm:^1.0.2"
+    "@onr/plugin-custom-auth": "npm:^1.0.2"
+    "@onr/plugin-custom-home": "npm:^1.0.2"
+    "@onr/plugin-todo-demo-with-ts-rest-client": "npm:^1.0.2"
+    "@onr/plugin-user": "npm:^1.0.2"
+    "@onr/prettier-config": "npm:^2.0.2"
+    "@onr/tailwind-palette": "npm:^1.0.2"
+    "@onr/ts-rest-client": "npm:^3.0.2"
+    "@onr/tsconfig": "npm:^1.0.2"
     "@storybook/addon-actions": "npm:^8.2.9"
     "@storybook/addon-docs": "npm:^8.2.9"
     "@storybook/addon-essentials": "npm:^8.2.9"
