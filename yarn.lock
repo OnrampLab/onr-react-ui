@@ -4061,7 +4061,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/prettier-config@npm:^2.0.1, @onr/prettier-config@npm:^2.0.2, @onr/prettier-config@workspace:packages/prettier-config":
+"@onr/prettier-config@npm:^2.0.1, @onr/prettier-config@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@onr/prettier-config@npm:2.0.2"
+  peerDependencies:
+    prettier: 2.8.8
+  checksum: 10c0/06d2f3c20265cf70e0f4466f37d1c019046ba760beb291ca4c7763e7651b0a980a858cba213430a2052908856687ecfe2ee5ec2dc12ab81fe286474ff3b3a0ca
+  languageName: node
+  linkType: hard
+
+"@onr/prettier-config@workspace:packages/prettier-config":
   version: 0.0.0-use.local
   resolution: "@onr/prettier-config@workspace:packages/prettier-config"
   dependencies:
@@ -4153,7 +4162,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@npm:^1.0.2, @onr/tsconfig@workspace:packages/tsconfig":
+"@onr/tsconfig@npm:^1.0.0, @onr/tsconfig@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@onr/tsconfig@npm:1.0.2"
+  peerDependencies:
+    typescript: ^5.5.4
+  checksum: 10c0/ec2300c5140b06e1d94a4ed33bcd5151a1e94223e4ef3a3bd1518642c08edbf2452b5f207117afcf559345b053ba321dad442400c7124cf795ff861e9fdd13de
+  languageName: node
+  linkType: hard
+
+"@onr/tsconfig@workspace:packages/tsconfig":
   version: 0.0.0-use.local
   resolution: "@onr/tsconfig@workspace:packages/tsconfig"
   dependencies:
