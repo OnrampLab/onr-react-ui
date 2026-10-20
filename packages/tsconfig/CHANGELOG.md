@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- Support prettier 3 and TypeScript 6. `@onr/prettier-config` now requires `prettier ^3` (options unchanged). `@onr/tsconfig` now requires `typescript ^6` and uses `moduleResolution: "bundler"` instead of the deprecated `"node"` (TS5107).
+
 ## 1.0.2
 
 ### Patch Changes

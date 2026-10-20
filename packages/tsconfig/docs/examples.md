@@ -91,6 +91,7 @@ Essentially, this config takes the base config and extends it to output Common J
   "compilerOptions": {
     "noEmit": false,
     "outDir": "dist",
+    "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
     "jsx": "react",
