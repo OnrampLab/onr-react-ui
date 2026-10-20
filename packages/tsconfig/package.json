@@ -16,10 +16,10 @@
     "test:skip-now": "./run-tests.sh"
   },
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^6"
   },
   "publishConfig": {
     "access": "public"
