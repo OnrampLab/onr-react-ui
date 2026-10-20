@@ -9,10 +9,10 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "prettier": "^3.9.10"
   },
   "peerDependencies": {
-    "prettier": "2.8.8"
+    "prettier": "^3"
   },
   "publishConfig": {
     "access": "public"
