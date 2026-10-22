@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- Support TypeScript 7. The `typescript` peer dependency is now `^6 || ^7`; both configs are unchanged.
+
 ## 2.0.0
 
 ### Major Changes
