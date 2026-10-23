@@ -4177,7 +4177,7 @@ __metadata:
   dependencies:
     typescript: "npm:^6.0.3"
   peerDependencies:
-    typescript: ^6
+    typescript: ^6 || ^7
   languageName: unknown
   linkType: soft
 
